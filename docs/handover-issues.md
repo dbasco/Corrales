@@ -13,14 +13,13 @@ mismo esquema que ES (traducir valores, no claves).
 - Tono llano, natural para lector de habla inglesa (mercado birding UK incluido). NO traducción literal.
 - `title` y `meta_description` reescritos para SEO en inglés (keywords: *fish traps, tidal, Rota,
   Cádiz, birding, natural monument*), no calcados del español.
-- Reutilizar como referencia las landings EN existentes en Drive (`Landing_Rota_Birding_UK_EN.html`).
+- Reutilizar como referencia la landing EN de referencia en `docs/deliverables/web/Landing_Rota_Birding_UK_EN.html` (marca vieja; solo copy/estructura).
 - Mantener los `yt` de vídeo y las rutas de imagen igual que en ES.
 **Aceptación:** `python3 build.py` sin errores; `/en/…` con `desc` no vacía en las 12 páginas;
 `hreflang` correcto; un solo `h1`; validar con el script de `docs/` o revisión manual.
 
 ## #2 · Traducir la web a DE (Deutsch)
-Igual que #1 para alemán. Referencia: `Landing_Rota_Birding_DE.html` y `Rota_Birding_Documentary_DE.srt`
-en Drive. Keywords SEO DE: *Fischfallen, Gezeiten, Vogelbeobachtung, Naturdenkmal, Rota*.
+Igual que #1 para alemán. Referencia: `docs/deliverables/web/Landing_Rota_Birding_DE.html` y `docs/deliverables/guias/Rota_Birding_Documentary_DE.srt` (referencia). Keywords SEO DE: *Fischfallen, Gezeiten, Vogelbeobachtung, Naturdenkmal, Rota*.
 
 ## #3 · Traducir la web a FR (Français)
 Igual que #1 para francés. Keywords SEO FR: *pêcheries à marée, ornithologie, monument naturel, Rota*.

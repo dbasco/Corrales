@@ -24,10 +24,13 @@ optimizadas con `scripts/optimize_from_download.py` (JPG ~2000px, 200–400 KB).
 
 ## Cómo optimizar una nueva
 
-1. Descargar el original de Drive (conector) → se guarda un JSON con el base64.
-2. `python3 scripts/optimize_from_download.py <ruta_json> assets/img/<nombre>.jpg <ancho_px> <calidad>`
-   (p. ej. `… joya-pinar-hero.jpg 2000 82`).
-3. Referenciar la ruta en el JSON de contenido de la página.
+Las fotos **no** se tiran por el conector de Drive (devuelve base64 y satura la sesión).
+
+1. Descargar el original de Drive y pasarlo en un **ZIP** al entorno de trabajo.
+2. `python3 scripts/optimize_from_download.py <ruta_imagen> assets/img/<nombre>.jpg <ancho_px> <calidad>`
+   (p. ej. `… joya-pinar-hero.jpg 2000 82`) → JPG ~2000 px, 200–400 KB.
+3. Referenciar la ruta `/assets/img/<nombre>.jpg` en el JSON de contenido de la página.
+   El original pesado se queda en Drive.
 
 ## Actualización 2026-07-22 — fotos reales integradas
 

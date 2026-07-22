@@ -38,35 +38,40 @@ Este proyecto se documenta con tres índices. Consúltalos al empezar cualquier 
 
 El **plan de comunicación / estrategia** todavía está en construcción; cuando se cierre tendrá su propio fichero (`03-PLAN.md`).
 
-## Estructura de carpetas del Drive
+## Estructura del repositorio
+
+Todo el proyecto vive en el repo `dbasco/Corrales` (GitHub). El Drive **solo** guarda el archivo
+fotográfico (`Fotos/`, originales pesados). Ver `GITHUB-Y-DRIVE.md`.
 
 ```
-Corrales de Rota/
-├── 00-INDICE-PROYECTO.md
-├── 01-ACTIVOS.md
-├── 02-DECISIONES.md
-│
-├── deliverables/ ← lo que se usa o se va a usar
-│   ├── web/ (HTML de hub y landings)
-│   ├── guias/ (guía de aves PDF y futuras ediciones)
-│   ├── impresos/ (cartel Bizum, tríptico)
-│   ├── marca/ (sistema de marca, logo, plantillas doc/ppt/email, fuentes)
-│   └── planes/ (plan maestro, plan ejecutivo, campaign plan)
-│
-├── fotos/ ← archivo fotográfico y multimedia (insumos)
-│   ├── corrales/
-│   └── aves/ (por hábitat/especie)
-│
-├── _obsoleto/ ← versiones superadas; se conservan, no se usan
-│
-└── _fuentes/ ← materia prima: notas, borradores, insumos sueltos
+Corrales/
+├── build.py                 Generador estático de la web
+├── site.config.json         Dominio, idiomas, páginas/slugs, tracking
+├── CLAUDE.md                 Reglas duras + modelo de contenido de la web
+├── templates/
+│   ├── base.css             Marca Monumento (canónico; no se tocan los tokens :root)
+│   └── site.css             Componentes de ritmo (split, diagram, cta, turismo, keys)
+├── content/
+│   ├── ui.es.json           Strings de interfaz
+│   └── es/*.json            Copy por página (ES, 12 páginas)
+├── assets/img/              Fotos optimizadas para web + logo + og
+├── scripts/                 Utilidades (optimización de imágenes)
+├── docs/
+│   ├── 00-INDICE-PROYECTO.md · 01-ACTIVOS.md · 02-DECISIONES.md
+│   ├── web-arquitectura-corrales.md · handover-issues.md · GITHUB-Y-DRIVE.md
+│   ├── deliverables/        Marca, web, guías, impresos, planes
+│   └── _fuentes/            Insumos sin clasificar (inventario de YouTube)
+└── dist/                    Salida de build.py (gitignored)
 ```
 
 ### Reglas de la estructura
-- Los índices `.md` viven en la **raíz**, siempre visibles.
-- `deliverables/` agrupa **por tipo**, no por idioma ni campaña (un deliverable tendrá 4 idiomas; no se cuadruplica la estructura).
-- **`_obsoleto/`** y **`_fuentes/`** con guion bajo para que caigan al fondo alfabéticamente y se distingan a simple vista.
-- Cuando un activo pasa a estado `obsoleto` en 01-ACTIVOS.md, se **mueve** físicamente a `_obsoleto/`. Así `deliverables/` solo contiene cosas vivas.
+- Los índices (`00`, `01`, `02`) y `CLAUDE.md` mandan. Si algo se cierra o cambia, se anota en el
+  índice que corresponda. **El estado de un activo vive en `01-ACTIVOS.md`, no en el fichero suelto.**
+- `deliverables/` agrupa **por tipo** (marca, web, guías, impresos, planes), no por idioma ni campaña.
+- El estado se marca (`activo` / `referencia` / `obsoleto`) en `01-ACTIVOS.md`; los ficheros no se borran.
 
-### Dónde suelta insumos el colaborador multimedia
-Fotos y vídeos nuevos van a **`fotos/`** (en la subcarpeta que corresponda) o a **`_fuentes/`** si aún no están clasificados. Nunca a `deliverables/`.
+### Fotos (Drive)
+Los fotógrafos colaboradores sueltan fotos y vídeos nuevos en el Drive, carpeta **`Fotos/`**
+(`Corrales/` y `Birdwatching/`, por hábitat/especie). Para la web se optimizan y se guardan en
+`assets/img/` del repo; el original pesado se queda en Drive. **No** se usa el conector de Drive
+(el base64 satura la sesión): descargar → ZIP → optimizar. Detalle en `GITHUB-Y-DRIVE.md`.

@@ -3,6 +3,12 @@
 > Decisiones técnicas cerradas sobre cómo se construye y sirve la web.
 > **Ámbito:** solo la manera de trabajar la página. La estrategia y el plan de comunicación se trabajan aparte.
 
+> **Estado v1 (2026-07-22).** Este documento describe la arquitectura completa, incluidas piezas
+> **aplazadas** que **no** están en la web v1: la **app de reservas** (subdominio propio, con su CTA
+> «Reservar») y la sección **`/apoyar/`** (socios y donaciones). En v1: la visita se reserva por la
+> **Oficina de Turismo de Rota** (CTA «Cómo visitar»), sin reserva online; y no hay donaciones. Lo
+> aplazado se retomará; se deja aquí documentado, marcado como tal.
+
 ## Alojamiento
 
 - La web se traslada a un **servidor propio** (fuera de Google Sites).
@@ -61,7 +67,7 @@ Patrón definitivo: **español en la raíz** + `/en/ /de/ /fr/` (no los cuatro s
 ├─ /jardin-botanico/  Landing joya · jardín botánico
 ├─ /playas/           Landing joya · playas
 ├─ /visita/           Página de la visita a los corrales (nodo)
-├─ /apoyar/           socios y donaciones
+├─ /apoyar/           socios y donaciones     (APLAZADO — no en v1)
 ├─ /contacto/
 └─ /aviso-legal/  ·  /privacidad/
 ```
@@ -74,7 +80,7 @@ Patrón definitivo: **español en la raíz** + `/en/ /de/ /fr/` (no los cuatro s
 
 La reserva es el nodo al que devuelven todas las joyas y la **única parte con estado** del sitio. Se aísla para no tocar los Core Web Vitals del resto.
 
-- **`/visita/`** (y `/en/ /de/ /fr/`): página **estática** del sitio. Explica y "vende" la visita (qué es, cómo funciona, calendario de mareas); su CTA "Reservar" salta a la app.
+- **`/visita/`** (y `/en/ /de/ /fr/`): página **estática** del sitio. Explica y "vende" la visita (qué es, cómo funciona, calendario de mareas); en v1 su CTA es «Cómo visitar» y la reserva la gestiona la Oficina de Turismo de Rota (sin reserva online). La app de reservas y su botón «Reservar» quedan APLAZADOS.
 - **App de reservas:** componente dinámico **separado**, en subdominio propio **`reservas.loscorralesderota.com`**. Backend propio (servidor + BD); el resto del sitio sigue siendo HTML estático. Definición completa en `02-DECISIONES.md`.
 
 ## Imágenes

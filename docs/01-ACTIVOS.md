@@ -14,7 +14,8 @@ Cada activo tiene:
   - `borrador` — en construcción, no usar aún
   - `activo` — es la versión buena, fuente de verdad hoy
   - `publicado` — activo y además desplegado/en producción
-  - `obsoleto` — sustituido; se conserva por historial, no se usa → va a `_obsoleto/`
+  - `referencia` — no es el activo vigente, pero se conserva por copy/estructura reutilizable
+  - `obsoleto` — sustituido; se conserva en el repo por historial, no se usa (el estado vive aquí, el fichero no se mueve)
   - `archivado` — ya no aplica al proyecto
 - **Relevancia** (cuánto importa ahora): `alta` / `media` / `baja`
 - **sustituye_a / sustituido_por** — rastro entre versiones
@@ -51,24 +52,30 @@ contenido en `CLAUDE.md`; arquitectura en `web-arquitectura-corrales.md`.
 
 | Activo | Estado | Relevancia | Notas | Revisado |
 |---|---|---|---|---|
-| `Guia_Aves_Rota_Los_Corrales_EN.pdf` | activo | alta | Guía de aves lead-magnet, 12 pág A4, inglés. Muchas láminas son placeholders pendientes de foto. | 2026-07-20 |
-| `Rota_Birding_Documentary_DE.srt` | activo | media | Subtítulos en alemán del documental. | 2026-07-20 |
+| `Guia_Aves_Rota_Los_Corrales_EN.pdf` | referencia | media | Guía de aves lead-magnet, 12 pág A4, inglés. De la campaña de birding (estrategia superada) y con la **marca vieja** (foam/teal); muchas láminas son placeholders. Se conserva por copy EN y listas de especies. | 2026-07-22 |
+| `Rota_Birding_Documentary_DE.srt` | referencia | baja | Subtítulos en alemán del documental de birding. Referencia para la traducción DE. | 2026-07-22 |
 
 ### Impresos
 
+> Ambos usan la **marca heredada** (foam/teal + Fraunces/Hanken/Space Mono): **pendientes de re-piel** a Monumento antes de usarse.
+
 | Activo | Estado | Relevancia | Notas | Revisado |
 |---|---|---|---|---|
-| `cartel-bizum-corrales-de-rota.html` | activo | media | Cartel de donación Bizum. Código ONG de 5 dígitos pendiente (placeholder). | 2026-07-20 |
-| `triptico-corrales-de-rota.html` | activo | media | Tríptico bilingüe ES/EN A4 para hoteles. Slots de foto/testimonio/hotel marcados como placeholder. | 2026-07-20 |
+| `cartel-bizum-corrales-de-rota.html` | referencia | media | Cartel de donación Bizum. **Las donaciones no entran en la web v1** (se reactivan con el código ONG + pasarela). Marca vieja, pendiente de re-piel. | 2026-07-22 |
+| `triptico-corrales-de-rota.html` | referencia | baja | Tríptico ES/EN A4 para hoteles, de la campaña de birding. Marca vieja, pendiente de re-piel; slots de foto/testimonio/hotel como placeholder. | 2026-07-22 |
 
 ### Planes
 
+> **Estrategia vigente: «Todo dentro de Rota»** (ver `02-DECISIONES.md`). La antigua campaña premium
+> de birding **UK/DE apoyada en Doñana y el Estrecho quedó superada**; los planes que la desarrollan
+> se conservan como **referencia** (copy, estructura, listas de especies), no como plan actual.
+
 | Activo | Estado | Relevancia | Notas | Revisado |
 |---|---|---|---|---|
-| `Plan_Maestro_Rota_Birding_ES.html` | activo | alta | Plan maestro en español (HTML). | 2026-07-20 |
-| `plan-ejecutivo-corrales-de-rota.html` | activo | alta | Plan ejecutivo de acciones 60 días con anexo Google Ads. | 2026-07-20 |
-| `Rota_Birdwatching_Campaign_Plan.md` | activo | alta | Plan de campaña de birding UK/DE (markdown, extenso). | 2026-07-20 |
-| `plan-comunicacion-corrales-INTERNO.html` | activo | alta | Documento ejecutivo interno de visión del plan de comunicación, para alinear al equipo operativo antes del detalle. HTML autocontenido con marca, diagramas (mareas, nodo de joyas), Gantt anual y fotos reales. Lenguaje llano, sin jerga. Es visión, no plan con fechas. | 2026-07-20 |
+| `plan-comunicacion-corrales-INTERNO.html` | activo | alta | **Plan vigente.** Visión del plan de comunicación «Todo dentro de Rota» para alinear al equipo: marca, diagramas (mareas, nodo de joyas), Gantt anual, fotos reales. Lenguaje llano. Es visión, no plan con fechas. | 2026-07-22 |
+| `plan-ejecutivo-corrales-de-rota.html` | activo | media | Acciones a 60 días con anexo Google Ads. Revisar contra la estrategia vigente (el Ad Grant es un canal más, no el eje). | 2026-07-22 |
+| `Plan_Maestro_Rota_Birding_ES.html` | referencia | media | Plan maestro (ES) de la campaña de birding. **Estrategia superada** por «Todo dentro de Rota»; se conserva como referencia. | 2026-07-22 |
+| `Rota_Birdwatching_Campaign_Plan.md` | referencia | media | Plan de campaña de birding UK/DE (extenso: keywords, anuncios, hoteles). **Estrategia superada** (Doñana/Estrecho descartados); útil como referencia de copy EN y estructura. | 2026-07-22 |
 
 ---
 

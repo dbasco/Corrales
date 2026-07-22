@@ -13,7 +13,7 @@
 
 ## GitHub — repo `dbasco/Corrales` (privado)
 
-Es el hogar completo del proyecto: la web **y** su documentación. 66 ficheros versionados.
+Es el hogar completo del proyecto: la web **y** su documentación.
 
 ```
 Corrales/
@@ -21,10 +21,10 @@ Corrales/
 ├── site.config.json         Dominio, idiomas, páginas/slugs, IDs de tracking (GTM/GA4/Ads)
 ├── CLAUDE.md                Reglas duras + modelo de contenido (léelo antes de tocar)
 ├── README.md                Resumen de la web y cómo construirla
-├── CONTINUAR-web-v1.md      Brief histórico de la v1
 ├── .github/workflows/       CI: construye dist/ como artefacto en cada push
 ├── templates/
-│   └── base.css             SISTEMA DE MARCA MONUMENTO (canónico; no se tocan los tokens :root)
+│   ├── base.css             SISTEMA DE MARCA MONUMENTO (canónico; no se tocan los tokens :root)
+│   └── site.css             Componentes de ritmo (split, diagram, cta, turismo, keys)
 ├── content/
 │   ├── ui.es.json           Strings de interfaz (nav, footer, CTAs) en español
 │   └── es/*.json            Copy por página en español (12 páginas)
@@ -39,7 +39,7 @@ Corrales/
 │   ├── README.md               Mapa de la carpeta docs/
 │   ├── deliverables/           Marca, web, guías, impresos y planes (migrados de Drive)
 │   │   ├── marca/   (sistema Monumento, logos SVG, plantillas doc/ppt/email)
-│   │   ├── web/     (one-pager y landings de birding EN/DE)
+│   │   ├── web/     (one-pager y landings de birding EN/DE — legado/referencia)
 │   │   ├── guias/   (guía de aves PDF, subtítulos)
 │   │   ├── impresos/(cartel Bizum, tríptico)
 │   │   └── planes/  (plan maestro, ejecutivo, comunicación, campaña)
@@ -51,7 +51,7 @@ Corrales/
 - Las **decisiones** viven en `docs/02-DECISIONES.md` (y los otros índices). Si algo se cierra o
   cambia, se anota ahí.
 - El **diseño** es `templates/base.css` (sistema Monumento). No se editan sus tokens `:root`.
-- La **web** se genera con `build.py` a partir de `site.config.json` + `content/**` + `base.css`.
+- La **web** se genera con `build.py` a partir de `site.config.json` + `content/**` + `templates/base.css` + `templates/site.css`.
 
 **Conexión:** clon/push con un PAT (necesita scope `repo` + `workflow`, porque hay un workflow de
 CI). Detalle en el handover de reinicio.

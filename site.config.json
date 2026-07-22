@@ -42,7 +42,7 @@
   "joyas_order": ["aves", "pinar", "dunas", "camaleon", "via-verde", "pozos-del-galgo", "jardin-botanico", "playas"],
   "notes": {
     "slugs_pending": "via-verde y pozos-del-galgo: slugs traducidos pendientes de decisión de Daniel (arquitectura). pozos-del-galgo se mantiene como topónimo en los 4 idiomas por ahora.",
-    "reservas": "El motor de reservas queda FUERA de v1. El CTA 'Reservar' degrada a contacto (WhatsApp/teléfono/email) con nota 'reservas online, próximamente'.",
+    "reservas": "El motor de reservas queda FUERA de v1. No hay reserva online ni botón 'Reservar': el CTA es 'Cómo visitar' y lleva a /visita/, que dirige a la Oficina de Turismo de Rota (tel. 956 846345, turismorota@gmail.com).",
     "publicacion_olas": "Las 7 joyas no-aves son nivel 3 (estacionales): estructura completa en v1, contenido sobrio; se enriquecen por temporada."
   }
 }

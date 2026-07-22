@@ -101,5 +101,5 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 
 - Deliverables como HTML autocontenidos bilingües/multiidioma, renderizados a PDF cuando hace falta.
 - Sistema de marca reutilizado verbatim (mismos bloques `<style>`), solo cambia el copy entre idiomas.
-- QA visual página a página tras generar PDF.
-- Trabajo directo sobre la estructura de carpetas del Drive para auditorías de activos.
+- QA visual página a página tras generar (sirviendo `dist/` o el PDF).
+- El proyecto vive en el repo `dbasco/Corrales`; el estado de los activos se lleva en `01-ACTIVOS.md`. El Drive solo aporta fotos.
