@@ -1,0 +1,138 @@
+{
+  "title": "Los Corrales de Rota · Monumento Natural · visitas guiadas a pie",
+  "meta_description": "Los corrales de Rota: arte de pesca tradicional sobre la marea y primer Monumento Natural de Andalucía. Visitas guiadas a pie, dos pases al día según la marea. El 100 % de lo recaudado va a su conservación.",
+  "hero": {
+    "kicker": "Rota · Cádiz",
+    "h1": "Camina por dentro de un corral, con la marea baja",
+    "sub": "Los corrales son un arte de pesca de más de mil años sobre la franja intermareal, y el primer Monumento Natural de Andalucía. Los visitamos a pie, dos veces al día, cuando la marea lo permite.",
+    "img": "/assets/img/corrales-hero.jpg",
+    "img_alt": "Vista aérea de los corrales de pesca de Rota con la marea baja al atardecer",
+    "cta1": "Reservar visita",
+    "cta2": "Ver las joyas de Rota",
+    "cta2_href": "#joyas"
+  },
+  "sections": [
+    {
+      "type": "stats",
+      "items": [
+        {
+          "n": "8",
+          "l": "Corrales activos"
+        },
+        {
+          "n": "2001",
+          "l": "Monumento Natural"
+        },
+        {
+          "n": "~400",
+          "l": "Socios"
+        },
+        {
+          "n": "100%",
+          "l": "A conservación"
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "Qué son",
+      "h2": "Muros de piedra que pescan con la marea",
+      "lead": "Un corral es un muro bajo de piedra seca, curvado sobre la playa. Cuando sube la marea, el agua y los peces pasan por encima. Cuando baja, el muro retiene el agua y los peces quedan dentro.",
+      "paras": [
+        "En Rota quedan ocho corrales activos, cuidados por la Asociación de Corraleros y Pescadores a Pie. Es una forma de pescar de más de mil años, que apenas ha cambiado: sin motores, sin redes de arrastre, solo el muro, la marea y el trabajo a pie.",
+        "En 2001 los corrales de Rota fueron declarados Monumento Natural, el primero de Andalucía. La asociación es su custodia: mantiene los muros piedra a piedra, enseña el oficio y abre las visitas. El 100 % de lo que se recauda vuelve a la conservación del monumento."
+      ]
+    },
+    {
+      "type": "jewels",
+      "kicker": "Alrededor de los corrales",
+      "h2": "Las joyas de Rota",
+      "intro": "Los corrales son el centro, pero no están solos. Alrededor hay marisma, pinar, dunas y vía verde. Cada una tiene su temporada y su público; todas se pueden encadenar con la visita a los corrales.",
+      "more": "Ver más →",
+      "cards": {
+        "aves": {
+          "tag": "Aves",
+          "title": "Aves de la marisma",
+          "desc": "Flamencos, espátulas, limícolas y rapaces a un paso del casco urbano.",
+          "img": "/assets/img/joya-aves.jpg"
+        },
+        "pinar": {
+          "tag": "Pinar",
+          "title": "Pinar litoral",
+          "desc": "Bosque de pino piñonero entre el pueblo y la playa.",
+          "grad": "grad-stone"
+        },
+        "dunas": {
+          "tag": "Dunas",
+          "title": "Dunas vivas",
+          "desc": "Cordón de dunas y vegetación que fija la arena frente al mar.",
+          "grad": "grad-stone"
+        },
+        "camaleon": {
+          "tag": "Camaleón",
+          "title": "El camaleón común",
+          "desc": "Uno de los últimos reductos del camaleón en la costa gaditana.",
+          "grad": "grad-oxido"
+        },
+        "via-verde": {
+          "tag": "Vía verde",
+          "title": "Vía verde",
+          "desc": "Antiguo trazado ferroviario, hoy paseo a pie y en bici.",
+          "grad": "grad-stone"
+        },
+        "pozos-del-galgo": {
+          "tag": "Pozos del Galgo",
+          "title": "Pozos del Galgo",
+          "desc": "Manantiales y pozos históricos junto al litoral.",
+          "grad": "grad-pizarra"
+        },
+        "jardin-botanico": {
+          "tag": "Botánico",
+          "title": "Jardín botánico",
+          "desc": "La flora de la costa de Rota, reunida y explicada.",
+          "grad": "grad-stone"
+        },
+        "playas": {
+          "tag": "Playas",
+          "title": "Playas de Rota",
+          "desc": "Arena, pinar y los corrales asomando con la bajamar.",
+          "grad": "grad-pizarra"
+        }
+      }
+    },
+    {
+      "type": "video",
+      "kicker": "En vídeo",
+      "yt": "6d7-eABEOuc",
+      "title": "Visita guiada a los Corrales de Rota",
+      "desc": "Recorrido por una visita guiada a los corrales de Rota, del canal de Andrés Barba.",
+      "date": "2025-01-01",
+      "alt": "Corraleros recogiendo la pesca dentro de un corral con la marea baja"
+    },
+    {
+      "type": "support",
+      "kicker": "Apoyar",
+      "h2": "El 100 % va a conservar el monumento",
+      "intro": "Mantener ocho corrales de piedra frente al mar cuesta trabajo y dinero. Puedes apoyar la conservación de dos formas.",
+      "bizum_title": "Bizum",
+      "bizum_text": "La vía más directa para donar desde España, sin comisiones.",
+      "bizum_code_note": "Código ONG de 5 dígitos — pendiente de asignación",
+      "card_kicker": "Tarjeta",
+      "card_title": "Tarjeta (internacional)",
+      "card_text": "Para visitantes de fuera de España y la comunidad de la base naval de Rota.",
+      "card_note": "Pasarela de pago — pendiente"
+    },
+    {
+      "type": "contact",
+      "kicker": "Contacto",
+      "h2": "Escríbenos",
+      "intro": "Para reservas de grupo, prensa, colaboraciones o dudas sobre las visitas.",
+      "place_label": "Dónde estamos",
+      "f_name": "Nombre",
+      "f_email": "Email",
+      "f_msg": "Mensaje",
+      "f_send": "Enviar",
+      "form_note": "Formulario de referencia para v1: al desplegar en el servidor se conecta al buzón info@loscorralesderota.com."
+    }
+  ]
+}

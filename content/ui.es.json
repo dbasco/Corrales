@@ -1,0 +1,17 @@
+{
+  "skip": "Saltar al contenido",
+  "reserve_cta": "Reservar visita",
+  "nav": {
+    "home": "Inicio",
+    "visita": "La visita",
+    "aves": "Aves",
+    "joyas": "Joyas de Rota",
+    "apoyar": "Apoyar",
+    "contacto": "Contacto"
+  },
+  "footer": {
+    "pledge": "El 100 % de lo recaudado va a la conservación del monumento.",
+    "legal": "Aviso legal",
+    "privacy": "Privacidad"
+  }
+}

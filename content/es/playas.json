@@ -1,0 +1,33 @@
+{
+  "title": "Las playas de Rota · Los Corrales de Rota",
+  "meta_description": "Las playas de Rota: arena y pinar en la bahía de Cádiz, con los corrales de pesca asomando con la marea baja. Un litoral que une descanso y patrimonio.",
+  "hero": {
+    "kicker": "Joyas de Rota · Playas",
+    "h1": "Las playas de Rota",
+    "sub": "Arena, pinar detrás y los corrales asomando con la bajamar: playas de bandera con un patrimonio único a la vista.",
+    "grad": "grad-pizarra",
+    "cta1": "Reservar visita",
+    "cta2": "Volver a las joyas",
+    "cta2_href": "/#joyas"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "Las playas de Rota",
+      "lead": "Las playas de Rota juntan lo de siempre —arena, sol, pinar— con algo que no hay en otro sitio: los corrales.",
+      "paras": [
+        "Cuando baja la marea, los muros de los corrales aparecen sobre la arena y se puede entender de un vistazo cómo funcionan. Es el mejor cartel de bienvenida al monumento.",
+        "Desde la playa se encadena fácil con la visita guiada, el pinar y las dunas."
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "El nodo",
+      "h2": "Encadénalo con la visita a los corrales",
+      "paras": [
+        "Todas las joyas de Rota devuelven al mismo sitio: la visita a los corrales con la marea baja. Reserva tu pase y aprovecha para conocer el resto en el mismo viaje."
+      ]
+    }
+  ]
+}

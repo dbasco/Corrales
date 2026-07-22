@@ -1,0 +1,39 @@
+{
+  "title": "Aviso legal · Los Corrales de Rota",
+  "meta_description": "Aviso legal y condiciones de uso del sitio web de la Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota» (Rota, Cádiz).",
+  "hero": {
+    "kicker": "Legal",
+    "h1": "Aviso legal",
+    "sub": "Titularidad del sitio y condiciones de uso.",
+    "grad": "grad-pizarra",
+    "cta1": "Reservar visita",
+    "cta2": "Inicio",
+    "cta2_href": "/"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "h2": "Titularidad",
+      "paras": [
+        "Este sitio web es titularidad de la Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota», con domicilio en Rota (Cádiz) y correo de contacto info@loscorralesderota.com.",
+        "Borrador pendiente de revisión legal: se completará con CIF, número de registro de asociaciones y domicilio social exactos antes de la publicación."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Condiciones de uso",
+      "paras": [
+        "El acceso y uso de este sitio implica la aceptación de estas condiciones. Los contenidos tienen carácter informativo sobre los corrales de Rota y su conservación.",
+        "La asociación procura que la información sea correcta y esté actualizada, pero no garantiza la ausencia de errores ni la disponibilidad continua del servicio."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Propiedad intelectual",
+      "paras": [
+        "Los textos, el diseño y la marca son propiedad de la asociación. Las fotografías y vídeos pertenecen a sus autores (fotógrafos y creadores colaboradores) y se usan con su permiso; no pueden reutilizarse sin autorización.",
+        "El canal de vídeo es el canal personal de Andrés Barba, usado con su consentimiento y crédito."
+      ]
+    }
+  ]
+}

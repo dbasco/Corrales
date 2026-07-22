@@ -1,0 +1,11 @@
+# Build output (se regenera con `python3 build.py`)
+/dist/
+
+# Capturas de verificación
+/shots/
+
+# Sistema
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/

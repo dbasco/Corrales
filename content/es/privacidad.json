@@ -1,0 +1,46 @@
+{
+  "title": "Política de privacidad · Los Corrales de Rota",
+  "meta_description": "Política de privacidad y protección de datos del sitio web de Los Corrales de Rota (Rota, Cádiz).",
+  "hero": {
+    "kicker": "Legal",
+    "h1": "Política de privacidad",
+    "sub": "Cómo tratamos tus datos.",
+    "grad": "grad-pizarra",
+    "cta1": "Reservar visita",
+    "cta2": "Inicio",
+    "cta2_href": "/"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "h2": "Responsable del tratamiento",
+      "paras": [
+        "Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota». Contacto: info@loscorralesderota.com.",
+        "Borrador pendiente de revisión legal conforme al RGPD y la LOPDGDD."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Qué datos tratamos y para qué",
+      "paras": [
+        "Solo tratamos los datos que nos facilitas al escribirnos o reservar una visita (nombre, email y el contenido de tu mensaje), con la finalidad de atender tu solicitud.",
+        "No vendemos ni cedemos tus datos a terceros. Se conservan el tiempo necesario para gestionar tu consulta o reserva."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Analítica y cookies",
+      "paras": [
+        "Este sitio usa Google (Analytics y, en su caso, Google Ads) a través de Google Tag Manager para medir el tráfico y mejorar la web. Antes de la publicación se añadirá el aviso de cookies y el mecanismo de consentimiento correspondiente.",
+        "Los vídeos se cargan mediante youtube-nocookie y solo al pulsar play, para minimizar el rastreo."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Tus derechos",
+      "paras": [
+        "Puedes ejercer tus derechos de acceso, rectificación, supresión y oposición escribiendo a info@loscorralesderota.com."
+      ]
+    }
+  ]
+}

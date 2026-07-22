@@ -1,0 +1,48 @@
+{
+  "site": {
+    "name": "Los Corrales de Rota",
+    "canonical_origin": "https://loscorralesderota.com",
+    "reservas_origin": "https://reservas.loscorralesderota.com",
+    "email": "info@loscorralesderota.com",
+    "org_legal_name": "Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota»",
+    "place": "Rota, Cádiz, Andalucía, España",
+    "youtube_channel": "https://www.youtube.com/@AndresBarba",
+    "founded_year": 2014,
+    "monument_year": 2001,
+    "socios": 400,
+    "corrales_activos": 8
+  },
+  "tracking": {
+    "provider": "gtm",
+    "gtm_id": "GTM-XXXXXXX",
+    "ga4_id": "G-XXXXXXXXXX",
+    "google_ads_id": "AW-XXXXXXXXXX",
+    "note": "GTM es el contenedor principal: mete GA4 y Google Ads dentro de GTM sin tocar el HTML. Los IDs GA4/Ads quedan como referencia por si se prefiere gtag.js directo."
+  },
+  "languages": [
+    { "code": "es", "hreflang": "es", "path_prefix": "", "label": "Español", "dir": "ltr", "x_default": true },
+    { "code": "en", "hreflang": "en", "path_prefix": "/en", "label": "English", "dir": "ltr" },
+    { "code": "de", "hreflang": "de", "path_prefix": "/de", "label": "Deutsch", "dir": "ltr" },
+    { "code": "fr", "hreflang": "fr", "path_prefix": "/fr", "label": "Français", "dir": "ltr" }
+  ],
+  "pages": [
+    { "id": "home", "type": "hub", "slugs": { "es": "", "en": "", "de": "", "fr": "" }, "priority": 1.0, "changefreq": "weekly" },
+    { "id": "visita", "type": "visita", "slugs": { "es": "visita", "en": "visit", "de": "besuch", "fr": "visite" }, "priority": 0.9, "changefreq": "weekly" },
+    { "id": "aves", "type": "joya", "ready": true, "slugs": { "es": "aves", "en": "birding", "de": "vogel", "fr": "oiseaux" }, "priority": 0.8, "changefreq": "monthly" },
+    { "id": "pinar", "type": "joya", "ready": false, "slugs": { "es": "pinar", "en": "pinewood", "de": "pinienwald", "fr": "pinede" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "dunas", "type": "joya", "ready": false, "slugs": { "es": "dunas", "en": "dunes", "de": "duenen", "fr": "dunes" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "camaleon", "type": "joya", "ready": false, "slugs": { "es": "camaleon", "en": "chameleon", "de": "chamaeleon", "fr": "cameleon" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "via-verde", "type": "joya", "ready": false, "slug_pending": true, "slugs": { "es": "via-verde", "en": "greenway", "de": "gruener-weg", "fr": "voie-verte" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "pozos-del-galgo", "type": "joya", "ready": false, "slug_pending": true, "slugs": { "es": "pozos-del-galgo", "en": "pozos-del-galgo", "de": "pozos-del-galgo", "fr": "pozos-del-galgo" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "jardin-botanico", "type": "joya", "ready": false, "slugs": { "es": "jardin-botanico", "en": "botanical-garden", "de": "botanischer-garten", "fr": "jardin-botanique" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "playas", "type": "joya", "ready": false, "slugs": { "es": "playas", "en": "beaches", "de": "straende", "fr": "plages" }, "priority": 0.6, "changefreq": "monthly" },
+    { "id": "aviso-legal", "type": "legal", "slugs": { "es": "aviso-legal", "en": "legal-notice", "de": "impressum", "fr": "mentions-legales" }, "priority": 0.2, "changefreq": "yearly" },
+    { "id": "privacidad", "type": "legal", "slugs": { "es": "privacidad", "en": "privacy", "de": "datenschutz", "fr": "confidentialite" }, "priority": 0.2, "changefreq": "yearly" }
+  ],
+  "joyas_order": ["aves", "pinar", "dunas", "camaleon", "via-verde", "pozos-del-galgo", "jardin-botanico", "playas"],
+  "notes": {
+    "slugs_pending": "via-verde y pozos-del-galgo: slugs traducidos pendientes de decisión de Daniel (arquitectura). pozos-del-galgo se mantiene como topónimo en los 4 idiomas por ahora.",
+    "reservas": "El motor de reservas queda FUERA de v1. El CTA 'Reservar' degrada a contacto (WhatsApp/teléfono/email) con nota 'reservas online, próximamente'.",
+    "publicacion_olas": "Las 7 joyas no-aves son nivel 3 (estacionales): estructura completa en v1, contenido sobrio; se enriquecen por temporada."
+  }
+}

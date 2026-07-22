@@ -1,0 +1,33 @@
+{
+  "title": "La vía verde · Los Corrales de Rota",
+  "meta_description": "La vía verde de Rota: antiguo trazado de tren reconvertido en itinerario llano para caminar y pedalear, enlazando el pueblo con el campo y la costa.",
+  "hero": {
+    "kicker": "Joyas de Rota · Vía verde",
+    "h1": "La vía verde",
+    "sub": "Un antiguo trazado ferroviario convertido en paseo llano a pie y en bici, que enlaza Rota con su entorno natural.",
+    "grad": "grad-stone",
+    "cta1": "Reservar visita",
+    "cta2": "Volver a las joyas",
+    "cta2_href": "/#joyas"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "La vía verde",
+      "lead": "La vía verde aprovecha un trazado de tren en desuso para dar un paseo llano, sin coches, entre el pueblo y el campo.",
+      "paras": [
+        "Es un itinerario cómodo para caminar o pedalear en familia, que conecta Rota con su entorno agrícola y natural. Buen punto de partida para encadenar el resto de joyas.",
+        "Se puede combinar con la visita a los corrales para hacer un día completo a pie."
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "El nodo",
+      "h2": "Encadénalo con la visita a los corrales",
+      "paras": [
+        "Todas las joyas de Rota devuelven al mismo sitio: la visita a los corrales con la marea baja. Reserva tu pase y aprovecha para conocer el resto en el mismo viaje."
+      ]
+    }
+  ]
+}

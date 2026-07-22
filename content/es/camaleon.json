@@ -1,0 +1,33 @@
+{
+  "title": "El camaleón común · Los Corrales de Rota",
+  "meta_description": "El camaleón común en Rota: uno de los últimos reductos de esta especie protegida en la costa gaditana, en el pinar y los setos junto al litoral.",
+  "hero": {
+    "kicker": "Joyas de Rota · Camaleón",
+    "h1": "El camaleón común",
+    "sub": "Rota es uno de los últimos refugios del camaleón común en la costa de Cádiz. Discreto, lento y difícil de ver: por eso hay que cuidarlo.",
+    "grad": "grad-oxido",
+    "cta1": "Reservar visita",
+    "cta2": "Volver a las joyas",
+    "cta2_href": "/#joyas"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "El camaleón común",
+      "lead": "El camaleón común (Chamaeleo chamaeleon) es una especie protegida y una joya discreta del litoral de Rota.",
+      "paras": [
+        "Vive en el pinar, los setos y los jardines cercanos a la costa. Es lento y se camufla muy bien, así que verlo es cuestión de suerte y de paciencia; nunca se debe capturar ni molestar.",
+        "Su presencia dice mucho de la salud del pinar y las dunas. Protegerlo es parte de cuidar todo el conjunto que rodea a los corrales."
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "El nodo",
+      "h2": "Encadénalo con la visita a los corrales",
+      "paras": [
+        "Todas las joyas de Rota devuelven al mismo sitio: la visita a los corrales con la marea baja. Reserva tu pase y aprovecha para conocer el resto en el mismo viaje."
+      ]
+    }
+  ]
+}

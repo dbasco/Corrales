@@ -1,0 +1,42 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Pillow (solo para el pipeline de imágenes)
+        run: pip install pillow
+
+      - name: Build site
+        run: python3 build.py
+
+      - name: Sanity checks
+        run: |
+          test -f dist/index.html
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
+          n=$(find dist -name index.html | wc -l)
+          echo "Generadas $n páginas"
+          test "$n" -eq 48
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: corrales-web-dist
+          path: dist/
+
+# Despliegue: la web va a servidor propio (arquitectura). Este workflow deja dist/ como
+# artefacto descargable. Para publicar en GitHub Pages, añade un job deploy con
+# actions/deploy-pages, o sincroniza dist/ a tu servidor (rsync/scp) desde aquí.
