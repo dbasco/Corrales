@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartel Bizum · Los Corrales de Rota</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{--foam:#FAF6EE;--ink:#10262E;--teal:#137787;--teal-clara:#3FA0AE;--ambar:#C2823A;--sand:#E9DEC8;--linea:#E3D8C1;--ink-70:rgba(16,38,46,.72);--ink-55:rgba(16,38,46,.55);}
+  *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  html,body{margin:0;padding:0;}
+  body{background:#8a8a8a;font-family:"Hanken Grotesk",system-ui,sans-serif;color:var(--ink);}
+  .page{width:210mm;min-height:297mm;margin:18px auto;background:var(--foam);padding:24mm 20mm;position:relative;overflow:hidden;display:flex;flex-direction:column;}
+  .top{display:flex;align-items:center;gap:12px;border-bottom:1.5px solid var(--linea);padding-bottom:14px;}
+  .top svg{flex:none;}
+  .top .nm{font-family:"Fraunces",serif;font-weight:600;font-size:20px;}
+  .top .mn{margin-left:auto;font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);}
+  h1{font-family:"Fraunces",serif;font-weight:700;font-size:40px;line-height:1.05;margin:34px 0 6px;letter-spacing:-.01em;max-width:14ch;}
+  h1 .en{display:block;font-weight:500;font-style:italic;font-size:24px;color:var(--teal);margin-top:8px;}
+  .sub{font-size:17px;color:var(--ink-70);max-width:34ch;margin:0;}
+  .sub .en{display:block;font-size:14px;color:var(--ink-55);margin-top:2px;}
+  .qr-block{display:flex;gap:34px;align-items:center;margin:38px 0;}
+  .qr-img{width:62mm;height:62mm;flex:none;border:1px solid var(--linea);border-radius:14px;padding:10px;background:#fff;}
+  .qr-img img{width:100%;height:100%;display:block;}
+  .qr-side{flex:1;}
+  .code-box{background:#fff;border:2px dashed var(--teal);border-radius:12px;padding:18px 22px;text-align:center;}
+  .code-box .lb{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-55);}
+  .code-box .cd{font-family:"Fraunces",serif;font-size:42px;font-weight:700;letter-spacing:.22em;color:var(--teal);line-height:1.1;}
+  .code-box .pend{font-family:"Space Mono",monospace;font-size:11px;color:var(--ambar);margin-top:4px;}
+  .scan{font-family:"Space Mono",monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin:14px 0 0;text-align:center;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:auto;border-top:1.5px solid var(--linea);padding-top:22px;}
+  .st .n{font-family:"Space Mono",monospace;font-size:13px;color:var(--ambar);font-weight:700;}
+  .st .t{font-size:14px;font-weight:600;margin:5px 0 2px;}
+  .st .e{font-size:12px;color:var(--ink-55);font-style:italic;}
+  .badge{display:inline-block;background:var(--teal);color:#fff;font-weight:600;font-size:13px;padding:7px 16px;border-radius:30px;margin-top:22px;}
+  .foot{margin-top:20px;border-top:1.5px solid var(--linea);padding-top:14px;display:flex;justify-content:space-between;font-family:"Space Mono",monospace;font-size:11px;color:var(--ink-55);letter-spacing:.04em;}
+  .wave{position:absolute;left:0;right:0;bottom:0;height:60px;color:var(--sand);opacity:.6;}
+  @page{size:A4;margin:0;}
+  @media print{body{background:#fff;}.page{margin:0;box-shadow:none;}}
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="top">
+      <svg width="30" height="30" viewBox="0 0 26 26" fill="none"><path d="M2 18 Q13 4 24 18" stroke="#137787" stroke-width="2"/><path d="M6 18 Q13 9 20 18" stroke="#3FA0AE" stroke-width="1.6"/><line x1="2" y1="21" x2="24" y2="21" stroke="#C2823A" stroke-width="1.6"/></svg>
+      <span class="nm">Los Corrales de Rota</span>
+      <span class="mn">Monumento Natural · 2001</span>
+    </div>
+
+    <h1>Ayuda a conservar los corrales<span class="en">Help conserve the corrales</span></h1>
+    <p class="sub">El 100 % de tu donación va al monumento.<span class="en">100% of your donation goes to the monument.</span></p>
+
+    <div class="qr-block">
+      <div class="qr-img"><img src="data:image/png;base64,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" alt="QR Bizum"></div>
+      <div class="qr-side">
+        <div class="code-box">
+          <div class="lb">Código Bizum</div>
+          <div class="cd">XXXXX</div>
+          <div class="pend">pendiente de alta en el banco</div>
+        </div>
+        <p class="scan">Escanea el QR o dona por Bizum · Scan or donate with Bizum</p>
+      </div>
+    </div>
+
+    <span class="badge">Sin comisiones · No fees</span>
+
+    <div class="steps">
+      <div class="st"><div class="n">01</div><div class="t">Abre la app de tu banco</div><div class="e">Open your bank app</div></div>
+      <div class="st"><div class="n">02</div><div class="t">Bizum → «Donar a una ONG»</div><div class="e">Bizum → "Donate to an NGO"</div></div>
+      <div class="st"><div class="n">03</div><div class="t">Código XXXXX e importe</div><div class="e">Enter code XXXXX and amount</div></div>
+    </div>
+
+    <div class="foot">
+      <span>loscorralesderota.com</span>
+      <span>Asociación de Corraleros y Pescadores a Pie · Organización sin ánimo de lucro</span>
+    </div>
+
+    <svg class="wave" viewBox="0 0 1440 60" preserveAspectRatio="none" fill="currentColor"><path d="M0 30 C 200 60, 380 4, 560 26 C 760 50, 940 8, 1140 28 C 1280 42, 1380 18, 1440 26 L1440 60 L0 60 Z"/></svg>
+  </div>
+</body>
+</html>

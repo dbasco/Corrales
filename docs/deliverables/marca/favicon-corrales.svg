@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="Los Corrales de Rota">
+  <rect width="120" height="120" rx="27" fill="#2C3B40"/>
+  <path d="M30 80 A28 22 0 0 1 90 80 Z" fill="#7FA0A6"/>
+  <path d="M24 80 A34 27 0 0 1 96 80" fill="none" stroke="#F4F1E9" stroke-width="9" stroke-linecap="round"/>
+  <line x1="19" y1="80" x2="101" y2="80" stroke="#F4F1E9" stroke-width="3.4" stroke-linecap="round"/>
+</svg>

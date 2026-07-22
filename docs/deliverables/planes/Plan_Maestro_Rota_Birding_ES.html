@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Maestro · Rota, destino de observación de aves · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --salt:#F4F2EC;        /* fondo salina pálida */
+    --paper:#FBFAF5;        /* tarjetas */
+    --ink:#1C2A2C;          /* texto principal, marisma muy oscuro */
+    --marisma:#2C4A47;      /* estructura/encabezados */
+    --pinar:#5E6B4F;        /* verde pinar, etiquetas */
+    --flamingo:#D2735F;     /* acento coral (flamenco), uso contenido */
+    --flamingo-soft:#E7CcC4;
+    --salina:#EAD3CE;       /* rosa salina, franjas suaves */
+    --sand:#ECE6D6;         /* arena, cebra de tablas */
+    --line:#CEC8B7;         /* filete */
+    --line-soft:#E2DCCC;
+    --maxw:1000px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--salt);color:var(--ink);
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---------- tipografía ---------- */
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--marisma);line-height:1.12;letter-spacing:-.01em}
+  h2{font-size:clamp(1.7rem,3.4vw,2.5rem);margin:.2em 0 .35em}
+  h3{font-size:1.28rem;color:var(--ink);margin:1.9em 0 .5em;font-weight:600}
+  h4{font-size:1.05rem;color:var(--marisma);margin:1.4em 0 .4em}
+  p{margin:.7em 0}
+  a{color:var(--marisma);text-decoration-color:var(--line)}
+  strong{color:var(--ink);font-weight:600}
+  em{color:var(--pinar)}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:.74rem;font-weight:500;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--pinar)}
+
+  /* ---------- portada ---------- */
+  .cover{position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 82% 8%, rgba(210,115,95,.10), transparent 60%),
+      linear-gradient(180deg, var(--salina) 0%, #EFE3D8 38%, var(--salt) 100%);
+    border-bottom:1px solid var(--line)}
+  .cover .wrap{padding-top:64px;padding-bottom:54px}
+  .cover-horizon{position:absolute;left:0;right:0;bottom:0;height:38%;
+    background:linear-gradient(180deg, transparent, rgba(44,74,71,.05));
+    pointer-events:none}
+  .masthead-eyebrow{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:22px}
+  .glyph{width:30px;height:30px;flex:0 0 auto}
+  h1.title{font-size:clamp(2.5rem,6.4vw,4.4rem);font-weight:600;color:var(--marisma);
+    margin:0 0 .18em;letter-spacing:-.02em}
+  h1.title em{font-style:italic;color:var(--flamingo);font-weight:500}
+  .deck{font-size:clamp(1.05rem,2.1vw,1.32rem);max-width:36ch;color:var(--ink);
+    font-family:"Fraunces",serif;font-weight:400;line-height:1.34}
+  .ataglance{display:flex;gap:30px;flex-wrap:wrap;margin-top:30px;
+    font-family:"IBM Plex Mono",monospace}
+  .ataglance div{display:flex;flex-direction:column}
+  .ataglance .n{font-size:1.5rem;color:var(--flamingo);font-weight:600;line-height:1}
+  .ataglance .l{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pinar);margin-top:6px}
+
+  /* ficha de portada */
+  .meta{margin-top:38px;border-top:1px solid var(--line);padding-top:22px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px 30px}
+  .meta dt{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--pinar);margin-bottom:3px}
+  .meta dd{margin:0;font-size:.95rem;line-height:1.45}
+
+  /* ---------- índice lateral (firma: pestañas de guía de campo) ---------- */
+  .thumb-index{position:fixed;top:50%;right:18px;transform:translateY(-50%);z-index:40;
+    display:flex;flex-direction:column;gap:3px}
+  .thumb-index a{font-family:"IBM Plex Mono",monospace;font-size:.62rem;font-weight:500;
+    width:30px;height:24px;display:flex;align-items:center;justify-content:center;
+    color:var(--pinar);background:rgba(251,250,245,.7);border:1px solid var(--line-soft);
+    border-right:3px solid var(--line);border-radius:3px 0 0 3px;text-decoration:none;
+    transition:all .18s ease}
+  .thumb-index a:hover,.thumb-index a.active{color:#fff;background:var(--marisma);
+    border-right-color:var(--flamingo);width:34px}
+  @media(max-width:1180px){.thumb-index{display:none}}
+
+  /* ---------- secciones ---------- */
+  main section{padding:54px 0;border-bottom:1px solid var(--line-soft)}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:6px}
+  .sec-num{font-family:"IBM Plex Mono",monospace;font-size:.82rem;font-weight:600;
+    color:var(--flamingo);letter-spacing:.05em;padding-top:.3em}
+  .lead-in{font-size:1.07rem;color:var(--marisma)}
+
+  /* nota / cita */
+  .nota{background:var(--paper);border:1px solid var(--line-soft);border-left:3px solid var(--pinar);
+    border-radius:0 8px 8px 0;padding:16px 20px;margin:20px 0;font-size:.95rem}
+  .nota.accent{border-left-color:var(--flamingo)}
+  .nota .eyebrow{display:block;margin-bottom:6px}
+  blockquote{margin:18px 0;padding:14px 22px;border-left:3px solid var(--flamingo);
+    background:linear-gradient(90deg, rgba(234,211,206,.35), transparent);
+    font-family:"Fraunces",serif;font-size:1.12rem;color:var(--marisma);font-weight:500}
+
+  /* listas */
+  ul,ol{padding-left:1.25em}
+  li{margin:.32em 0}
+  ul.clean{list-style:none;padding-left:0}
+  ul.clean li{padding-left:1.4em;position:relative}
+  ul.clean li::before{content:"›";position:absolute;left:0;color:var(--flamingo);font-weight:700}
+
+  /* ---------- tablas ---------- */
+  .tbl-scroll{overflow-x:auto;margin:18px 0;border:1px solid var(--line-soft);border-radius:8px}
+  table{border-collapse:collapse;width:100%;font-size:.88rem;background:var(--paper)}
+  th,td{text-align:left;padding:10px 13px;vertical-align:top;border-bottom:1px solid var(--line-soft)}
+  thead th{background:var(--marisma);color:#F4F2EC;font-family:"IBM Plex Mono",monospace;
+    font-weight:500;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;position:sticky;top:0}
+  tbody tr:nth-child(even){background:var(--sand)}
+  tbody tr:hover{background:var(--flamingo-soft)}
+  td strong{color:var(--marisma)}
+  .mono{font-family:"IBM Plex Mono",monospace;font-size:.82em}
+
+  /* ---------- bloque de activos (copy en idioma de mercado) ---------- */
+  .asset{background:var(--paper);border:1px solid var(--line-soft);border-left:3px solid var(--flamingo);
+    border-radius:0 8px 8px 0;padding:18px 22px;margin:18px 0}
+  .asset.de{border-left-color:var(--marisma)}
+  .lang-tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:.66rem;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--flamingo);
+    padding:3px 9px;border-radius:20px;margin-bottom:10px}
+  .lang-tag.de{background:var(--marisma)}
+  .asset h4:first-of-type{margin-top:.2em}
+  .gloss{font-size:.86rem;color:var(--pinar);font-style:italic;margin:2px 0 12px}
+
+  /* tarjetas grid (vorteile/beneficios) */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+  .card{background:var(--paper);border:1px solid var(--line-soft);border-radius:8px;padding:15px 17px;font-size:.92rem}
+  .card .k{font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--flamingo);display:block;margin-bottom:5px}
+
+  /* índice en cuerpo */
+  .toc{columns:2;column-gap:36px;margin-top:10px}
+  .toc a{display:block;padding:7px 0;border-bottom:1px solid var(--line-soft);text-decoration:none;
+    color:var(--ink);font-size:.95rem;break-inside:avoid}
+  .toc a:hover{color:var(--flamingo)}
+  .toc .tn{font-family:"IBM Plex Mono",monospace;color:var(--pinar);font-size:.8rem;margin-right:10px}
+  @media(max-width:620px){.toc{columns:1}}
+
+  footer{padding:42px 0 70px;color:var(--pinar);font-size:.85rem}
+  footer .wrap{border-top:1px solid var(--line)}
+  footer p{margin-top:22px}
+
+  hr.feather{border:0;height:24px;margin:8px 0;
+    background:no-repeat center/22px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M3 21c6-1 12-7 16-15-2 7-7 12-14 13' fill='none' stroke='%23D2735F' stroke-width='1.3'/%3E%3C/svg%3E")}
+
+  :focus-visible{outline:2px solid var(--flamingo);outline-offset:2px;border-radius:2px}
+
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  @media print{
+    .thumb-index{display:none}body{background:#fff;font-size:11pt}
+    main section{padding:18px 0;page-break-inside:auto}
+    .cover{background:#fff}
+  }
+  @media(max-width:560px){
+    .wrap{padding:0 18px}body{font-size:16px}
+    .ataglance{gap:20px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== PORTADA ===================== -->
+<header class="cover" id="portada">
+  <div class="cover-horizon"></div>
+  <div class="wrap">
+    <div class="masthead-eyebrow">
+      <svg class="glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 15c5 0 8-2 11-6 2-3 5-5 9-5-1 4-3 6-6 7 2 0 3-1 5-2-2 4-6 6-11 6-4 0-7 1-9 3z" fill="none" stroke="#D2735F" stroke-width="1.2"/></svg>
+      <span class="eyebrow">Plan maestro · Campaña Google Ads · Generación de leads · 2026</span>
+    </div>
+    <h1 class="title">Rota, la costa que los <em>observadores de aves</em> olvidaron</h1>
+    <p class="deck">Posicionar Rota (Cádiz) como la base atlántica, premium y sin masificar de la provincia con más aves de Europa &mdash; para los mercados del Reino Unido y Alemania.</p>
+
+    <div class="ataglance">
+      <div><span class="n">~400</span><span class="l">especies en Cádiz</span></div>
+      <div><span class="n">3</span><span class="l">escenarios de observación</span></div>
+      <div><span class="n">Oct&ndash;Mar</span><span class="l">temporada baja = mejor época</span></div>
+      <div><span class="n">2</span><span class="l">mercados · UK &amp; DE</span></div>
+    </div>
+
+    <dl class="meta">
+      <div><dt>Preparado para</dt><dd>Agentes turísticos de Rota y hoteles colaboradores</dd></div>
+      <div><dt>Objetivo</dt><dd>Generar leads cualificados, suscriptores de email y reservas hoteleras en temporada baja desde observadores de aves del Reino Unido y Alemania</dd></div>
+      <div><dt>Enfoque</dt><dd>Calidad sobre volumen. Experiencias sostenibles, lideradas por la conservación y auténticas. Foco en temporada baja (octubre&ndash;marzo, más semanas puente en abril)</dd></div>
+      <div><dt>Divisas</dt><dd>GBP para la campaña del Reino Unido · EUR para la campaña de Alemania</dd></div>
+    </dl>
+  </div>
+</header>
+
+<!-- índice lateral (pestañas tipo guía de campo) -->
+<nav class="thumb-index" aria-label="Índice de secciones">
+  <a href="#sec-1">01</a><a href="#sec-2">02</a><a href="#sec-3">03</a><a href="#sec-4">04</a>
+  <a href="#sec-5">05</a><a href="#sec-6">06</a><a href="#sec-7">07</a><a href="#sec-8">08</a>
+  <a href="#sec-9">09</a><a href="#sec-10">10</a><a href="#sec-11">11</a><a href="#sec-12">12</a>
+  <a href="#sec-13">13</a><a href="#sec-14">14</a><a href="#sec-15">15</a>
+</nav>
+
+<main class="wrap">
+
+<!-- nota editorial sobre idiomas -->
+<section id="nota-idiomas" style="border-bottom:1px solid var(--line)">
+  <div class="nota accent">
+    <span class="eyebrow">Nota editorial sobre los idiomas</span>
+    Este plan maestro está redactado en <strong>español</strong> para su revisión y aprobación por parte del cliente. Ahora bien, las <strong>piezas creativas listas para publicar</strong> &mdash; páginas de destino, anuncios, palabras clave, correos, narración y subtítulos &mdash; se conservan en el <strong>idioma de su mercado</strong> (inglés para el Reino Unido, alemán para Alemania), porque traducirlas al español las inutilizaría como activos de campaña. Estos bloques aparecen marcados con una etiqueta de idioma (<span class="lang-tag" style="margin:0">EN · UK</span> / <span class="lang-tag de" style="margin:0">DE · ALEMANIA</span>) y, cuando ayuda, con una breve glosa en español.
+  </div>
+  <div class="nota">
+    <span class="eyebrow">Supuestos de planificación (declarados de inicio)</span>
+    <ul class="clean" style="margin:.4em 0 0">
+      <li>Los presupuestos se muestran en <strong>GBP (Reino Unido)</strong> y <strong>EUR (Alemania)</strong>, porque Google Ads factura en la divisa de la cuenta y así coinciden con el comprador de cada mercado.</li>
+      <li>Las cifras de volumen de búsqueda y CPC son <strong>estimaciones de planificación</strong> para un nicho de viajes/ornitología; deben validarse en el Planificador de palabras clave con la cuenta activa. La observación de aves es de bajo volumen pero alta intención: planificamos para <strong>precisión, no escala</strong>.</li>
+      <li><strong>Realidad de la plataforma en 2026:</strong> los anuncios Discovery y las campañas de Vídeo de Acción se han integrado por completo en <strong>Demand Gen</strong>, y las campañas de <strong>Display independientes se están migrando a Demand Gen desde junio de 2026</strong>. Donde el encargo pide «remarketing de Display», entregamos los activos pero los canalizamos por Demand Gen / públicos de remarketing (ver §10).</li>
+      <li>La geografía es real y verificada: Rota está en el <strong>extremo noroeste de la bahía de Cádiz</strong>, sobre los aluviones del <strong>Río Salado</strong>, orlada de <strong>pinar, matorral y marisma</strong>. Al norte: <strong>Costa Ballena → Chipiona → Sanlúcar de Barrameda</strong> (puerta de <strong>Doñana</strong> y las salinas de <strong>Bonanza</strong>); al sur/este, el <strong>Parque Natural Bahía de Cádiz</strong>; a ~1,5 h al sur, el cuello de botella de rapaces del <strong>Estrecho de Gibraltar</strong>. La provincia de Cádiz registra <strong>~400 especies</strong>.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- índice en cuerpo -->
+<section id="indice">
+  <div class="sec-head"><span class="eyebrow">Contenido</span></div>
+  <h2>Índice del plan</h2>
+  <nav class="toc" aria-label="Índice de contenidos">
+    <a href="#sec-1"><span class="tn">01</span>Estrategia de marketing</a>
+    <a href="#sec-2"><span class="tn">02</span>Buyer personas</a>
+    <a href="#sec-3"><span class="tn">03</span>Páginas de destino (UK + DE)</a>
+    <a href="#sec-4"><span class="tn">04</span>Lead magnet · la guía descargable</a>
+    <a href="#sec-5"><span class="tn">05</span>Vídeo promocional · guion documental</a>
+    <a href="#sec-6"><span class="tn">06</span>Campaña de Google Ads</a>
+    <a href="#sec-7"><span class="tn">07</span>Investigación de palabras clave</a>
+    <a href="#sec-8"><span class="tn">08</span>Anuncios de búsqueda responsivos</a>
+    <a href="#sec-9"><span class="tn">09</span>Activos de Performance Max</a>
+    <a href="#sec-10"><span class="tn">10</span>Campaña de Display</a>
+    <a href="#sec-11"><span class="tn">11</span>Campaña de YouTube</a>
+    <a href="#sec-12"><span class="tn">12</span>Estrategia de alianzas hoteleras</a>
+    <a href="#sec-13"><span class="tn">13</span>Estrategia SEO</a>
+    <a href="#sec-14"><span class="tn">14</span>Email marketing</a>
+    <a href="#sec-15"><span class="tn">15</span>KPIs, referencias y calendario</a>
+  </nav>
+</section>
+
+<!-- ===================== 1 ===================== -->
+<section id="sec-1">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 01</span></div>
+  <h2>Estrategia de marketing</h2>
+
+  <h3>1.1 La idea central</h3>
+  <p>Los observadores de aves describen una y otra vez la bahía de Cádiz como un lugar <em>«eclipsado por la cercana Doñana»</em> y <em>«desatendido por los pajareros que la visitan»</em>&mdash; y, sin embargo, alberga cifras excepcionales de limícolas invernantes, águilas pescadoras, flamencos, gaviotas y charranes. <strong>Ese olvido es la oportunidad.</strong> Rota es el único pueblo costero cómodo, caminable y con todos los servicios situado <em>dentro</em> de esta riqueza poco visitada y a distancia de excursión de tres escenarios de observación de talla mundial a la vez. Vendemos <strong>acceso + comodidad + ausencia de masas</strong>, no una sola reserva.</p>
+
+  <h3>1.2 Por qué viajaría a Rota un observador británico</h3>
+  <ul class="clean">
+    <li><strong>Escapar del gris.</strong> El invierno británico es frío, oscuro y saturado de limícolas conocidas. Rota ofrece <strong>inviernos atlánticos suaves y soleados</strong> con las <em>mismas</em> limícolas que adora el pajarero británico <strong>más</strong> especialidades mediterráneas, ibéricas y africanas que no consigue en casa.</li>
+    <li><strong>Rica en «lifers», ideal para listas.</strong> El listado del Paleártico Occidental es una gran afición británica. A una o dos horas de Rota se pueden sumar <strong>gaviota de Audouin, gaviota picofina, vencejo moro (colonia de Chipiona), rabilargo ibérico, ibis eremita (reintroducido), especialidades ibéricas</strong> y la <strong>migración de rapaces del Estrecho de Gibraltar</strong> &mdash; posiblemente el mayor espectáculo de rapaces del Paleártico Occidental.</li>
+    <li><strong>Espectáculo de lista de deseos, logística suave.</strong> Los ríos de rapaces de Tarifa están en toda «bucket list»; Rota permite <em>vivirlos en una excursión de un día y dormir en un pueblo de verdad</em>, con tapas y jerez, en lugar de alojarse en una pequeña aldea de observación.</li>
+    <li><strong>Comodidad familiar.</strong> En la costa se entiende ampliamente el inglés; la presencia naval estadounidense hace del pueblo un lugar abierto y fácil para quien viaja por primera vez.</li>
+  </ul>
+
+  <h3>1.3 Por qué viajaría a Rota un observador alemán <em>(Warum deutsche Vogelbeobachter nach Rota reisen)</em></h3>
+  <ul class="clean">
+    <li><strong>El <em>Vogelzug</em> como acontecimiento.</strong> La cultura alemana de ornitología y fotografía (NABU, una gran comunidad de <em>Naturfotografie</em>) venera la migración. El Estrecho es el embudo icónico del <em>Vogelzug</em> del Paleártico Occidental.</li>
+    <li><strong>Credibilidad de <em>Naturschutz</em>.</strong> El viajero alemán premia la conservación genuina. La restauración de las salinas de la bahía de Cádiz, la reintroducción del ibis eremita y la ética de bajo impacto, temporada baja y grupos reducidos encajan con los valores alemanes de <em>nachhaltiger Tourismus</em>.</li>
+    <li><strong>Luz y acceso para fotografía.</strong> Las salinas permiten fotografiar limícolas usando el coche como hide; la luz invernal, suave y baja, es ideal. El fotógrafo de naturaleza alemán valora <strong>sujetos previsibles + acceso ético</strong>.</li>
+    <li><strong>Relación calidad-precio e infraestructura en temporada baja.</strong> Los alemanes viajan mucho a España y valoran la buena infraestructura y el precio fuera de temporada &mdash; justo la propuesta de Rota.</li>
+  </ul>
+
+  <h3>1.4 Qué diferencia a Rota &mdash; posicionamiento competitivo</h3>
+  <div class="tbl-scroll">
+  <table>
+    <thead><tr><th>Destino</th><th>Su fortaleza</th><th>La ventaja de Rota</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Doñana</strong></td><td>Humedal de fama mundial, icónico</td><td>El núcleo de Doñana exige <strong>permisos / 4×4 guiado</strong> y el alojamiento se concentra en El Rocío/Matalascañas. Rota permite pajarear <strong>el borde de Doñana</strong> (salinas de Bonanza, barco de Sanlúcar) como <strong>excursión de un día</strong> alojándose en un pueblo real y con servicios. <em>«Doñana sin permisos ni masas.»</em></td></tr>
+      <tr><td><strong>Extremadura</strong></td><td>Aves esteparias, rapaces, dehesa</td><td>Interior, sin costa, durísima en verano y muy dispersa. Rota suma <strong>costa + humedales + migración del Estrecho + confort de playa</strong> en una base compacta.</td></tr>
+      <tr><td><strong>Norfolk (RU)</strong></td><td>El condado pajarero por excelencia del RU</td><td>Frío, gris, caro y con las <em>mismas</em> limícolas del PO que el británico ya tiene. Rota = <strong>«Norfolk al sol»</strong> + flamencos + especialidades ibéricas/africanas + migración de rapaces.</td></tr>
+      <tr><td><strong>Mallorca</strong></td><td>S'Albufera, observación isleña fácil</td><td>El catálogo insular es limitado; muy turístico; solo mediterráneo. Rota = <strong>diversidad continental (~400 sp.)</strong>, especies atlánticas <em>y</em> mediterráneas, el Estrecho y precios más bajos en temporada baja.</td></tr>
+      <tr><td><strong>Algarve (PT)</strong></td><td>Ria Formosa, Castro Marim, Sagres</td><td>Potente, pero <strong>saturado de pajareros británicos</strong>. Rota ofrece el <strong>mayor cuello de botella del Estrecho</strong>, las <strong>salinas de la bahía de Cádiz</strong>, la <strong>cercanía de Doñana</strong> y la gastronomía andaluza &mdash; con muchas menos aglomeraciones.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>1.5 Propuesta única de venta (USP)</h3>
+  <blockquote><strong>USP principal:</strong> «Rota: la base atlántica sin masificar de la provincia con más aves de Europa. Doñana al norte, los ríos de rapaces del Estrecho al sur, salinas, pinares y flamencos en la puerta de casa &mdash; sin los permisos ni las multitudes.»</blockquote>
+  <p><strong>Eslogan corto (UK):</strong> <span class="asset" style="display:inline-block;padding:4px 12px;margin:4px 0;border-radius:6px">«Sun, salt-pans and serious birds. No crowds.»</span></p>
+  <p><strong>Eslogan corto (DE):</strong> <span class="asset de" style="display:inline-block;padding:4px 12px;margin:4px 0;border-radius:6px">«Atlantik, Salinen und der große Vogelzug &mdash; abseits der Touristenströme.»</span></p>
+</section>
+
+<!-- ===================== 2 ===================== -->
+<section id="sec-2">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 02</span></div>
+  <h2>Buyer personas</h2>
+  <p class="lead-in">Dos personas principales por mercado (un viajero «listero/lifer» y un «fotógrafo de naturaleza»), con la dominante detallada primero. El equipamiento y el comportamiento de búsqueda se basan en cómo actúan realmente estas comunidades.</p>
+
+  <h3>2.1 Reino Unido &mdash; Persona A: «David, el listero del Paleártico» <em>(principal)</em></h3>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Edad</th><td>52&ndash;68, a menudo recién jubilado o semijubilado</td></tr>
+    <tr><th>Ingresos</th><td>45.000&ndash;90.000 £ por hogar; hipoteca pagada; alto gasto discrecional en viajes de afición</td></tr>
+    <tr><th>Hábitos de viaje</th><td>2&ndash;4 viajes ornitológicos al año, a menudo sep&ndash;mar para huir del invierno; reserva con 2&ndash;4 meses de antelación; vuela Stansted/Gatwick/Manchester→Jerez/Sevilla/Gibraltar; mezcla de viaje independiente y grupo reducido</td></tr>
+    <tr><th>Experiencia</th><td>Avanzada; nivel RSPB/registrador de condado; mantiene una <em>life list</em> del Paleártico Occidental</td></tr>
+    <tr><th>Equipo</th><td>Prismáticos Swarovski/Zeiss/Leica + telescopio, réflex o bridge, BirdNET/Merlin, usuario de eBird</td></tr>
+    <tr><th>Motivaciones</th><td>Nuevos lifers (Audouin, vencejo moro, ibis eremita), la migración del Estrecho, sol invernal, fotografiar flamencos/limícolas, lugares <em>sin masas</em></td></tr>
+    <tr><th>Búsquedas típicas</th><td class="mono">«winter birding southern Spain», «Strait of Gibraltar raptor migration trip», «Audouin's Gull where to see», «Cádiz birding self-drive», «best birdwatching Andalusia November»</td></tr>
+    <tr><th>Preocupaciones</th><td>Acceso/permisos, contratar un guía compatible con telescopio, alquiler de coche, masificación, movilidad por las pistas, valor en temporada baja</td></tr>
+    <tr><th>Comportamiento de reserva</th><td>Investiga mucho, descarga guías, se suscribe a newsletters, reserva hotel + coche directo; responde a la <strong>credibilidad experta</strong> y a <strong>listas concretas de especies</strong></td></tr>
+  </tbody></table></div>
+
+  <h3>2.2 Reino Unido &mdash; Persona B: «Sarah, la fotógrafa de naturaleza» <em>(secundaria)</em></h3>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Edad / Ingresos</th><td>35&ndash;55 · 40.000&ndash;80.000 £; invierte fuerte en óptica</td></tr>
+    <tr><th>Hábitos de viaje</th><td>1&ndash;3 viajes fotográficos/año; persigue la luz y la temporada baja; paga por hides/acceso guiado</td></tr>
+    <tr><th>Experiencia / equipo</th><td>Intermedia&ndash;avanzada; mirrorless + 100&ndash;500/600 mm, activa en Instagram</td></tr>
+    <tr><th>Motivaciones</th><td>Flamencos a la hora dorada, limícolas a ras desde el coche, acceso cercano y ético</td></tr>
+    <tr><th>Búsquedas</th><td class="mono">«flamingo photography Spain», «bird hide Cádiz», «wader photography salinas», «wildlife photography workshop Andalusia»</td></tr>
+    <tr><th>Preocupaciones</th><td>Molestias éticas, permisos de acceso, meteorología, acercarse lo suficiente</td></tr>
+    <tr><th>Reserva</th><td>Reserva experiencias + hoteles aptos para foto; influida por la <strong>calidad del porfolio</strong> y los <strong>fotógrafos locales con nombre</strong></td></tr>
+  </tbody></table></div>
+
+  <h3>2.3 Alemania &mdash; Persona A: «Thomas y Birgit, das Naturreise-Paar» <em>(principal)</em></h3>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Edad</th><td>50&ndash;67</td></tr>
+    <tr><th>Ingresos</th><td>55.000&ndash;110.000 € por hogar; acomodados, afines a la conservación</td></tr>
+    <tr><th>Hábitos de viaje</th><td>1&ndash;2 viajes largos de naturaleza/año (10&ndash;14 días), prefieren temporada baja; reservan con 3&ndash;6 meses; vuelan a Sevilla/Jerez/Málaga; autocaravana/coche de alquiler, autoconducción</td></tr>
+    <tr><th>Experiencia</th><td>Avanzada; afines a NABU/ornitología; llevan lista de especies</td></tr>
+    <tr><th>Equipo</th><td>Óptica Swarovski/Zeiss + telescopio, cámara de sistema, ornitho.de / NaturaList</td></tr>
+    <tr><th>Motivaciones</th><td>El <em>Vogelzug</em> del Estrecho, flamencos y limícolas, vivir la conservación, calma y autenticidad, buena relación calidad-precio en temporada baja</td></tr>
+    <tr><th>Búsquedas típicas</th><td class="mono">«Vogelbeobachtung Andalusien», «Vogelzug Straße von Gibraltar Reise», «Flamingos fotografieren Spanien», «Birding Cádiz Winter», «Andalusien Naturreise Nebensaison»</td></tr>
+    <tr><th>Preocupaciones</th><td>Información fiable, sostenibilidad, acceso a las zonas, guías en alemán/inglés, seguridad de planificación</td></tr>
+    <tr><th>Reserva</th><td>Investiga a fondo, descarga guías PDF, se suscribe a newsletters; convencen la <strong>sustancia, la seriedad y la credibilidad ecológica</strong></td></tr>
+  </tbody></table></div>
+
+  <h3>2.4 Alemania &mdash; Persona B: «Jonas, der Naturfotograf» <em>(secundaria)</em></h3>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Edad / Ingresos</th><td>30&ndash;50 · 45.000&ndash;85.000 €; invierte en equipo</td></tr>
+    <tr><th>Hábitos de viaje</th><td>Viajes fotográficos selectivos, guiados por la temporada baja/la luz; dispuesto a pagar por hides/guía</td></tr>
+    <tr><th>Equipo</th><td>Mirrorless + 500/600 mm, activo en Instagram/foros de naturaleza</td></tr>
+    <tr><th>Motivaciones</th><td>Flamencos a primera luz, limícolas desde el hide-coche, acceso ético</td></tr>
+    <tr><th>Búsquedas</th><td class="mono">«Flamingos fotografieren Andalusien», «Vogel-Hide Cádiz», «Naturfotografie Reise Spanien Winter»</td></tr>
+    <tr><th>Preocupaciones</th><td>Ausencia de molestias, permisos, meteorología, accesibilidad</td></tr>
+    <tr><th>Reserva</th><td>Reserva experiencias fotográficas + hoteles aptos; reacciona a la <strong>calidad de imagen</strong> y a los <strong>nombres de fotógrafos locales</strong></td></tr>
+  </tbody></table></div>
+</section>
+
+<!-- ===================== 3 ===================== -->
+<section id="sec-3">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 03</span></div>
+  <h2>Páginas de destino (listas para Google Sites)</h2>
+  <p class="lead-in">Dos páginas: <strong>inglés</strong> (UK) y <strong>alemán</strong> (DE) &mdash; adaptadas, no traducidas. Cada una sigue exactamente la estructura del encargo, con textos listos para pegar en las secciones de Google Sites. Sustituya los marcadores <span class="mono">[ ]</span> por los activos finales. El copy se conserva en el idioma del mercado.</p>
+
+  <h3>3.1 Página de destino en inglés &mdash; <span class="mono">/uk-birding</span></h3>
+  <div class="asset">
+    <span class="lang-tag">EN · UK</span>
+    <p class="gloss">Glosa: titular «El secreto pajarero mejor guardado de Andalucía es un pueblo de playa llamado Rota»; subtítulo sobre flamencos, la mayor migración de rapaces del mundo al sur y Doñana al norte, casi sin otros observadores; ven en temporada tranquila, cuando las aves están mejor y los precios más bajos.</p>
+    <p><strong>SEO title:</strong> Birdwatching in Rota, Spain | Andalusia's Uncrowded Atlantic Birding Base<br>
+    <strong>Meta description:</strong> Discover Rota on Spain's Costa de la Luz &mdash; flamingos, the Strait of Gibraltar raptor migration and Doñana's edge, minus the crowds. Free birding guide + off-season hotel deals.</p>
+    <p><strong>Headline:</strong> <em>Andalusia's Best-Kept Birding Secret Is a Beach Town Called Rota</em><br>
+    <strong>Subheadline:</strong> Flamingos on the salt-pans, the world's greatest raptor migration an hour south, Doñana's wetlands to the north &mdash; and almost no other birders in sight. Come in the quiet season, when the birds are best and the prices are lowest.</p>
+    <p><strong>Hero section:</strong> Full-width image of flamingos on the salinas at golden hour with a birder silhouetted, scope on tripod. Overlay CTA button: <strong>"Get the Free Rota Birding Guide →"</strong>. Sub-line: <em>"40-page PDF · top species, best sites, when to come, where to stay."</em></p>
+    <p><strong>Benefits (icon row):</strong></p>
+    <ul>
+      <li><strong>Three world-class birding theatres, one comfortable base</strong> &mdash; Bay of Cádiz salinas on your doorstep, Doñana's edge 30 min north, the Strait of Gibraltar ~90 min south.</li>
+      <li><strong>~400 species recorded in the province</strong> &mdash; waders, flamingos, raptors-on-migration, Iberian &amp; Atlantic specialities.</li>
+      <li><strong>Best in the off-season</strong> &mdash; fewer people, lower prices, peak bird activity, soft photographic light.</li>
+      <li><strong>Lifers you can't get at home</strong> &mdash; Audouin's Gull, Little Swift, Azure-winged Magpie, Northern Bald Ibis and more.</li>
+      <li><strong>Easy logistics</strong> &mdash; walkable town, tapas &amp; sherry, English widely spoken, no permits to bird your local patches.</li>
+    </ul>
+    <p><strong>Bird species (taster):</strong> Greater Flamingo · Osprey (wintering) · Audouin's &amp; Slender-billed Gull · Caspian Tern · Spoonbill · Black-winged Stilt &amp; Avocet · Bar-tailed Godwit, Sanderling, Kentish Plover &amp; other waders · Booted/Short-toed Eagles, Black Kite, Egyptian &amp; Griffon Vultures, Honey Buzzard (on passage) · Little Swift · Azure-winged Magpie · Northern Bald Ibis · Bluethroat · Glossy Ibis · Black Stork.</p>
+    <p><strong>Seasonality strip:</strong> Autumn passage (Aug&ndash;Oct): raptor rivers over the Strait + arriving waders. · Winter (Nov&ndash;Feb): huge wader flocks, wintering Osprey, flamingos, wildfowl, mild sun &mdash; <em>the off-season sweet spot.</em> · Spring passage (Feb&ndash;May): north-bound raptors, breeding migrants arriving.</p>
+    <p><strong>Map pins:</strong> Río Salado de Rota estuary · Pinar / Costa Ballena coast · Bahía de Cádiz Natural Park (Los Toruños &amp; salinas) · Bonanza salinas (Sanlúcar) · Chipiona (Little Swift colony) · Laguna de Medina · Strait of Gibraltar / Tarifa (day-trip pin).</p>
+    <p><strong>Accommodation:</strong> "Stay with our partner hotels &mdash; birder-friendly, early breakfasts, packed lunches, optic-safe storage and <strong>exclusive off-season rates</strong> for guide readers." [3 partner cards].<br>
+    <strong>Testimonials:</strong> [3 short quotes from real past guests/guides once collected. Placeholder until gathered; do not invent.]</p>
+    <p><strong>CTAs:</strong> primary <strong>"Download the Free Birding Guide"</strong>; secondary <strong>"See Off-Season Hotel Deals"</strong>; tertiary <strong>"Watch the Rota Birding Film"</strong>.<br>
+    <strong>Lead form (gated PDF):</strong> First name, Email, consent checkbox ("Send me Rota birding tips &amp; off-season offers"). Button "Send me the guide". Privacy line + double opt-in.</p>
+    <p><strong>FAQ:</strong> <em>When is the best time?</em> October&ndash;March: peak waders, wintering Osprey &amp; flamingos, passage raptors, off-season prices. · <em>Do I need a car?</em> Recommended &mdash; it doubles as a hide. · <em>Permits?</em> Not for local salinas/coast/pinewoods; core Doñana 4×4 is guided/permit-based &mdash; we arrange it. · <em>Local guide?</em> Yes, vetted experts. · <em>English spoken?</em> Widely. · <em>Good for photographers?</em> Excellent &mdash; drive-up waders, golden-hour flamingos.</p>
+    <p><strong>Schema (JSON-LD):</strong> <span class="mono">TouristDestination</span>, <span class="mono">FAQPage</span>, <span class="mono">TouristAttraction</span>, <span class="mono">VideoObject</span>, <span class="mono">Organization</span>, <span class="mono">BreadcrumbList</span>. · <strong>Image suggestions:</strong> flamingos at golden hour; birder + scope on a salina track; raptor kettle over the Strait; Audouin's Gull close-up; Little Swift over Chipiona; pinewood with Azure-winged Magpie; hotel terrace at breakfast; map of the three theatres.</p>
+  </div>
+
+  <h3>3.2 Página de destino en alemán &mdash; <span class="mono">/de-vogelbeobachtung</span></h3>
+  <div class="asset de">
+    <span class="lang-tag de">DE · ALEMANIA</span>
+    <p class="gloss">Glosa: titular «El secreto pajarero mejor guardado de Andalucía se llama Rota»; subtítulo sobre flamencos, la mayor migración de rapaces de Europa a una hora al sur y Doñana al norte, casi sin observadores; ven en la temporada tranquila: mejor actividad, mejores precios.</p>
+    <p><strong>SEO-Title:</strong> Vogelbeobachtung in Rota, Spanien | Andalusiens ruhiges Atlantik-Refugium<br>
+    <strong>Meta-Description:</strong> Rota an der Costa de la Luz: Flamingos, der große Vogelzug über die Straße von Gibraltar und Doñana vor der Tür &ndash; ganz ohne Touristenmassen. Kostenloser Vogel-Guide + Nebensaison-Angebote.</p>
+    <p><strong>Headline:</strong> <em>Andalusiens bestgehütetes Vogel-Geheimnis heißt Rota</em><br>
+    <strong>Subheadline:</strong> Flamingos auf den Salinen, der größte Greifvogelzug Europas eine Stunde südlich, Doñana im Norden &ndash; und kaum andere Beobachter weit und breit. Kommen Sie in der ruhigen Saison: beste Vogelaktivität, beste Preise.</p>
+    <p><strong>Hero:</strong> Flamingos auf der Salina im Morgenlicht, Beobachter mit Spektiv. CTA-Button: <strong>„Kostenlosen Rota-Vogel-Guide sichern →"</strong>. Unterzeile: <em>„40-seitiges PDF · Arten, beste Gebiete, Reisezeit, Unterkünfte."</em></p>
+    <p><strong>Vorteile (Icon-Reihe):</strong></p>
+    <ul>
+      <li><strong>Drei Weltklasse-Vogelregionen, ein bequemes Basislager</strong> &ndash; Salinen der Bahía de Cádiz direkt vor der Tür, Doñana 30 Min. nördlich, Straße von Gibraltar ~90 Min. südlich.</li>
+      <li><strong>~400 Arten in der Provinz</strong> &ndash; Limikolen, Flamingos, Zugvögel, iberische &amp; atlantische Spezialitäten.</li>
+      <li><strong>Am besten in der Nebensaison</strong> &ndash; weniger Menschen, günstigere Preise, höchste Vogelaktivität, weiches Fotolicht.</li>
+      <li><strong>Arten, die es zu Hause nicht gibt</strong> &ndash; Korallenmöwe, Haussegler, Blauelster, Waldrapp u.v.m.</li>
+      <li><strong>Einfache Logistik</strong> &ndash; fußläufiger Ort, Tapas &amp; Sherry, gute Verständigung, keine Genehmigung für die lokalen Gebiete.</li>
+    </ul>
+    <p><strong>Vogelarten (Auszug):</strong> Rosaflamingo · Fischadler (Überwinterer) · Korallen- &amp; Dünnschnabelmöwe · Raubseeschwalbe · Löffler · Stelzenläufer &amp; Säbelschnäbler · Pfuhlschnepfe, Sanderling, Seeregenpfeifer u.a. Limikolen · Zwerg-/Schlangenadler, Schwarzmilan, Schmutz- &amp; Gänsegeier, Wespenbussard (Zug) · Haussegler · Blauelster · Waldrapp · Blaukehlchen · Sichler · Schwarzstorch.</p>
+    <p><strong>Saison-Leiste:</strong> Herbstzug (Aug&ndash;Okt): Greifvogelzug über die Meerenge + ankommende Limikolen. · Winter (Nov&ndash;Feb): riesige Limikolen-Trupps, überwinternder Fischadler, Flamingos, milde Sonne &ndash; <em>die Nebensaison-Bestzeit.</em> · Frühjahrszug (Feb&ndash;Mai): nordwärts ziehende Greife, ankommende Brutvögel.</p>
+    <p><strong>Karten-Pins:</strong> Mündung des Río Salado · Pinar / Küste Costa Ballena · Naturpark Bahía de Cádiz (Los Toruños &amp; Salinen) · Salinen von Bonanza (Sanlúcar) · Chipiona (Haussegler-Kolonie) · Laguna de Medina · Straße von Gibraltar / Tarifa (Tagesausflug).</p>
+    <p><strong>Unterkünfte:</strong> „Übernachten Sie bei unseren Partnerhotels &ndash; vogelfreundlich, frühes Frühstück, Lunchpakete, sichere Optik-Aufbewahrung und <strong>exklusive Nebensaison-Preise</strong> für Guide-Leser." [3 Partner-Karten].<br>
+    <strong>Testimonials:</strong> [3 echte Kurzzitate von Gästen/Guides, sobald gesammelt &ndash; nicht erfinden.]</p>
+    <p><strong>CTA-Buttons:</strong> primär <strong>„Kostenlosen Vogel-Guide herunterladen"</strong>; sekundär <strong>„Nebensaison-Angebote ansehen"</strong>; tertiär <strong>„Den Rota-Vogelfilm ansehen"</strong>.<br>
+    <strong>Lead-Formular:</strong> Vorname, E-Mail, Einwilligung („Schicken Sie mir Rota-Vogeltipps &amp; Nebensaison-Angebote"). Button „Guide zusenden". Datenschutzhinweis + Double-Opt-in.</p>
+    <p><strong>FAQ:</strong> <em>Beste Reisezeit?</em> Oktober&ndash;März. · <em>Mietwagen?</em> Empfohlen &ndash; das Auto dient als Ansitz. · <em>Genehmigungen?</em> Nicht für lokale Gebiete; Doñana-Kern (4×4) organisieren wir. · <em>Guides?</em> Ja, geprüft. · <em>Für Fotografen?</em> Hervorragend.</p>
+    <p><strong>Schema:</strong> <span class="mono">TouristDestination</span>, <span class="mono">FAQPage</span>, <span class="mono">TouristAttraction</span>, <span class="mono">VideoObject</span>, <span class="mono">Organization</span>, <span class="mono">BreadcrumbList</span>.</p>
+  </div>
+</section>
+
+<!-- ===================== 4 ===================== -->
+<section id="sec-4">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 04</span></div>
+  <h2>Lead magnet &mdash; la guía descargable (el PDF protegido)</h2>
+  <p class="lead-in">Se entrega tras enviar <strong>nombre + email</strong>. A continuación, el contenido íntegro de las ediciones <strong>inglesa</strong> y <strong>alemana</strong>, conservado en su idioma. Diséñese como un PDF de ~40 páginas, con una especie/lugar por doble página, fotografía grande y un tono limpio orientado a la conservación. Este mismo contenido puede alimentar el clúster de blog para SEO (ver §13).</p>
+
+  <h3>4.1 Edición en inglés &mdash; <em>"Rota: Andalusia's Undiscovered Birding Coast"</em></h3>
+  <div class="asset">
+    <span class="lang-tag">EN · UK</span>
+    <p><strong>Introduction to Rota.</strong> Rota sits on the north-west tip of the Bay of Cádiz, on Spain's Atlantic Costa de la Luz, built on the alluvium of the Río Salado and fringed by umbrella-pine forest, scrub and salt-marsh. It is a real, working Andalusian beach town &mdash; walkable, full of tapas bars and sherry, easy to reach via Jerez, Seville or Gibraltar airports &mdash; and it happens to sit inside one of the richest birding provinces on Earth (~400 species recorded in Cádiz).</p>
+    <p><strong>Why Rota is unique for birdwatching.</strong> Most birders rush past the Bay of Cádiz to famous Doñana &mdash; which is exactly why the bay's salinas and marshes, exceptional for wintering waders, Osprey and flamingos, stay quiet. From Rota you can bird <strong>three theatres in one trip</strong>: the <strong>Bahía de Cádiz salinas</strong> on your doorstep, <strong>Doñana's edge</strong> (Bonanza, the Sanlúcar boat) 30 minutes north, and the <strong>Strait of Gibraltar</strong> raptor bottleneck ~90 minutes south &mdash; then sleep in a comfortable town, not a field.</p>
+    <p><strong>Top species for UK &amp; German birders</strong></p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>#</th><th>Species</th><th>Photo suggestion</th><th>Presence</th><th>Season</th><th>Best locations</th><th>Conservation</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Greater Flamingo</strong></td><td>Pink flock reflected on a salina at golden hour</td><td>Resident + dispersive</td><td>Nov&ndash;Mar</td><td>Bahía de Cádiz salinas; Bonanza</td><td>Sensitive at roosts &mdash; keep distance</td></tr>
+        <tr><td>2</td><td><strong>Osprey</strong></td><td>Bird on a salt-pan post with a mullet</td><td>Wintering</td><td>Oct&ndash;Mar</td><td>Bay salinas, river mouths</td><td>Recovering WP population; no nest approach</td></tr>
+        <tr><td>3</td><td><strong>Audouin's Gull</strong></td><td>Close portrait, red bill, on the strand</td><td>Resident/dispersive</td><td>All year, easier Apr&ndash;Sep</td><td>Rota seafront, Costa Ballena, harbours</td><td>Recovered but colony-sensitive</td></tr>
+        <tr><td>4</td><td><strong>Northern Bald Ibis</strong></td><td>Group foraging on coastal grassland</td><td>Reintroduced</td><td>All year (local intel)</td><td>Reintroduction zone (Barbate/La Janda)</td><td>Critically endangered &mdash; never disturb</td></tr>
+        <tr><td>5</td><td><strong>Eurasian Spoonbill</strong></td><td>Sweeping bill in shallow water</td><td>Passage + winter</td><td>Sep&ndash;Apr</td><td>Salinas, Los Toruños, Bonanza</td><td>Marsh-dependent</td></tr>
+        <tr><td>6</td><td><strong>Black-winged Stilt &amp; Avocet</strong></td><td>Stilt reflected in flight</td><td>Resident + passage</td><td>Mar&ndash;Sep / all year</td><td>Working salinas</td><td>Indicators of healthy salt-pans</td></tr>
+        <tr><td>7</td><td><strong>Wader assemblage</strong> (godwit, sanderling, dunlin, plovers)</td><td>Mixed flock on the tideline</td><td>Passage + winter, big numbers</td><td>Sep&ndash;Mar</td><td>Bay intertidal flats; rising tide</td><td>Kentish Plover beach-nests &mdash; respect signage</td></tr>
+        <tr><td>8</td><td><strong>Slender-billed Gull</strong></td><td>Pale, long-necked gull on a pan</td><td>Resident/dispersive</td><td>All year</td><td>Bay of Cádiz &amp; Bonanza salinas</td><td>Localised salina habitat</td></tr>
+        <tr><td>9</td><td><strong>Caspian / Sandwich / Little Tern</strong></td><td>Caspian's carrot bill diving</td><td>Breed/pass; Caspian autumn&ndash;winter</td><td>Aug&ndash;Mar</td><td>Salinas, river mouths, beaches</td><td>Little Tern ground-nests &mdash; keep clear</td></tr>
+        <tr><td>10</td><td><strong>Little Swift</strong></td><td>Tight flock at colony, square tail</td><td>Resident colony</td><td>Best Apr&ndash;Sep</td><td><strong>Chipiona</strong> (largest Spanish colony)</td><td>WP rarity &mdash; view from public areas only</td></tr>
+        <tr><td>11</td><td><strong>Azure-winged Magpie</strong></td><td>Blue wings against pine green</td><td>Resident (Iberian endemic)</td><td>All year</td><td>Rota pinar, Costa Ballena</td><td>Endemic &mdash; key "can't-get-at-home" draw</td></tr>
+        <tr><td>12</td><td><strong>Strait raptors</strong> (eagles, kites, vultures, Honey Buzzard)</td><td>A "kettle" over a ridge</td><td>Autumn Aug&ndash;Oct; spring Feb&ndash;May</td><td>Passage windows</td><td>Tarifa/Strait day trip</td><td>World-class corridor &mdash; model etiquette</td></tr>
+        <tr><td>13</td><td><strong>Bluethroat</strong></td><td>Male's blue throat in marsh scrub</td><td>Wintering</td><td>Nov&ndash;Feb</td><td>Salina scrub, reed edges, Bonanza</td><td>Cover-dependent; minimal pishing</td></tr>
+        <tr><td>14</td><td><strong>Black Stork</strong></td><td>Soaring or stalking a marsh channel</td><td>Increasingly wintering</td><td>Oct&ndash;Mar</td><td>Marismas, Bonanza, La Janda</td><td>Scarce &amp; shy &mdash; long-lens distance only</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Best birdwatching locations.</strong></p>
+    <ol>
+      <li><strong>Río Salado de Rota estuary</strong> &mdash; tidal creek/marsh on the town edge; waders, gulls, egrets, flamingos at high water. Walkable/cyclable; rising tide, early morning. Map: "Desembocadura Río Salado, Rota."</li>
+      <li><strong>Rota pinewoods / Costa Ballena</strong> &mdash; Azure-winged Magpie, warblers, tits, Hoopoe, Crested Tit, owls. Coastal path N from Rota; early morning. Map: "Pinar de Rota / Costa Ballena."</li>
+      <li><strong>Bahía de Cádiz Natural Park (Los Toruños &amp; salinas)</strong> &mdash; 10,500 ha; the wader/flamingo/Osprey/spoonbill engine room. Boardwalks &amp; tracks; car-as-hide. Map: "Parque Natural Bahía de Cádiz."</li>
+      <li><strong>Bonanza salinas (Sanlúcar)</strong> &mdash; premier wader site; Slender-billed Gull, terns, Osprey, flamingos; edge of Doñana. 30 min north. Map: "Salinas de Bonanza."</li>
+      <li><strong>Chipiona</strong> &mdash; Spain's largest Little Swift colony. 10 min north; spring/summer. Map: "Chipiona faro."</li>
+      <li><strong>Laguna de Medina</strong> &mdash; White-headed Duck, grebes, marsh harriers, Purple Swamphen. ~30 min toward Jerez; hides.</li>
+      <li><strong>Strait of Gibraltar / Tarifa (day trip)</strong> &mdash; the WP's great raptor funnel + seabird passage. ~90 min south; Cazalla/Algarrobo observatories.</li>
+    </ol>
+    <p><strong>Accommodation.</strong> Central Rota for walkability or Costa Ballena for the pinewoods. Look for partner hotels with early breakfasts, packed lunches, optic-safe storage, flexible check-out. [Insert 4&ndash;6 vetted properties.]</p>
+    <p><strong>Special discounts.</strong> Guide readers unlock off-season rates (Oct&ndash;Mar): e.g. <em>3 nights for the price of 2</em>, <em>free packed lunch on guided days</em>, <em>15% off midweek</em>, <em>free binocular rental for first-timers</em>. [Confirm with each partner.]</p>
+    <p><strong>Itineraries.</strong> <em>Weekend:</em> Río Salado + Bay salinas; Bonanza + Chipiona; optional pinewoods + Laguna de Medina. <em>5 days:</em> add a Strait raptor day, a photography dawn, a Doñana-edge boat. <em>7 days:</em> add La Janda/Barbate (Bald Ibis, cranes), a sierra day (Grazalema/Alcornocales), a flex/weather day.</p>
+    <p><strong>Travel · packing · weather.</strong> Fly Jerez/Seville/Gibraltar; hire a car; drive on the right; carry a packed lunch (Andalusian lunch is late). Bring binoculars + scope, camera + long lens, layers, waterproof, sun hat &amp; high-SPF, sturdy footwear, Merlin/eBird. Mild Atlantic winters (12&ndash;18°C by day), <em>Levante</em>/<em>Poniente</em> winds, occasional rain Nov&ndash;Feb, glorious low light.</p>
+    <p><strong>Restaurants.</strong> Rota's <em>tabancos</em> and seafood bars: <em>urta a la roteña</em> (the town's signature fish), <em>langostinos</em>, a <em>fino</em>/<em>manzanilla</em> sherry. [Insert 4&ndash;5 venues.]</p>
+    <p><strong>Conservation guidelines.</strong> Keep distance from roosting flamingos, nesting terns/plovers and raptor nests; use the car as a hide; never play calls near scarce/breeding birds; stick to tracks; take litter home; support local salina restoration and guides.</p>
+    <p><strong>Call to action &mdash; come in the low season.</strong> Visit Rota between October and March: fewer visitors, lower prices, peak bird activity and the softest light. <strong>[Book your low-season birding escape →]</strong></p>
+  </div>
+
+  <h3>4.2 Edición en alemán &mdash; <em>„Rota: Andalusiens unentdeckte Vogelküste"</em></h3>
+  <div class="asset de">
+    <span class="lang-tag de">DE · ALEMANIA</span>
+    <p><strong>Einführung.</strong> Rota liegt an der Nordwestspitze der Bahía de Cádiz, an Spaniens atlantischer Costa de la Luz, auf dem Schwemmland des Río Salado, gesäumt von Pinienwald, Buschland und Salzmarsch. Ein echter andalusischer Küstenort &ndash; fußläufig, voller Tapas-Bars und Sherry, gut erreichbar über Jerez, Sevilla oder Gibraltar &ndash; mitten in einer der vogelreichsten Provinzen der Welt (~400 Arten in Cádiz).</p>
+    <p><strong>Warum Rota einzigartig ist.</strong> Die meisten Beobachter eilen an der Bahía de Cádiz vorbei zum berühmten Doñana &ndash; genau deshalb bleiben ihre Salinen und Marschen, herausragend für überwinternde Limikolen, Fischadler und Flamingos, ruhig. Von Rota aus beobachten Sie <strong>drei Regionen auf einer Reise</strong>: die <strong>Salinen der Bahía de Cádiz</strong> direkt vor der Tür, den <strong>Rand des Doñana</strong> (Bonanza, Boot ab Sanlúcar) 30 Min. nördlich und die <strong>Straße von Gibraltar</strong> ~90 Min. südlich.</p>
+    <p><strong>Top-Arten für deutsche Vogelbeobachter</strong></p>
+    <div class="tbl-scroll"><table>
+      <thead><tr><th>#</th><th>Art</th><th>Foto-Idee</th><th>Vorkommen / Zug</th><th>Beste Zeit</th><th>Beste Gebiete</th><th>Naturschutz</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Rosaflamingo</strong></td><td>Rosa Trupp im Morgenlicht auf der Salina</td><td>Standvogel, Zahlen steigen Herbst&ndash;Frühjahr</td><td>Nov&ndash;Mär</td><td>Salinen Bahía de Cádiz; Bonanza</td><td>Empfindlich an Schlafplätzen &ndash; Abstand halten</td></tr>
+        <tr><td>2</td><td><strong>Fischadler</strong></td><td>Vogel auf Salinen-Pfahl mit Beute</td><td>Überwinterer</td><td>Okt&ndash;Mär</td><td>Salinen, Flussmündungen</td><td>Erholt sich; Horste nicht stören</td></tr>
+        <tr><td>3</td><td><strong>Korallenmöwe</strong></td><td>Porträt mit rotem Schnabel am Strand</td><td>Stand-/Strichvogel</td><td>ganzjährig</td><td>Strand Rota, Costa Ballena, Häfen</td><td>Kolonie-empfindlich</td></tr>
+        <tr><td>4</td><td><strong>Waldrapp</strong></td><td>Trupp auf Küstengrasland</td><td>Wiederangesiedelt</td><td>ganzjährig (mit Ortskenntnis)</td><td>Wiederansiedlungszone (Barbate/La Janda)</td><td>Weltweit stark gefährdet &ndash; nie stören</td></tr>
+        <tr><td>5</td><td><strong>Löffler</strong></td><td>Seitlich „mähender" Schnabel im Flachwasser</td><td>Zug + Winter</td><td>Sep&ndash;Apr</td><td>Salinen, Los Toruños, Bonanza</td><td>Marsch-abhängig</td></tr>
+        <tr><td>6</td><td><strong>Stelzenläufer &amp; Säbelschnäbler</strong></td><td>Stelzenläufer im Spiegelbild</td><td>Stand + Zug</td><td>Mär&ndash;Sep / ganzjährig</td><td>Aktive Salinen</td><td>Zeiger gesunder Salinen</td></tr>
+        <tr><td>7</td><td><strong>Limikolen-Trupp</strong> (Pfuhlschnepfe, Sanderling, Alpenstrandläufer u.a.)</td><td>Mischtrupp an der Wasserlinie</td><td>Zug + Winter, große Zahlen</td><td>Sep&ndash;Mär</td><td>Wattflächen der Bucht; auflaufende Tide</td><td>Seeregenpfeifer brütet am Strand</td></tr>
+        <tr><td>8</td><td><strong>Dünnschnabelmöwe</strong></td><td>Blasse, langhalsige Möwe</td><td>Stand-/Strichvogel</td><td>ganzjährig</td><td>Salinen Bahía &amp; Bonanza</td><td>Lokal; Salinen-Habitat</td></tr>
+        <tr><td>9</td><td><strong>Raub-/Brand-/Zwergseeschwalbe</strong></td><td>Raubseeschwalbe im Stoßtauchen</td><td>Brut/Zug</td><td>Aug&ndash;Mär</td><td>Salinen, Mündungen, Strände</td><td>Zwergsee brütet am Boden &ndash; fernbleiben</td></tr>
+        <tr><td>10</td><td><strong>Haussegler</strong></td><td>Trupp an Kolonie-Gebäude, eckiger Stoß</td><td>Standkolonie</td><td>Apr&ndash;Sep</td><td><strong>Chipiona</strong> (größte span. Kolonie)</td><td>WP-Rarität &ndash; nur aus öffentlichem Raum</td></tr>
+        <tr><td>11</td><td><strong>Blauelster</strong></td><td>Blaue Flügel vor Piniengrün</td><td>Standvogel (iberischer Endemit)</td><td>ganzjährig</td><td>Pinienwald Rota, Costa Ballena</td><td>Endemit &ndash; „gibt's zu Hause nicht"</td></tr>
+        <tr><td>12</td><td><strong>Zug-Greife</strong> (Schlangen-/Zwergadler, Milane, Geier)</td><td>„Kettle" über dem Grat</td><td>Herbst Aug&ndash;Okt; Frühjahr Feb&ndash;Mai</td><td>Zug-Fenster</td><td>Tagesausflug Tarifa/Meerenge</td><td>Weltklasse-Korridor</td></tr>
+        <tr><td>13</td><td><strong>Blaukehlchen</strong></td><td>Blaue Kehle im Marschbusch</td><td>Überwinterer</td><td>Nov&ndash;Feb</td><td>Salinen-Gebüsch, Schilfränder</td><td>Deckungsabhängig</td></tr>
+        <tr><td>14</td><td><strong>Schwarzstorch</strong></td><td>Segelnd oder im Marschkanal</td><td>Zunehmend überwinternd</td><td>Okt&ndash;Mär</td><td>Marismas, Bonanza, La Janda</td><td>Selten &amp; scheu &ndash; nur Teledistanz</td></tr>
+      </tbody>
+    </table></div>
+    <p><strong>Beste Beobachtungsgebiete.</strong> (1) Mündung Río Salado (fußläufig; auflaufende Tide). (2) Pinienwald Rota / Costa Ballena (Blauelster, Wiedehopf, Eulen). (3) Naturpark Bahía de Cádiz / Los Toruños &amp; Salinen (Auto als Ansitz). (4) Salinen von Bonanza (bestes Limikolengebiet; Doñana-Rand). (5) Chipiona (größte Haussegler-Kolonie Spaniens). (6) Laguna de Medina (Weißkopfruderente; Hütten). (7) Straße von Gibraltar / Tarifa (Greifvogeltrichter; Aussichtspunkte Cazalla/Algarrobo).</p>
+    <p><strong>Unterkünfte &amp; Rabatte.</strong> Zentral in Rota oder Costa Ballena. Partnerhotels mit frühem Frühstück, Lunchpaketen, sicherer Optik-Aufbewahrung. Nebensaison-Preise für Guide-Leser (Okt&ndash;Mär): <em>3 Nächte zum Preis von 2</em>, <em>gratis Lunchpaket an Guide-Tagen</em>, <em>15% unter der Woche</em>, <em>gratis Fernglas-Verleih</em>. [mit Partnern bestätigen]</p>
+    <p><strong>Reiserouten.</strong> <em>Wochenende:</em> Río Salado + Salinen; Bonanza + Chipiona; optional Pinienwald + Laguna de Medina. <em>5 Tage:</em> plus Straße von Gibraltar, Foto-Morgendämmerung, Doñana-Bootstour. <em>7 Tage:</em> plus La Janda/Barbate (Waldrapp, Kraniche), Sierra-Tag, Flex-/Wetter-Tag.</p>
+    <p><strong>Reisetipps · Packliste · Wetter.</strong> Flug nach Jerez/Sevilla/Gibraltar; Mietwagen; Rechtsverkehr; Lunchpaket mitnehmen. Fernglas + Spektiv, Kamera + Tele, Zwiebellook, Regenjacke, Sonnenschutz, festes Schuhwerk, Merlin/ornitho. Milde Atlantikwinter (12&ndash;18°C), <em>Levante</em>/<em>Poniente</em>-Wind, herrlich weiches Licht.</p>
+    <p><strong>Restaurants.</strong> Rotas <em>tabancos</em> und Fischbars: <em>urta a la roteña</em>, <em>langostinos</em>, dazu ein <em>fino</em>/<em>manzanilla</em>. [konkrete Lokale einfügen]</p>
+    <p><strong>Naturschutz &amp; Handlungsaufruf.</strong> Abstand zu Schlaf- und Brutplätzen; Auto als Ansitz; keine Klangattrappen; auf Wegen bleiben; Müll mitnehmen; lokale Restaurierung und Guides unterstützen. <strong>[Jetzt Nebensaison-Angebot sichern und Reise planen →]</strong></p>
+  </div>
+</section>
+
+<!-- ===================== 5 ===================== -->
+<section id="sec-5">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 05</span></div>
+  <h2>Vídeo promocional &mdash; guion documental</h2>
+  <p class="lead-in"><strong>Formato:</strong> cortometraje documental · <strong>Idioma:</strong> narración en inglés, <strong>subtítulos en alemán</strong> (SRT en archivo aparte) · <strong>Presentador:</strong> Andrés Barba Prieto (YouTube <strong>@AndresBarbaRota</strong>) · <strong>Duración sugerida:</strong> ~8:15.</p>
+
+  <div class="nota accent">
+    <span class="eyebrow">Nota de producción sobre las entrevistas</span>
+    Los tres colaboradores son personas reales. Abajo se incluyen <strong>preguntas de entrevista</strong> para grabar en cámara y <strong>temas sugeridos a capturar</strong> &mdash; <em>no</em> citas guionizadas. No pongas palabras en boca de los colaboradores: graba sus respuestas reales y edita según los temas. La narración del presentador está escrita para que Andrés la grabe como anfitrión de su propio canal.
+    <ul class="clean" style="margin:.5em 0 0">
+      <li><strong>Adrián Ruiz</strong> &mdash; joven biólogo local especializado en aves (ref.: youtu.be/wUsrpnkLRCA)</li>
+      <li><strong>Antonio Gallardo</strong> &mdash; fotógrafo de naturaleza; autor de un libro sobre la fauna del pinar de Rota (ref.: youtu.be/hVISRxkWAAI)</li>
+      <li><strong>Alejandro Magariño</strong> &mdash; fotógrafo de naturaleza (Instagram @maga_fauna)</li>
+    </ul>
+  </div>
+
+  <h3>5.1 Estructura narrativa</h3>
+  <p>Gancho (el espectáculo del que nadie habla) → el lugar (Rota, la costa pasada por alto) → las salinas (abundancia) → el pinar (intimidad + el autor local) → el Estrecho (migración épica + la ciencia) → el sentido (conservación + ven en la temporada tranquila) → CTA.</p>
+
+  <h3>5.2 Guion con indicaciones de plano y tiempos</h3>
+  <p class="gloss">La narración se conserva en inglés (es la voz en off que se graba). Las indicaciones de plano van en español; las preguntas de entrevista en español, ya que el equipo y los colaboradores son locales.</p>
+
+  <h4>[0:00&ndash;0:35] APERTURA EN FRÍO / GANCHO</h4>
+  <p><em>Plano:</em> dron al amanecer sobre salinas en calma; agua rosa espejo; un bando de flamencos despega captando la primera luz. Corte a la silueta de un observador, telescopio en trípode. <em>B-roll:</em> bando de limícolas girando; águila pescadora alzando el vuelo; rocío sobre la salicornia.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración (Andrés):</strong> "Everyone here rushes north &mdash; to a famous park you've already heard of. So almost nobody stops <em>here</em>. And this… is what they're missing."</div>
+
+  <h4>[0:35&ndash;0:45] RÓTULO</h4>
+  <p><em>Plano:</em> título sobre dron lento de la costa de Rota &mdash; pinar encontrando el Atlántico. <strong>Título:</strong> <em>"ROTA &mdash; The Coast the Birders Forgot."</em> Rótulo inferior: <em>with Andrés Barba.</em></p>
+
+  <h4>[0:45&ndash;2:00] CAPÍTULO 1 &mdash; LA COSTA PASADA POR ALTO</h4>
+  <p><em>Planos:</em> revelación con dron del pueblo de Rota → estuario del Río Salado → pinares → salinas de la bahía. Presentador caminando por la orilla al amanecer, prismáticos en alto.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración:</strong> "This is Rota, on the Atlantic edge of Cádiz &mdash; a working beach town with tapas, sherry and quiet streets. But step to its edges and you're inside one of the richest bird provinces in Europe: around four hundred species. The salt-pans of the bay. The pinewoods. And to the south, the greatest river of raptors in the Western Palearctic. Three worlds &mdash; one small town."</div>
+
+  <h4>[2:00&ndash;3:45] CAPÍTULO 2 &mdash; EN LAS SALINAS <em>(con Alejandro Magariño)</em></h4>
+  <p><em>Planos:</em> coche-hide avanzando despacio por una pista de salina; limícolas a la altura de los ojos; flamencos alimentándose; retrato de águila pescadora; gaviota de Audouin en la orilla. El fotógrafo trabajando, a ras del agua.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración:</strong> "In winter the pans fill with life while the rest of the coast sleeps. Godwits, sanderlings, plovers &mdash; and the ospreys that come here to fish all winter long. You don't chase these birds. You let your car become a hide, and the light does the rest."</div>
+  <p><strong>Entrevista &mdash; Alejandro Magariño (preguntas a formular):</strong></p>
+  <ol>
+    <li>¿Qué hace especiales las salinas de la bahía de Cádiz para un fotógrafo de naturaleza, frente a lugares más conocidos?</li>
+    <li>¿Qué especies y qué luz debería planificar quien viene por primera vez?</li>
+    <li>¿Cómo fotografías limícolas y flamencos sin molestarlos?</li>
+    <li>¿Por qué la temporada baja es la mejor época para salir con la cámara?</li>
+  </ol>
+  <p class="gloss">Temas a capturar: técnica del coche-hide, flamencos a la hora dorada, distancia ética, la calma del invierno. (Confirmar en cámara &mdash; no guionizar.)</p>
+
+  <h4>[3:45&ndash;5:15] CAPÍTULO 3 &mdash; EL PINAR <em>(con Antonio Gallardo)</em></h4>
+  <p><em>Planos:</em> luz suave entre pinos piñoneros; rabilargos cruzando azules sobre el verde; abubilla; el fotógrafo/autor recorriendo su territorio; primer plano de su libro.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración:</strong> "Just behind the dunes, a different world &mdash; the pinewoods. Intimate, shaded, full of voices. This is the realm of the azure-winged magpie, an Iberian bird you simply can't see back home. One man has spent years photographing this forest's wildlife &mdash; and put it in a book."</div>
+  <p><strong>Entrevista &mdash; Antonio Gallardo (preguntas a formular):</strong></p>
+  <ol>
+    <li>¿Qué te llevó a documentar la fauna de los pinares de Rota?</li>
+    <li>¿Qué es lo que más sorprende a los visitantes sobre lo que vive en estos bosques?</li>
+    <li>¿Qué especies debería esperar encontrar un observador &mdash; y cómo debería comportarse para hallarlas?</li>
+    <li>¿Qué significa proteger este bosque para el pueblo?</li>
+  </ol>
+  <p class="gloss">Temas a capturar: el origen del libro, los rabilargos, el cambio estacional, la conservación del pinar. (Confirmar en cámara.) <em>Transición:</em> la cámara sube por el dosel del pino al cielo abierto &mdash; y un «kettle» lejano de rapaces.</p>
+
+  <h4>[5:15&ndash;6:45] CAPÍTULO 4 &mdash; RÍOS DE RAPACES <em>(con Adrián Ruiz)</em></h4>
+  <p><em>Planos:</em> dron de gran cielo sobre el Estrecho; «kettle» apilado de milanos negros/águilas/buitres; teleobjetivo sobre un águila culebrera; biólogo escudriñando con prismáticos; gráfico del embudo migratorio Europa→África.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración:</strong> "An hour and a half south, Europe narrows to a doorway barely a few miles wide. And through it, twice a year, pours one of the planet's great migrations &mdash; thousands of eagles, kites and vultures riding the thermals between two continents. From Rota, it's a day trip."</div>
+  <p><strong>Entrevista &mdash; Adrián Ruiz (preguntas a formular):</strong></p>
+  <ol>
+    <li>¿Por qué concentra el Estrecho de Gibraltar tantas rapaces en migración?</li>
+    <li>¿Qué ocurre en otoño frente a primavera &mdash; qué debe esperar ver el visitante y cuándo?</li>
+    <li>¿Cómo deciden el viento y el tiempo un buen día de migración?</li>
+    <li>Como joven biólogo, ¿por qué importa esta costa para la conservación y para la próxima generación?</li>
+  </ol>
+  <p class="gloss">Temas a capturar: la geografía del cuello de botella, los tiempos estacionales, leer el viento, la ciencia y la custodia del territorio. (Confirmar en cámara.)</p>
+
+  <h4>[6:45&ndash;8:00] CAPÍTULO 5 &mdash; VEN EN LA TEMPORADA TRANQUILA</h4>
+  <p><em>Planos:</em> playa dorada y vacía en invierno; una pareja pajareando sola por una pista; terraza de hotel acogedora, desayuno temprano, telescopios junto a la puerta; flamencos al atardecer.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración:</strong> "Here's the secret. The birds are at their best exactly when the crowds are gone &mdash; autumn through early spring. Fewer people. Lower prices. The softest light. And the salt-pans all to yourself. Rota isn't trying to be the famous one. It's trying to be the one you actually get to enjoy."</div>
+
+  <h4>[8:00&ndash;8:15] CIERRE / CTA</h4>
+  <p><em>Plano:</em> presentador a cámara a la hora dorada, flamencos detrás. Cartón final con logo + URL + QR.</p>
+  <div class="asset"><span class="lang-tag">EN · VO</span> <strong>Narración (CTA):</strong> "Download our free Rota birding guide, claim an off-season hotel deal, and come find the coast the birders forgot. Link below. I'm Andrés Barba &mdash; see you on the salt-pans."<br><em>Cartón final:</em> <strong>rota-birding.com/guide · Free guide + off-season deals · Subscribe @AndresBarbaRota</strong></div>
+
+  <h3>5.3 Empaquetado para YouTube</h3>
+  <ul class="clean">
+    <li><strong>Título SEO:</strong> <span class="mono">Birdwatching in Rota, Spain 🦩 The Secret Coast Near Doñana &amp; the Strait of Gibraltar</span></li>
+    <li><strong>Descripción (2 primeras líneas, cruciales):</strong> Flamingos, the Strait of Gibraltar raptor migration and Doñana's edge &mdash; from one uncrowded Atlantic town. Get our free birding guide + off-season hotel deals 👉 [link]. Filmado con el biólogo Adrián Ruiz y los fotógrafos Antonio Gallardo y Alejandro Magariño (@maga_fauna). Best season: October&ndash;March. #birdwatching #Spain #Andalusia #Vogelbeobachtung</li>
+    <li><strong>Marcas de capítulo:</strong> 0:00 · 0:45 · 2:00 · 3:45 · 5:15 · 6:45 · 8:00</li>
+    <li><strong>Miniaturas:</strong> (A) bando de flamencos + «THE SECRET COAST»; (B) split «kettle» de rapaces / salina rosa con flecha; (C) presentador + telescopio, «ROTA · BIRDING». Alto contraste, ≤4 palabras, rostro para CTR.</li>
+    <li><strong>Subtítulos en alemán:</strong> se entregan como <span class="mono">Rota_Birding_Documentary_DE.srt</span> (archivo aparte).</li>
+  </ul>
+</section>
+
+<!-- ===================== 6 ===================== -->
+<section id="sec-6">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 06</span></div>
+  <h2>Campaña de Google Ads (Reino Unido y Alemania)</h2>
+
+  <h3>6.1 Arquitectura de cuenta y filosofía de presupuesto (2026)</h3>
+  <p>La observación de aves es de <strong>bajo volumen y alta intención</strong>, así que optimizamos para <strong>leads cualificados, no tráfico</strong>. Construimos según la lógica del «<strong>Power Pack</strong>» 2026 adaptada a generación de leads: <strong>Búsqueda (concordancia amplia + Smart Bidding)</strong> para captar intención, <strong>Demand Gen</strong> para crear demanda con el documental y una <strong>capa de remarketing</strong>. <strong>Performance Max</strong> se incorpora <em>después</em> de tener datos de conversión, porque PMax y Smart Bidding necesitan volumen (~30 conversiones/30 días) para aprender. Dos cuentas/conjuntos separados &mdash; <strong>UK (inglés, GBP)</strong> y <strong>Alemania (alemán, EUR)</strong> &mdash; nunca una traducción literal.</p>
+  <div class="nota"><span class="eyebrow">Fases recomendadas</span> <strong>Fase 1 (meses 1&ndash;2):</strong> Búsqueda + Demand Gen + remarketing, optimizando a <strong>lead = descarga de guía/newsletter</strong>. <strong>Fase 2 (mes 3+):</strong> añadir <strong>Performance Max</strong> para conversiones de reserva/consulta y escalar <strong>YouTube</strong>, una vez existan ≥30 conv/mes para alimentar los algoritmos.</div>
+
+  <h3>6.2 Plantilla por campaña (ambos mercados; presupuestos UK = GBP, DE = EUR)</h3>
+
+  <h4>A) BÚSQUEDA &mdash; «captar intención»</h4>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Objetivo</th><td>Leads (descarga de guía / newsletter / consulta)</td></tr>
+    <tr><th>Presupuesto</th><td>UK 25&ndash;40 £/día · DE 30&ndash;45 €/día (≥15× el CPA objetivo)</td></tr>
+    <tr><th>Pujas</th><td>Empezar en <strong>Maximizar conversiones</strong>; pasar a <strong>CPA objetivo</strong> (~12&ndash;18 £/€ por lead) tras ~30 conv</td></tr>
+    <tr><th>Concordancias</th><td>Práctica 2026: <strong>amplia + Smart Bidding</strong> para términos top; <strong>de frase</strong> para términos de control; negativas estrictas (ver §7)</td></tr>
+    <tr><th>Señales de público</th><td>Públicos en observación superpuestos (in-market Viajes, afinidad Aire libre/Observación de aves) &mdash; observar, no restringir al principio</td></tr>
+    <tr><th>Dispositivo</th><td>+puja en móvil para «near me»/vídeo; escritorio fuerte para investigación/reserva &mdash; dejar ajustar a Smart Bidding</td></tr>
+    <tr><th>Ubicación</th><td>UK: nacional, +puja SE de Inglaterra, condados acomodados · DE: nacional, +puja Bayern/BW/NRW/Hamburg</td></tr>
+    <tr><th>Idioma</th><td>Inglés (UK) / Alemán (DE)</td></tr>
+    <tr><th>Calendario</th><td>Toda la semana; +puja tardes (19:00&ndash;23:00) y mañanas de fin de semana (picos de investigación)</td></tr>
+    <tr><th>Estacionalidad</th><td>Aplicar <strong>ajustes estacionales</strong> + subir presupuestos en paso otoñal (ago&ndash;oct) y pico de «escapada de invierno» de Año Nuevo (dic&ndash;feb)</td></tr>
+    <tr><th>Seguimiento de conversión</th><td>Primaria: formulario / descarga del PDF; secundarias: newsletter, «ver oferta de hotel», clic saliente de reserva</td></tr>
+    <tr><th>Remarketing</th><td>Alimentar las listas de Demand Gen/remarketing con los visitantes de Búsqueda</td></tr>
+  </tbody></table></div>
+
+  <h4>B) DEMAND GEN &mdash; «crear demanda con el film» <em>(sustituye a Discovery + Vídeo de Acción)</em></h4>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Objetivo</th><td>Notoriedad→consideración; lead + interacción con vídeo</td></tr>
+    <tr><th>Presupuesto</th><td>UK 30&ndash;50 £/día · DE 35&ndash;55 €/día (base ideal de Google ~100 £/día; empezar ligero, escalar con pruebas)</td></tr>
+    <tr><th>Pujas</th><td><strong>Maximizar conversiones</strong> → <strong>tCPA</strong> tras 50 conv; optimizar a conversión ligera (visita / vista de guía) al inicio</td></tr>
+    <tr><th>Emplazamientos</th><td>YouTube in-stream + in-feed + Shorts, Discover, Gmail, Maps</td></tr>
+    <tr><th>Señales de público</th><td><strong>Segmentos personalizados</strong> (buscadores de «birdwatching Spain», «RSPB», «Tarifa migration», URLs de competidores); <strong>Lookalikes</strong> de la lista de descargas <em>(nota: desde el 15-mar-2026 los Lookalikes de Demand Gen actúan como señales de IA, no como segmentación estricta)</em>; afinidad + in-market</td></tr>
+    <tr><th>Afinidad</th><td>Aficionados a la observación de aves, amantes de la naturaleza, aire libre, viajeros ávidos, aficionados a la fotografía</td></tr>
+    <tr><th>In-market</th><td>Viajes &gt; Internacional/Vacaciones; Hoteles y alojamiento; Viajes a España</td></tr>
+    <tr><th>Demografía</th><td>Núcleo 45&ndash;65+; ingresos del hogar top 30&ndash;50%</td></tr>
+    <tr><th>Creatividades</th><td>El documental + cortes 30s/15s/6s + activos de imagen</td></tr>
+    <tr><th>Medición</th><td>Usar <strong>conversiones view-through + asistidas + búsquedas de marca atribuidas</strong> &mdash; no juzgar por last-click</td></tr>
+  </tbody></table></div>
+
+  <h4>C) PERFORMANCE MAX &mdash; «escalar conversiones» <em>(Fase 2)</em></h4>
+  <div class="tbl-scroll"><table><tbody>
+    <tr><th>Objetivo</th><td>Leads + consultas de reserva (conversión online)</td></tr>
+    <tr><th>Presupuesto</th><td>UK 30&ndash;50 £/día · DE 35&ndash;55 €/día (necesita ≥30 conv/mes para justificarse)</td></tr>
+    <tr><th>Pujas</th><td>Maximizar conversiones → <strong>tCPA</strong>; exigir conversiones por <strong>atribución de clic</strong> para evitar ruido view-through</td></tr>
+    <tr><th>Señales de público</th><td>Lista propia (PDF) + segmentos personalizados (solo sugerencias &mdash; PMax no se puede restringir)</td></tr>
+    <tr><th>Activos</th><td>Grupo completo: 5 titulares cortos + 5 largos, descripciones, 20+ imágenes, <strong>vídeo (sube el rendimiento un 25&ndash;40%)</strong>, logos, sitelinks</td></tr>
+    <tr><th>Controles</th><td>Exclusiones de marca; exclusiones de URL/emplazamiento; vigilar solape con Demand Gen en YouTube/Discover</td></tr>
+  </tbody></table></div>
+  <p><strong>D) VÍDEO YOUTUBE</strong> &mdash; ver §11. <strong>E) «REMARKETING DE DISPLAY»</strong> &mdash; ver §10 (las campañas de Display independientes se migran a Demand Gen desde junio de 2026; entregamos los activos pero ejecutamos el remarketing por Demand Gen + listas).</p>
+
+  <h3>6.3 Seguimiento, remarketing y estacionalidad (compartido)</h3>
+  <ul class="clean">
+    <li><strong>Eventos de conversión (por prioridad):</strong> (1) <strong>descarga del PDF / envío del formulario</strong> <em>(primaria)</em>; (2) alta en newsletter; (3) «ver oferta» / clic saliente a hotel; (4) consulta/contacto de reserva; (5) vista de vídeo 3 min (suave). Implementar <strong>GA4 + etiqueta de Google + conversiones mejoradas</strong>; conectar datos de reserva offline vía Data Manager donde los hoteles puedan compartirlos.</li>
+    <li><strong>Públicos de remarketing:</strong> todos los visitantes (540 d), no convertidores de la página de guía, descargadores del PDF (→ reserva/upsell), espectadores de vídeo (25/50/75%), suscriptores (excluir de captación).</li>
+    <li><strong>Ajustes estacionales:</strong> subir presupuestos en paso otoñal (ago&ndash;oct), escapada de Año Nuevo (26 dic&ndash;med. feb) y paso primaveral (feb&ndash;abr); recortar pleno verano (jul&ndash;ago), cuando hace calor, hay aglomeración y choca con el mensaje de «temporada tranquila».</li>
+    <li><strong>Matiz geográfico:</strong> excluir búsquedas físicamente <em>en</em> España (buscamos residentes en UK/DE); segmentar por <strong>presencia</strong>, no solo por interés.</li>
+  </ul>
+</section>
+
+<!-- ===================== 7 ===================== -->
+<section id="sec-7">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 07</span></div>
+  <h2>Investigación de palabras clave</h2>
+  <p class="lead-in"><strong>Política de concordancia (2026):</strong> liderar los términos de alta intención con <strong>amplia + Smart Bidding</strong> una vez haya datos; usar <strong>de frase</strong> para control/defensa de marca y durante el arranque; reservar <strong>exacta</strong> para convertidores probados. Intención: <strong>T</strong> = transaccional, <strong>C</strong> = comercial/investigación, <strong>I</strong> = informativa. Prioridad <strong>1&ndash;5</strong> (5 = lanzar primero). Las palabras clave se conservan en su idioma de mercado.</p>
+
+  <h3>7.1 Inglés (UK) &mdash; 25 de alta intención</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Palabra clave</th><th>Concord.</th><th>Int.</th><th>Pri</th><th>LP</th></tr></thead>
+    <tbody class="mono">
+      <tr><td>birdwatching holidays spain</td><td>Frase→Amplia</td><td>C</td><td>5</td><td>/uk-birding</td></tr>
+      <tr><td>birdwatching tours andalusia</td><td>Frase→Amplia</td><td>C</td><td>5</td><td>/uk-birding</td></tr>
+      <tr><td>birding trip southern spain</td><td>Amplia</td><td>C</td><td>5</td><td>/uk-birding</td></tr>
+      <tr><td>winter birding spain</td><td>Amplia</td><td>C</td><td>5</td><td>/uk-birding</td></tr>
+      <tr><td>birdwatching cadiz</td><td>Frase</td><td>C</td><td>5</td><td>/uk-birding</td></tr>
+      <tr><td>birding holiday costa de la luz</td><td>Frase</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>guided birdwatching andalusia</td><td>Frase</td><td>T</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>strait of gibraltar birding tour</td><td>Frase</td><td>C</td><td>4</td><td>blog: migración</td></tr>
+      <tr><td>raptor migration tour spain</td><td>Amplia</td><td>C</td><td>4</td><td>blog: migración</td></tr>
+      <tr><td>doñana birdwatching tour</td><td>Frase</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>birding self drive andalusia</td><td>Amplia</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>birdwatching hotel spain</td><td>Frase</td><td>T</td><td>4</td><td>ofertas</td></tr>
+      <tr><td>flamingo watching spain</td><td>Amplia</td><td>C</td><td>3</td><td>/uk-birding</td></tr>
+      <tr><td>bird photography tour spain</td><td>Amplia</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>andalusia birding guide hire</td><td>Frase</td><td>T</td><td>3</td><td>guías</td></tr>
+      <tr><td>birdwatching weekend spain</td><td>Amplia</td><td>C</td><td>3</td><td>/uk-birding</td></tr>
+      <tr><td>winter sun birdwatching</td><td>Amplia</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>birding tour tarifa</td><td>Frase</td><td>C</td><td>3</td><td>blog: migración</td></tr>
+      <tr><td>spain birding package</td><td>Amplia</td><td>T</td><td>4</td><td>ofertas</td></tr>
+      <tr><td>birdwatching short break europe</td><td>Amplia</td><td>C</td><td>3</td><td>/uk-birding</td></tr>
+      <tr><td>wildlife holiday andalusia</td><td>Amplia</td><td>C</td><td>3</td><td>/uk-birding</td></tr>
+      <tr><td>birdwatching trip october</td><td>Amplia</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>best birdwatching spain</td><td>Amplia</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+      <tr><td>birding break costa de la luz</td><td>Frase</td><td>C</td><td>3</td><td>/uk-birding</td></tr>
+      <tr><td>cadiz birding self drive</td><td>Frase</td><td>C</td><td>4</td><td>/uk-birding</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>15 long-tail:</strong> <span class="mono">birdwatching holidays southern spain october · where to watch flamingos near cadiz · self drive birding trip andalusia winter · small group birdwatching tour costa de la luz · strait of gibraltar raptor migration day trip · birder friendly hotel rota spain · wader photography hide cadiz · best place to see audouin's gull spain · winter birdwatching escape from uk · doñana birding without permit alternative · bird photography workshop andalusia winter · azure-winged magpie where to see spain · little swift colony chipiona · quiet birdwatching destination spain off season · 5 day birdwatching itinerary cadiz.</span></p>
+  <p><strong>10 informativas (blog/SEO):</strong> <span class="mono">best time for birdwatching in andalusia · birds of cadiz province · strait of gibraltar bird migration explained · what birds can you see in winter in spain · doñana vs cadiz birding · how to photograph waders on salinas · birdwatching sites near rota spain · flamingo season spain · raptor migration calendar gibraltar · is rota good for birdwatching.</span></p>
+  <p><strong>20 negativas:</strong> <span class="mono">free, jobs, salary, "naval base", "us navy", property, "for sale", "to rent", cruise, "all inclusive", nightlife, stag, hen, golf, "rota mexico", song, ringtone, "garden birds", "bird feeder", costume.</span></p>
+
+  <h3>7.2 Alemán (DE) &mdash; 25 de alta intención</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Palabra clave</th><th>Concord.</th><th>Int.</th><th>Pri</th><th>LP</th></tr></thead>
+    <tbody class="mono">
+      <tr><td>vogelbeobachtung spanien</td><td>Frase→Amplia</td><td>C</td><td>5</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung andalusien</td><td>Frase→Amplia</td><td>C</td><td>5</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelreise spanien</td><td>Amplia</td><td>C</td><td>5</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung cadiz</td><td>Frase</td><td>C</td><td>5</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung costa de la luz</td><td>Frase</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>naturreise andalusien vögel</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>geführte vogelbeobachtung spanien</td><td>Frase</td><td>T</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelzug straße von gibraltar reise</td><td>Frase</td><td>C</td><td>4</td><td>blog: Vogelzug</td></tr>
+      <tr><td>greifvogelzug tarifa reise</td><td>Amplia</td><td>C</td><td>4</td><td>blog: Vogelzug</td></tr>
+      <tr><td>doñana vogelbeobachtung</td><td>Frase</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung winter spanien</td><td>Amplia</td><td>C</td><td>5</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>flamingos beobachten spanien</td><td>Amplia</td><td>C</td><td>3</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelfotografie reise spanien</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>selbstfahrer vogelreise andalusien</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelfreundliches hotel andalusien</td><td>Frase</td><td>T</td><td>4</td><td>Angebote</td></tr>
+      <tr><td>vogelbeobachtung wochenende spanien</td><td>Amplia</td><td>C</td><td>3</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>naturfotografie reise andalusien</td><td>Amplia</td><td>C</td><td>3</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>birding spanien winter</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>andalusien vogelarten beobachten</td><td>Amplia</td><td>C</td><td>3</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung pauschalreise spanien</td><td>Amplia</td><td>T</td><td>4</td><td>Angebote</td></tr>
+      <tr><td>wildtierreise andalusien</td><td>Amplia</td><td>C</td><td>3</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung oktober spanien</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>beste vogelbeobachtung spanien</td><td>Amplia</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>ornithologische reise andalusien</td><td>Frase</td><td>T</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+      <tr><td>vogelbeobachtung südspanien</td><td>Frase</td><td>C</td><td>4</td><td>/de-vogelbeobachtung</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>15 long-tail:</strong> <span class="mono">vogelbeobachtung südspanien oktober · wo flamingos sehen bei cadiz · selbstfahrer vogelreise andalusien winter · kleingruppen vogelreise costa de la luz · greifvogelzug straße von gibraltar tagesausflug · vogelfreundliches hotel rota spanien · limikolen fotografie hide cadiz · korallenmöwe beobachten spanien · vogelbeobachtung winterflucht deutschland · doñana alternative ohne genehmigung · naturfotografie workshop andalusien winter · blauelster wo sehen spanien · haussegler kolonie chipiona · ruhiges vogelreiseziel nebensaison · 5 tage vogelreise cadiz programm.</span></p>
+  <p><strong>10 informativas:</strong> <span class="mono">beste reisezeit vogelbeobachtung andalusien · vögel der provinz cadiz · vogelzug straße von gibraltar erklärt · welche vögel im winter in spanien · doñana oder cadiz vogelbeobachtung · limikolen fotografieren salinen · vogelbeobachtungsgebiete rota · flamingo saison spanien · greifvogelzug kalender gibraltar · ist rota gut für vogelbeobachtung.</span></p>
+  <p><strong>20 negativas:</strong> <span class="mono">kostenlos, jobs, gehalt, marinebasis, "us navy", immobilien, kaufen, mieten, kreuzfahrt, "all inclusive", nachtleben, junggesellen, golf, "rota mexiko", lied, klingelton, gartenvögel, vogelhaus, vogelfutter, kostüm.</span></p>
+</section>
+
+<!-- ===================== 8 ===================== -->
+<section id="sec-8">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 08</span></div>
+  <h2>Anuncios de búsqueda responsivos (RSA)</h2>
+  <p class="lead-in">Aportar todos los activos a un RSA por grupo de anuncios; dejar que Google los combine. <strong>Fijar con moderación</strong> (fijar un titular de marca/oferta en la posición 1 solo si hace falta). Titulares ≤30 caracteres, descripciones ≤90. Capas de intención: disparador emocional (escape/descubrimiento) + señal de confianza (expertos locales, guía gratis) + empujón estacional (temporada baja). El copy se conserva en su idioma de mercado.</p>
+
+  <h3>8.1 Inglés (UK)</h3>
+  <div class="asset"><span class="lang-tag">EN · UK</span>
+    <p><strong>15 titulares (≤30):</strong></p>
+    <ol class="mono">
+      <li>Birdwatching in Rota, Spain</li><li>Andalusia's Secret Coast</li><li>Flamingos, Raptors &amp; Sun</li>
+      <li>Winter Birding, No Crowds</li><li>Free Rota Birding Guide</li><li>Doñana's Edge, No Permits</li>
+      <li>The Strait Raptor Migration</li><li>Off-Season Birding Deals</li><li>~400 Species in Cádiz</li>
+      <li>Birder-Friendly Hotels</li><li>Plan Your Spain Birding Trip</li><li>See Flamingos &amp; Ospreys</li>
+      <li>Uncrowded Birding Escape</li><li>Get the Free Birding Guide</li><li>Best Birding Oct&ndash;March</li>
+    </ol>
+    <p><strong>4 descripciones (≤90):</strong></p>
+    <ol class="mono">
+      <li>Flamingos, the Strait's raptor migration &amp; Doñana's edge — from one quiet Atlantic town.</li>
+      <li>Download the free Rota birding guide. Top species, best sites &amp; off-season hotel deals.</li>
+      <li>Skip the crowds and permits. Bird the salinas, pinewoods &amp; coast at their winter best.</li>
+      <li>Birder-friendly hotels, early breakfasts &amp; guided days. Plan your low-season escape now.</li>
+    </ol>
+  </div>
+
+  <h3>8.2 Alemán (DE)</h3>
+  <div class="asset de"><span class="lang-tag de">DE · ALEMANIA</span>
+    <p><strong>15 titulares (≤30):</strong></p>
+    <ol class="mono">
+      <li>Vogelbeobachtung in Rota</li><li>Andalusiens stille Küste</li><li>Flamingos &amp; Vogelzug</li>
+      <li>Birding ohne Touristen</li><li>Gratis Vogel-Guide Rota</li><li>Doñana-Rand, ohne Antrag</li>
+      <li>Der große Greifvogelzug</li><li>Nebensaison-Angebote</li><li>~400 Vogelarten in Cádiz</li>
+      <li>Vogelfreundliche Hotels</li><li>Naturreise Andalusien</li><li>Flamingos &amp; Fischadler</li>
+      <li>Ruhiges Vogelparadies</li><li>Vogel-Guide gratis laden</li><li>Beste Zeit: Okt&ndash;März</li>
+    </ol>
+    <p><strong>4 descripciones (≤90):</strong></p>
+    <ol class="mono">
+      <li>Flamingos, Greifvogelzug &amp; Doñana – von einem ruhigen Atlantikort aus erleben.</li>
+      <li>Kostenlosen Rota-Vogel-Guide laden: Arten, Gebiete &amp; Nebensaison-Angebote.</li>
+      <li>Ohne Massen, ohne Genehmigung: Salinen, Pinienwald &amp; Küste im Winter erleben.</li>
+      <li>Vogelfreundliche Hotels, frühes Frühstück, Guides. Jetzt Nebensaison planen.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 9 ===================== -->
+<section id="sec-9">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 09</span></div>
+  <h2>Activos de Performance Max <em>(Fase 2 — lanzar tras ≥30 conv/mes)</em></h2>
+  <p class="lead-in">Un grupo de activos por mercado; añadir <strong>vídeo</strong> (sube el rendimiento de PMax un 25&ndash;40%). Límites: titulares cortos ≤30, largos ≤90, descripciones ≤90, textos destacados ≤25, sitelinks ≤25. El copy se conserva en su idioma de mercado.</p>
+
+  <h3>9.1 Inglés (UK)</h3>
+  <div class="asset"><span class="lang-tag">EN · UK</span>
+    <p><strong>15 short headlines:</strong> <span class="mono">Birding in Rota, Spain · Andalusia's Secret Coast · Flamingos, Raptors &amp; Sun · Winter Birding, No Crowds · Free Rota Birding Guide · Doñana's Edge, No Permits · The Strait Migration · Off-Season Hotel Deals · ~400 Species in Cádiz · Birder-Friendly Hotels · Uncrowded Birding Escape · See Flamingos &amp; Ospreys · Self-Drive Birding Trips · Bird Photography Coast · Plan Your Trip Today</span></p>
+    <p><strong>5 long headlines:</strong></p>
+    <ol class="mono"><li>Birdwatching in Rota: flamingos, the Strait's raptor migration &amp; Doñana's edge.</li><li>Andalusia's undiscovered Atlantic birding base — minus the crowds and the permits.</li><li>Free Rota birding guide: top species, best sites and off-season hotel deals inside.</li><li>Bird the salinas, pinewoods and coast at their winter best — fewer people, lower prices.</li><li>Birder-friendly hotels, local experts and self-drive routes in Europe's richest bird province.</li></ol>
+    <p><strong>5 descriptions:</strong></p>
+    <ol class="mono"><li>Download the free guide and plan a quiet-season birding escape to Rota, Cádiz.</li><li>Flamingos, ospreys, Audouin's gulls and raptor migration from one comfortable town.</li><li>Off-season deals: early breakfasts, packed lunches, guided days and binocular rental.</li><li>~400 species, Atlantic light and no crowds. Best birding October to March.</li><li>Skip Doñana's permits and queues — bird its edge and stay seaside in Rota.</li></ol>
+    <p><strong>Callouts:</strong> <span class="mono">Free Birding Guide · Off-Season Deals · Local Expert Guides · ~400 Species · No Permits Needed · Early Breakfasts · Packed Lunches · Binocular Rental</span></p>
+    <p><strong>Structured snippets:</strong> <em>Destinations:</em> Bay of Cádiz Salinas, Doñana Edge, Strait of Gibraltar, Pinewoods, Chipiona, Laguna de Medina · <em>Amenities:</em> Guided Tours, Self-Drive Routes, Photo Hides, Airport Transfers, Bird Guide PDF · <em>Styles:</em> Weekend Breaks, 5-Day Trips, 7-Day Tours, Photography Trips</p>
+    <p><strong>Sitelinks:</strong> Free Birding Guide · Off-Season Deals · Bird Species List · Watch the Film · Trip Itineraries · Partner Hotels.</p>
+  </div>
+  <p class="gloss" style="margin-top:14px"><strong>Activos no textuales (ambos mercados):</strong> Imágenes — flamencos a la hora dorada; bando de limícolas en la orilla; águila pescadora en poste; «kettle» de rapaces; coche-hide en salina; rabilargo en pinar; desayuno en terraza; gráfico-mapa de los tres escenarios; gaviota de Audouin; colonia de vencejo moro; presentador + telescopio; pareja pajareando (formatos 1.91:1, 1:1, 4:5). Logo cuadrado 1:1 + apaisado 4:1. Vídeo: documental + cortes 30s/15s/6s. Señales de público: lista propia PDF/newsletter; segmento personalizado; in-market Viajes y Hoteles (España); afinidad Observación/Naturaleza/Fotografía; demo 45&ndash;65+, ingresos altos.</p>
+
+  <h3>9.2 Alemán (DE) &mdash; condensado</h3>
+  <div class="asset de"><span class="lang-tag de">DE · ALEMANIA</span>
+    <p><strong>Short headlines:</strong> <span class="mono">Birding in Rota · Andalusiens stille Küste · Flamingos &amp; Vogelzug · Winter-Birding ohne Massen · Gratis Vogel-Guide · Doñana-Rand ohne Antrag · Der große Greifvogelzug · Nebensaison-Angebote · ~400 Arten in Cádiz · Vogelfreundliche Hotels · Ruhiges Vogelparadies · Flamingos &amp; Fischadler · Selbstfahrer-Vogelreisen · Naturfoto-Küste · Jetzt Reise planen</span></p>
+    <p><strong>Long headlines:</strong> <span class="mono">(1) Vogelbeobachtung in Rota: Flamingos, Greifvogelzug &amp; Doñana-Rand. (2) Andalusiens unentdeckte Atlantik-Basis – ohne Massen, ohne Genehmigung. (3) Gratis Rota-Vogel-Guide: Arten, beste Gebiete &amp; Nebensaison-Angebote. (4) Salinen, Pinienwald &amp; Küste im Winter – weniger Menschen, bessere Preise. (5) Vogelfreundliche Hotels, lokale Experten, Selbstfahrer-Routen in Europas vogelreichster Provinz.</span></p>
+    <p><strong>Descriptions:</strong> <span class="mono">(1) Gratis-Guide laden und Nebensaison-Vogelreise nach Rota planen. (2) Flamingos, Fischadler, Korallenmöwen &amp; Greifvogelzug aus einem Ort. (3) Nebensaison: frühes Frühstück, Lunchpakete, Guides, Fernglas-Verleih. (4) ~400 Arten, Atlantiklicht, keine Massen. Beste Zeit Okt&ndash;März.</span></p>
+    <p><strong>Callouts:</strong> <span class="mono">Gratis Vogel-Guide · Nebensaison-Angebote · Lokale Guides · ~400 Arten · Ohne Genehmigung · Frühes Frühstück · Lunchpakete · Fernglas-Verleih</span> · <strong>Structured snippets / Sitelinks / Bilder / Signale:</strong> wie EN, in DE; Custom-Segment auf „Vogelbeobachtung", „NABU", „ornitho.de", „Tarifa Vogelzug".</p>
+  </div>
+</section>
+
+<!-- ===================== 10 ===================== -->
+<section id="sec-10">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 10</span></div>
+  <h2>Campaña de Display (entregada vía Demand Gen + remarketing en 2026)</h2>
+  <div class="nota"><span class="eyebrow">Nota 2026</span> Las nuevas campañas de Display independientes se están retirando (migración a Demand Gen desde junio de 2026). Por eso usamos estos elementos como <strong>activos de Display responsivo</strong> dentro de remarketing/Demand Gen. Siguen siendo idóneos para <strong>remarketing</strong>: reenganchar a no convertidores de la página de guía y a espectadores de vídeo.</p></div>
+
+  <h4>Conceptos de banner (4)</h4>
+  <ol>
+    <li><strong>«The Coast the Birders Forgot»</strong> &mdash; bando de flamencos a la hora dorada, chip CTA pequeño «Free Guide».</li>
+    <li><strong>«Doñana's Edge. None of the Crowds.»</strong> &mdash; imagen partida: pista de salina vacía / bando rosa.</li>
+    <li><strong>«Winter Birds. Winter Prices.»</strong> &mdash; águila pescadora en poste + «Off-Season Deals».</li>
+    <li><strong>«Lifers You Can't Get at Home»</strong> &mdash; tríptico gaviota de Audouin / rabilargo / vencejo moro.</li>
+  </ol>
+  <p><strong>Ideas de imagen:</strong> tomas de un solo sujeto, sin recargar (flamenco, águila pescadora, «kettle»), una con presencia humana (observador + telescopio), una de terraza de hotel acogedora; dejar espacio claro para logo + CTA; alto contraste para formatos pequeños.</p>
+  <p><strong>Llamadas a la acción:</strong> <em>Get the free guide</em> · <em>See off-season deals</em> · <em>Plan your trip</em> · <em>Watch the film</em>.</p>
+  <p><strong>Mensajes de remarketing (por público):</strong></p>
+  <ul class="clean">
+    <li><em>No convertidores de la guía:</em> «Still deciding? Grab the free Rota birding guide — no crowds, all the species.»</li>
+    <li><em>Descargadores (upsell):</em> «You've got the guide — now claim your off-season hotel deal.»</li>
+    <li><em>Espectadores de vídeo:</em> «Liked the film? Plan the trip. Free guide + low-season rates.»</li>
+    <li><em>Suscriptores (empujón a reserva):</em> «Winter's the best season here. Lock in your low-season escape.»</li>
+  </ul>
+  <p><strong>Anuncios de Display responsivos:</strong> titular corto ≤30 (reutilizar §9) · titular largo ≤90 (§9) · descripción ≤90 (§9) · nombre «Rota Birding» · imágenes 1.91:1 + 1:1 + logo 1:1. Activar formatos en inventario de Gmail/Discover/Display.</p>
+</section>
+
+<!-- ===================== 11 ===================== -->
+<section id="sec-11">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 11</span></div>
+  <h2>Campaña de YouTube (construida sobre el documental)</h2>
+  <p class="lead-in"><strong>Objetivo:</strong> notoriedad + captación de leads; ejecutar como <strong>vídeo de Demand Gen</strong> + alcance/visualizaciones dedicadas para el documental.</p>
+
+  <h4>Segmentación de público</h4>
+  <ul class="clean">
+    <li><strong>Segmentos personalizados:</strong> quienes buscaron «birdwatching Spain», «RSPB / NABU», «Tarifa raptor migration», «Doñana birding», URLs de tours de la competencia.</li>
+    <li><strong>Afinidad:</strong> aficionados a la observación de aves, amantes de la naturaleza, viajeros ávidos, aficionados a la fotografía.</li>
+    <li><strong>In-market:</strong> viajes internacionales, hoteles y alojamiento, viajes a España.</li>
+    <li><strong>Emplazamientos:</strong> canales y documentales de aves/naturaleza en YouTube; audiencia del propio canal del presentador.</li>
+    <li><strong>Demografía:</strong> núcleo 45&ndash;65+ (sesgo mayor/acomodado); ampliar a 35+ para fotógrafos.</li>
+    <li><strong>Remarketing:</strong> visitantes del sitio y de la guía, espectadores previos.</li>
+  </ul>
+
+  <h4>Formatos y cortes</h4>
+  <ul class="clean">
+    <li><strong>In-stream saltable (30s):</strong> gancho fuerte de 5s + montaje de especies + cartón CTA → guía.</li>
+    <li><strong>In-stream saltable (15s):</strong> gancho + un espectáculo (flamencos <em>o</em> «kettle» de rapaces) + CTA.</li>
+    <li><strong>Bumper 6s:</strong> una línea — «Spain's secret birding coast. Free guide →» sobre un despegue de flamencos.</li>
+    <li><strong>In-feed (Discovery):</strong> miniatura + título «Birdwatching in Rota 🦩 The Secret Coast» → al documental completo, luego remarketing.</li>
+  </ul>
+  <h4>Ganchos sugeridos (primeros 5s)</h4>
+  <ul class="clean">
+    <li>«Everyone rushes past this coast — here's what they're missing.» <em>(completo/30s)</em></li>
+    <li>«Thousands of eagles. One doorway between two continents.» <em>(corte rapaces)</em></li>
+    <li>«Flamingos at dawn, and not another soul on the salt-pans.» <em>(corte fotógrafo)</em></li>
+    <li>«Doñana's birds — without the permits or the crowds.» <em>(15s)</em></li>
+  </ul>
+  <p><strong>Llamadas a la acción:</strong> cartón final + fijado: <strong>«Free Rota Birding Guide → [link]»</strong>, más <em>Subscribe @AndresBarbaRota</em> y <em>See off-season hotel deals</em>. Usar banner acompañante + extensiones CTA sobre el vídeo.</p>
+</section>
+
+<!-- ===================== 12 ===================== -->
+<section id="sec-12">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 12</span></div>
+  <h2>Estrategia de alianzas hoteleras</h2>
+  <p><strong>El trato para los hoteles:</strong> la campaña lleva <strong>demanda de temporada baja</strong> (oct&ndash;mar) a semanas que, de otro modo, serían tranquilas. A cambio, los hoteles colaboradores ofrecen un «Paquete Observador» definido y respetan las tarifas de lector de la guía. Una <strong>alianza por niveles</strong> sencilla (Bronce/Plata/Oro según compromiso) la mantiene justa y escalable.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Elemento</th><th>Cómo lo entrega el hotel</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Descuentos exclusivos</strong></td><td>Código de lector de la guía (p. ej. <em>3×2 entre semana oct&ndash;mar</em>, <em>15% dto.</em>, <em>noche gratis en 5+</em>). Seguido con código/landing único → vincula las reservas a la campaña.</td></tr>
+      <tr><td><strong>Paquetes de observación</strong></td><td>Lote: 3&ndash;7 noches + pack de mapas + 1 mañana guiada + picnics + check-out tardío para regresos del amanecer.</td></tr>
+      <tr><td><strong>Alquiler de prismáticos</strong></td><td>Tener 4&ndash;6 prismáticos de préstamo (gama Hawke/Opticron) gratis para principiantes o 5 €/£ al día; bajo coste, mucha simpatía, convierte al curioso.</td></tr>
+      <tr><td><strong>Desayunos tempranos</strong></td><td>Bolsa para llevar antes del amanecer (termo de café, bollería, fruta) u opción caliente a las 06:30 en temporada de paso &mdash; el servicio más valorado por el observador.</td></tr>
+      <tr><td><strong>Picnics</strong></td><td>Pedido la noche anterior; pan local, queso, fruta; envase reutilizable (mensaje de sostenibilidad).</td></tr>
+      <tr><td><strong>Visitas guiadas</strong></td><td>Acuerdo con guías locales acreditados (incluidos los expertos del documental si quieren); el hotel reserva a comisión; medio día de salinas, día completo del Estrecho, mañanas de hide fotográfico.</td></tr>
+      <tr><td><strong>Traslados al aeropuerto</strong></td><td>Traslado negociado Jerez/Sevilla o referido a alquiler de coche; nota de vehículo «apto para óptica»; incluido en el precio del paquete.</td></tr>
+    </tbody>
+  </table></div>
+  <p><strong>Movimientos de apoyo:</strong> <strong>seguimiento de conversión compartido</strong> (importación offline de reservas vía Data Manager), un <strong>presupuesto cofinanciado</strong> (los hoteles aportan a la campaña de temporada baja en proporción a las noches ganadas), un distintivo de <strong>certificación «apto para observadores»</strong> para sus páginas y un <strong>bucle de recomendación</strong> (los hoteles promueven la guía gratuita entre sus clientes directos, alimentando la lista de email).</p>
+</section>
+
+<!-- ===================== 13 ===================== -->
+<section id="sec-13">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 13</span></div>
+  <h2>Estrategia SEO</h2>
+  <p><strong>Palabras clave pilar:</strong> observación de aves Rota / Cádiz / Costa de la Luz; birding de invierno en Andalucía; migración del Estrecho de Gibraltar; alternativa a Doñana; aves de la provincia de Cádiz; (+ equivalentes DE: <span class="mono">Vogelbeobachtung Cádiz/Andalusien, Vogelzug Gibraltar, Doñana Alternative</span>).</p>
+
+  <h4>Clústeres de contenido (hub &amp; spoke)</h4>
+  <ol>
+    <li><strong>Hub: «Observación de aves en Rota y Cádiz»</strong> → spokes: mejores lugares cerca de Rota; Río Salado; salinas de la bahía; pinares; borde de Bonanza/Doñana; vencejo moro de Chipiona; Laguna de Medina.</li>
+    <li><strong>Hub: «Migración del Estrecho de Gibraltar»</strong> → spokes: otoño vs primavera; calendario de especies; mejores miradores; leer el viento; excursión de un día desde Rota.</li>
+    <li><strong>Hub: «Planifica tu viaje»</strong> → spokes: cuándo venir (estacionalidad); itinerarios (fin de semana/5/7 días); qué llevar; contratar guía; cómo llegar; dónde alojarse.</li>
+    <li><strong>Hub: «Fichas de especies»</strong> → páginas individuales: flamenco, águila pescadora, gaviota de Audouin, ibis eremita, rabilargo, etc. (reflejan las especies del lead magnet &mdash; fuerte captura long-tail).</li>
+  </ol>
+  <p><strong>Enlazado interno:</strong> cada spoke enlaza hacia su hub y de forma cruzada a «Planifica tu viaje» + el CTA de la <strong>guía gratuita</strong> + los <strong>hoteles colaboradores</strong> pertinentes; las páginas de especies enlazan al lugar donde se ven. Mantener un bloque CTA coherente en todo el sitio.</p>
+  <p><strong>Oportunidades de backlink:</strong> Andalucía Bird Society, Fat Birder, Birdingplaces.eu, páginas de hotspots de eBird, Cádiz Turismo / Turismo de Andalucía, hilos de BirdForum, clubes de aves de condado del RU y grupos locales de la RSPB, grupos NABU alemanes y comunidades de <em>Der Falke</em>/naturfoto, agregadores de tours, blogs de viaje y los propios canales/Instagram de los colaboradores.</p>
+  <p><strong>SEO local y Google Business Profile:</strong> crear/optimizar un GBP del servicio de observación / información al visitante (categoría: operador turístico / agencia de viajes); NAP exacto, área de servicio (Rota, Cádiz), fotos de salinas/aves/guías, publicaciones de momentos destacados estacionales, Q&amp;A sembrado con las FAQ, recopilar reseñas. Conseguir que los hoteles colaboradores mencionen «observación de aves» en sus propios GBP.</p>
+  <p><strong>Schema:</strong> <span class="mono">TouristDestination</span>, <span class="mono">TouristAttraction</span> (cada lugar), <span class="mono">FAQPage</span>, <span class="mono">VideoObject</span> (documental), <span class="mono">Article</span>/<span class="mono">BlogPosting</span> (clústeres), <span class="mono">Organization</span>, <span class="mono">BreadcrumbList</span>, <span class="mono">Event</span> (salidas guiadas), referencias <span class="mono">LodgingBusiness</span> para colaboradores.</p>
+  <p><strong>Ideas de blog (set de lanzamiento):</strong> «10 aves que solo puedes anotar en el sur de España» · «Doñana sin permisos: pajarea su borde tranquilo desde Rota» · «Una mañana de invierno en las salinas de Cádiz» · «El Estrecho de Gibraltar: la mayor migración del Paleártico Occidental, explicada» · «Dónde fotografiar flamencos cerca de Cádiz» · «Un itinerario perfecto de 5 días por Cádiz» · «Por qué la temporada baja es la mejor época para pajarear en Andalucía» · «Los pinares de Rota: un bosque ibérico en miniatura» · (DE) «Vogelzug an der Straße von Gibraltar – Andalusiens großes Naturschauspiel» · (DE) «Andalusien im Winter: Vogelbeobachtung abseits der Massen».</p>
+</section>
+
+<!-- ===================== 14 ===================== -->
+<section id="sec-14">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 14</span></div>
+  <h2>Email marketing &mdash; secuencia automatizada tras la descarga</h2>
+  <p class="lead-in"><strong>Disparador:</strong> el suscriptor descarga la guía gratuita (double opt-in confirmado). <strong>Objetivo:</strong> convertir, con suavidad y a lo largo de ~3 semanas, a un descargador curioso en un reservante de temporada baja &mdash; liderando con valor y conservación, no con venta agresiva. La cadencia es orientativa: ajustar a la temporada (comprimir en sep&ndash;nov; estirar en primavera). Dos flujos paralelos: <strong>EN (UK)</strong> y <strong>DE</strong>, adaptados. Personalizar con el nombre; HTML con aspecto de texto plano; un CTA principal por correo. El copy se conserva en su idioma de mercado.</p>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>#</th><th>Email</th><th>Envío</th><th>Objetivo</th><th>CTA principal</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Bienvenida + entrega de la guía</td><td>Inmediato</td><td>Confirmar valor, fijar expectativas</td><td>Abrir la guía</td></tr>
+      <tr><td>2</td><td>Aves destacadas</td><td>Día 3</td><td>Crear deseo (especies + espectáculo)</td><td>Ver el film / leer fichas</td></tr>
+      <tr><td>3</td><td>Ofertas de alojamiento</td><td>Día 7</td><td>Presentar ofertas de temporada baja</td><td>Ver ofertas de hoteles</td></tr>
+      <tr><td>4</td><td>Testimonios + confianza experta</td><td>Día 12</td><td>Prueba social + credibilidad</td><td>Leer historias / conocer guías</td></tr>
+      <tr><td>5</td><td>Urgencia de reserva (ventana estacional)</td><td>Día 18</td><td>Convertir a consulta/reserva</td><td>Planificar mi viaje</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>14.1 Flujo en inglés (UK)</h3>
+  <div class="asset"><span class="lang-tag">EN · UK</span>
+    <p><strong>Email 1 — Welcome &amp; your guide is here.</strong> <em>Subject A:</em> Your Rota birding guide is inside 🦩 · <em>Subject B:</em> Welcome — here's your free Rota guide. <em>Body:</em> Thanks for downloading <strong>Rota: Andalusia's Undiscovered Birding Coast</strong> — your link is below. Over the next couple of weeks I'll send a short series: the birds worth travelling for, where to stay for next to nothing off-season, and how to plan a trip that's easy on you and on the wildlife. For now: (1) open the guide and skim the seasonality page; (2) hit reply and tell me what you most want to see (waders? raptors? flamingos?). — <em>Andrés &amp; the Rota birding team.</em> <strong>CTA:</strong> Open my guide →</p>
+    <p><strong>Email 2 — The birds worth travelling for.</strong> <em>Subject A:</em> Flamingos at dawn, eagles by the thousand · <em>Subject B:</em> The 3 birding worlds of one small town. <em>Body:</em> Most people picture one famous park when they think of southern Spain. Rota quietly sits next to <em>three</em> worlds: the Bay of Cádiz salt-pans (wintering waders, Osprey, flamingos), the pinewoods (Azure-winged Magpie and other Iberian specialities), and — 90 minutes south — the Strait of Gibraltar, the Western Palearctic's greatest raptor migration. Our short film takes you to all three in eight minutes. <strong>CTA:</strong> Watch the Rota birding film →</p>
+    <p><strong>Email 3 — Where to stay (off-season rates).</strong> <em>Subject A:</em> Birder-friendly hotels, off-season prices · <em>Subject B:</em> Early breakfasts, packed lunches, scopes by the door. <em>Body:</em> The quiet season (October–March) is when the birding peaks <em>and</em> the prices drop. Our partner hotels are set up for birders: pre-dawn breakfasts, packed lunches, safe storage for optics, and exclusive guide-reader rates. A few even keep loan binoculars for first-timers. Midweek off-season stays are the best value on this coast. <strong>CTA:</strong> See off-season hotel deals →</p>
+    <p><strong>Email 4 — From people who've been (and the experts who live it).</strong> <em>Subject A:</em> "I had the salt-pans to myself" · <em>Subject B:</em> Meet the people who know these birds best. <em>Body:</em> Don't just take it from me. [Insert 2–3 real guest stories once collected — do not invent.] You'll be in good company on the ground: local biologist Adrián Ruiz and wildlife photographers Antonio Gallardo and Alejandro Magariño know this coast intimately, and we can connect you with vetted local guides. Birding here is calmer, closer and quieter than the famous sites — you'll often have a salina to yourself. <strong>CTA:</strong> Meet the guides &amp; read trip stories →</p>
+    <p><strong>Email 5 — The window is open now.</strong> <em>Subject A:</em> The best birding season is also the cheapest · <em>Subject B:</em> Don't miss the quiet season at Rota. <em>Body:</em> The honest pitch: the off-season window (now through early spring) gives you the biggest wader flocks, wintering Osprey and flamingos, passage raptors, the softest light — and the lowest prices of the year. Those weeks fill up as word spreads. Tell us your rough dates and what you'd love to see, and we'll help you shape an easy, low-impact trip with the right hotel and, if you'd like, a local guide. <strong>CTA:</strong> Plan my off-season trip →</p>
+  </div>
+
+  <h3>14.2 Flujo en alemán (DE)</h3>
+  <div class="asset de"><span class="lang-tag de">DE · ALEMANIA</span>
+    <p><strong>E-Mail 1 — Willkommen &amp; Ihr Guide ist da.</strong> <em>Betreff A:</em> Ihr Rota-Vogel-Guide ist da 🦩 · <em>Betreff B:</em> Willkommen — hier ist Ihr kostenloser Rota-Guide. <em>Text:</em> Vielen Dank, dass Sie <strong>„Rota: Andalusiens unentdeckte Vogelküste"</strong> heruntergeladen haben — den Link finden Sie unten. In den nächsten Wochen schicke ich Ihnen eine kleine Serie: die Vögel, für die sich die Reise lohnt, wo Sie in der Nebensaison günstig übernachten und wie Sie eine Reise planen, die Sie und die Natur schont. Zwei Tipps: (1) Saison-Übersicht im Guide ansehen; (2) kurz antworten, was Sie am liebsten sehen möchten. <strong>CTA:</strong> Guide öffnen →</p>
+    <p><strong>E-Mail 2 — Die Vögel, für die sich die Reise lohnt.</strong> <em>Betreff A:</em> Flamingos im Morgenlicht, Greifvögel zu Tausenden · <em>Betreff B:</em> Drei Vogelwelten an einem Ort. <em>Text:</em> Die meisten denken bei Südspanien an einen berühmten Nationalpark. Rota liegt ruhig neben <em>drei</em> Welten: den Salinen der Bahía de Cádiz, dem Pinienwald (Blauelster &amp; iberische Spezialitäten) und — 90 Minuten südlich — der Straße von Gibraltar, dem größten Greifvogelzug der Westpaläarktis. Unser kurzer Film zeigt alle drei in acht Minuten. <strong>CTA:</strong> Den Rota-Vogelfilm ansehen →</p>
+    <p><strong>E-Mail 3 — Übernachten (zu Nebensaison-Preisen).</strong> <em>Betreff A:</em> Vogelfreundliche Hotels, Nebensaison-Preise · <em>Betreff B:</em> Frühes Frühstück, Lunchpakete, Spektiv an der Tür. <em>Text:</em> Die ruhige Saison (Oktober–März) ist die beste Vogelzeit <em>und</em> die günstigste. Unsere Partnerhotels sind auf Beobachter eingestellt: frühes Frühstück, Lunchpakete, sichere Optik-Aufbewahrung und exklusive Preise für Guide-Leser. Einige verleihen sogar Ferngläser. Aufenthalte unter der Woche in der Nebensaison bieten das beste Preis-Leistungs-Verhältnis. <strong>CTA:</strong> Nebensaison-Angebote ansehen →</p>
+    <p><strong>E-Mail 4 — Von Menschen, die da waren (und Experten, die hier leben).</strong> <em>Betreff A:</em> „Ich hatte die Salinen für mich allein" · <em>Betreff B:</em> Lernen Sie die Menschen kennen, die diese Vögel am besten kennen. <em>Text:</em> Verlassen Sie sich nicht nur auf mich. [2–3 echte Gästeberichte einfügen, sobald vorhanden — nicht erfinden.] Vor Ort sind Sie in guter Gesellschaft: der Biologe Adrián Ruiz und die Fotografen Antonio Gallardo und Alejandro Magariño kennen diese Küste genau, und wir vermitteln geprüfte lokale Guides. Oft haben Sie eine Salina ganz für sich. <strong>CTA:</strong> Guides kennenlernen &amp; Berichte lesen →</p>
+    <p><strong>E-Mail 5 — Das Zeitfenster ist jetzt offen.</strong> <em>Betreff A:</em> Die beste Vogelzeit ist auch die günstigste · <em>Betreff B:</em> Verpassen Sie die ruhige Saison in Rota nicht. <em>Text:</em> Ehrlich gesagt: Das Nebensaison-Fenster (jetzt bis zum frühen Frühjahr) bietet die größten Limikolen-Trupps, überwinternde Fischadler und Flamingos, ziehende Greifvögel, das weichste Licht — und die niedrigsten Preise des Jahres. Diese Wochen füllen sich schnell. Nennen Sie uns Ihren ungefähren Reisezeitraum und Ihre Wunscharten, und wir helfen Ihnen, eine entspannte, naturschonende Reise zu planen. <strong>CTA:</strong> Meine Nebensaison-Reise planen →</p>
+  </div>
+</section>
+
+<!-- ===================== 15 ===================== -->
+<section id="sec-15">
+  <div class="sec-head"><span class="sec-num">SECCIÓN 15</span></div>
+  <h2>KPIs, referencias y calendario previsto</h2>
+  <div class="nota"><span class="eyebrow">Supuestos</span> Las referencias siguientes son rangos realistas para una cuenta de <strong>nicho de viajes/generación de leads</strong> en UK y DE, combinando el rendimiento típico del sector con la realidad de un público <em>premium, de bajo volumen y alta intención</em>. Trátense como objetivos de planificación a batir, no garantías. Divisas: <strong>GBP (UK), EUR (DE)</strong>. Los CPC/CPA tienden a ser más bajos en DE que en UK en este nicho. «Lead» = descarga confirmada (double opt-in) de la guía. El objetivo es <strong>calidad sobre volumen</strong>: juzgue el éxito por <em>coste por noche-habitación reservada y tasa de email→consulta</em>, no por clics.</div>
+
+  <h3>15.1 KPIs objetivo por etapa del embudo</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Etapa</th><th>KPI</th><th>Objetivo UK</th><th>Objetivo DE</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Notoriedad</strong></td><td>Tasa de visualización de vídeo (YouTube/Demand Gen)</td><td>25&ndash;40%</td><td>25&ndash;40%</td><td>El view-through, no los clics, es la métrica correcta.</td></tr>
+      <tr><td></td><td>Incremento de búsqueda de marca</td><td>+10&ndash;25% en 90 días</td><td>+10&ndash;25%</td><td>Búsquedas de marca atribuidas + orgánicas.</td></tr>
+      <tr><td><strong>Captación (Búsqueda)</strong></td><td>CTR (Búsqueda)</td><td>5&ndash;9%</td><td>5&ndash;9%</td><td>Términos de nicho, alta intención y baja competencia.</td></tr>
+      <tr><td></td><td>CPC medio (Búsqueda)</td><td>0,60&ndash;1,60 £</td><td>0,40&ndash;1,20 €</td><td>El long-tail es barato; «Spain birding holiday» cuesta más.</td></tr>
+      <tr><td></td><td>CTR (Demand Gen/Display)</td><td>0,6&ndash;1,2%</td><td>0,6&ndash;1,2%</td><td>Visual/notoriedad — CTR mucho menor que Búsqueda; es normal.</td></tr>
+      <tr><td><strong>Conversión (Lead)</strong></td><td>Tasa landing → lead (alta)</td><td>8&ndash;18%</td><td>8&ndash;18%</td><td>PDF valioso + público ajustado → extremo alto.</td></tr>
+      <tr><td></td><td>Coste por lead (descarga)</td><td>2,50&ndash;7 £</td><td>2&ndash;6 €</td><td>Combinado Búsqueda + Demand Gen.</td></tr>
+      <tr><td></td><td>Confirmación de email (double opt-in)</td><td>55&ndash;75%</td><td>55&ndash;75%</td><td>De quienes envían el formulario.</td></tr>
+      <tr><td><strong>Nurturing (Email)</strong></td><td>Tasa de apertura (secuencia de 5)</td><td>35&ndash;55%</td><td>35&ndash;55%</td><td>Lista cálida, opt-in, monotemática.</td></tr>
+      <tr><td></td><td>Tasa de clic</td><td>4&ndash;9%</td><td>4&ndash;9%</td><td>Un CTA claro por email.</td></tr>
+      <tr><td></td><td>Tasa lead → consulta</td><td>3&ndash;8%</td><td>3&ndash;8%</td><td>Suscriptor que pide viaje/hotel.</td></tr>
+      <tr><td><strong>Ingresos (Reserva)</strong></td><td>Tasa consulta → reserva</td><td>20&ndash;40%</td><td>20&ndash;40%</td><td>Consultas cálidas y autocualificadas convierten bien.</td></tr>
+      <tr><td></td><td>Tasa lead → reserva (global)</td><td>1&ndash;4%</td><td>1&ndash;4%</td><td>El número que financia la campaña.</td></tr>
+      <tr><td></td><td>Coste por reserva (CPA)</td><td>60&ndash;180 £</td><td>50&ndash;150 €</td><td>Aceptable dado el ingreso de varias noches en temporada baja + repetición/boca a boca.</td></tr>
+      <tr><td></td><td><strong>ROAS</strong> (valor de reserva atribuido)</td><td><strong>3:1&ndash;6:1</strong></td><td><strong>3:1&ndash;6:1</strong></td><td>Sube al madurar remarketing + email. Los primeros meses serán menores — ver calendario.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>15.2 Cómo leer los números (para que el panel no engañe)</h3>
+  <ul class="clean">
+    <li><strong>No juzgues Demand Gen/YouTube por last-click.</strong> Usa conversiones view-through, asistidas e incremento de búsqueda de marca; estos canales siembran demanda que Búsqueda y email luego cosechan.</li>
+    <li><strong>Mira el coste por <em>reserva</em>, no por clic.</strong> Un lead de 6 £ que reserva 5 noches en temporada baja es excelente; uno de 1 £ que nunca viaja, no.</li>
+    <li><strong>Segmenta UK vs DE</strong> &mdash; distintos CPC, distintos ritmos de intención; nunca los promedies en una «verdad» única.</li>
+    <li><strong>Señales de calidad del lead:</strong> tasa de confirmación, tasa de clic de la secuencia y tasa de consulta juntas dicen si atraes <em>observadores</em> o solo clics. Si las descargas son baratas pero las consultas planas, ajusta segmentación/palabras clave; no escales el gasto sin más.</li>
+  </ul>
+
+  <h3>15.3 Calendario y fases previstas</h3>
+  <div class="tbl-scroll"><table>
+    <thead><tr><th>Fase</th><th>Ventana</th><th>Foco</th><th>Cómo se ve «bien»</th></tr></thead>
+    <tbody>
+      <tr><td><strong>0 — Construcción y medición</strong></td><td>Semanas 0&ndash;3</td><td>Landings activas, seguimiento + Consent Mode v2, guía + automatización de email, film publicado, públicos creados</td><td>Medición verificada de extremo a extremo; primer gasto de prueba</td></tr>
+      <tr><td><strong>1 — Lanzamiento (Búsqueda + Demand Gen + remarketing)</strong></td><td>Meses 1&ndash;2</td><td>Captar intención existente + sembrar notoriedad; recoger datos de conversión</td><td>Primeros leads estables; CPL tendiendo al objetivo; <strong>fase de aprendizaje</strong> — habrá volatilidad, no sobre-editar</td></tr>
+      <tr><td><strong>2 — Optimizar y añadir capas</strong></td><td>Meses 3&ndash;4</td><td>Añadir Performance Max al superar ~30 conv/mes; ampliar palabras clave/creatividades ganadoras; activar tCPA</td><td>CPL en/bajo objetivo; el email genera primeras consultas; primeras reservas atribuibles</td></tr>
+      <tr><td><strong>3 — Escalar hacia el pico de temporada baja</strong></td><td>Meses 5&ndash;7 (alinear con demanda sep&ndash;mar)</td><td>Escalar presupuesto en lo que convierte; empujes hoteleros cofinanciados; creatividad estacional</td><td>ROAS subiendo hacia 3:1+; reservas concentradas en temporada baja; remarketing + email cargando conversiones</td></tr>
+      <tr><td><strong>4 — Evaluar y replanificar</strong></td><td>Mes 8+ / postemporada</td><td>Revisión de embudo completo por mercado; reasignar a los mejores canales; construir señales lookalike/IA con datos de reservantes</td><td>Coste por reserva claro por mercado; manual documentado para el siguiente ciclo</td></tr>
+    </tbody>
+  </table></div>
+  <div class="nota accent"><span class="eyebrow">Recordatorio de estacionalidad</span> El gasto debe <em>adelantarse</em> a la temporada baja 4&ndash;8 semanas (la gente investiga antes de reservar). Empujar más fuerte en <strong>ago&ndash;nov</strong> (viajes otoño/invierno) y <strong>dic&ndash;feb</strong> (paso primaveral), aflojando en el pico veraniego, cuando el mensaje de «temporada tranquila» no aplica. Smart Bidding necesita ~30 conversiones/30 días para rendir: protege ese volumen antes de juzgar la eficiencia.</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <hr class="feather">
+    <p>Preparado como plan maestro de estilo de agencia. Los volúmenes de búsqueda, los CPC, los CPA y el ROAS son <strong>estimaciones de planificación</strong> para un nicho premium y deben validarse contra los datos reales de la cuenta. Los <strong>testimonios, ofertas hoteleras y citas de colaboradores reales deben recopilarse antes del lanzamiento</strong> &mdash; los marcadores de este documento no deben inventarse. Construido sobre las convenciones de Google Ads de 2026 (Demand Gen como motor de notoriedad/social, Performance Max para prospección combinada, Búsqueda + AI Max para captar intención; Display independiente migrando a Demand Gen).</p>
+    <p class="eyebrow">Rota · Cádiz · Costa de la Luz &nbsp;·&nbsp; Plan maestro 2026 &nbsp;·&nbsp; Mercados UK &amp; DE</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var ids=[];for(var i=1;i<=15;i++){ids.push('sec-'+i);}
+  var tabs={};document.querySelectorAll('.thumb-index a').forEach(function(a){
+    tabs[a.getAttribute('href').slice(1)]=a;});
+  var secs=ids.map(function(id){return document.getElementById(id);}).filter(Boolean);
+  if(!('IntersectionObserver' in window)||!secs.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        Object.keys(tabs).forEach(function(k){tabs[k].classList.remove('active');});
+        var t=tabs[e.target.id];if(t)t.classList.add('active');
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  secs.forEach(function(s){io.observe(s);});
+})();
+</script>
+</body>
+</html>
