@@ -20,13 +20,21 @@ Google Drive (carpeta **Corrales de Rota**) es el archivo fotográfico `Fotos/`,
    (hunde el LCP). JPG ~2000px, 200–400 KB. Siempre con `width`/`height` para no romper CLS.
 5. **Vídeo con fachada + `youtube-nocookie` + `VideoObject`.** No cargar el reproductor
    pesado hasta el clic (ya implementado en `build.py`).
-6. **El motor de reservas NO entra en v1.** No lo implementes. El CTA «Reservar» de `/visita/`
-   degrada a contacto directo.
+6. **El motor de reservas NO entra en v1.** No lo implementes. No hay botón «Reservar» ni reserva
+   online. La visita se reserva por la **Oficina de Turismo de Rota** (tel. 956 846345,
+   turismorota@gmail.com); el CTA del sitio es «Cómo visitar» y lleva a `/visita/`, que dirige a Turismo.
 
 ## Cómo se construye
 
-`python3 build.py` lee `site.config.json` + `content/**` + `templates/base.css` y escribe `dist/`.
-Sin dependencias para construir (solo stdlib). `Pillow` únicamente para el pipeline de imágenes.
+`python3 build.py` lee `site.config.json` + `content/**` + `templates/base.css` +
+`templates/site.css` y escribe `dist/`. `base.css` es la marca (verbatim, no se toca);
+`site.css` añade los componentes de ritmo (split, diagram, cta, turismo, keys, pull) heredando
+los tokens. Ambos se inlinean en cada página. Solo stdlib para construir; `Pillow` calcula
+`width`/`height` de las imágenes (anti-CLS) y para el pipeline de fotos.
+
+**Solo se generan idiomas con contenido.** v1 = ES: hay `content/es/*.json` para las 12 páginas,
+así que se generan 12 URLs. EN/DE/FR se generan cuando exista su `content/<lang>/*.json` (no se
+publican páginas vacías; el `hreflang` solo anuncia los idiomas presentes + `x-default`→ES).
 Verifica siempre con `python3 build.py` y sirviendo `dist/` (`python3 -m http.server`).
 
 ### Modelo de contenido
@@ -47,11 +55,17 @@ Cada página tiene un JSON por idioma en `content/<lang>/<page_id>.json`:
 }
 ```
 
-Tipos de bloque disponibles (ver `build.py` para el contrato exacto):
-`prose` (kicker/h2/lead/paras[]/anchor), `stats` (items[]{n,l}), `jewels` (rejilla de las 8 joyas),
-`video` (yt/title/desc/date/alt), `faq` (items[]{q,a}), `support` (Bizum/tarjeta), `contact`.
+Cada bloque puede llevar `"tone": "surface"|"pizarra"|"sand"` (fondo de la sección, para
+alternar ritmo) y `"full": true` (a sangre, sin `<section>`). Tipos disponibles (ver `build.py`
+para el contrato exacto):
+`prose` (kicker/h2/lead/paras[]/anchor), `split` (img/alt + texto, `reverse` alterna lado, cta opcional),
+`diagram` (cómo funciona un corral: steps[]{kicker,text}, 3 escenas SVG fijas), `stats` (items[]{n,l}),
+`jewels` (rejilla de las 8 joyas), `video` (yt/title/desc/date/alt), `faq` (items[]{q,a}),
+`keys` (items[]{k,t,d}), `turismo` (reserva por la Oficina de Turismo: phone/email/tips[]),
+`contact`, `figure`, `band` (foto a sangre), `gallery` (items[]{img,alt,caption}),
+`pull` (cita), `cta` (nodo a la visita: href/cta/text).
 
-Strings de interfaz (nav, footer, CTA de reservar, «Saltar al contenido») en `content/ui.<lang>.json`.
+Strings de interfaz (nav, footer, CTA «Cómo visitar», «Saltar al contenido») en `content/ui.<lang>.json`.
 
 ### SEO ya implementado (mantener)
 

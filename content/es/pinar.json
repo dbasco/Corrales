@@ -1,0 +1,38 @@
+{
+  "title": "Pinar de Rota · el bosque litoral que pocos visitantes conocen",
+  "meta_description": "El pinar de Rota: un bosque de pino piñonero entre el pueblo y la playa, con una biodiversidad que sorprende. Una joya natural a un paseo de los corrales.",
+  "hero": {
+    "kicker": "Joyas de Rota · Pinar",
+    "h1": "El pinar litoral",
+    "sub": "Un bosque de pino piñonero entre el pueblo y la playa. Uno de los grandes tesoros naturales de Rota, y de los menos conocidos.",
+    "grad": "grad-stone"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "Sombra, aire y biodiversidad",
+      "lead": "Más allá de sus playas, Rota guarda un bosque mediterráneo litoral con vida propia.",
+      "paras": [
+        "El pinar es refugio de fauna y flora, un buen sitio para caminar a la sombra y conectar con la naturaleza sin salir del municipio. Entre sus pasarelas vive, por ejemplo, el camaleón común, otra de las joyas de Rota.",
+        "En el episodio de «Más allá del mar» dedicado al pinar, Andrés Barba lo recorre con Carolina Bonhomo, responsable del Área de Medio Ambiente del Ayuntamiento de Rota, para explicar su importancia ecológica."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "VkwiD6qVXnQ",
+      "title": "Los pinares de Rota: el bosque que pocos turistas conocen",
+      "desc": "Andrés Barba recorre el pinar litoral de Rota con Carolina Bonhomo y muestra su biodiversidad.",
+      "date": "2025-04-01",
+      "alt": "Pinar de pino piñonero en Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "Encadénalo con la visita a los corrales",
+      "cta": "La visita a los corrales",
+      "href": "/visita/"
+    }
+  ]
+}

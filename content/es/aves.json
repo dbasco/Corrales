@@ -1,0 +1,63 @@
+{
+  "title": "Aves de Rota · marisma, corrales y litoral · observación de aves",
+  "meta_description": "Rota es un enclave privilegiado para la observación de aves: flamencos, espátulas, limícolas y rapaces entre la marisma y los corrales. Una joya que encadena con la visita a los corrales.",
+  "hero": {
+    "kicker": "Joyas de Rota · Aves",
+    "h1": "Aves entre los corrales y la marisma",
+    "sub": "Flamencos, espátulas, limícolas y rapaces a un paso del pueblo. Un enclave tranquilo para observar aves durante buena parte del año.",
+    "img": "/assets/img/joya-aves-hero.jpg",
+    "img_alt": "Cigüeñuela reflejada en el agua de la marisma de Rota"
+  },
+  "sections": [
+    {
+      "type": "split",
+      "img": "/assets/img/joya-aves.jpg",
+      "alt": "Espátula común alimentándose en la marisma de Rota",
+      "kicker": "Por qué aquí",
+      "h2": "Un enclave privilegiado",
+      "lead": "Entre los corrales, la marisma y el pinar, Rota reúne hábitats muy distintos en muy poco espacio.",
+      "paras": [
+        "Esa variedad atrae a muchas aves y hace fácil observarlas sin apenas desplazarse. Las aves son, además, un buen indicador de la salud del ecosistema: donde hay marisma viva, hay aves.",
+        "El fotógrafo Antonio Gallardo, autor del libro «Fauna del Pinar de Rota», y el biólogo Adrián Ruiz colaboran con la asociación para identificar especies y enseñar a observar con calma y respeto."
+      ]
+    },
+    {
+      "type": "gallery",
+      "tone": "surface",
+      "kicker": "Quién se ve",
+      "h2": "Algunas de sus aves",
+      "cols": 3,
+      "items": [
+        { "img": "/assets/img/ave-flamenco.jpg", "alt": "Flamenco común en la marisma de Rota", "caption": "Flamenco común" },
+        { "img": "/assets/img/ave-garza.jpg", "alt": "Garza en el litoral de Rota", "caption": "Garzas y limícolas" },
+        { "img": "/assets/img/ave-cernicalo.jpg", "alt": "Cernícalo, rapaz del litoral de Rota", "caption": "Rapaces como el cernícalo" }
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "Cuándo y cómo",
+      "h2": "Observar sin molestar",
+      "paras": [
+        "El litoral de Rota es zona de paso e invernada: buena parte de la actividad ornitológica cae fuera del verano, cuando llegan limícolas y aves migratorias. Los propios corrales funcionan como un escondite natural vivo desde el que ver aves de cerca.",
+        "La observación se hace con calma y a distancia, sin perseguir ni molestar a las aves. Prismáticos, paciencia y silencio son todo lo que hace falta."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "wUsrpnkLRCA",
+      "title": "Aves de los Corrales de Rota: guía viva con Adrián",
+      "desc": "Recorrido por las aves de los corrales de Rota con el biólogo Adrián: limícolas, migración y joyas del litoral.",
+      "date": "2025-05-01",
+      "alt": "Aves limícolas en el litoral de los corrales de Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "Ve las aves desde dentro del corral",
+      "text": "La visita guiada te mete en la franja intermareal, el mejor sitio para observar aves de cerca.",
+      "cta": "La visita a los corrales",
+      "href": "/visita/"
+    }
+  ]
+}

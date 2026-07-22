@@ -1,0 +1,38 @@
+{
+  "title": "El camaleón común de Rota · uno de sus últimos refugios en Cádiz",
+  "meta_description": "Rota es uno de los pocos lugares de la costa gaditana donde sobrevive el camaleón común, protegido por una ordenanza municipal. Se observa en el pinar, sin tocarlo. Una joya a un paseo de los corrales.",
+  "hero": {
+    "kicker": "Joyas de Rota · Camaleón",
+    "h1": "El camaleón común",
+    "sub": "Rota es uno de los pocos lugares de la costa gaditana donde este reptil aún resiste, y donde se le cuida.",
+    "grad": "grad-oxido"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "Un tesoro difícil de ver",
+      "lead": "El camaleón representa como pocos animales la riqueza y la fragilidad del entorno de Rota.",
+      "paras": [
+        "Vive en el pinar y en zonas de matorral; se mueve despacio y cambia de tonalidad para camuflarse y regular su temperatura, así que muchas veces está a nuestro lado sin que lo veamos. Rota mantiene su hábitat y, desde 2017, una ordenanza municipal que lo protege, de las pocas de este tipo en España.",
+        "Se observa desde las pasarelas del pinar durante todo el año, aunque es más visible de julio a septiembre. La norma es sencilla: mirar y fotografiar a distancia, nunca tocarlo ni molestarlo, para que quien venga después también pueda disfrutarlo."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "pz3lKhIWYZs",
+      "title": "El camaleón de Rota: la especie más sorprendente de Cádiz",
+      "desc": "Andrés Barba y Juan José Gómez, de Ecologistas en Acción La Plazoleta, muestran cómo vive el camaleón común de Rota y cómo protegerlo.",
+      "date": "2025-04-01",
+      "alt": "Camaleón común sobre una rama en el pinar de Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "Encadénalo con la visita a los corrales",
+      "cta": "La visita a los corrales",
+      "href": "/visita/"
+    }
+  ]
+}

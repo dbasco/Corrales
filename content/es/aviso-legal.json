@@ -1,0 +1,34 @@
+{
+  "title": "Aviso legal · Los Corrales de Rota",
+  "meta_description": "Aviso legal de la Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota».",
+  "hero": {
+    "kicker": "Información legal",
+    "h1": "Aviso legal",
+    "sub": "Titularidad y condiciones de uso de este sitio web.",
+    "grad": "grad-pizarra"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Borrador",
+      "h2": "Datos identificativos",
+      "lead": "Esta página está en preparación. Los datos registrales se completarán antes de la publicación.",
+      "paras": [
+        "Titular: Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota».",
+        "Domicilio: Rota, Cádiz (España). [Dirección completa pendiente.]",
+        "CIF: [pendiente]. Número de registro de asociaciones: [pendiente].",
+        "Correo de contacto: info@loscorralesderota.com.",
+        "Sitio web: loscorralesderota.com."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Condiciones de uso",
+      "paras": [
+        "El acceso y uso de este sitio web implica la aceptación de las condiciones que en cada momento se publiquen. Los contenidos tienen carácter informativo y pueden actualizarse o modificarse sin previo aviso.",
+        "Los textos, imágenes y vídeos son propiedad de sus respectivos autores y se utilizan con su autorización. No se permite su reproducción sin consentimiento.",
+        "Este texto es un borrador provisional y no constituye el aviso legal definitivo."
+      ]
+    }
+  ]
+}

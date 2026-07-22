@@ -1,0 +1,31 @@
+{
+  "title": "Política de privacidad · Los Corrales de Rota",
+  "meta_description": "Política de privacidad de la Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota».",
+  "hero": {
+    "kicker": "Información legal",
+    "h1": "Política de privacidad",
+    "sub": "Cómo se tratan los datos personales en este sitio web.",
+    "grad": "grad-pizarra"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Borrador",
+      "h2": "Responsable del tratamiento",
+      "lead": "Esta página está en preparación. Los datos del responsable y las cláusulas definitivas se completarán antes de la publicación.",
+      "paras": [
+        "Responsable: Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota». CIF: [pendiente].",
+        "Contacto: info@loscorralesderota.com."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Qué datos se recogen",
+      "paras": [
+        "El formulario de contacto, cuando esté operativo, recogerá los datos que facilites (nombre, correo y mensaje) con la única finalidad de responder a tu consulta. No se cederán a terceros salvo obligación legal.",
+        "Este sitio utiliza Google Tag Manager para medir el uso de la web. Antes de la publicación se añadirá un aviso de cookies con gestión del consentimiento.",
+        "Podrás ejercer tus derechos de acceso, rectificación y supresión escribiendo a info@loscorralesderota.com. Este texto es un borrador provisional."
+      ]
+    }
+  ]
+}

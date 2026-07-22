@@ -1,0 +1,86 @@
+{
+  "title": "La visita a los corrales de Rota · a pie, con la marea baja",
+  "meta_description": "La visita guiada a los corrales de Rota: se camina por dentro del muro con la marea baja, guiados por los corraleros. La reserva la gestiona la Oficina de Turismo de Rota.",
+  "hero": {
+    "kicker": "La visita",
+    "h1": "La visita a los corrales",
+    "sub": "Una hora dentro del Monumento Natural, a pie, cuando la marea lo permite. La guían los corraleros; la reserva la gestiona la Oficina de Turismo de Rota.",
+    "img": "/assets/img/visita-hero.jpg",
+    "img_alt": "Los corrales de Rota al atardecer con la marea baja",
+    "cta1": "Cómo reservar",
+    "cta1_href": "#reservar"
+  },
+  "sections": [
+    {
+      "type": "split",
+      "img": "/assets/img/visita-gente.jpg",
+      "alt": "Persona sobre el muro de un corral de Rota al atardecer",
+      "kicker": "Qué es",
+      "h2": "Entrar en el muro y ver cómo pesca",
+      "lead": "La mejor forma de entender un corral es caminar por dentro con la bajamar.",
+      "paras": [
+        "Acompañado por un corralero, se recorre el muro de piedra por dentro, se ve el agua que la marea deja retenida y se conoce cómo se despesca a mano. Por el camino se explican el oficio, la historia y la vida que crece al abrigo de la piedra.",
+        "Es una actividad tranquila, al aire libre, marcada por el ritmo del mar. No se fuerza el horario: manda la marea."
+      ]
+    },
+    {
+      "type": "keys",
+      "tone": "surface",
+      "kicker": "En breve",
+      "h2": "Antes de venir",
+      "items": [
+        { "k": "Cuándo", "t": "Según la marea", "d": "La visita solo es posible con la marea baja, dos momentos al día que cambian cada jornada. El tiempo también puede obligar a suspenderla." },
+        { "k": "Cómo es", "t": "A pie y en grupo", "d": "Se camina por la franja intermareal, sobre arena y piedra húmeda. Guiada por los corraleros de la asociación." },
+        { "k": "Calzado", "t": "Que se pueda mojar", "d": "Mejor calzado cerrado que aguante agua y arena. Gorra, agua y protección solar en los meses de calor." }
+      ]
+    },
+    {
+      "type": "turismo",
+      "anchor": "reservar",
+      "head_kicker": "Cómo visitar",
+      "h2": "Reserva tu visita",
+      "intro": "Por ahora la visita se reserva exclusivamente a través de la Oficina de Turismo de Rota. La asociación guía la visita; Turismo gestiona la reserva. No hay reserva online.",
+      "kicker": "Reserva",
+      "title": "La reserva la gestiona la Oficina de Turismo de Rota",
+      "phone": "956 846345",
+      "email": "turismorota@gmail.com",
+      "note": "Escribe o llama para confirmar día y hora según la marea. Lo recaudado va íntegro a la conservación del monumento.",
+      "r_kicker": "Antes de ir",
+      "r_title": "Ten en cuenta",
+      "tips": [
+        "El horario depende de la marea: confírmalo al reservar.",
+        "Sé puntual: la ventana de bajamar es corta.",
+        "Consulta la previsión; con mal tiempo puede suspenderse.",
+        "Calzado que se pueda mojar y ropa cómoda."
+      ]
+    },
+    {
+      "type": "faq",
+      "kicker": "Dudas frecuentes",
+      "h2": "Preguntas frecuentes",
+      "items": [
+        { "q": "¿Cómo se reserva la visita?", "a": "A través de la Oficina de Turismo de Rota, por teléfono (956 846345) o correo (turismorota@gmail.com). No hay reserva online: la asociación guía la visita y Turismo gestiona la reserva." },
+        { "q": "¿Por qué el horario cambia cada día?", "a": "Porque la visita solo puede hacerse con la marea baja, y la bajamar se adelanta o retrasa cada jornada. Por eso el día y la hora se confirman al reservar." },
+        { "q": "¿Qué pasa si hace mal tiempo?", "a": "La visita se hace al aire libre sobre la franja intermareal, así que el temporal o la mar pueden obligar a suspenderla o cambiarla de día. Se avisa al reservar." },
+        { "q": "¿A dónde va lo que se recauda?", "a": "El 100 % se destina a la conservación del monumento: al mantenimiento de los muros de piedra y a la labor de la asociación." }
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "6d7-eABEOuc",
+      "title": "Visita guiada a los Corrales de Rota",
+      "desc": "Recorrido por una visita guiada a los corrales de Rota, del canal de Andrés Barba.",
+      "date": "2025-01-01",
+      "alt": "Corraleros recorriendo un corral con la marea baja durante una visita guiada"
+    },
+    {
+      "type": "cta",
+      "kicker": "Sigue descubriendo",
+      "h2": "Alarga tu día en Rota",
+      "text": "Aves, pinar, dunas, camaleón, vía verde… todo está a un paseo de los corrales.",
+      "cta": "Ver las joyas de Rota",
+      "href": "/#joyas"
+    }
+  ]
+}

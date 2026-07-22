@@ -1,0 +1,38 @@
+{
+  "title": "Los Pozos del Galgo · un rincón poco conocido de Rota",
+  "meta_description": "Los Pozos del Galgo son uno de los lugares menos conocidos de Rota: un rincón con historia y valor ambiental que demuestra que Rota es mucho más que sol y playa. Una joya a un paseo de los corrales.",
+  "hero": {
+    "kicker": "Joyas de Rota · Pozos del Galgo",
+    "h1": "Los Pozos del Galgo",
+    "sub": "Uno de los rincones menos conocidos de Rota, con historia, valor ambiental y patrimonio natural por descubrir.",
+    "grad": "grad-pizarra"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "Un rincón por descubrir",
+      "lead": "Rota guarda espacios sorprendentes lejos de la primera línea de playa.",
+      "paras": [
+        "Los Pozos del Galgo son uno de esos lugares poco transitados: un rincón que demuestra que el municipio es mucho más que sol y playa, con su propio interés ambiental y patrimonial.",
+        "En el episodio de «Más allá del mar» dedicado a este enclave, Andrés Barba lo explora junto a Andrés Aguilera, técnico del Área de Medio Ambiente del Ayuntamiento de Rota, que cuenta su historia y su valor natural."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "4pMHdLAMiWg",
+      "title": "Los Pozos del Galgo: el rincón secreto de Rota",
+      "desc": "Andrés Barba y Andrés Aguilera exploran Los Pozos del Galgo, uno de los lugares menos conocidos de Rota.",
+      "date": "2025-03-01",
+      "alt": "Paisaje natural de Los Pozos del Galgo en Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "Encadénalo con la visita a los corrales",
+      "cta": "La visita a los corrales",
+      "href": "/visita/"
+    }
+  ]
+}

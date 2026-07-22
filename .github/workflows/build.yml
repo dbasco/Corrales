@@ -12,7 +12,37 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Web en reconstrucción
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Pillow (dimensiones de imagen, anti-CLS)
+        run: pip install pillow
+
+      - name: Build site
+        run: python3 build.py
+
+      - name: Sanity checks
         run: |
-          echo "La web se reinició el 2026-07-22: content/ y build.py se rehacen desde cero."
-          echo "Este workflow se recablea (build + sanity checks + artefacto dist/) al reconstruir el generador."
+          test -f dist/index.html
+          test -f dist/visita/index.html
+          test -f dist/aves/index.html
+          test -f dist/sitemap.xml
+          test -f dist/robots.txt
+          test -f dist/favicon.svg
+          n=$(find dist -name index.html | wc -l)
+          echo "Generadas $n paginas"
+          test "$n" -ge 12
+          for f in $(find dist -name index.html); do
+            h=$(grep -o '<h1' "$f" | wc -l)
+            test "$h" -eq 1 || { echo "FALLO: $f tiene $h h1"; exit 1; }
+          done
+          bad=$(grep -rho '<img [^>]*>' dist --include=index.html | grep -vc 'width=' || true)
+          echo "img sin width: $bad"
+          test "$bad" -eq 0
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: corrales-web-dist
+          path: dist/

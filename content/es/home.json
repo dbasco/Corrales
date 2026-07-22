@@ -1,0 +1,110 @@
+{
+  "title": "Los Corrales de Rota · Monumento Natural · visitas guiadas a pie",
+  "meta_description": "Los corrales de Rota: un arte de pesca de más de mil años sobre la franja intermareal y el primer Monumento Natural de Andalucía. Se visitan a pie con la marea baja, guiados por los corraleros.",
+  "hero": {
+    "kicker": "Rota · Cádiz · Monumento Natural",
+    "h1": "Camina por dentro de un corral cuando baja la marea",
+    "sub": "Un muro de piedra que pesca con la marea, cuidado a mano desde hace generaciones. El primer Monumento Natural de Andalucía, y se visita a pie.",
+    "img": "/assets/img/corrales-hero.jpg",
+    "img_alt": "Vista aérea de los corrales de pesca de Rota con la marea baja al atardecer",
+    "cta1": "Cómo visitar los corrales",
+    "cta1_href": "/visita/",
+    "cta2": "Las joyas de Rota",
+    "cta2_href": "#joyas"
+  },
+  "sections": [
+    {
+      "type": "stats",
+      "items": [
+        { "n": "8", "l": "Corrales activos" },
+        { "n": "2001", "l": "Monumento Natural" },
+        { "n": "+1000", "l": "Años de historia" },
+        { "n": "100%", "l": "A conservación" }
+      ]
+    },
+    {
+      "type": "diagram",
+      "tone": "surface",
+      "kicker": "Cómo funciona",
+      "h2": "Un muro de piedra que pesca con la marea",
+      "intro": "El corral es un muro bajo de piedra seca, curvado sobre la playa. No tiene motores ni redes: trabaja solo con el agua que sube y baja.",
+      "steps": [
+        { "kicker": "Sube la marea", "text": "El agua cubre el muro y los peces entran con ella, por encima de la piedra, hacia la orilla." },
+        { "kicker": "Baja la marea", "text": "El mar se retira, pero el muro retiene el agua. Los peces quedan atrapados dentro del corral." },
+        { "kicker": "Se pesca a pie", "text": "Con la bajamar se camina por dentro del corral y se recoge el pescado a mano. Dos veces al día, cuando la marea lo permite." }
+      ]
+    },
+    {
+      "type": "split",
+      "reverse": true,
+      "img": "/assets/img/corrales-muro.jpg",
+      "alt": "Muro de piedra seca de un corral con el agua retenida por la marea",
+      "kicker": "Qué son",
+      "h2": "Piedra, marea y trabajo a pie",
+      "lead": "En Rota quedan ocho corrales activos, cuidados por la Asociación de Corraleros y Pescadores a Pie.",
+      "paras": [
+        "Es una forma de pescar de más de mil años que apenas ha cambiado: sin motores, sin redes de arrastre, solo el muro, la marea y las manos. Los corraleros lo mantienen piedra a piedra, porque el mar deshace lo que no se cuida.",
+        "En 2001 los corrales de Rota fueron declarados Monumento Natural, el primero de Andalucía. No son una ruina: son un paisaje cultural vivo, en uso y en mantenimiento, con una biodiversidad que crece al abrigo de la piedra."
+      ]
+    },
+    {
+      "type": "band",
+      "img": "/assets/img/corrales-aereo.jpg",
+      "alt": "Vista aérea de los corrales de Rota serpenteando sobre la franja intermareal",
+      "kicker": "Monumento Natural",
+      "caption": "Ocho corrales de piedra sobre la franja intermareal, cuidados a mano."
+    },
+    {
+      "type": "split",
+      "img": "/assets/img/visita-gente.jpg",
+      "alt": "Persona caminando sobre el muro de un corral de Rota al atardecer",
+      "kicker": "La visita",
+      "h2": "Se visita a pie, con la marea baja",
+      "lead": "La mejor forma de entender un corral es entrar en él.",
+      "paras": [
+        "Los corraleros abren visitas guiadas cuando la marea lo permite. Se camina por dentro del muro, se ve cómo el agua queda retenida y cómo se despesca, y se conoce de primera mano el oficio de quienes lo mantienen.",
+        "La reserva la gestiona la Oficina de Turismo de Rota. Lo que se recauda vuelve entero a la conservación del monumento."
+      ],
+      "cta": "Cómo visitar los corrales",
+      "cta_href": "/visita/"
+    },
+    {
+      "type": "jewels",
+      "tone": "surface",
+      "kicker": "Alrededor de los corrales",
+      "h2": "Las joyas de Rota",
+      "intro": "Los corrales son el centro, pero no están solos. Alrededor hay marisma, pinar, dunas, camaleones y caminos antiguos. Cada joya atrae a un público y todas se encadenan con la visita a los corrales.",
+      "cards": {
+        "aves": { "tag": "Aves", "title": "Aves de la marisma", "desc": "Flamencos, espátulas, limícolas y rapaces a un paso del pueblo.", "img": "/assets/img/joya-aves.jpg" },
+        "pinar": { "tag": "Pinar", "title": "Pinar litoral", "desc": "El bosque de pino que pocos visitantes conocen.", "grad": "grad-stone" },
+        "dunas": { "tag": "Dunas", "title": "Dunas vivas", "desc": "El cordón de arena que protege la costa.", "grad": "grad-stone" },
+        "camaleon": { "tag": "Camaleón", "title": "El camaleón común", "desc": "Uno de sus últimos refugios en la costa gaditana.", "grad": "grad-oxido" },
+        "via-verde": { "tag": "Vía verde", "title": "Vía Verde de Rota", "desc": "Antiguo trazado ferroviario, hoy paseo a pie y en bici.", "grad": "grad-stone" },
+        "pozos-del-galgo": { "tag": "Pozos del Galgo", "title": "Los Pozos del Galgo", "desc": "Un rincón poco conocido de Rota.", "grad": "grad-pizarra" },
+        "jardin-botanico": { "tag": "Botánico", "title": "Jardín Botánico Celestino Mutis", "desc": "Plantas de medio mundo, para toda la familia.", "grad": "grad-stone" },
+        "playas": { "tag": "Playas", "title": "Playas de Rota", "desc": "Arena, pinar y los corrales asomando con la bajamar.", "img": "/assets/img/playa-hero.jpg" }
+      }
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "NCznzktnjcU",
+      "title": "Los Corrales de Rota: cómo funcionan y por qué son especiales",
+      "desc": "Andrés Barba explica qué son los corrales de Rota, cómo pescan con la marea y por qué son un patrimonio vivo.",
+      "date": "2025-06-01",
+      "alt": "Los corrales de Rota vistos con la marea baja"
+    },
+    {
+      "type": "contact",
+      "kicker": "Contacto",
+      "h2": "Escríbenos",
+      "intro": "Para prensa, colaboraciones o dudas sobre los corrales y la asociación. Para reservar una visita, contacta con la Oficina de Turismo de Rota: 956 846345 · turismorota@gmail.com.",
+      "place_label": "Dónde estamos",
+      "f_name": "Nombre",
+      "f_email": "Email",
+      "f_msg": "Mensaje",
+      "f_send": "Enviar",
+      "form_note": "Formulario de referencia para v1: al desplegar en el servidor se conecta al buzón info@loscorralesderota.com."
+    }
+  ]
+}

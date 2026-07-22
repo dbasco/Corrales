@@ -1,0 +1,31 @@
+{
+  "title": "Playas de Rota · arena, pinar y los corrales con la bajamar",
+  "meta_description": "Las playas de Rota unen arena, pinar litoral y los corrales, que asoman con la marea baja. El punto de partida para descubrir el resto de las joyas y la visita a los corrales.",
+  "hero": {
+    "kicker": "Joyas de Rota · Playas",
+    "h1": "Las playas de Rota",
+    "sub": "Arena abierta, pinar cerca y los corrales de piedra asomando cuando baja la marea.",
+    "img": "/assets/img/playa-hero.jpg",
+    "img_alt": "Playa de Rota con los corrales asomando con la marea baja"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Qué es",
+      "h2": "Playa, pinar y corrales, juntos",
+      "lead": "En Rota la playa no está sola: detrás está el pinar y, sobre la arena, los corrales.",
+      "paras": [
+        "Es el punto de partida natural para conocer el resto de las joyas: desde la orilla se llega al pinar, a las dunas y a la Vía Verde, y con la marea baja aparecen los muros de piedra de los corrales.",
+        "Justo esa bajamar que descubre la playa es la que permite entrar en los corrales. La mejor forma de entenderlo es caminar por dentro con una visita guiada."
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "Cuando baje la marea, entra en un corral",
+      "text": "Los muros que ves asomar en la arena se pueden recorrer por dentro con la marea baja.",
+      "cta": "La visita a los corrales",
+      "href": "/visita/"
+    }
+  ]
+}
