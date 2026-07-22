@@ -1,0 +1,74 @@
+{
+  "title": "El Monumento Natural de los corrales de Rota · qué es y qué protege",
+  "meta_description": "Monumento Natural de los corrales de Rota: qué es esta figura, por qué es ecocultural y qué protege. El primero de Andalucía (2001): naturaleza y obra humana a la vez, cuidado a mano.",
+  "hero": {
+    "kicker": "Rota · Cádiz · Monumento Natural",
+    "h1": "El Monumento Natural de los corrales",
+    "sub": "Qué es esta figura, qué protege y por qué es rara: un espacio que es naturaleza y obra humana a la vez, y que sigue vivo porque se cuida a mano.",
+    "img": "/assets/img/corrales-atardecer.jpg",
+    "img_alt": "Los corrales de Rota al atardecer con la marea baja",
+    "cta1": "Cómo visitar los corrales",
+    "cta1_href": "/visita/"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "anchor": "que-es",
+      "kicker": "La figura",
+      "h2": "Un monumento que está vivo",
+      "lead": "Un Monumento Natural es la figura con la que Andalucía protege espacios de naturaleza con un valor singular. Es una categoría legal de espacio protegido, no un título honorífico.",
+      "paras": [
+        "Los corrales de Rota fueron declarados Monumento Natural en 2001, los primeros de Andalucía, y con una particularidad poco habitual: se protegen a la vez como naturaleza y como patrimonio humano. Es un monumento de carácter ecocultural.",
+        "No es una reserva donde la mano del hombre estorbe. Es lo contrario: una obra de piedra levantada hace más de mil años que solo sigue existiendo porque se cuida a mano, marea tras marea. El límite del monumento abarca la franja entre mareas, los muros y la pradera marina que crece a su abrigo."
+      ]
+    },
+    {
+      "type": "svgfile",
+      "tone": "surface",
+      "src": "corral-corte.svg",
+      "kicker": "En bajamar",
+      "caption": "Sección de un corral con la marea baja: el mar abierto se retira, el muro retiene el agua y el pescado queda dentro, sobre la arena y la pradera marina, donde se recoge a pie."
+    },
+    {
+      "type": "keys",
+      "kicker": "Biodiversidad",
+      "h2": "Un vivero entre las piedras",
+      "items": [
+        { "k": "Guardería del mar", "t": "Cría protegida", "d": "Las pozas y recovecos guardan a alevines de peces, crustáceos y moluscos —chocos, pulpos, cangrejos, camarones— antes de salir a mar abierto." },
+        { "k": "Pradera marina", "t": "Fanerógamas", "d": "Bajo el agua crece una pradera de plantas marinas que da alimento y refugio. El límite del monumento la protege junto a los muros." },
+        { "k": "Escondite vivo", "t": "Aves del litoral", "d": "Con la bajamar el corral queda al descubierto y funciona como comedero y escondite natural para limícolas y aves marinas." }
+      ]
+    },
+    {
+      "type": "band",
+      "img": "/assets/img/corrales-aereo.jpg",
+      "alt": "Vista aérea de los corrales de Rota serpenteando sobre la franja intermareal",
+      "kicker": "Paisaje",
+      "caption": "El dibujo de los muros solo se ve con la marea baja: un paisaje que cambia cada seis horas."
+    },
+    {
+      "type": "split",
+      "tone": "sand",
+      "reverse": true,
+      "img": "/assets/img/corrales-muro.jpg",
+      "alt": "Muro de piedra seca de un corral, cuidado a mano",
+      "kicker": "Conservación",
+      "h2": "Sin manos no hay monumento",
+      "lead": "A diferencia de otros espacios protegidos, este necesita mantenimiento constante.",
+      "paras": [
+        "El mar derriba las piedras y los corraleros las vuelven a levantar a mano, sin argamasa, limpian las algas y vigilan el entorno. Es la única forma de que un monumento de piedra siga en pie y en uso.",
+        "Por eso el 100 % de lo que se recauda en las visitas guiadas vuelve a la conservación, la reconstrucción y el mantenimiento del monumento."
+      ],
+      "cta": "Cómo visitar los corrales",
+      "cta_href": "/visita/"
+    },
+    {
+      "type": "cta",
+      "kicker": "El plan",
+      "h2": "La mejor forma de entender el monumento es entrar en él",
+      "text": "Se camina por dentro del muro con la marea baja, guiados por los corraleros. La reserva la gestiona la Oficina de Turismo de Rota.",
+      "cta": "Cómo visitar los corrales",
+      "href": "/visita/"
+    }
+  ]
+}

@@ -51,3 +51,16 @@ fotografía real en hub, visita, aves y playas. Optimizadas a ~2000 px / 200–4
 
 Pendiente: fotos propias de pinar, dunas, camaleón, vía verde, pozos del galgo y jardín botánico
 (no existen en el archivo); esas 6 joyas siguen con héroe de degradado de marca.
+
+## Actualización 2026-07-22 — página del Monumento Natural
+
+Nueva página `/monumento-natural/`. No se añadieron fotos nuevas: reutiliza tomas ya
+optimizadas del archivo — `corrales-atardecer.jpg` (hero), `corrales-aereo.jpg` (band paisaje)
+y `corrales-muro.jpg` (split conservación). Se pueden sustituir por tomas dedicadas del Drive
+`Fotos/Corrales` (aéreas de dron `DJI_*`) cuando interese diferenciarlas de las del home.
+El corte transversal del corral es un SVG de marca propio: `templates/corral-corte.svg`
+(no es una foto; se inlina con el bloque `svgfile`).
+
+Nota: las fotos de la web oficial (google sites) NO se pudieron descargar desde el entorno
+de trabajo (dominio `googleusercontent` no permitido). Si se quieren, hay que bajarlas y
+pasarlas por el flujo Drive→ZIP→optimizar como el resto.

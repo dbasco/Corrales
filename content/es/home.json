@@ -35,6 +35,17 @@
       ]
     },
     {
+      "type": "prose",
+      "tone": "sand",
+      "anchor": "monumento-natural",
+      "kicker": "Monumento Natural",
+      "h2": "¿Qué significa que sea Monumento Natural?",
+      "lead": "Es la figura con la que Andalucía protege espacios de naturaleza singulares. Los corrales fueron los primeros de Andalucía, en 2001, y con una rareza: se protegen a la vez como naturaleza y como patrimonio humano.",
+      "paras": [
+        "No es una ruina ni un adorno: es un monumento ecocultural, una obra de piedra que sigue viva porque se cuida a mano. [Qué es el Monumento Natural y qué protege →](/monumento-natural/)"
+      ]
+    },
+    {
       "type": "split",
       "reverse": true,
       "img": "/assets/img/corrales-muro.jpg",

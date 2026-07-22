@@ -80,3 +80,9 @@ main > section.tone-sand{padding-top:var(--sp);margin-top:0}
 .pull cite{display:block;margin-top:12px;font-style:normal;font-size:.9rem;color:var(--text-soft)}
 
 .prose.wide{max-width:760px}
+
+/* svgfile: figura SVG inline (corte del corral) */
+.svg-figure{margin:0;text-align:center}
+.svg-figure .kicker{display:block;margin-bottom:14px}
+.svg-holder svg{width:100%;height:auto;max-width:780px;display:block;margin:0 auto}
+.svg-figure figcaption{margin:14px auto 0;font-size:.86rem;color:var(--text-soft);max-width:660px}

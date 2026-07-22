@@ -23,6 +23,21 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 - **Patrón de carpetas: español en raíz** + `/en/ /de/ /fr/` (cerrado, no los cuatro simétricos). Mapa de URLs completo en `web-arquitectura-corrales.md`.
 - **Imágenes como ficheros externos** (`img/…`), no base64: el base64 hunde el LCP. JPG ~2000px, 200–400 KB.
 
+## Monumento Natural — página propia y menú (2026-07-22)
+
+> La web nombraba «Monumento Natural» varias veces sin explicar la figura (hallazgo de una auditoría externa). Se cierra creando contenido, no ingeniería nueva salvo dos extensiones menores del generador.
+
+- **Página propia `/monumento-natural/`** con la explicación completa: qué es la figura (categoría legal de espacio protegido), su carácter **ecocultural** (naturaleza + patrimonio humano a la vez), qué protege (franja intermareal, muros, pradera de fanerógamas), biodiversidad, paisaje y el papel de la asociación. Fuente de partida: la página homónima de la web oficial (google sites), reescrita en llano.
+- **Al menú principal como primer ítem:** *El monumento · La visita · Joyas de Rota · Contacto*. El monumento es la identidad del sitio, no una joya. (Cambia la decisión previa de menú de 3 ítems.)
+- **Teaser en el home** tras el diagrama: define la figura en corto y enlaza a la página (mejor recorrido «qué es → por qué importa»).
+- **Extensiones del generador** (`build.py`): tipo de página `monumento` (recibe esquema `TouristAttraction`) y bloque `svgfile` (inlina un SVG de `templates/`). Nuevo activo `templates/corral-corte.svg`: corte transversal del corral en paleta de marca.
+
+### Notas de datos (resueltas con la web oficial + auditoría)
+- **Fecha:** en copy se usa solo **«2001»** (sin día). La web oficial dice «23 de octubre de 2001»; la auditoría cita el Decreto 226/2001 «de 2 de octubre» (BOJA 22/11/2001). Discrepancia sin cerrar → pendiente verificar contra el BOJA antes de fijar un día.
+- **Origen:** NO se afirma «época romana» como único origen. La propia web oficial dice que no está claro (romano, fenicio o árabe). Se mantiene «más de mil años» / «raíces antiguas». (Matiza el punto 13 de la auditoría.)
+- **«El primero de Andalucía»:** se mantiene; la web oficial lo afirma sin matices.
+- **«8 corrales activos»:** sigue abierto (config `corrales_activos: 8`). La web oficial no da número de activos; la auditoría sugiere ~5. Pendiente de confirmar por la asociación.
+
 ## Reservas de visitas — estado actual (2026-07-22)
 
 - **Por ahora, las visitas a los corrales se gestionan EXCLUSIVAMENTE por la Oficina de Turismo de Rota** (tel. 956 846345, turismorota@gmail.com). La asociación guía la visita; la reserva la lleva Turismo. No hay reserva por email de la asociación ni "reserva online".

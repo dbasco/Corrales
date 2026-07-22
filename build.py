@@ -183,6 +183,7 @@ def render_nav(page, lang_code, ui):
     home = page_url(PAGE_BY_ID["home"], lang_code)
     links = ui.get("nav", {})
     items = [
+        (page_url(PAGE_BY_ID["monumento-natural"], lang_code), links.get("monumento", "El monumento")),
         (page_url(PAGE_BY_ID["visita"], lang_code), links.get("visita", "La visita")),
         (home + "#joyas", links.get("joyas", "Joyas de Rota")),
         (home + "#contacto", links.get("contacto", "Contacto")),
@@ -371,8 +372,22 @@ def block_cta(b, lang_code):
             f'<h2>{esc(b.get("h2","Todo lleva al mismo sitio: caminar por dentro de un corral"))}</h2>{txt}</div>'
             f'<div class="cta-side">{btn}</div></div></div>')
 
+@lru_cache(maxsize=None)
+def _read_svg(name):
+    p = ROOT / "templates" / name
+    return p.read_text(encoding="utf-8") if p.exists() else ""
+
+def block_svgfile(b):
+    svg = _read_svg(b.get("src", ""))
+    cap = f'<figcaption>{esc(b["caption"])}</figcaption>' if b.get("caption") else ''
+    kick = f'<span class="kicker">{esc(b["kicker"])}</span>' if b.get("kicker") else ''
+    anchor = f' id="{esc(b["anchor"])}"' if b.get("anchor") else ''
+    return (f'<div class="wrap"{anchor}><figure class="figure svg-figure">'
+            f'{kick}<div class="svg-holder">{svg}</div>{cap}</figure></div>')
+
 def render_block(b, lang_code):
     t = b["type"]
+    if t == "svgfile": return block_svgfile(b)
     if t == "prose": return block_prose(b)
     if t == "split": return block_split(b)
     if t == "diagram": return block_diagram(b)
@@ -457,7 +472,7 @@ def jsonld_faq(b):
 def collect_jsonld(page, c, lang_code, ui):
     graphs = [jsonld_org(), jsonld_breadcrumb(page, c, lang_code, ui)]
     if page["type"] == "hub": graphs.append(jsonld_website(lang_code))
-    if page["type"] in ("visita", "joya"): graphs.append(jsonld_attraction(page, c, lang_code))
+    if page["type"] in ("visita", "joya", "monumento"): graphs.append(jsonld_attraction(page, c, lang_code))
     for b in c.get("sections", []):
         if b["type"] == "video": graphs.append(jsonld_video(b, lang_code))
         if b["type"] == "faq": graphs.append(jsonld_faq(b))

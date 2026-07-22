@@ -1,5 +1,5 @@
 {
-  "nav": { "home": "Inicio", "visita": "La visita", "joyas": "Joyas de Rota", "contacto": "Contacto" },
+  "nav": { "home": "Inicio", "monumento": "El monumento", "visita": "La visita", "joyas": "Joyas de Rota", "contacto": "Contacto" },
   "reserve_cta": "Cómo visitar",
   "skip": "Saltar al contenido",
   "footer": {

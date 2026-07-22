@@ -1,0 +1,71 @@
+<svg viewBox="0 0 960 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sección de un corral con la marea baja: el mar abierto ha bajado, el muro de piedra seca retiene el agua y el pescado queda dentro, sobre la arena y la pradera marina, donde se recoge a pie." font-family="Spectral, Georgia, serif">
+  <!-- marco / fondo -->
+  <rect x="1" y="1" width="958" height="438" rx="14" fill="#FCFAF4" stroke="#e4dccb" stroke-width="2"/>
+  <clipPath id="frame"><rect x="2" y="2" width="956" height="436" rx="13"/></clipPath>
+  <g clip-path="url(#frame)">
+    <!-- cielo -->
+    <rect x="0" y="0" width="960" height="440" fill="#f6f2e8"/>
+    <!-- arena / lecho -->
+    <rect x="0" y="352" width="960" height="88" fill="#cdbb9a"/>
+    <rect x="0" y="352" width="960" height="6" fill="#bfa982" opacity=".6"/>
+
+    <!-- mar abierto (izquierda), retirado y bajo -->
+    <path d="M0 300 L360 300 L360 352 L0 352 Z" fill="#5a7a80"/>
+    <path d="M0 300 L360 300" stroke="#87a7ad" stroke-width="4" opacity=".7"/>
+    <path d="M40 316 q30 -8 60 0 M150 322 q30 -8 60 0 M250 316 q30 -8 60 0" fill="none" stroke="#87a7ad" stroke-width="2.5" opacity=".6"/>
+
+    <!-- agua retenida (derecha): honda junto al muro, somera hacia la orilla -->
+    <path d="M560 262 Q740 300 960 336 L960 352 L560 352 Z" fill="#5a7a80" opacity=".92"/>
+    <path d="M560 262 Q740 300 960 336" fill="none" stroke="#9dc0c4" stroke-width="4" opacity=".8"/>
+    <path d="M600 288 q26 -6 52 0 M690 306 q26 -6 52 0" fill="none" stroke="#9dc0c4" stroke-width="2.5" opacity=".5"/>
+
+    <!-- pradera marina (fanerogamas) dentro del corral -->
+    <g stroke="#6f8560" stroke-width="3" stroke-linecap="round" fill="none" opacity=".95">
+      <path d="M600 352 q-4 -22 2 -34 M606 352 q4 -20 10 -30 M612 352 q0 -26 8 -36"/>
+      <path d="M690 352 q-4 -20 2 -32 M696 352 q4 -18 10 -28 M702 352 q0 -24 8 -34"/>
+      <path d="M812 352 q-4 -22 2 -34 M818 352 q4 -20 10 -30 M824 352 q0 -26 8 -36"/>
+    </g>
+
+    <!-- muro de piedra seca (arco), mismo lenguaje que el diagrama -->
+    <path d="M355 356 Q460 150 565 356" fill="none" stroke="#9A8F7C" stroke-width="22" stroke-linecap="round"/>
+    <path d="M355 356 Q460 150 565 356" fill="none" stroke="#7c715c" stroke-width="22" stroke-linecap="round" stroke-dasharray="3 15" opacity=".55"/>
+    <path d="M355 356 Q460 158 565 356" fill="none" stroke="#b7ad99" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+
+    <!-- peces atrapados dentro -->
+    <g fill="#23201C">
+      <g transform="translate(625,318)"><ellipse rx="12" ry="6"/><path d="M11 0 L22 -7 L22 7 Z"/></g>
+      <g transform="translate(705,332)"><ellipse rx="9" ry="4.5"/><path d="M8 0 L17 -6 L17 6 Z"/></g>
+      <g transform="translate(668,300)"><ellipse rx="8" ry="4"/><path d="M7 0 L15 -5 L15 5 Z"/></g>
+    </g>
+
+    <!-- corralero: se pesca a pie -->
+    <g fill="#23201C" transform="translate(862,282)">
+      <circle cx="0" cy="0" r="9"/>
+      <path d="M-7 11 Q0 9 7 11 L5 52 L-5 52 Z"/>
+      <rect x="-6" y="52" width="4.5" height="20"/>
+      <rect x="1.5" y="52" width="4.5" height="20"/>
+      <path d="M7 24 L24 34" stroke="#23201C" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- cesto -->
+    <path d="M884 318 h20 l-4 18 h-12 z" fill="#A85A32"/>
+
+    <!-- flecha marea que baja (mar abierto) -->
+    <g stroke="#A85A32" stroke-width="3" fill="none" stroke-linecap="round">
+      <line x1="150" y1="250" x2="150" y2="288"/>
+      <path d="M150 288 l-7 -11 M150 288 l7 -11"/>
+    </g>
+
+    <!-- etiquetas -->
+    <g fill="#5b5346" font-size="15" letter-spacing="1.5" font-weight="600">
+      <text x="150" y="238" text-anchor="middle">BAJA LA MAREA</text>
+      <text x="460" y="132" text-anchor="middle">MURO DE PIEDRA SECA</text>
+      <text x="650" y="238" text-anchor="middle">AGUA RETENIDA</text>
+      <text x="620" y="410" text-anchor="middle">PRADERA MARINA</text>
+      <text x="862" y="232" text-anchor="middle">SE PESCA A PIE</text>
+    </g>
+    <g stroke="#A85A32" stroke-width="1.6" opacity=".8">
+      <line x1="460" y1="140" x2="460" y2="176"/>
+      <line x1="620" y1="398" x2="640" y2="360"/>
+    </g>
+  </g>
+</svg>

@@ -28,6 +28,7 @@
   "pages": [
     { "id": "home", "type": "hub", "slugs": { "es": "", "en": "", "de": "", "fr": "" }, "priority": 1.0, "changefreq": "weekly" },
     { "id": "visita", "type": "visita", "slugs": { "es": "visita", "en": "visit", "de": "besuch", "fr": "visite" }, "priority": 0.9, "changefreq": "weekly" },
+    { "id": "monumento-natural", "type": "monumento", "slugs": { "es": "monumento-natural", "en": "natural-monument", "de": "naturdenkmal", "fr": "monument-naturel" }, "priority": 0.8, "changefreq": "monthly" },
     { "id": "aves", "type": "joya", "ready": true, "slugs": { "es": "aves", "en": "birding", "de": "vogel", "fr": "oiseaux" }, "priority": 0.8, "changefreq": "monthly" },
     { "id": "pinar", "type": "joya", "ready": false, "slugs": { "es": "pinar", "en": "pinewood", "de": "pinienwald", "fr": "pinede" }, "priority": 0.6, "changefreq": "monthly" },
     { "id": "dunas", "type": "joya", "ready": false, "slugs": { "es": "dunas", "en": "dunes", "de": "duenen", "fr": "dunes" }, "priority": 0.6, "changefreq": "monthly" },
