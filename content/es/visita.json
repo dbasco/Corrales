@@ -29,7 +29,7 @@
       "h2": "Dos pases al día, según la marea",
       "paras": [
         "Los corrales solo se pueden visitar con la marea baja, así que hay como mucho dos pases al día y cambian cada jornada. Por eso la reserva va siempre ligada al calendario de mareas, y a veces el tiempo obliga a cambiar la hora o el día.",
-        "Al reservar te confirmamos la hora exacta del pase según la marea de ese día. Conviene llegar con margen: el corral no espera a la marea."
+        "Al reservar, la Oficina de Turismo te confirma la hora exacta del pase según la marea de ese día. Conviene llegar con margen: el corral no espera a la marea."
       ]
     },
     {
@@ -37,10 +37,10 @@
       "anchor": "reservar",
       "kicker": "Reservar",
       "h2": "Cómo reservar una visita",
-      "lead": "La reserva online estará disponible próximamente. Mientras tanto, se reserva por contacto directo con la asociación.",
+      "lead": "Las visitas a los corrales se gestionan a través de la Oficina de Turismo de Rota.",
       "paras": [
-        "Escríbenos a info@loscorralesderota.com indicando fecha aproximada y número de personas, y te proponemos el pase que mejor cuadre con la marea de esos días.",
-        "Estamos preparando la reserva online con calendario de mareas para que puedas elegir pase y plaza directamente desde la web."
+        "Para reservar, contacta con la Oficina de Turismo de Rota por teléfono, [956 846345](tel:+34956846345), o por correo, [turismorota@gmail.com](mailto:turismorota@gmail.com), indicando la fecha aproximada y el número de personas.",
+        "Como los pases dependen de la marea de cada día, desde la Oficina de Turismo te confirman el día, la hora del pase y el aforo disponible."
       ]
     },
     {
@@ -58,12 +58,16 @@
       "h2": "Preguntas frecuentes",
       "items": [
         {
+          "q": "¿Cómo reservo la visita?",
+          "a": "Las visitas se gestionan a través de la Oficina de Turismo de Rota: teléfono 956 846345 o correo turismorota@gmail.com."
+        },
+        {
           "q": "¿Cuánto dura la visita?",
           "a": "En torno a dos horas, según la marea y el grupo."
         },
         {
           "q": "¿Cuándo es el mejor momento?",
-          "a": "Siempre con marea baja. Te confirmamos la hora del pase al reservar, porque cambia cada día."
+          "a": "Siempre con marea baja. Te confirman la hora del pase al reservar, porque cambia cada día."
         },
         {
           "q": "¿Es apta para niños y mayores?",
@@ -75,11 +79,11 @@
         },
         {
           "q": "¿Se suspende si llueve?",
-          "a": "El tiempo puede obligar a cambiar la hora o el día. Si pasa, te avisamos y buscamos otra fecha."
+          "a": "El tiempo puede obligar a cambiar la hora o el día. Si pasa, te avisan y se busca otra fecha."
         },
         {
           "q": "¿Cuánto cuesta y a dónde va el dinero?",
-          "a": "El 100 % de lo recaudado va a la conservación del monumento. Te indicamos el importe al reservar."
+          "a": "El 100 % de lo recaudado va a la conservación del monumento. Te indican el importe al reservar."
         }
       ]
     }

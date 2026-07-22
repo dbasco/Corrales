@@ -18,7 +18,13 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 - **Patrón de carpetas: español en raíz** + `/en/ /de/ /fr/` (cerrado, no los cuatro simétricos). Mapa de URLs completo en `web-arquitectura-corrales.md`.
 - **Imágenes como ficheros externos** (`img/…`), no base64: el base64 hunde el LCP. JPG ~2000px, 200–400 KB.
 
-## App de reservas
+## Reservas de visitas — estado actual (2026-07-22)
+
+- **Por ahora, las visitas a los corrales se gestionan EXCLUSIVAMENTE por la Oficina de Turismo de Rota** (tel. 956 846345, turismorota@gmail.com). La asociación guía la visita; la reserva la lleva Turismo. No hay reserva por email de la asociación ni "reserva online".
+- **El motor de reservas propio queda APLAZADO** — no se desarrolla ahora. Su definición de alto nivel (abajo) se conserva para cuando se retome.
+- **En la web v1**, el CTA "Reservar visita" lleva a `/visita/`, cuya sección de reserva dirige a la Oficina de Turismo de Rota (teléfono y correo). Se quitó el texto de "reserva online próximamente" y el email de la asociación como canal de reserva.
+
+## App de reservas (aplazada)
 
 > Definición de alto nivel cerrada el 2026-07-22. La reserva es el nodo al que devuelven todas las joyas. Encaje en la web en `web-arquitectura-corrales.md`.
 

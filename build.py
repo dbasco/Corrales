@@ -70,6 +70,11 @@ var d=document.getElementById('lang');if(d){document.addEventListener('click',fu
 
 def esc(s): return html.escape(str(s), quote=True)
 
+_LINK_RE = re.compile(r'\[([^\]]+)\]\(([^)]+)\)')
+def linkify(s):
+    # convierte [texto](url) en un <a>; s ya viene escapado con esc()
+    return _LINK_RE.sub(lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>', s)
+
 def page_url(page, lang_code, absolute=False):
     lang = LANG_BY_CODE[lang_code]
     slug = page["slugs"][lang_code]
@@ -149,8 +154,8 @@ def block_prose(b):
     out=[f'<div class="prose">']
     if b.get("kicker"): out.append(f'<span class="kicker">{esc(b["kicker"])}</span>')
     if b.get("h2"): out.append(f'<h2>{esc(b["h2"])}</h2>')
-    if b.get("lead"): out.append(f'<p class="lead">{esc(b["lead"])}</p>')
-    for p in b.get("paras",[]): out.append(f'<p>{esc(p)}</p>')
+    if b.get("lead"): out.append(f'<p class="lead">{linkify(esc(b["lead"]))}</p>')
+    for p in b.get("paras",[]): out.append(f'<p>{linkify(esc(p))}</p>')
     out.append('</div>')
     anchor = f' id="{esc(b["anchor"])}"' if b.get("anchor") else ''
     return f'<div class="wrap"{anchor}>'+"".join(out)+'</div>'
