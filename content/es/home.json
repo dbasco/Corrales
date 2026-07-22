@@ -110,19 +110,6 @@
       "alt": "Corraleros recogiendo la pesca dentro de un corral con la marea baja"
     },
     {
-      "type": "support",
-      "kicker": "Apoyar",
-      "h2": "El 100 % va a conservar el monumento",
-      "intro": "Mantener ocho corrales de piedra frente al mar cuesta trabajo y dinero. Puedes apoyar la conservación de dos formas.",
-      "bizum_title": "Bizum",
-      "bizum_text": "La vía más directa para donar desde España, sin comisiones.",
-      "bizum_code_note": "Código ONG de 5 dígitos — pendiente de asignación",
-      "card_kicker": "Tarjeta",
-      "card_title": "Tarjeta (internacional)",
-      "card_text": "Para visitantes de fuera de España y la comunidad de la base naval de Rota.",
-      "card_note": "Pasarela de pago — pendiente"
-    },
-    {
       "type": "contact",
       "kicker": "Contacto",
       "h2": "Escríbenos",

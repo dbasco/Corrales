@@ -116,7 +116,6 @@ def render_nav(page, lang_code, ui):
         (L("visita"), links.get("visita","Visita")),
         (L("aves"), links.get("aves","Aves")),
         (home + "#joyas", links.get("joyas","Joyas de Rota")),
-        (home + "#apoyar", links.get("apoyar","Apoyar")),
         (home + "#contacto", links.get("contacto","Contacto")),
     ]
     lis = "".join(f'<a href="{esc(u)}">{esc(t)}</a>' for u,t in items)

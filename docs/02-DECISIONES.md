@@ -40,6 +40,7 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 
 ## Donaciones y pagos
 
+- **En la web v1 NO hay donaciones (2026-07-22).** Se quitó la sección "Apoyar" del hub y su enlace del menú: una sección de donar no funcional (sin código Bizum ni pasarela) no se publica. Se reactivará cuando estén el código ONG de Bizum y la pasarela de tarjeta. El mensaje de misión "100 % a conservación" se mantiene en footer y texto (identidad, no petición de donar). El modelo de donación definido se conserva abajo.
 - **Dos vías:** Bizum (gratis para locales; requiere código ONG de 5 dígitos asignado por banco, posiblemente condicionado a declaración de utilidad pública) + tarjeta (para visitantes internacionales y comunidad de la base naval de Rota).
 - **Pasarela de tarjeta: PENDIENTE** — elección entre PayPal y Stripe. Al decidir, se añade botón de tarjeta junto al panel Bizum en la sección "Apoyar".
 - **Zelle descartado.** Motivo: requiere cuentas bancarias en EE. UU. en ambos lados.
