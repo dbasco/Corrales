@@ -4,6 +4,9 @@
 # Capturas de verificación
 /shots/
 
+# Índices de Drive actualizados (para reemplazo manual, no parte del repo web)
+/drive-update/
+
 # Sistema
 .DS_Store
 __pycache__/
