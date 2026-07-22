@@ -22,7 +22,9 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 
 - **Por ahora, las visitas a los corrales se gestionan EXCLUSIVAMENTE por la Oficina de Turismo de Rota** (tel. 956 846345, turismorota@gmail.com). La asociación guía la visita; la reserva la lleva Turismo. No hay reserva por email de la asociación ni "reserva online".
 - **El motor de reservas propio queda APLAZADO** — no se desarrolla ahora. Su definición de alto nivel (abajo) se conserva para cuando se retome.
-- **En la web v1**, el CTA "Reservar visita" lleva a `/visita/`, cuya sección de reserva dirige a la Oficina de Turismo de Rota (teléfono y correo). Se quitó el texto de "reserva online próximamente" y el email de la asociación como canal de reserva.
+- **En la web v1**, la sección de reserva de `/visita/` dirige a la Oficina de Turismo de Rota (teléfono y correo); se quitó "reserva online próximamente" y el email de la asociación como canal de reserva.
+- **Las joyas NO llevan botón de reserva** (no se reservan): su CTA es "La visita a los corrales" y lleva a `/visita/`. Lo único reservable es la visita a los corrales.
+- **"Aves" no ocupa sitio en el menú principal**: es una joya más; se llega por "Joyas de Rota". El menú queda: La visita · Joyas de Rota · Contacto.
 
 ## App de reservas (aplazada)
 
