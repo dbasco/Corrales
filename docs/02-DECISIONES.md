@@ -8,6 +8,11 @@
 
 ## Web y arquitectura técnica
 
+> **Estado de la web (2026-07-22):** v1 ES construida y en `main` (repo). El generador se
+> reescribió desde cero para dar ritmo con foto (splits, diagrama del corral, bandas) en vez
+> del apilado tipo «PowerPoint». Reglas duras y modelo de bloques en `CLAUDE.md`; inventario en
+> `01-ACTIVOS.md`. Las decisiones de abajo no cambian; se han respetado en la implementación.
+
 Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 
 - **Servidor propio**, fuera de Google Sites. Motivo: control de SEO, rutas limpias, sin `noindex` forzado.

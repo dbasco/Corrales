@@ -37,11 +37,15 @@ Cada activo tiene:
 
 ### Web
 
+La web v1 vive en **este repositorio** (sitio estático generado), no en Drive. Reglas y modelo de
+contenido en `CLAUDE.md`; arquitectura en `web-arquitectura-corrales.md`.
+
 | Activo | Estado | Relevancia | Notas | Revisado |
 |---|---|---|---|---|
-| `los-corrales-de-rota-web.html` | activo | alta | Web pública de una página con fotos reales embebidas. Base del futuro hub. | 2026-07-20 |
-| `Landing_Rota_Birding_UK_EN.html` | activo | alta | Landing birding monolingüe EN. Será la base de la landing /en/birding multiidioma. Pasará a `obsoleto` cuando exista la versión servidor. | 2026-07-20 |
-| `Landing_Rota_Birding_DE.html` | activo | alta | Landing birding monolingüe DE. Idem, base de /de/vogel. | 2026-07-20 |
+| Web v1 — repo (`build.py` + `templates/base.css` + `templates/site.css` + `content/es/*.json` + `site.config.json`) | activo | alta | Sitio estático Monumento. **ES completo: 12 páginas** (inicio, la visita, 8 joyas, aviso legal y privacidad en borrador). Generador **reescrito desde cero el 2026-07-22**: bloques de ritmo (split foto/texto, diagram del corral, cta al nodo, turismo, keys) para evitar el efecto «PowerPoint»; SEO/hreflang/JSON-LD/GTM/fachada de vídeo reutilizados; imágenes con `width`/`height` (Pillow, anti-CLS). Reserva por Oficina de Turismo (sin reserva online); sin donaciones en v1; «Aves» fuera del menú. Contenido de joyas desde la serie «Más allá del mar». Pendiente: EN/DE/FR, datos legales reales, ID de GTM, cookies. | 2026-07-22 |
+| `los-corrales-de-rota-web.html` (Drive) | obsoleto | baja | One-page de Drive con fotos embebidas en base64. **Superado por la web v1 del repo.** Se conserva como referencia histórica. | 2026-07-22 |
+| `Landing_Rota_Birding_UK_EN.html` (Drive) | referencia | media | Landing birding monolingüe EN. Referencia para traducir la web a EN (handover-issues #1); no se sirve tal cual. | 2026-07-22 |
+| `Landing_Rota_Birding_DE.html` (Drive) | referencia | media | Landing birding monolingüe DE. Referencia para la traducción DE (handover-issues #2). | 2026-07-22 |
 
 ### Guías
 
