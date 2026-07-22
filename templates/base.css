@@ -203,3 +203,21 @@ footer b{color:var(--sal)}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--roca);color:var(--sal);padding:10px 16px;border-radius:0 0 var(--r-sm) 0;z-index:100}
 .skip-link:focus{left:0}
 :focus-visible{outline:3px solid var(--oxido);outline-offset:2px}
+
+/* Figura / imagen en el flujo */
+.figure{margin:0}
+.figure img{width:100%;border-radius:var(--r-lg);box-shadow:var(--shadow);object-fit:cover}
+.figure figcaption{margin-top:12px;font-size:.86rem;color:var(--text-soft)}
+
+/* Banda de foto a sangre completa */
+.band{position:relative;height:clamp(300px,50vh,560px);overflow:hidden}
+.band .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.band .band-veil{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,30,33,.05),rgba(20,30,33,.55))}
+.band .band-cap{position:absolute;left:0;right:0;bottom:0;max-width:1080px;margin:0 auto;padding:clamp(20px,4vw,40px) 24px;color:var(--sal)}
+.band .band-cap .kicker{color:#e0ad88;display:block;margin-bottom:8px}
+.band .band-cap p{margin:0;font-family:var(--f-display);font-weight:600;font-size:clamp(1.3rem,3vw,2.1rem);max-width:24ch;line-height:1.1;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+
+/* Galería de fotos */
+.gallery figure{margin:0}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-md);box-shadow:var(--shadow)}
+.gallery figcaption{margin-top:8px;font-size:.82rem;color:var(--text-soft)}

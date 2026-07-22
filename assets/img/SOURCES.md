@@ -28,3 +28,23 @@ optimizadas con `scripts/optimize_from_download.py` (JPG ~2000px, 200–400 KB).
 2. `python3 scripts/optimize_from_download.py <ruta_json> assets/img/<nombre>.jpg <ancho_px> <calidad>`
    (p. ej. `… joya-pinar-hero.jpg 2000 82`).
 3. Referenciar la ruta en el JSON de contenido de la página.
+
+## Actualización 2026-07-22 — fotos reales integradas
+
+Sustituido el héroe de `/aves/` (antes era la foto de una hoja manuscrita, no un ave) y añadida
+fotografía real en hub, visita, aves y playas. Optimizadas a ~2000 px / 200–400 KB desde
+`Fotos/Corrales` y `Fotos/Birdwatching` del Drive.
+
+| Fichero | Uso | Origen (Fotos/) |
+|---|---|---|
+| `joya-aves-hero.jpg` | Héroe de `/aves/` (sustituye el manuscrito) | Birdwatching · cigüeñuela `DSC_1994` |
+| `joya-aves.jpg` | Tarjeta joya «aves» (hub) + galería aves | Birdwatching · espátula `DSC_4903` |
+| `ave-garza.jpg` · `ave-flamenco.jpg` · `ave-cernicalo.jpg` | Galería de `/aves/` | Birdwatching (garza real, flamencos, cernícalo primilla) |
+| `corrales-aereo.jpg` | Banda del hub | Corrales · `DJI_20260627200935_0033_D` |
+| `corrales-muro.jpg` | Figura «muros que pescan» (hub) | Corrales · `IMG_5300` |
+| `corrales-atardecer.jpg` | Figura de `/playas/` | Corrales · `IMG_1608` |
+| `visita-gente.jpg` | Figura de `/visita/` | Corrales · `IMG_1591` |
+| `playa-hero.jpg` | Héroe y tarjeta de `/playas/` | Corrales · `dji_fly_…0022_pano` |
+
+Pendiente: fotos propias de pinar, dunas, camaleón, vía verde, pozos del galgo y jardín botánico
+(no existen en el archivo); esas 6 joyas siguen con héroe de degradado de marca.

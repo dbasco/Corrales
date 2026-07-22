@@ -44,6 +44,12 @@
       ]
     },
     {
+      "type": "figure",
+      "img": "/assets/img/corrales-muro.jpg",
+      "alt": "Muro de piedra seca de un corral con el agua retenida por la marea",
+      "w": 1800, "h": 1012
+    },
+    {
       "type": "jewels",
       "kicker": "Alrededor de los corrales",
       "h2": "Las joyas de Rota",
@@ -96,9 +102,17 @@
           "tag": "Playas",
           "title": "Playas de Rota",
           "desc": "Arena, pinar y los corrales asomando con la bajamar.",
-          "grad": "grad-pizarra"
+          "img": "/assets/img/playa-hero.jpg"
         }
       }
+    },
+    {
+      "type": "band",
+      "img": "/assets/img/corrales-aereo.jpg",
+      "alt": "Vista aérea de los corrales de Rota serpenteando sobre la franja intermareal",
+      "kicker": "Monumento Natural",
+      "caption": "Ocho corrales de piedra sobre la franja intermareal, cuidados a mano.",
+      "w": 2200, "h": 722
     },
     {
       "type": "video",

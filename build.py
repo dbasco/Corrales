@@ -223,6 +223,35 @@ def block_contact(b):
             f'<p class="muted" style="font-size:.8rem;margin-top:10px">{esc(b.get("form_note",""))}</p>'
             f'</form></div></div>')
 
+def block_figure(b):
+    cap = f'<figcaption>{esc(b["caption"])}</figcaption>' if b.get("caption") else ''
+    return (f'<div class="wrap"><figure class="figure">'
+            f'<img src="{esc(b["img"])}" alt="{esc(b.get("alt",""))}" loading="lazy" width="{b.get("w",1600)}" height="{b.get("h",900)}">'
+            f'{cap}</figure></div>')
+
+def block_band(b):
+    cap=''
+    if b.get("caption") or b.get("kicker"):
+        k=f'<span class="kicker">{esc(b.get("kicker",""))}</span>' if b.get("kicker") else ''
+        p=f'<p>{esc(b.get("caption",""))}</p>' if b.get("caption") else ''
+        cap=f'<div class="band-cap">{k}{p}</div>'
+    return (f'<div class="band"><img class="bg" src="{esc(b["img"])}" alt="{esc(b.get("alt",""))}" '
+            f'loading="lazy" width="{b.get("w",1920)}" height="{b.get("h",800)}">'
+            f'<div class="band-veil"></div>{cap}</div>')
+
+def block_gallery(b):
+    head=''
+    if b.get("h2"):
+        head=(f'<div class="sec-head"><span class="kicker">{esc(b.get("kicker",""))}</span>'
+              f'<h2>{esc(b["h2"])}</h2><p>{esc(b.get("intro",""))}</p></div>')
+    items=''
+    for it in b.get("items",[]):
+        cap=f'<figcaption>{esc(it["caption"])}</figcaption>' if it.get("caption") else ''
+        items+=(f'<figure><img src="{esc(it["img"])}" alt="{esc(it.get("alt",""))}" '
+                f'loading="lazy" width="800" height="600">{cap}</figure>')
+    cols=b.get("cols",3)
+    return f'<div class="wrap">{head}<div class="grid g{cols} gallery">{items}</div></div>'
+
 def render_block(b, lang_code):
     t=b["type"]
     if t=="prose": return block_prose(b)
@@ -232,6 +261,9 @@ def render_block(b, lang_code):
     if t=="faq": return block_faq(b)
     if t=="support": return block_support(b)
     if t=="contact": return block_contact(b)
+    if t=="figure": return block_figure(b)
+    if t=="band": return block_band(b)
+    if t=="gallery": return block_gallery(b)
     return ""
 
 # ---------- hero ----------
@@ -353,7 +385,10 @@ def render_page(page, lang_code):
     body_gtm=GTM_BODY.replace("__GTM_ID__", TRACK["gtm_id"])
     nav=render_nav(page,lang_code,ui)
     hero=render_hero(page,c,lang_code,ui)
-    sections="".join(f'<section>{render_block(b,lang_code)}</section>' for b in c.get("sections",[]))
+    def wrap(b):
+        h=render_block(b,lang_code)
+        return h if b["type"]=="band" else f'<section>{h}</section>'
+    sections="".join(wrap(b) for b in c.get("sections",[]))
     footer=render_footer(lang_code,ui)
     skip=f'<a class="skip-link" href="#main">{esc(ui.get("skip","Saltar al contenido"))}</a>'
     return f"""{head}

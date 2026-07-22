@@ -6,7 +6,7 @@
     "h1": "Aves a un paso de los corrales",
     "sub": "Los corrales y la marisma de Rota son comedero y descanso para decenas de especies. Un lugar tranquilo y poco masificado para ver limícolas, flamencos, espátulas y rapaces, casi sin salir del pueblo.",
     "img": "/assets/img/joya-aves-hero.jpg",
-    "img_alt": "Limícolas alimentándose en la marisma junto a los corrales de Rota",
+    "img_alt": "Cigüeñuela reflejada en el agua dorada de la marisma de Rota",
     "cta1": "Reservar visita",
     "cta2": "Cuándo y qué se ve",
     "cta2_href": "#temporadas"
@@ -30,6 +30,18 @@
       "paras": [
         "En paso migratorio (primavera y, sobre todo, finales de verano y otoño) dominan las limícolas: archibebes, zarapitos trinadores, chorlitejos y correlimos alimentándose en el fango con la marea baja.",
         "En la marisma y las salinas cercanas es habitual ver flamencos y espátulas. Entre las rapaces, hay citas de águila calzada y de cernícalo primilla. En los setos y el pinar se mueven pequeños insectívoros: currucas, tarabillas, colirrojos, abejarucos y abubillas, entre otros."
+      ]
+    },
+    {
+      "type": "gallery",
+      "kicker": "Quién vive aquí",
+      "h2": "Algunas de sus aves",
+      "cols": 4,
+      "items": [
+        { "img": "/assets/img/joya-aves.jpg", "alt": "Espátula común alimentándose en la marisma de Rota", "caption": "Espátula común" },
+        { "img": "/assets/img/ave-garza.jpg", "alt": "Garza real entre la vegetación de la marisma", "caption": "Garza real" },
+        { "img": "/assets/img/ave-flamenco.jpg", "alt": "Flamenco común en la lámina de agua", "caption": "Flamenco común" },
+        { "img": "/assets/img/ave-cernicalo.jpg", "alt": "Cernícalo primilla en vuelo", "caption": "Cernícalo primilla" }
       ]
     },
     {

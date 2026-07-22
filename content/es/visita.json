@@ -24,6 +24,12 @@
       ]
     },
     {
+      "type": "figure",
+      "img": "/assets/img/visita-gente.jpg",
+      "alt": "Visitante sobre el muro de un corral de Rota al atardecer",
+      "w": 1500, "h": 844
+    },
+    {
       "type": "prose",
       "kicker": "La marea manda",
       "h2": "Dos pases al día, según la marea",

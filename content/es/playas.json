@@ -5,7 +5,8 @@
     "kicker": "Joyas de Rota · Playas",
     "h1": "Las playas de Rota",
     "sub": "Arena, pinar detrás y los corrales asomando con la bajamar: playas de bandera con un patrimonio único a la vista.",
-    "grad": "grad-pizarra",
+    "img": "/assets/img/playa-hero.jpg",
+    "img_alt": "Playa de Rota con el arenal, el pinar y los corrales asomando con la marea baja",
     "cta1": "Reservar visita",
     "cta2": "Volver a las joyas",
     "cta2_href": "/#joyas"
@@ -20,6 +21,12 @@
         "Cuando baja la marea, los muros de los corrales aparecen sobre la arena y se puede entender de un vistazo cómo funcionan. Es el mejor cartel de bienvenida al monumento.",
         "Desde la playa se encadena fácil con la visita guiada, el pinar y las dunas."
       ]
+    },
+    {
+      "type": "figure",
+      "img": "/assets/img/corrales-atardecer.jpg",
+      "alt": "Atardecer sobre los corrales de Rota con una gaviota en vuelo",
+      "w": 2000, "h": 1125
     },
     {
       "type": "prose",
