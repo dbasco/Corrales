@@ -32,11 +32,12 @@ Ver detalle completo en `web-arquitectura-corrales.md`. Resumen:
 - **Teaser en el home** tras el diagrama: define la figura en corto y enlaza a la página (mejor recorrido «qué es → por qué importa»).
 - **Extensiones del generador** (`build.py`): tipo de página `monumento` (recibe esquema `TouristAttraction`) y bloque `svgfile` (inlina un SVG de `templates/`). Nuevo activo `templates/corral-corte.svg`: corte transversal del corral en paleta de marca.
 
-### Notas de datos (resueltas con la web oficial + auditoría)
-- **Fecha:** en copy se usa solo **«2001»** (sin día). La web oficial dice «23 de octubre de 2001»; la auditoría cita el Decreto 226/2001 «de 2 de octubre» (BOJA 22/11/2001). Discrepancia sin cerrar → pendiente verificar contra el BOJA antes de fijar un día.
-- **Origen:** NO se afirma «época romana» como único origen. La propia web oficial dice que no está claro (romano, fenicio o árabe). Se mantiene «más de mil años» / «raíces antiguas». (Matiza el punto 13 de la auditoría.)
-- **«El primero de Andalucía»:** se mantiene; la web oficial lo afirma sin matices.
-- **«8 corrales activos»:** sigue abierto (config `corrales_activos: 8`). La web oficial no da número de activos; la auditoría sugiere ~5. Pendiente de confirmar por la asociación.
+### Notas de datos — **manda la web oficial** (loscorralesderota.com), decidido 2026-07-22
+Regla: ante cualquier discrepancia de datos, la web oficial es la autoridad (por encima de auditorías o fuentes externas).
+- **Fecha:** **23 de octubre de 2001** (la da la página del monumento de la web oficial). Se usa en la página del monumento. Supersede la fecha del Decreto 226/2001 «de 2 de octubre» que citaba la auditoría; si alguna vez hace falta la referencia legal, es el Decreto 226/2001 (BOJA 135, 22/11/2001).
+- **Origen:** **época romana** (la web oficial lo afirma en home y en «descubre»). Aplicado en home y en la página del monumento. (Deja sin efecto mi cautela anterior de no fijar el origen.)
+- **«El primero de Andalucía»:** se mantiene (la web oficial lo afirma).
+- **Corrales activos:** se mantiene **8** (config `corrales_activos: 8`). La web oficial no da número de activos, así que no contradice; la fuente autoritativa es la propia asociación.
 
 ## Reservas de visitas — estado actual (2026-07-22)
 
