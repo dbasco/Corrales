@@ -1,10 +1,11 @@
 # CLAUDE.md — brief de continuación (Los Corrales de Rota, web v1)
 
-Este repositorio es la web v1 de la Asociación «Los Corrales de Rota». Lee este archivo
-entero antes de tocar nada. La fuente de verdad del proyecto (estrategia, marca, decisiones)
-vive en Google Drive, carpeta **Corrales de Rota**, en tres índices `.md`
-(`00-INDICE-PROYECTO.md`, `01-ACTIVOS.md`, `02-DECISIONES.md`) y en `web-arquitectura-corrales.md`.
-Si algo aquí contradice esos índices, mandan los índices.
+Este repositorio es la web v1 de la Asociación «Los Corrales de Rota», y además el hogar
+único del proyecto. La fuente de verdad (estrategia, marca, decisiones) vive **ahora en este
+repositorio**, bajo `docs/`: `docs/00-INDICE-PROYECTO.md` (punto de entrada), `docs/01-ACTIVOS.md`,
+`docs/02-DECISIONES.md` y `docs/web-arquitectura-corrales.md`. Lee el índice entero antes de
+tocar nada; si algo aquí contradice esos índices, mandan los índices. Lo único que permanece en
+Google Drive (carpeta **Corrales de Rota**) es el archivo fotográfico `Fotos/`, por peso.
 
 ## Reglas duras (no negociables)
 
