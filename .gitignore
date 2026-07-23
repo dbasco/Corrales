@@ -1,18 +1,16 @@
+
 # Build output (se regenera con `python3 build.py`)
-/dist/
-
 # Capturas de verificación
-/shots/
-
-# Índices de Drive actualizados (para reemplazo manual, no parte del repo web)
-/drive-update/
-
-# Sistema
-.DS_Store
-__pycache__/
-*.pyc
-node_modules/
-
 # Preview local (rutas relativas) y su zip: no van al repo
-/corrales-web/
+# Sistema
+# Índices de Drive actualizados (para reemplazo manual, no parte del repo web)
+*.pyc
+.DS_Store
 /corrales-web.zip
+/corrales-web/
+/dist/
+/drive-update/
+/shots/
+__pycache__/
+dist-local/
+node_modules/
