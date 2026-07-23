@@ -78,6 +78,53 @@ Página `/cookies/` (nueva plantilla `legal`). Coordinar con `privacidad`.
 
 ---
 
+## Motor de reservas (`reservas/`, subdominio propio)
+
+> Arquitectura en `docs/reservas-arquitectura.md`. Funcional en `02-DECISIONES.md`.
+> **La disponibilidad la decide el equipo**: no hay asistente de mareas, no lo implementes.
+> Cada lote acaba con `php -l` limpio y el CI en verde (job `reservas`).
+
+## #10 · Esquema, configuración y capa de datos — **HECHO (2026-07-23)**
+`reservas/` con `migraciones/001_esquema.sql` (10 tablas + el tipo de visita «corrales» sembrado),
+`config.example.php`, `src/Config.php`, `src/Db.php` (PDO, `transaccion()`, `bloquearPase()`),
+`migrar.php` y `README.md`. CI: sintaxis PHP, `config.php` no versionado, migraciones sin
+prefijos repetidos. **Sin probar contra una base de datos real** — falta ejecutar `migrar.php`
+en el hosting.
+
+## #11 · Panel: días, pases y aforo
+Login (`password_hash`, sesión, roles `gestor` y `mostrador`), calendario por tipo de visita,
+alta de pase suelto, **creación en lote** (rango de fechas + días de la semana + horas),
+duplicar una semana en la siguiente, editar/anular pase o día entero, cambiar aforo.
+Lista del día exportable e imprimible. Todo cambio deja rastro en `auditoria`.
+**Aceptación:** abrir un mes de sábados y domingos con dos pases diarios en menos de un minuto;
+anular un pase no borra sus reservas, las pasa a `anulada`.
+
+## #12 · Flujo público en ES
+Elegir tipo → día → pase → nombre, email, personas y consentimiento → código de 6 dígitos →
+confirmada, con localizador y enlace de gestión. Cancelación del visitante desde ese enlace.
+Reserva desde el panel a nombre de un tercero (`origen = 'panel'`), que descuenta plazas igual.
+**Regla dura:** el aforo se toca solo dentro de `Db::transaccion()` + `Db::bloquearPase()`.
+**Aceptación:** un test que lance dos reservas simultáneas sobre la última plaza y demuestre
+que una gana y la otra recibe «sin plazas». Sin ese test, el lote no está hecho.
+
+## #13 · Cola de correo y crons
+`Correo.php` con transporte intercambiable (`smtp` vía PHPMailer / `registro` para pruebas),
+plantillas en `idiomas/`, y los crons: enviar la cola cada 5 min, caducar reservas sin confirmar,
+recordatorio 24 h antes, avisos de anulación, borrado a los 12 meses y copia de seguridad diaria.
+**Nada de envío síncrono dentro de la petición.**
+**Pendiente externo:** confirmar el buzón remitente y sus credenciales SMTP en el hosting.
+
+## #14 · EN, DE y FR
+Interfaz y correos en los cuatro idiomas, heredando el idioma del enlace de entrada y
+guardándolo en la reserva. `noindex` y `robots.txt` propio del subdominio.
+
+## #15 · *Opcional:* mareas informativas e informes
+Importar las pleamares y bajamares de Rota a la tabla `mareas` y mostrar la hora de bajamar
+junto a cada día en el calendario del panel. **No valida ni propone nada.** Antes de importar,
+comprobar las condiciones de uso de la fuente (Puertos del Estado / IHM).
+
+---
+
 ### Definición de «hecho» para cualquier issue
 `python3 build.py` OK · sin romper reglas duras (ver `CLAUDE.md`) · `hreflang`/`canonical`/`sitemap`
 coherentes · un solo `h1` por página · imágenes con dimensiones · revisado sirviendo `dist/`.

@@ -46,3 +46,23 @@ jobs:
         with:
           name: corrales-web-dist
           path: dist/
+
+  reservas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sintaxis PHP del motor de reservas
+        run: |
+          if [ ! -d reservas ]; then echo "sin carpeta reservas"; exit 0; fi
+          find reservas -name '*.php' -print0 | xargs -0 -r -n1 php -l
+
+      - name: config.php no debe estar versionado
+        run: |
+          test ! -f reservas/config.php || { echo "FALLO: reservas/config.php esta en el repo"; exit 1; }
+
+      - name: Migraciones numeradas y sin duplicar
+        run: |
+          ls reservas/migraciones/*.sql >/dev/null
+          dup=$(ls reservas/migraciones/*.sql | xargs -n1 basename | cut -d_ -f1 | sort | uniq -d)
+          test -z "$dup" || { echo "FALLO: prefijos repetidos: $dup"; exit 1; }
