@@ -8,6 +8,11 @@
 > «Reservar») y la sección **`/apoyar/`** (socios y donaciones). En v1: la visita se reserva por la
 > **Oficina de Turismo de Rota** (CTA «Cómo visitar»), sin reserva online; y no hay donaciones. Lo
 > aplazado se retomará; se deja aquí documentado, marcado como tal.
+>
+> **Actualización 2026-07-23:** la **app de reservas ya no está aplazada** — se desarrolla en su
+> subdominio (`reservas-arquitectura.md`). Lo que sigue siendo cierto de la web v1 es que **no
+> tiene botón «Reservar»**: el CTA es «Cómo visitar» y lleva a Turismo. Se cambia cuando la app
+> entre en servicio. `/apoyar/` sigue aplazada.
 
 ## Alojamiento
 
@@ -80,7 +85,7 @@ Patrón definitivo: **español en la raíz** + `/en/ /de/ /fr/` (no los cuatro s
 
 La reserva es el nodo al que devuelven todas las joyas y la **única parte con estado** del sitio. Se aísla para no tocar los Core Web Vitals del resto.
 
-- **`/visita/`** (y `/en/ /de/ /fr/`): página **estática** del sitio. Explica y "vende" la visita (qué es, cómo funciona, calendario de mareas); en v1 su CTA es «Cómo visitar» y la reserva la gestiona la Oficina de Turismo de Rota (sin reserva online). La app de reservas y su botón «Reservar» quedan APLAZADOS.
+- **`/visita/`** (y `/en/ /de/ /fr/`): página **estática** del sitio. Explica y "vende" la visita (qué es, cómo funciona, calendario de mareas); en v1 su CTA es «Cómo visitar» y la reserva la gestiona la Oficina de Turismo de Rota (sin reserva online). El botón «Reservar» se añadirá cuando la app entre en servicio (**en desarrollo desde el 2026-07-23**).
 - **App de reservas:** componente dinámico **separado**, en subdominio propio **`reservas.loscorralesderota.com`**. Backend propio (servidor + BD); el resto del sitio sigue siendo HTML estático. Definición completa en `02-DECISIONES.md`.
 
 ## Imágenes
