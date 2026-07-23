@@ -135,3 +135,25 @@ sin `height:auto`. Consecuencia: `aspect-ratio` no surtía efecto y las fotos de
 
 Regla general: ninguna imagen debe mostrarse más ancha que su resolución nativa.
 Única excepción viva: `joya-pinar.jpg` (761 px) en el hero de la joya del pinar.
+
+## Diagrama de mareas: ilustraciones IA con rótulos en HTML (2026-07-23)
+
+Las tres escenas del bloque `diagram` del inicio pasan de SVG esquemático a **ilustración**
+(estilo grabado, generada con Google Gemini a petición de la asociación).
+
+- **Regla aplicada: la ilustración no lleva texto.** Los rótulos y pies siguen en HTML, así
+  que se traducen a EN/DE/FR sin regenerar imágenes, se leen en móvil y son accesibles.
+  Se descartó la primera versión de la lámina, que traía todo el texto incrustado.
+- `build.py`: un `step` del diagrama con `img` usa la ilustración; sin `img`, cae al SVG.
+  El cambio es reversible.
+- Al recortar se quitaron la rosa de los vientos, la barra de escala (mal graduada) y el
+  destello de Gemini.
+
+### Abierto — dos puntos que decide la asociación
+1. **El muro sale más alto de lo que es.** El texto del propio inicio dice «un muro *bajo*
+   de piedra seca» y la ilustración muestra una fábrica alta con cimentación. Contradicción
+   entre lo que se lee y lo que se ve, y entre la lámina y lo que el visitante encuentra.
+   Se puede regenerar pidiendo un muro a la altura de la cintura, sin cimientos profundos.
+2. **Declarar o no que la ilustración es generada con IA.** Recomendación: hacerlo en el pie
+   o en créditos. Es una web patrimonial y la transparencia protege la credibilidad; además
+   las imágenes llevan la marca invisible SynthID de Google, detectable por terceros.

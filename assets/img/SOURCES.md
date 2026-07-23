@@ -99,3 +99,23 @@ foto propia del sistema dunar (pasarelas).
 pequeña del lote. En la tarjeta del inicio se ve bien, pero en el hero a pantalla completa
 se amplía un ~68 % y pierde nitidez. Conviene sustituirla por una toma del pinar de al
 menos 1600 px cuando haya. El resto de fotos se muestran a su tamaño nativo o por debajo.
+
+## Ilustraciones del diagrama de mareas — 2026-07-23
+
+`corral-fase-1-pleamar.jpg`, `corral-fase-2-bajando.jpg`, `corral-fase-3-bajamar.jpg`
+(842×801 cada una, 100–126 KB). Usadas en las tres escenas del bloque `diagram` del inicio,
+sustituyendo a los SVG esquemáticos (`DIAG_SCENES`, que siguen en `build.py` como respaldo:
+si un `step` no trae `img`, se dibuja el SVG).
+
+**Origen: ilustración generada con IA (Google Gemini)**, encargada por la asociación.
+Se pidió expresamente **sin texto** para que los rótulos vayan en HTML y sirvan para ES/EN/DE/FR,
+sean legibles en móvil y los lea un lector de pantalla.
+
+Retoques aplicados al recortar los tres paneles de la lámina original:
+- Eliminada la **rosa de los vientos** (no tiene sentido en un corte transversal).
+- Eliminada la **barra de escala**, que estaba mal graduada (marcaba «0 · 15 · 50 · 50 m»).
+- Eliminado el **destello identificativo de Gemini** de la esquina del tercer panel.
+- Recortada la franja inferior, que exageraba la cimentación del muro.
+
+**Pendiente de decidir (ver `docs/02-DECISIONES.md`):** el muro sigue representado más alto
+de lo que es en realidad, y las imágenes conservan la marca invisible SynthID de Google.

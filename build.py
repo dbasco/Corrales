@@ -249,7 +249,8 @@ def block_diagram(b):
     steps = b.get("steps", [])[:3]
     cards = ""
     for i, st in enumerate(steps):
-        cards += (f'<div class="step">{DIAG_SCENES[i]}'
+        scene = img_tag(st["img"], st.get("alt", "")) if st.get("img") else DIAG_SCENES[i]
+        cards += (f'<div class="step">{scene}'
                   f'<div class="cap"><span class="kicker"><span class="num">{i+1}.</span>{esc(st.get("kicker",""))}</span>'
                   f'<p>{esc(st.get("text",""))}</p></div></div>')
     head = ''

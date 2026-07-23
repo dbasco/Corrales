@@ -43,15 +43,21 @@
       "steps": [
         {
           "kicker": "Sube la marea",
-          "text": "El agua cubre el muro y los peces entran con ella, por encima de la piedra, hacia la orilla."
+          "text": "El agua cubre el muro y los peces entran con ella, por encima de la piedra, hacia la orilla.",
+          "img": "/assets/img/corral-fase-1-pleamar.jpg",
+          "alt": "Con la marea alta el agua cubre el muro de piedra del corral y los peces entran por encima"
         },
         {
           "kicker": "Baja la marea",
-          "text": "El mar se retira, pero el muro retiene el agua. Los peces quedan atrapados dentro del corral."
+          "text": "El mar se retira, pero el muro retiene el agua. Los peces quedan atrapados dentro del corral.",
+          "img": "/assets/img/corral-fase-2-bajando.jpg",
+          "alt": "Al bajar la marea el mar queda más bajo y el muro retiene el agua con los peces dentro"
         },
         {
           "kicker": "Se pesca a pie",
-          "text": "Con la bajamar se camina por dentro del corral y se recoge el pescado a mano. Dos veces al día, cuando la marea lo permite."
+          "text": "Con la bajamar se camina por dentro del corral y se recoge el pescado a mano. Dos veces al día, cuando la marea lo permite.",
+          "img": "/assets/img/corral-fase-3-bajamar.jpg",
+          "alt": "Con la marea baja los corraleros recogen el pescado a pie dentro del corral"
         }
       ]
     },

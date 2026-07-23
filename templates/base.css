@@ -33,7 +33,7 @@
   --sp:clamp(56px,9vw,100px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{margin:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto;display:block}
 a{color:var(--pizarra);text-decoration:none}
@@ -156,8 +156,9 @@ footer b{color:var(--sal)}
 @media(max-width:860px){
   .nav-toggle{display:block}
   .navbar .links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);flex-direction:column;align-items:flex-start;gap:8px;
-    background:var(--surface);padding:80px 24px 24px;transform:translateX(100%);transition:.25s;box-shadow:var(--shadow)}
-  .navbar .links.open{transform:translateX(0)}
+    background:var(--surface);padding:80px 24px 24px;transform:translateX(100%);box-shadow:var(--shadow);
+    visibility:hidden;transition:transform .25s,visibility 0s .25s}
+  .navbar .links.open{transform:translateX(0);visibility:visible;transition:transform .25s,visibility 0s}
   .navbar .links a{font-size:1.05rem;padding:8px 0}
 }
 
