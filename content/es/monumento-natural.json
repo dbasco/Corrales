@@ -5,8 +5,8 @@
     "kicker": "Rota · Cádiz · Monumento Natural",
     "h1": "El Monumento Natural de los corrales",
     "sub": "Qué es esta figura, qué protege y por qué es rara: un espacio que es naturaleza y obra humana a la vez, y que sigue vivo porque se cuida a mano.",
-    "img": "/assets/img/corrales-atardecer.jpg",
-    "img_alt": "Los corrales de Rota al atardecer con la marea baja",
+    "img": "/assets/img/corrales-panoramica.jpg",
+    "img_alt": "Vista aérea panorámica de los corrales de Rota con la marea baja, con el pinar y el pueblo al fondo",
     "cta1": "Cómo visitar los corrales",
     "cta1_href": "/visita/"
   },
@@ -38,6 +38,13 @@
         { "k": "Pradera marina", "t": "Fanerógamas", "d": "Bajo el agua crece una pradera de plantas marinas que da alimento y refugio. El límite del monumento la protege junto a los muros." },
         { "k": "Escondite vivo", "t": "Aves del litoral", "d": "Con la bajamar el corral queda al descubierto y funciona como comedero y escondite natural para limícolas y aves marinas." }
       ]
+    },
+    {
+      "type": "figure",
+      "tone": "sand",
+      "img": "/assets/img/corrales-pez-guitarra.jpg",
+      "alt": "Pez guitarra sobre el fondo somero en el interior de un corral de Rota",
+      "caption": "Un pez guitarra dentro de un corral. Entre los fines de la asociación está proteger a las especies amenazadas y a los alevines que quedan dentro con la bajamar."
     },
     {
       "type": "band",

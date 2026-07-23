@@ -5,7 +5,8 @@
     "kicker": "Joyas de Rota · Vía verde",
     "h1": "La Vía Verde de Rota",
     "sub": "Antiguas vías de tren convertidas en un camino para pasear, correr o pedalear. Fácil, llano y muy familiar.",
-    "grad": "grad-stone"
+    "img": "/assets/img/joya-via-verde.jpg",
+    "img_alt": "Ciclista recorriendo la Vía Verde de Rota entre arbolado"
   },
   "sections": [
     {

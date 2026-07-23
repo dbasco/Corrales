@@ -5,7 +5,8 @@
     "kicker": "Joyas de Rota · Pinar",
     "h1": "El pinar litoral",
     "sub": "Un bosque de pino piñonero entre el pueblo y la playa. Uno de los grandes tesoros naturales de Rota, y de los menos conocidos.",
-    "grad": "grad-stone"
+    "img": "/assets/img/joya-pinar.jpg",
+    "img_alt": "Vista aérea del pinar de pino piñonero de Rota sobre el cordón dunar y la playa"
   },
   "sections": [
     {

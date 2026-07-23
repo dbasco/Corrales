@@ -64,3 +64,33 @@ El corte transversal del corral es un SVG de marca propio: `templates/corral-cor
 Nota: las fotos de la web oficial (google sites) NO se pudieron descargar desde el entorno
 de trabajo (dominio `googleusercontent` no permitido). Si se quieren, hay que bajarlas y
 pasarlas por el flujo Drive→ZIP→optimizar como el resto.
+
+## Lote de la web oficial (Archivo.zip) — 2026-07-22
+
+25 imágenes aportadas por la asociación (archivo de la web oficial en Google Sites).
+Originales fuera de git; en el repo van optimizadas a ≤2000 px y 150–400 KB, JPEG progresivo.
+
+| Fichero en el repo | Original | Contenido |
+|---|---|---|
+| `joya-camaleon.jpg` | corrales_24.jpg | Camaleón común sobre rama |
+| `joya-jardin-botanico.jpg` | corrales_27.png | Busto de José Celestino Mutis |
+| `joya-via-verde.jpg` | corrales_25.png | Ciclista en la Vía Verde |
+| `joya-pinar.jpg` | corrales_21.jpg | Aérea del pinar sobre duna y playa |
+| `joya-pozos-del-galgo.jpg` | corrales_26.png | Pasarela de madera entre arbolado — **asignación a confirmar** |
+| `corrales-panoramica.jpg` | corrales_06.jpg | Panorámica aérea del corral con pueblo al fondo (sin marca de agua) |
+| `corrales-pez-guitarra.jpg` | corrales_12.jpg | Pez guitarra en el interior de un corral |
+| `corrales-muros-bajamar.jpg` | corrales_18.jpg | Muros y pozas con agua turquesa |
+| `corrales-corraleros.jpg` | corrales_19.jpg | Dos corraleros en silueta al atardecer |
+| `corrales-atardecer-rojo.jpg` | corrales_10.jpg | Bajamar con puesta de sol roja |
+| `corrales-corralero-poza.jpg` | corrales_13.jpg | Corralero cruzando una poza al atardecer |
+
+En reserva, sin usar todavía: corrales_07, corrales_08, corrales_09, corrales_11, corrales_20
+(aéreas y escenas de pesca; varias con la marca de agua de la asociación).
+
+**No usar `corrales_14.png`**: lleva incrustado el escudo de Servicios Aéreos de la Base Naval
+de Rota. Usar el emblema de un tercero en la web requiere su autorización; hay aéreas
+equivalentes sin él.
+
+Sin foto todavía: **dunas** (la única joya que sigue con degradado). `corrales_21` muestra
+duna y pinar en la misma toma, pero el pinar domina y se ha asignado ahí; hace falta una
+foto propia del sistema dunar (pasarelas).
