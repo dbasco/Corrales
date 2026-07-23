@@ -3,9 +3,10 @@
 Lotes de trabajo listos para abrir como issues de GitHub y ejecutar con Claude Code
 (p. ej. mencionando a `@claude` en cada issue). Cada uno es autocontenido.
 
-> **Estado 2026-07-23.** Bloqueantes de publicación abiertos: **#6** (fuentes desde Google Fonts),
-> **#7** (sin banner de cookies), **#8** (formulario no envía) y la parte de GTM de **#9**.
-> Ninguno debería salir a producción sin resolver; #6+#7+#9 son además riesgo AEPD.
+> **Estado 2026-07-23 (segunda pasada).** **#6 HECHO** (fuentes propias) y **#8 HECHO**
+> (`contacto.php`). Quedan **#7** (banner de cookies) y la parte de GTM de **#9** — y ambos
+> dejan de ser bloqueantes si se publica sin activar la analítica: con el ID de GTM de ejemplo
+> la web no escribe ninguna cookie.
 > El grueso de trabajo restante son los idiomas (#1 EN, #2 DE, #3 FR): hoy solo existe `content/es`,
 > y la campaña de birding apunta a Reino Unido y Alemania.
 
@@ -46,18 +47,20 @@ Regenerar y comprobar que `sitemap.xml`/`hreflang` siguen coherentes.
   el héroe de degradado por `img` en su JSON. Optimizar con `scripts/optimize_from_download.py`.
 **Aceptación:** todas las imágenes 200–400 KB, ~2000px, con `width`/`height` en el HTML.
 
-## #6 · Self-hostear las fuentes (Cinzel, Spectral)
-Descargar los `.woff2` de Cinzel y Spectral, servirlos desde `/assets/fonts/` con `@font-face`
-(`font-display:swap`) y quitar la dependencia de Google Fonts del `<head>`. Objetivo: LCP y
-privacidad (sin petición a fonts.gstatic).
+## #6 · Self-hostear las fuentes (Cinzel, Spectral) — **HECHO (2026-07-23)**
+~~Descargar los `.woff2`…~~ Hecho: `assets/fonts/` (108 KB, subset latin), `@font-face` en
+`base.css`, preload en `build.py`, enlaces a Google retirados. Verificado en Chromium: cero
+peticiones a terceros salvo GTM.
 
 ## #7 · Cookies + consentimiento (Consent Mode v2)
 Añadir banner de consentimiento y Google Consent Mode v2 antes de activar GTM/GA4/Ads en producción.
 Página `/cookies/` (nueva plantilla `legal`). Coordinar con `privacidad`.
 
-## #8 · Conectar el formulario de contacto
-El formulario de `contacto` es de referencia (no envía). Conectarlo a `info@loscorralesderota.com`
-(servicio tipo formspree/endpoint propio) con protección antispam. Sin backend pesado.
+## #8 · Conectar el formulario de contacto — **HECHO (2026-07-23)**
+~~El formulario de `contacto` es de referencia (no envía)…~~ Hecho con `contacto.php` propio
+(el hosting tiene PHP), sin servicio externo. Ver `02-DECISIONES.md`.
+**Queda por confirmar con el hosting:** que `mail()` esté activa y que exista
+`web@loscorralesderota.com` como remitente.
 
 ## #9 · Poner IDs reales de Google y datos legales — **PARCIAL (2026-07-23)**
 - `site.config.json` → `tracking.gtm_id` sigue en `GTM-XXXXXXX`. **PENDIENTE.**

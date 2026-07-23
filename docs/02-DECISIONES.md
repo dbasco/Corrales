@@ -198,6 +198,9 @@ El mismo botón fuera de la barra daba 8,40, lo que confirmaba el diagnóstico.
 
 Verificado en escritorio y en móvil con el menú abierto: todos los botones ≥ 4,5.
 
+### Resuelto el 2026-07-23 — ver «Contraste del kicker sobre fondo claro» más abajo
+_(se deja el diagnóstico original)_
+
 ### Abierto — los kickers no llegan al mínimo
 Los kickers usan `--oxido` sobre fondos claros y se quedan cortos para texto pequeño:
 surface 4,82 (pasa), **sal 4,46**, **sand 4,06**. El del hero va sobre el velo oscuro de la
@@ -206,6 +209,75 @@ foto y cumple de sobra (8,49).
 No se cambia por decisión propia porque es color de marca. Si se quiere cumplir AA en los
 tres fondos, el mínimo es **#9E5330** (5,39 / 4,98 / 4,54); **#98502E** deja más margen.
 Afecta solo al color de texto del kicker, no al token `--oxido` ni a los botones.
+
+## Fuentes servidas desde el propio dominio (2026-07-23)
+
+Cinzel y Spectral se cargaban desde el CDN de Google Fonts: dos `preconnect` y una hoja
+de estilos externa en la ruta crítica de cada página, y la IP de cada visitante enviada a
+Google antes de consentir nada (hay jurisprudencia alemana al respecto, LG München I, 2022).
+
+- Los `.ttf` se bajan de `google/fonts`, se subsetean a **latin** y se convierten a `woff2`:
+  Cinzel variable (400–700, un solo fichero) y Spectral 400/500/600/700. **108 KB en total**,
+  en `assets/fonts/`. Verificado que el subconjunto cubre ES/EN/DE/FR (`ß ñ ç œ ¿¡ «» — €`).
+- Los `@font-face` viven en `base.css` (que va inlineado); `build.py` precarga las dos de la
+  primera pintura. Se retiran los tres `<link>` a Google.
+- Comprobado en Chromium: las páginas **no hacen ninguna petición a terceros** salvo GTM.
+
+## Formulario de contacto: `contacto.php` (2026-07-23)
+
+El formulario era `onsubmit="return false"`: el visitante escribía, pulsaba Enviar y el
+mensaje se perdía en silencio. Peor que no tenerlo.
+
+- **Receptor propio en PHP** (`contacto.php` en la raíz), no un servicio externo: el hosting
+  tiene PHP, así que no hace falta cuenta de terceros ni enviar datos personales fuera.
+  Es el **único fichero dinámico**; las 13 páginas siguen siendo HTML estático.
+- Validación en servidor, trampa antispam (campo invisible), protección contra inyección de
+  cabeceras y **casilla de consentimiento obligatoria** enlazada a `/privacidad/`.
+- El remitente debe ser una dirección del propio dominio (`web@loscorralesderota.com`); con
+  el correo del visitante como remitente, el envío cae en spam. Su correo va en `Reply-To`.
+- **Salvaguarda:** si `forms.endpoint` está vacío en `site.config.json`, el formulario no se
+  pinta y en su lugar sale el email como enlace. No puede volver a publicarse un formulario mudo.
+- No depende de la extensión *mbstring*, que no está garantizada en todos los hostings.
+- **Pendiente de confirmar con el hosting:** que la función `mail()` esté activa. Si exige
+  SMTP autenticado, se sustituye esa línea por PHPMailer; el resto del fichero no cambia.
+
+## Modo pruebas del build (2026-07-23)
+
+`python3 build.py --preview https://pruebas.ejemplo.com` construye el sitio apuntando a esa
+URL en canonical/hreflang/og/sitemap, mete `noindex,nofollow` en todas las páginas y genera un
+`robots.txt` bloqueado. Permite revisar en el servidor **sin cambiar el dominio** y sin que
+Google indexe la copia como contenido duplicado. Sin el flag, la salida es la de producción.
+
+Las rutas internas (`/visita/`, `/assets/…`) no llevan dominio, así que funcionan en cualquier
+servidor **siempre que el sitio esté en la raíz**. En una subcarpeta (`dominio.com/prueba/`)
+se rompen todas: la prueba tiene que ir en la raíz de un subdominio.
+
+## Contraste del kicker sobre fondo claro (2026-07-23)
+
+Cerrado el punto que quedaba abierto ayer: `.kicker` pasa de `--oxido` a **`#98502E`**.
+Ratios medidos en el navegador: sal **5,28**, surface **5,71**, sand **4,81** (antes 4,46 /
+4,82 / 4,06). Se cambia solo el color del componente; el token `--oxido` no se toca, así que
+botones y filetes quedan igual.
+
+### Abierto — el kicker sobre foto NO cumple, y no es por este cambio
+
+Midiendo en el navegador (ocultando el texto, fotografiando los píxeles reales de detrás y
+comparando contra el percentil 95 de luminancia) resulta que el kicker del hero, que usa
+`#e0ad88` sobre la foto, **falla en 7 de 8 páginas**: entre 1,86 y 4,66. La cifra de «8,49»
+que figuraba en la nota de ayer se calculó contra el velo en su punto más oscuro, pero el
+kicker está en la parte alta del hero, donde el velo solo tiene un 15 % de opacidad.
+
+Probadas las dos palancas por separado y cruzadas: **ninguna combinación salva el color
+cálido**. Reforzar el velo hasta `.55` deja el kicker en 3,92. La única que pasa es velo
+`.35/.60/.85` **más el kicker en `--sal`** (4,87), y eso significa que el kicker del hero deja
+de ser cálido y pasa a ser del mismo color que el titular.
+
+El titular (`--sal`) solo falla en el inicio (3,75), por el sol de la foto del atardecer;
+con el velo reforzado sube a 5,33.
+
+**No se toca nada por decisión propia: es un cambio de aspecto, no un ajuste técnico.**
+Decide la asociación entre (a) kicker del hero en `--sal` + velo reforzado, que cumple AA y
+oscurece algo las fotos, o (b) mantener el cálido asumiendo que ese rótulo no cumple.
 
 ## «100 % de lo recaudado»: acotar el origen (2026-07-23)
 
