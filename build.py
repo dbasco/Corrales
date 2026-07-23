@@ -16,7 +16,7 @@ v1 = español. EN/DE/FR se generan solo cuando exista su content/<lang>/*.json
 
 Uso:  python3 build.py   ->   dist/
 """
-import json, os, shutil, html, pathlib, re
+import json, os, shutil, html, pathlib, re, sys
 from functools import lru_cache
 
 ROOT = pathlib.Path(__file__).parent
@@ -29,7 +29,23 @@ SITE = CFG["site"]
 LANGS = CFG["languages"]
 PAGES = CFG["pages"]
 TRACK = CFG["tracking"]
+FORMS = CFG.get("forms", {})
 ORIGIN = SITE["canonical_origin"].rstrip("/")
+
+# --- Modo pruebas ---------------------------------------------------------
+# `python3 build.py --preview https://pruebas.ejemplo.com` construye el sitio
+# apuntando a esa URL en canonical/hreflang/og/sitemap, mete noindex,nofollow en
+# todas las páginas y bloquea robots.txt. Sirve para revisar en el servidor sin
+# que Google indexe la copia y la tome por contenido duplicado.
+# Sin el flag, la salida es exactamente la de producción.
+PREVIEW = False
+if "--preview" in sys.argv:
+    i = sys.argv.index("--preview")
+    if i + 1 >= len(sys.argv) or sys.argv[i + 1].startswith("-"):
+        sys.exit("ERROR: --preview necesita la URL de pruebas. "
+                 "Ej: python3 build.py --preview https://pruebas.loscorralesderota.com")
+    PREVIEW = True
+    ORIGIN = sys.argv[i + 1].rstrip("/")
 LANG_BY_CODE = {l["code"]: l for l in LANGS}
 PAGE_BY_ID = {p["id"]: p for p in PAGES}
 
@@ -113,6 +129,14 @@ var id=v.getAttribute('data-yt');var f=document.createElement('iframe');f.width=
 f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0';f.style.border='0';f.style.position='absolute';f.style.inset='0';v.innerHTML='';v.appendChild(f);}
 v.addEventListener('click',go);v.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
 var d=document.getElementById('lang');if(d){document.addEventListener('click',function(e){if(!d.contains(e.target))d.removeAttribute('open');});}
+/* Aviso de envío: contacto.php redirige aquí con ?envio=ok|error */
+var f=document.querySelector('.cform');
+if(f){var p=new URLSearchParams(location.search).get('envio');
+if(p==='ok'||p==='error'){var box=f.querySelector('.cmsg'),s=f.querySelector('[data-ok]');
+if(box&&s){box.textContent=p==='ok'?s.getAttribute('data-ok'):s.getAttribute('data-err');
+box.className='cmsg '+(p==='ok'?'ok':'err');box.hidden=false;
+if(p==='ok')f.reset();
+history.replaceState(null,'',location.pathname+location.hash);}}}
 })();
 </script>"""
 
@@ -322,18 +346,41 @@ def block_turismo(b):
     anchor = f' id="{esc(b["anchor"])}"' if b.get("anchor") else ''
     return f'<div class="wrap"{anchor}>{head}<div class="turismo">{left}{right}</div></div>'
 
-def block_contact(b):
+def block_contact(b, lang_code="es"):
+    """Columna de datos + formulario. Si no hay endpoint configurado no se pinta
+    formulario: se deja solo el email. Nunca un formulario que no envía."""
+    left = (f'<div class="prose"><p><b>Email</b><br><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></p>'
+            f'<p><b>{esc(b.get("place_label","Dónde estamos"))}</b><br>{esc(SITE["place"])}</p></div>')
+
+    endpoint = (FORMS.get("endpoint") or "").strip()
+    if not endpoint:
+        right = (f'<div class="prose"><p>{esc(b.get("no_form", "Escríbenos por correo y te contestamos lo antes posible."))}</p>'
+                 f'<p><a class="btn btn-primary" href="mailto:{SITE["email"]}">{esc(b.get("f_send","Enviar"))}</a></p></div>')
+    else:
+        priv = page_url(PAGE_BY_ID["privacidad"], lang_code)
+        consent = b.get("f_consent", "He leído y acepto la política de privacidad.")
+        right = (
+            f'<form class="prose cform" method="post" action="{esc(endpoint)}" aria-label="{esc(b.get("h2","Contacto"))}">'
+            f'<div class="cmsg" role="status" aria-live="polite" hidden></div>'
+            f'<div class="field"><label for="cf-name">{esc(b.get("f_name","Nombre"))}</label>'
+            f'<input id="cf-name" type="text" name="nombre" required maxlength="80" autocomplete="name"></div>'
+            f'<div class="field"><label for="cf-email">{esc(b.get("f_email","Email"))}</label>'
+            f'<input id="cf-email" type="email" name="email" required maxlength="120" autocomplete="email"></div>'
+            f'<div class="field"><label for="cf-msg">{esc(b.get("f_msg","Mensaje"))}</label>'
+            f'<textarea id="cf-msg" name="mensaje" required maxlength="3000" rows="5"></textarea></div>'
+            # Trampa antispam: invisible para personas, los bots la rellenan.
+            f'<div class="hp" aria-hidden="true"><label>No rellenar<input type="text" name="apellido2" tabindex="-1" autocomplete="off"></label></div>'
+            f'<div class="field check"><label><input type="checkbox" name="consent" value="1" required> '
+            f'{esc(consent)} <a href="{esc(priv)}">{esc(b.get("f_privacy","Política de privacidad"))}</a></label></div>'
+            f'<button class="btn btn-primary" type="submit">{esc(b.get("f_send","Enviar"))}</button>'
+            + (f'<p class="muted" style="font-size:.8rem;margin-top:10px">{esc(b.get("form_note",""))}</p>' if b.get("form_note") else '')
+            + f'<span data-ok="{esc(b.get("f_ok","Mensaje enviado. Gracias, te contestamos en cuanto podamos."))}" '
+              f'data-err="{esc(b.get("f_err","No se ha podido enviar. Escríbenos a "))}{SITE["email"]}" hidden></span>'
+            f'</form>')
+
     return (f'<div class="wrap" id="contacto"><div class="sec-head"><span class="kicker">{esc(b.get("kicker","Contacto"))}</span>'
             f'<h2>{esc(b.get("h2","Contacto"))}</h2><p>{esc(b.get("intro",""))}</p></div>'
-            f'<div class="grid g2"><div class="prose"><p><b>Email</b><br><a href="mailto:{SITE["email"]}">{SITE["email"]}</a></p>'
-            f'<p><b>{esc(b.get("place_label","Dónde estamos"))}</b><br>{esc(SITE["place"])}</p></div>'
-            f'<form class="prose" onsubmit="return false" aria-label="{esc(b.get("h2","Contacto"))}">'
-            f'<div class="field"><label>{esc(b.get("f_name","Nombre"))}</label><input type="text" name="name"></div>'
-            f'<div class="field"><label>{esc(b.get("f_email","Email"))}</label><input type="email" name="email"></div>'
-            f'<div class="field"><label>{esc(b.get("f_msg","Mensaje"))}</label><textarea name="msg"></textarea></div>'
-            f'<button class="btn btn-primary" type="submit">{esc(b.get("f_send","Enviar"))}</button>'
-            f'<p class="muted" style="font-size:.8rem;margin-top:10px">{esc(b.get("form_note",""))}</p>'
-            f'</form></div></div>')
+            f'<div class="grid g2">{left}{right}</div></div>')
 
 def block_figure(b):
     cap = f'<figcaption>{esc(b["caption"])}</figcaption>' if b.get("caption") else ''
@@ -398,7 +445,7 @@ def render_block(b, lang_code):
     if t == "faq": return block_faq(b)
     if t == "keys": return block_keys(b)
     if t == "turismo": return block_turismo(b)
-    if t == "contact": return block_contact(b)
+    if t == "contact": return block_contact(b, lang_code)
     if t == "figure": return block_figure(b)
     if t == "band": return block_band(b)
     if t == "gallery": return block_gallery(b)
@@ -487,11 +534,13 @@ def render_head(page, c, lang_code):
     og_img = c.get("hero", {}).get("img") or "/assets/img/og-default.jpg"
     if og_img.startswith("/"): og_img = ORIGIN + og_img
     gtm = GTM_HEAD.replace("__GTM_ID__", TRACK["gtm_id"])
+    noindex = '\n<meta name="robots" content="noindex,nofollow">' if PREVIEW else ''
     graphs = collect_jsonld(page, c, lang_code, load_ui(lang_code))
     ld = "".join(f'\n<script type="application/ld+json">{json.dumps(g,ensure_ascii=False)}</script>' for g in graphs)
-    fonts = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
-             '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
-             '<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">')
+    # Fuentes propias (assets/fonts). Los @font-face viven en base.css, que va inlineado;
+    # aquí solo se precargan los dos ficheros de la primera pintura: texto y titular.
+    fonts = ('<link rel="preload" href="/assets/fonts/spectral-400.woff2" as="font" type="font/woff2" crossorigin>'
+             '<link rel="preload" href="/assets/fonts/cinzel-var.woff2" as="font" type="font/woff2" crossorigin>')
     present = langs_for(page)
     langmap = {l["code"]: l["path_prefix"] + "/" for l in present if l["path_prefix"]}
     redirect = LANG_REDIRECT.replace("__LANGMAP__", json.dumps(langmap)) if (page["type"] == "hub" and langmap) else ''
@@ -499,7 +548,7 @@ def render_head(page, c, lang_code):
 <html lang="{lang_code}">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">{noindex}
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
 <link rel="canonical" href="{esc(canonical)}">{alts}
@@ -567,7 +616,11 @@ def write_sitemap():
     (DIST / "sitemap.xml").write_text(xml, encoding="utf-8")
 
 def write_robots():
-    (DIST / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n", encoding="utf-8")
+    if PREVIEW:
+        txt = "# Copia de pruebas: no indexar.\nUser-agent: *\nDisallow: /\n"
+    else:
+        txt = f"User-agent: *\nAllow: /\n\nSitemap: {ORIGIN}/sitemap.xml\n"
+    (DIST / "robots.txt").write_text(txt, encoding="utf-8")
 
 def write_favicon():
     fav = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">'
@@ -593,7 +646,12 @@ def main():
             (outdir / "index.html").write_text(out, encoding="utf-8")
             count += 1
     write_sitemap(); write_robots(); write_favicon()
+    # Receptor del formulario: solo se despliega si el endpoint apunta a él.
+    ep = (FORMS.get("endpoint") or "").strip()
+    if ep.endswith(".php") and (ROOT / ep.lstrip("/")).exists():
+        shutil.copy(ROOT / ep.lstrip("/"), DIST / ep.lstrip("/"))
     print(f"OK: {count} páginas generadas (idiomas con contenido)")
+    if PREVIEW: print(f"MODO PRUEBAS: {ORIGIN} · noindex,nofollow · robots.txt bloqueado")
     if not _HAVE_PIL:
         print("AVISO: Pillow no disponible; imágenes sin width/height (instala pillow para evitar CLS).")
 

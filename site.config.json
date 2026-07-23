@@ -12,6 +12,12 @@
     "socios": 400,
     "corrales_activos": 8
   },
+  "forms": {
+    "endpoint": "/contacto.php",
+    "to": "info@loscorralesderota.com",
+    "from": "web@loscorralesderota.com",
+    "note": "endpoint vacío ('') => no se pinta formulario, solo el email como enlace. 'from' debe ser una dirección del propio dominio o el correo cae en spam."
+  },
   "tracking": {
     "provider": "gtm",
     "gtm_id": "GTM-XXXXXXX",

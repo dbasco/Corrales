@@ -195,7 +195,11 @@
       "f_email": "Email",
       "f_msg": "Mensaje",
       "f_send": "Enviar",
-      "form_note": "Formulario de referencia para v1: al desplegar en el servidor se conecta al buzón info@loscorralesderota.com."
+      "form_note": "Solo usamos estos datos para responderte. No los cedemos a nadie.",
+      "f_consent": "He leído y acepto la",
+      "f_privacy": "política de privacidad",
+      "f_ok": "Mensaje enviado. Gracias, te contestamos en cuanto podamos.",
+      "f_err": "No se ha podido enviar el mensaje. Escríbenos directamente a "
     }
   ]
 }

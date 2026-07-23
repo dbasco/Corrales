@@ -4,6 +4,20 @@
    Fuente de verdad: deliverables/marca/sistema-de-marca-monumento.html
    Solo cambia el copy entre idiomas; este bloque NO se toca.
    ============================================================ */
+
+/* Fuentes servidas desde el propio dominio (sin Google Fonts).
+   Subconjunto latin: cubre ES/EN/DE/FR. Ver docs/02-DECISIONES.md */
+@font-face{font-family:'Cinzel';font-style:normal;font-weight:400 700;font-display:swap;
+  src:url('/assets/fonts/cinzel-var.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;
+  src:url('/assets/fonts/spectral-400.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:500;font-display:swap;
+  src:url('/assets/fonts/spectral-500.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:600;font-display:swap;
+  src:url('/assets/fonts/spectral-600.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:700;font-display:swap;
+  src:url('/assets/fonts/spectral-700.woff2') format('woff2')}
+
 :root{
   /* Paleta Monumento */
   --sal:#F4F1E9;      /* fondo, sal / encalado */
@@ -41,7 +55,11 @@ a:hover{text-decoration:underline}
 
 .display{font-family:var(--f-display);font-weight:600;line-height:1.02;letter-spacing:.01em}
 h1,h2,h3{font-family:var(--f-body);font-weight:600;line-height:1.1;margin:0}
-.kicker{font-family:var(--f-body);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent)}
+/* El kicker es texto pequeño (.72rem): le aplica el mínimo AA de 4,5.
+   --oxido puro se queda en 4,46 sobre sal y 4,06 sobre sand. Se oscurece SOLO
+   el color de este componente; el token --oxido no se toca (botones y filetes
+   siguen igual). Ratios con #98502E: sal 5,28 · surface 5,71 · sand 4,81. */
+.kicker{font-family:var(--f-body);font-weight:600;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:#98502E}
 .muted{color:var(--text-soft)}
 .wall-rule{height:0;border:0;border-top:5px dashed var(--roca);opacity:.5;border-radius:99px;margin:0}
 

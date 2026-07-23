@@ -103,3 +103,15 @@ main > section.tone-sand{padding-top:var(--sp);margin-top:0}
 
 /* diagrama: escena ilustrada (alternativa al SVG esquemático) */
 .diagram .step img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover}
+
+/* ---------- Formulario de contacto ---------- */
+/* Trampa antispam: fuera de pantalla, nunca oculta con display:none
+   (algunos bots ignoran los campos ocultos por display). */
+.cform .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cform .field.check{flex-direction:row;align-items:flex-start;gap:10px}
+.cform .field.check label{display:flex;align-items:flex-start;gap:10px;font-weight:400;font-size:.88rem;line-height:1.45}
+.cform .field.check input{margin-top:3px;flex:0 0 auto;width:auto;padding:0}
+.cform .field input:focus-visible,.cform .field textarea:focus-visible{outline:2px solid var(--pizarra);outline-offset:2px}
+.cform .cmsg{border-radius:var(--r-sm);padding:12px 14px;margin-bottom:18px;font-size:.92rem}
+.cform .cmsg.ok{background:#e8efe6;border:1px solid #7d9b76;color:#2c4527}
+.cform .cmsg.err{background:#f6e7e0;border:1px solid #b8734f;color:#7a3a1c}
