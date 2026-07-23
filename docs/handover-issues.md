@@ -1,7 +1,13 @@
 # Handover a CODE — issues propuestos
 
 Lotes de trabajo listos para abrir como issues de GitHub y ejecutar con Claude Code
-(p. ej. mencionando a `@claude` en cada issue). Cada uno es autocontenido. Empieza por el #1.
+(p. ej. mencionando a `@claude` en cada issue). Cada uno es autocontenido.
+
+> **Estado 2026-07-23.** Bloqueantes de publicación abiertos: **#6** (fuentes desde Google Fonts),
+> **#7** (sin banner de cookies), **#8** (formulario no envía) y la parte de GTM de **#9**.
+> Ninguno debería salir a producción sin resolver; #6+#7+#9 son además riesgo AEPD.
+> El grueso de trabajo restante son los idiomas (#1 EN, #2 DE, #3 FR): hoy solo existe `content/es`,
+> y la campaña de birding apunta a Reino Unido y Alemania.
 
 ---
 
@@ -29,7 +35,11 @@ Igual que #1 para francés. Keywords SEO FR: *pêcheries à marée, ornithologie
 Confirmar con Daniel si se traducen o se mantienen como topónimo, y actualizar `slugs` en los 4 idiomas.
 Regenerar y comprobar que `sitemap.xml`/`hreflang` siguen coherentes.
 
-## #5 · Mejorar el banco de imágenes
+## #5 · Mejorar el banco de imágenes  — **PARCIAL (2026-07-23)**
+> Hecho: 5 de las 6 joyas en degradado ya tienen foto (camaleón, jardín botánico, vía verde,
+> pinar, pozos del galgo) y el inicio tiene mosaico. **Falta: dunas (sin foto) y sustituir las
+> de aves** por material de `Fotos/Birdwatching`. `joya-pinar.jpg` es de 761 px y conviene
+> reemplazarla. Confirmar que la pasarela asignada a pozos del galgo es ese sitio.
 - Sustituir `assets/img/joya-aves.jpg` y `joya-aves-hero.jpg` por una foto nítida de ave del
   archivo `Fotos/Birdwatching` (por hábitat). Ver `assets/img/SOURCES.md`.
 - Añadir foto real a cada joya cuando haya material (pinar, dunas, camaleón, etc.), sustituyendo
@@ -49,9 +59,10 @@ Página `/cookies/` (nueva plantilla `legal`). Coordinar con `privacidad`.
 El formulario de `contacto` es de referencia (no envía). Conectarlo a `info@loscorralesderota.com`
 (servicio tipo formspree/endpoint propio) con protección antispam. Sin backend pesado.
 
-## #9 · Poner IDs reales de Google y datos legales
-- `site.config.json` → `tracking.gtm_id` con el `GTM-XXXXXXX` real.
-- Rellenar CIF, nº de registro de asociaciones y domicilio en `aviso-legal` y `privacidad`.
+## #9 · Poner IDs reales de Google y datos legales — **PARCIAL (2026-07-23)**
+- `site.config.json` → `tracking.gtm_id` sigue en `GTM-XXXXXXX`. **PENDIENTE.**
+- ~~Rellenar CIF, nº de registro y domicilio~~ → **HECHO**: CIF G72275449 y registro
+  11-1-11400 (Sección 1ª) en `aviso-legal` y `privacidad`. Ya no queda ningún `[pendiente]`.
 
 ---
 

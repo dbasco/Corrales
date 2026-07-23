@@ -1,7 +1,7 @@
 # 00 · Índice del proyecto — Los Corrales de Rota
 
 > **Punto de entrada.** Empieza siempre por aquí. Este fichero explica qué es el proyecto, quién es quién, y dónde vive cada cosa.
-> Última revisión: 2026-07-22
+> Última revisión: 2026-07-23
 
 ---
 
@@ -12,6 +12,7 @@ Estrategia digital, de marketing y de captación de fondos para la **Asociación
 La asociación es custodia de los corrales de Rota — arte de pesca tradicional sobre la franja intermareal, **primer Monumento Natural de Andalucía** (declarado 2001). Organización sin ánimo de lucro; el 100 % de la recaudación va a conservación del monumento.
 
 - ~400 socios · fundada en 2014 · 8 corrales activos
+- Menú de la web: **El monumento · La visita · Joyas de Rota · Contacto**
 - Web pública: loscorralesderota.com
 - Contacto: info@loscorralesderota.com
 
@@ -50,12 +51,14 @@ Corrales/
 ├── CLAUDE.md                 Reglas duras + modelo de contenido de la web
 ├── templates/
 │   ├── base.css             Marca Monumento (canónico; no se tocan los tokens :root)
-│   └── site.css             Componentes de ritmo (split, diagram, cta, turismo, keys)
+│   ├── site.css             Componentes de ritmo (split, diagram, gallery, cta, keys)
+│   └── corral-corte.svg     Corte del corral (fuera de la web; reservado para el PDF)
 ├── content/
 │   ├── ui.es.json           Strings de interfaz
-│   └── es/*.json            Copy por página (ES, 12 páginas)
+│   └── es/*.json            Copy por página (ES, 13 páginas)
 ├── assets/img/              Fotos optimizadas para web + logo + og
-├── scripts/                 Utilidades (optimización de imágenes)
+├── scripts/                 Utilidades (optimización de imágenes,
+│                            build_local_preview.py → copia con rutas relativas)
 ├── docs/
 │   ├── 00-INDICE-PROYECTO.md · 01-ACTIVOS.md · 02-DECISIONES.md
 │   ├── web-arquitectura-corrales.md · handover-issues.md · GITHUB-Y-DRIVE.md

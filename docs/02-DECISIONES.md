@@ -2,13 +2,13 @@
 
 > Lo que ya está cerrado y por qué. El "qué ya no se discute".
 > Si una decisión se revierte, se anota aquí con fecha — no se borra.
-> Última revisión: 2026-07-22
+> Última revisión: 2026-07-23
 
 ---
 
 ## Web y arquitectura técnica
 
-> **Estado de la web (2026-07-22):** v1 ES construida y en `main` (repo). El generador se
+> **Estado de la web (2026-07-23):** v1 ES construida y en `main` (13 páginas). El generador se
 > reescribió desde cero para dar ritmo con foto (splits, diagrama del corral, bandas) en vez
 > del apilado tipo «PowerPoint». Reglas duras y modelo de bloques en `CLAUDE.md`; inventario en
 > `01-ACTIVOS.md`. Las decisiones de abajo no cambian; se han respetado en la implementación.
