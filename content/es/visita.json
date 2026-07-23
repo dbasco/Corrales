@@ -29,9 +29,21 @@
       "kicker": "En breve",
       "h2": "Antes de venir",
       "items": [
-        { "k": "Cuándo", "t": "Según la marea", "d": "La visita solo es posible con la marea baja, dos momentos al día que cambian cada jornada. El tiempo también puede obligar a suspenderla." },
-        { "k": "Cómo es", "t": "A pie y en grupo", "d": "Se camina por la franja intermareal, sobre arena y piedra húmeda. Guiada por los corraleros de la asociación." },
-        { "k": "Calzado", "t": "Que se pueda mojar", "d": "Mejor calzado cerrado que aguante agua y arena. Gorra, agua y protección solar en los meses de calor." }
+        {
+          "k": "Cuándo",
+          "t": "Según la marea",
+          "d": "La visita solo es posible con la marea baja, dos momentos al día que cambian cada jornada. El tiempo también puede obligar a suspenderla."
+        },
+        {
+          "k": "Cómo es",
+          "t": "A pie y en grupo",
+          "d": "Se camina por la franja intermareal, sobre arena y piedra húmeda. Guiada por los corraleros de la asociación."
+        },
+        {
+          "k": "Calzado",
+          "t": "Que se pueda mojar",
+          "d": "Mejor calzado cerrado que aguante agua y arena. Gorra, agua y protección solar en los meses de calor."
+        }
       ]
     },
     {
@@ -44,7 +56,7 @@
       "title": "La reserva la gestiona la Oficina de Turismo de Rota",
       "phone": "956 846345",
       "email": "turismorota@gmail.com",
-      "note": "Escribe o llama para confirmar día y hora según la marea. Lo recaudado va íntegro a la conservación del monumento.",
+      "note": "Escribe o llama para confirmar día y hora según la marea. Lo recaudado en las visitas va íntegro a la conservación del monumento.",
       "r_kicker": "Antes de ir",
       "r_title": "Ten en cuenta",
       "tips": [
@@ -59,10 +71,22 @@
       "kicker": "Dudas frecuentes",
       "h2": "Preguntas frecuentes",
       "items": [
-        { "q": "¿Cómo se reserva la visita?", "a": "A través de la Oficina de Turismo de Rota, por teléfono (956 846345) o correo (turismorota@gmail.com). No hay reserva online: la asociación guía la visita y Turismo gestiona la reserva." },
-        { "q": "¿Por qué el horario cambia cada día?", "a": "Porque la visita solo puede hacerse con la marea baja, y la bajamar se adelanta o retrasa cada jornada. Por eso el día y la hora se confirman al reservar." },
-        { "q": "¿Qué pasa si hace mal tiempo?", "a": "La visita se hace al aire libre sobre la franja intermareal, así que el temporal o la mar pueden obligar a suspenderla o cambiarla de día. Se avisa al reservar." },
-        { "q": "¿A dónde va lo que se recauda?", "a": "El 100 % se destina a la conservación del monumento: al mantenimiento de los muros de piedra y a la labor de la asociación." }
+        {
+          "q": "¿Cómo se reserva la visita?",
+          "a": "A través de la Oficina de Turismo de Rota, por teléfono (956 846345) o correo (turismorota@gmail.com). No hay reserva online: la asociación guía la visita y Turismo gestiona la reserva."
+        },
+        {
+          "q": "¿Por qué el horario cambia cada día?",
+          "a": "Porque la visita solo puede hacerse con la marea baja, y la bajamar se adelanta o retrasa cada jornada. Por eso el día y la hora se confirman al reservar."
+        },
+        {
+          "q": "¿Qué pasa si hace mal tiempo?",
+          "a": "La visita se hace al aire libre sobre la franja intermareal, así que el temporal o la mar pueden obligar a suspenderla o cambiarla de día. Se avisa al reservar."
+        },
+        {
+          "q": "¿A dónde va lo que se recauda?",
+          "a": "El 100 % de lo recaudado en las visitas y actividades se destina a la conservación, reconstrucción y mantenimiento del monumento: los muros de piedra y la labor de la asociación."
+        }
       ]
     },
     {

@@ -206,3 +206,17 @@ foto y cumple de sobra (8,49).
 No se cambia por decisión propia porque es color de marca. Si se quiere cumplir AA en los
 tres fondos, el mínimo es **#9E5330** (5,39 / 4,98 / 4,54); **#98502E** deja más margen.
 Afecta solo al color de texto del kicker, no al token `--oxido` ni a los botones.
+
+## «100 % de lo recaudado»: acotar el origen (2026-07-23)
+
+El pie decía «El 100 % de lo recaudado va a la conservación del monumento», sin decir *de
+qué* recaudación. Como en la v1 no hay donaciones y la reserva la lleva la Oficina de
+Turismo, en el pie de todas las páginas quedaba ambiguo e invitaba a preguntarse dónde donar.
+
+La web oficial lo formula acotado, y esa es la fórmula buena: «el 100% de la recaudación
+obtenida **a través de las actividades y visitas guiadas** se destina íntegramente a la
+conservación, **reconstrucción y mantenimiento** del Monumento Natural» (nota de transparencia).
+
+Aplicado: pie (`content/ui.es.json`) y las dos menciones de `visita.json` pasan a nombrar el
+origen y los tres destinos. Home y monumento ya lo decían en contexto de visita guiada.
+Acotar no debilita el mensaje: una nota de transparencia es más creíble cuanto más precisa.

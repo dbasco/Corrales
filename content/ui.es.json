@@ -1,9 +1,15 @@
 {
-  "nav": { "home": "Inicio", "monumento": "El monumento", "visita": "La visita", "joyas": "Joyas de Rota", "contacto": "Contacto" },
+  "nav": {
+    "home": "Inicio",
+    "monumento": "El monumento",
+    "visita": "La visita",
+    "joyas": "Joyas de Rota",
+    "contacto": "Contacto"
+  },
   "reserve_cta": "Cómo visitar",
   "skip": "Saltar al contenido",
   "footer": {
-    "pledge": "El 100 % de lo recaudado va a la conservación del monumento.",
+    "pledge": "El 100 % de lo recaudado en las visitas y actividades se destina a la conservación, reconstrucción y mantenimiento del monumento.",
     "legal": "Aviso legal",
     "privacy": "Privacidad"
   }
