@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor de reservas · Requisitos del servidor e instrucciones de despliegue</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ============================================================
+   Sistema de marca Monumento — bloque :root VERBATIM.
+   Fuente de verdad: templates/base.css · No se tocan los tokens.
+   ============================================================ */
+:root{
+  /* Paleta Monumento */
+  --sal:#F4F1E9;      /* fondo, sal / encalado */
+  --roca:#23201C;     /* texto y trazo, roca mojada */
+  --pizarra:#35494E;  /* color de marca, pizarra-mar */
+  --piedra:#9A8F7C;   /* piedra seca, neutro medio */
+  --oxido:#A85A32;    /* acento único, hierro/óxido */
+
+  /* Semánticos */
+  --bg:var(--sal);
+  --surface:#FCFAF4;
+  --text:var(--roca);
+  --text-soft:#6a6357;
+  --line:rgba(35,32,28,.12);
+  --line-strong:rgba(35,32,28,.26);
+  --brand:var(--pizarra);
+  --accent:var(--oxido);
+
+  /* Radios */
+  --r-sm:6px; --r-md:12px; --r-lg:18px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(35,32,28,.05), 0 12px 30px -20px rgba(35,32,28,.4);
+
+  /* Tipografía */
+  --f-display:'Cinzel', Georgia, serif; /* capitales romanas: marca y titulares fuertes */
+  --f-body:'Spectral', Georgia, serif;  /* titulares de sección y texto */
+
+  --sp:clamp(56px,9vw,100px);
+}
+
+/* Componentes de este documento (heredan los tokens, no los modifican) */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--f-body); font-size:17px; line-height:1.65;
+}
+.wrap{max-width:860px; margin:0 auto; padding:0 24px 96px}
+
+.kicker{
+  font-family:var(--f-body); font-size:.72rem; letter-spacing:.22em;
+  text-transform:uppercase; color:#98502E; margin:0 0 10px;
+}
+h1{
+  font-family:var(--f-display); font-weight:600; letter-spacing:.02em;
+  font-size:clamp(1.9rem,4.4vw,2.7rem); line-height:1.15; margin:0 0 12px;
+}
+h2{
+  font-family:var(--f-display); font-weight:600; letter-spacing:.02em;
+  font-size:1.45rem; line-height:1.2; margin:56px 0 6px;
+  padding-top:22px; border-top:1px solid var(--line-strong);
+}
+h3{font-family:var(--f-body); font-weight:600; font-size:1.12rem; margin:34px 0 6px}
+h4{font-family:var(--f-body); font-weight:600; font-size:1rem; margin:24px 0 4px; color:var(--brand)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px; padding-left:22px}
+li{margin:0 0 7px}
+a{color:var(--brand)}
+strong{font-weight:600}
+code,kbd{
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  font-size:.86em; background:rgba(53,73,78,.09); padding:1px 5px;
+  border-radius:var(--r-sm); word-break:break-word;
+}
+pre{
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  font-size:.82rem; line-height:1.55; background:var(--surface);
+  border:1px solid var(--line); border-left:3px solid var(--brand);
+  border-radius:0; padding:14px 16px; overflow-x:auto; margin:0 0 18px;
+}
+pre code{background:none; padding:0; font-size:1em}
+
+header.doc{
+  background:var(--pizarra); color:var(--sal);
+  margin-bottom:44px; padding:52px 0 40px;
+}
+header.doc .wrap{padding-bottom:0}
+header.doc h1{color:var(--sal)}
+header.doc .kicker{color:#e0ad88}
+header.doc .lead{font-size:1.06rem; color:rgba(244,241,233,.86); margin:0; max-width:62ch}
+.meta{
+  display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:26px;
+  padding-top:18px; border-top:1px solid rgba(244,241,233,.22);
+  font-size:.82rem; letter-spacing:.04em; color:rgba(244,241,233,.75);
+}
+
+.lead-doc{font-size:1.06rem; color:var(--text-soft); max-width:64ch}
+
+nav.indice{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:22px 26px; margin:0 0 20px;
+}
+nav.indice p{font-family:var(--f-display); letter-spacing:.02em; margin:0 0 10px; font-weight:600}
+nav.indice ol{margin:0; padding-left:20px; font-size:.94rem}
+nav.indice li{margin:0 0 4px}
+
+table{
+  width:100%; border-collapse:collapse; margin:0 0 22px;
+  font-size:.92rem; background:var(--surface);
+}
+th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top}
+th{
+  background:rgba(53,73,78,.07); font-family:var(--f-body);
+  font-weight:600; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
+}
+td code{font-size:.8rem}
+
+.nota, .alerta, .clave{
+  border-radius:var(--r-md); padding:16px 20px; margin:0 0 20px; font-size:.95rem;
+}
+.nota{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--piedra)}
+.alerta{background:rgba(168,90,50,.07); border:1px solid rgba(168,90,50,.28); border-left:3px solid var(--accent)}
+.clave{background:rgba(53,73,78,.07); border:1px solid rgba(53,73,78,.24); border-left:3px solid var(--brand)}
+.nota p:last-child, .alerta p:last-child, .clave p:last-child, .nota ul:last-child, .alerta ul:last-child{margin-bottom:0}
+.et{
+  display:inline-block; font-family:var(--f-body); font-size:.7rem;
+  letter-spacing:.16em; text-transform:uppercase; font-weight:600;
+  margin:0 0 8px; color:var(--accent);
+}
+.alerta .et{color:var(--accent)}
+.clave .et{color:var(--brand)}
+
+ul.check{list-style:none; padding-left:0}
+ul.check li{
+  position:relative; padding-left:34px; margin-bottom:10px;
+}
+ul.check li::before{
+  content:''; position:absolute; left:0; top:4px;
+  width:17px; height:17px; border:1.5px solid var(--line-strong);
+  border-radius:3px; background:var(--surface);
+}
+.paso{
+  counter-increment:paso; position:relative; padding-left:46px; margin:0 0 30px;
+}
+.paso::before{
+  content:counter(paso); position:absolute; left:0; top:-2px;
+  width:31px; height:31px; border-radius:50%;
+  background:var(--pizarra); color:var(--sal);
+  font-family:var(--f-display); font-size:.92rem; font-weight:600;
+  display:flex; align-items:center; justify-content:center;
+}
+.pasos{counter-reset:paso}
+.paso h3{margin-top:0}
+
+.pie{
+  margin-top:64px; padding-top:20px; border-top:1px solid var(--line-strong);
+  font-size:.82rem; color:var(--text-soft);
+}
+
+@media print{
+  body{background:#fff; font-size:11.5pt}
+  header.doc{background:#fff; color:var(--text); border-bottom:2px solid var(--pizarra); padding:0 0 18px}
+  header.doc h1, header.doc .lead{color:var(--text)}
+  header.doc .kicker{color:#98502E}
+  .meta{color:var(--text-soft); border-color:var(--line)}
+  .wrap{max-width:none; padding:0}
+  h2{page-break-after:avoid} pre,table,.nota,.alerta,.clave{page-break-inside:avoid}
+  a{color:var(--text); text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <p class="kicker">Los Corrales de Rota · Motor de reservas</p>
+    <h1>Requisitos del servidor<br>e instrucciones de despliegue</h1>
+    <p class="lead">Qué tiene que ofrecer el alojamiento para que la aplicación de reservas funcione, y qué pasos hay que dar para dejarla instalada y comprobada. Pensado para entregarse tal cual a quien administre el servidor.</p>
+    <div class="meta">
+      <span>Versión 1.0</span>
+      <span>23 de julio de 2026</span>
+      <span>Documento interno</span>
+      <span>Repositorio: dbasco/Corrales</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<p class="lead-doc">Este trabajo instala la base: esquema de datos y conexión. Todavía no hay aplicación que enseñar —ni panel, ni formulario de reserva, ni correos—. El objetivo es confirmar que el servidor sirve antes de escribir el resto, porque si la base de datos o el correo saliente no dan lo que hace falta, cambia lo que se construye encima.</p>
+
+<nav class="indice">
+  <p>Contenido</p>
+  <ol>
+    <li><a href="#contexto">Contexto: qué es esto y qué no</a></li>
+    <li><a href="#requisitos">Parte A · Requisitos del entorno</a></li>
+    <li><a href="#preguntas">Parte A bis · Qué preguntar al proveedor de hosting</a></li>
+    <li><a href="#despliegue">Parte B · Instrucciones de instalación</a></li>
+    <li><a href="#verificacion">Parte C · Verificación</a></li>
+    <li><a href="#informe">Parte D · Qué hay que devolver</a></li>
+    <li><a href="#problemas">Anexo 1 · Problemas frecuentes</a></li>
+    <li><a href="#htaccess">Anexo 2 · Protección por .htaccess</a></li>
+  </ol>
+</nav>
+
+<h2 id="contexto">1. Contexto: qué es esto y qué no</h2>
+
+<p>La Asociación «Los Corrales de Rota» tiene una web estática en <code>loscorralesderota.com</code>: HTML generado, sin base de datos, sin backend. Esa web <strong>no se toca</strong> en este trabajo.</p>
+
+<p>Lo que se instala es una aplicación aparte, en un subdominio propio, que gestionará la reserva de las visitas guiadas. Es la única pieza del proyecto con base de datos. Va separada precisamente para que un fallo suyo no afecte al rendimiento ni a la disponibilidad de la web principal.</p>
+
+<table>
+  <tr><th>Concepto</th><th>Valor</th></tr>
+  <tr><td>Subdominio</td><td><code>reservas.loscorralesderota.com</code></td></tr>
+  <tr><td>Tecnología</td><td>PHP 8 y MySQL/MariaDB. Sin framework, sin Node, sin proceso de compilación.</td></tr>
+  <tr><td>Carpeta en el repositorio</td><td><code>reservas/</code></td></tr>
+  <tr><td>Documento de arquitectura</td><td><code>docs/reservas-arquitectura.md</code></td></tr>
+  <tr><td>Cobros</td><td>Ninguno. La aplicación no lleva pasarela de pago ni maneja dinero.</td></tr>
+</table>
+
+<div class="alerta">
+  <span class="et">Límites del encargo</span>
+  <ul>
+    <li><strong>No se modifica la web estática</strong> ni su despliegue. Son dos cosas separadas y comparten repositorio, nada más.</li>
+    <li><strong>No hay que programar nada todavía.</strong> El código de esta fase está escrito; lo que falta es instalarlo y comprobar el entorno.</li>
+    <li><strong>No se instala ningún panel de administración de base de datos</strong> (phpMyAdmin o similar) que no viniera ya con el hosting.</li>
+  </ul>
+</div>
+
+<h2 id="requisitos">2. Parte A · Requisitos del entorno</h2>
+
+<p>Ordenados de más a menos crítico. La columna de la derecha dice qué pasa si no se cumple, para poder negociar con el proveedor sabiendo qué duele de verdad.</p>
+
+<h3>2.1 · PHP</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Mínimo</th><th>Si no se cumple</th></tr>
+  <tr><td>Versión de PHP</td><td>8.0 (recomendado 8.1 o superior)</td><td>Bloqueante. El código usa sintaxis de PHP 8.</td></tr>
+  <tr><td>Extensión <code>pdo_mysql</code></td><td>Activa</td><td>Bloqueante. Es la única vía de acceso a datos.</td></tr>
+  <tr><td>Extensiones <code>json</code>, <code>filter</code>, <code>session</code>, <code>hash</code>, <code>ctype</code>, <code>openssl</code></td><td>Activas</td><td>Bloqueante. <code>openssl</code> hace falta para el SMTP cifrado.</td></tr>
+  <tr><td>Extensión <code>mbstring</code></td><td>Deseable</td><td>No bloqueante. El código está escrito para no depender de ella.</td></tr>
+  <tr><td>PHP por línea de comandos (CLI)</td><td>Disponible</td><td>Muy conveniente. Sin CLI hay que aplicar el esquema desde phpMyAdmin y las tareas programadas se complican.</td></tr>
+  <tr><td>Zona horaria</td><td><code>Europe/Madrid</code></td><td>No bloqueante, pero si no se puede fijar en <code>php.ini</code>, decidlo: se fija por código.</td></tr>
+  <tr><td><code>memory_limit</code></td><td>64 MB</td><td>Con 128 MB va sobrado. No es una aplicación pesada.</td></tr>
+</table>
+
+<h3>2.2 · Base de datos</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Mínimo</th><th>Si no se cumple</th></tr>
+  <tr><td>MySQL o MariaDB</td><td>MySQL 5.7+ / MariaDB 10.3+</td><td>Bloqueante.</td></tr>
+  <tr><td>Motor <strong>InnoDB</strong></td><td>Disponible y por defecto</td><td><strong>Bloqueante y no negociable.</strong> Sin transacciones ni claves foráneas se producen reservas por encima del aforo. Ver el recuadro de abajo.</td></tr>
+  <tr><td>Juego de caracteres <code>utf8mb4</code></td><td>Por defecto en la base</td><td>Bloqueante en la práctica: sin él se rompen los acentos y la ñ.</td></tr>
+  <tr><td>Una base de datos vacía y dedicada</td><td>Sí</td><td>No compartir base con otra aplicación.</td></tr>
+  <tr><td>Permisos del usuario</td><td><code>SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX, REFERENCES</code></td><td>Bloqueante. <code>REFERENCES</code> es necesario para las claves foráneas y algunos paneles no lo dan por defecto.</td></tr>
+  <tr><td>Tamaño estimado</td><td>Menos de 50 MB al año</td><td>Sin problema en cualquier plan.</td></tr>
+</table>
+
+<div class="clave">
+  <span class="et">Por qué InnoDB no es negociable</span>
+  <p>Dos personas pueden pulsar «reservar» sobre la última plaza libre en el mismo segundo. La aplicación lo evita bloqueando la fila del pase mientras hace la cuenta (<code>SELECT … FOR UPDATE</code> dentro de una transacción). Ese mecanismo existe en InnoDB y no existe en MyISAM: con MyISAM el bloqueo se ignora en silencio, las dos reservas se aceptan y aparecen 27 personas para 25 plazas. No da error, simplemente falla el día que hay demanda.</p>
+</div>
+
+<h3>2.3 · Subdominio y HTTPS</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>Subdominio</td><td><code>reservas.loscorralesderota.com</code>, con su registro DNS apuntando al mismo servidor.</td></tr>
+  <tr><td>Raíz de documentos</td><td>Debe apuntar a <code>reservas/public/</code>, <strong>no</strong> a <code>reservas/</code>. Si el panel no permite elegir carpeta, ver el anexo 2.</td></tr>
+  <tr><td>Certificado TLS</td><td>Válido para el subdominio (Let's Encrypt sirve). Renovación automática.</td></tr>
+  <tr><td>Redirección</td><td>HTTP a HTTPS permanente (301).</td></tr>
+</table>
+
+<h3>2.4 · Tareas programadas (cron)</h3>
+
+<p>La aplicación necesita ejecutar tareas periódicas: enviar los correos encolados, caducar reservas sin confirmar, mandar recordatorios y hacer copia de la base de datos. Todavía no están escritas, pero el entorno debe permitirlas.</p>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>Frecuencia mínima</td><td>Cada 5 minutos. Si el hosting solo permite una vez al día, decidlo: cambia el diseño del envío de correo.</td></tr>
+  <tr><td>Forma de ejecución</td><td>PHP por línea de comandos. Si solo se puede lanzar una URL, hay que protegerla con una clave secreta.</td></tr>
+  <tr><td>Número de tareas</td><td>Hasta cuatro entradas distintas.</td></tr>
+</table>
+
+<h3>2.5 · Correo saliente</h3>
+
+<p>La aplicación manda correos a los visitantes: el código de confirmación, el resguardo de la reserva, el recordatorio y los avisos de cancelación. Si un código de confirmación acaba en la carpeta de spam, la reserva se pierde. Por eso el correo se envía por SMTP autenticado y no con la función <code>mail()</code> de PHP.</p>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>Buzón remitente</td><td><code>web@loscorralesderota.com</code>, existente y con contraseña propia.</td></tr>
+  <tr><td>Servidor SMTP</td><td>Host, puerto y método: normalmente 587 con STARTTLS, o 465 con SSL.</td></tr>
+  <tr><td>Salida abierta</td><td>El servidor debe poder conectar al puerto SMTP. Algunos hostings compartidos bloquean la salida al 587 y hay que pedir que lo abran.</td></tr>
+  <tr><td>SPF</td><td>Registro TXT del dominio que autorice al servidor de envío.</td></tr>
+  <tr><td>DKIM</td><td>Firma activada para el dominio.</td></tr>
+  <tr><td>DMARC</td><td>Al menos <code>p=none</code>, para poder observar.</td></tr>
+  <tr><td>Límite de envíos</td><td>Preguntar cuántos correos por hora permite el plan.</td></tr>
+</table>
+
+<div class="nota">
+  <span class="et">Por qué importan SPF y DKIM aquí</span>
+  <p>Buena parte del público objetivo de esta campaña está en Reino Unido y Alemania, y sus proveedores de correo son los más estrictos filtrando remitentes mal autenticados. Un dominio sin SPF ni DKIM tiene muchas papeletas de acabar en spam en Gmail y GMX.</p>
+</div>
+
+<h3>2.6 · Acceso para desplegar</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>SSH</td><td>Preferido: permite clonar del repositorio y ejecutar PHP CLI directamente.</td></tr>
+  <tr><td>SFTP</td><td>Alternativa aceptable. Requiere subir los ficheros a mano en cada cambio.</td></tr>
+  <tr><td>Git en el servidor</td><td>Deseable, no imprescindible.</td></tr>
+  <tr><td>Copias de seguridad del hosting</td><td>Saber si existen, cada cuánto y cuánto se conservan.</td></tr>
+</table>
+
+<h2 id="preguntas">3. Parte A bis · Qué preguntar al proveedor de hosting</h2>
+
+<p>Lista para copiar en un correo de soporte. Las respuestas a estas nueve preguntas determinan si hace falta cambiar de plan.</p>
+
+<ul class="check">
+  <li>¿Qué versión de PHP corre el plan y qué versiones puedo elegir?</li>
+  <li>¿Están activas las extensiones <code>pdo_mysql</code> y <code>openssl</code>?</li>
+  <li>¿Tengo acceso a PHP por línea de comandos (SSH)?</li>
+  <li>¿Qué versión de MySQL o MariaDB hay, y es InnoDB el motor por defecto?</li>
+  <li>¿El usuario de base de datos puede crear tablas con claves foráneas (permiso <code>REFERENCES</code>)?</li>
+  <li>¿Puedo crear un subdominio y hacer que su raíz apunte a una subcarpeta concreta?</li>
+  <li>¿Con qué frecuencia mínima puedo programar tareas cron?</li>
+  <li>¿Está permitida la salida al puerto 587 (SMTP) desde el servidor?</li>
+  <li>¿El dominio tiene SPF y DKIM configurados, y cuántos correos por hora puedo enviar?</li>
+</ul>
+
+<h2 id="despliegue">4. Parte B · Instrucciones de instalación</h2>
+
+<div class="alerta">
+  <span class="et">Antes de nada · acceso al repositorio</span>
+  <p>El repositorio <code>dbasco/Corrales</code> es privado. <strong>No uses ni pidas el token de acceso personal del responsable del proyecto:</strong> un token con permiso de escritura da control total sobre todo el repositorio y no debe circular por correo ni por chat.</p>
+  <p>Pide en su lugar una de estas dos cosas, y trabaja solo con eso:</p>
+  <ul>
+    <li><strong>Invitación como colaborador</strong> del repositorio, usando tu propia cuenta de GitHub y tu propio token o clave SSH.</li>
+    <li>O bien un <strong>token de alcance limitado</strong> (<em>fine-grained</em>), de solo lectura de contenidos y restringido a este repositorio.</li>
+  </ul>
+  <p>Si en algún momento un token aparece en un fichero, en un mensaje o en el historial de comandos, hay que revocarlo y generar otro.</p>
+</div>
+
+<div class="pasos">
+
+<div class="paso">
+<h3>Preparar el subdominio</h3>
+<p>Crear <code>reservas.loscorralesderota.com</code> en el panel del hosting, con certificado TLS y redirección de HTTP a HTTPS.</p>
+<p>Al crearlo, apuntar la raíz de documentos a la carpeta <code>public/</code> de la aplicación, no a la carpeta de la aplicación. Suponiendo que el código quede en <code>~/apps/reservas</code>, la raíz será <code>~/apps/reservas/public</code>.</p>
+<p>La razón es que fuera de <code>public/</code> viven la configuración con las contraseñas, el código y las migraciones. Si la raíz apunta un nivel más arriba, todo eso queda accesible desde internet.</p>
+</div>
+
+<div class="paso">
+<h3>Traer el código</h3>
+<p>Con SSH y acceso al repositorio, en la carpeta que corresponda:</p>
+<pre><code>git clone https://github.com/dbasco/Corrales.git
+cd Corrales</code></pre>
+<p>La aplicación es la carpeta <code>reservas/</code>. El resto del repositorio es la web estática y la documentación: no interviene.</p>
+<p>Sin SSH, descargar el repositorio en local y subir por SFTP <strong>solo</strong> el contenido de <code>reservas/</code>, conservando la estructura de carpetas.</p>
+</div>
+
+<div class="paso">
+<h3>Crear la base de datos</h3>
+<p>En el panel del hosting: una base de datos nueva y vacía, con cotejamiento <code>utf8mb4_unicode_ci</code>, y un usuario dedicado con contraseña larga y aleatoria.</p>
+<p>Conceder a ese usuario, sobre esa base y solo sobre esa: <code>SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, INDEX, REFERENCES</code>. Si el panel ofrece «todos los privilegios excepto GRANT», sirve.</p>
+<p>Anotar host, nombre de la base, usuario y contraseña. Hacen falta en el paso siguiente.</p>
+</div>
+
+<div class="paso">
+<h3>Escribir la configuración</h3>
+<p>Desde la carpeta <code>reservas/</code>:</p>
+<pre><code>cp config.example.php config.php
+chmod 640 config.php</code></pre>
+<p>Editar <code>config.php</code> y rellenar el bloque <code>bd</code> con los datos del paso anterior. El bloque <code>correo</code> puede quedar vacío de momento: se rellena cuando estén las credenciales SMTP.</p>
+<p>Poner <code>'entorno' =&gt; 'pruebas'</code> mientras se instala, para ver los errores con detalle, y cambiarlo a <code>'produccion'</code> al terminar.</p>
+<div class="alerta">
+  <p><strong>Este fichero no se sube nunca al repositorio.</strong> Ya está en <code>.gitignore</code> y hay una comprobación automática que falla si alguien lo añade. Lleva contraseñas en claro.</p>
+</div>
+</div>
+
+<div class="paso">
+<h3>Comprobar el entorno</h3>
+<p>Antes de crear ninguna tabla, ejecutar el diagnóstico incluido:</p>
+<pre><code>php comprobar-entorno.php</code></pre>
+<p>Revisa versión de PHP, extensiones, conexión, versión y motor de la base de datos, permisos reales (crea una tabla de prueba, comprueba que el <em>rollback</em> deshace de verdad, y la borra), zona horaria y salida SMTP. No modifica nada permanente.</p>
+<p>Termina con un resumen de fallos y avisos. <strong>Los fallos hay que resolverlos antes de continuar</strong>; los avisos se anotan en el informe final.</p>
+<p>Si no hay acceso por SSH: abrir <code>comprobar-entorno.php</code>, poner una cadena larga y aleatoria en la constante <code>CLAVE_WEB</code>, copiar el fichero dentro de <code>public/</code>, visitarlo con <code>?clave=</code> seguido de esa cadena, y <strong>borrarlo del servidor nada más terminar</strong>.</p>
+</div>
+
+<div class="paso">
+<h3>Aplicar el esquema</h3>
+<pre><code>php migrar.php --estado    # qué hay pendiente, sin tocar nada
+php migrar.php             # aplica lo pendiente</code></pre>
+<p>Crea diez tablas y registra la migración aplicada. Es seguro ejecutarlo más de una vez: lo ya aplicado no se repite.</p>
+<p>Si falla a mitad, el mensaje dice en qué fichero y por qué. No hay que editar el fichero de migración a mano en el servidor: hay que comunicar el error para corregirlo en el repositorio y volver a desplegar.</p>
+<p>Sin línea de comandos, alternativa: importar <code>migraciones/001_esquema.sql</code> desde phpMyAdmin y avisarlo, porque entonces la tabla de control no queda registrada.</p>
+</div>
+
+<div class="paso">
+<h3>Dejar preparado el cron</h3>
+<p>Todavía no hay tareas que programar. Lo que sí hay que verificar es que el cron puede ejecutar PHP. Programar una entrada de prueba cada cinco minutos:</p>
+<pre><code>*/5 * * * * /usr/bin/php -r 'file_put_contents("/tmp/cron-prueba.txt", date("c")."\n", FILE_APPEND);'</code></pre>
+<p>Esperar diez minutos, comprobar que el fichero tiene dos líneas con horas correctas, borrar la entrada y anotar en el informe la ruta exacta del binario de PHP.</p>
+</div>
+
+<div class="paso">
+<h3>Cerrar</h3>
+<p>Volver a poner <code>'entorno' =&gt; 'produccion'</code> en <code>config.php</code>. Borrar del servidor cualquier fichero de diagnóstico que se hubiera copiado a <code>public/</code>. Comprobar que <code>config.php</code> tiene permisos <code>640</code> o más restrictivos.</p>
+</div>
+
+</div>
+
+<h2 id="verificacion">5. Parte C · Verificación</h2>
+
+<p>Cuatro comprobaciones. Las tres primeras son obligatorias.</p>
+
+<h3>5.1 · El esquema está completo</h3>
+
+<p>Conectando a la base de datos:</p>
+
+<pre><code>SHOW TABLES;
+-- Esperado: 11 tablas
+--   auditoria, codigos, correo_cola, dias, mareas, migraciones,
+--   pases, reservas, tipos_visita, tipos_visita_i18n, usuarios
+
+SELECT * FROM migraciones;
+-- Esperado: una fila, 001_esquema.sql
+
+SELECT idioma, nombre FROM tipos_visita_i18n ORDER BY idioma;
+-- Esperado: cuatro filas (de, en, es, fr) con el nombre de la visita</code></pre>
+
+<h3>5.2 · Las claves foráneas se han creado de verdad</h3>
+
+<p>Esta es la comprobación que descubre un InnoDB mal configurado o un permiso <code>REFERENCES</code> ausente: algunos servidores aceptan la sentencia y descartan las claves en silencio.</p>
+
+<pre><code>SELECT TABLE_NAME, CONSTRAINT_NAME, REFERENCED_TABLE_NAME
+  FROM information_schema.KEY_COLUMN_USAGE
+ WHERE CONSTRAINT_SCHEMA = DATABASE()
+   AND REFERENCED_TABLE_NAME IS NOT NULL
+ ORDER BY TABLE_NAME;
+-- Esperado: 6 filas</code></pre>
+
+<p>Si salen menos de seis, no continuar: hay que resolverlo antes.</p>
+
+<pre><code>SELECT ENGINE FROM information_schema.TABLES
+ WHERE TABLE_SCHEMA = DATABASE();
+-- Esperado: InnoDB en todas</code></pre>
+
+<h3>5.3 · Lo que está fuera de public/ no se ve desde internet</h3>
+
+<p>Las tres direcciones siguientes deben devolver 404 o 403. <strong>Ninguna puede devolver 200</strong>, y muchísimo menos mostrar contenido:</p>
+
+<pre><code>https://reservas.loscorralesderota.com/config.php
+https://reservas.loscorralesderota.com/src/Db.php
+https://reservas.loscorralesderota.com/migraciones/001_esquema.sql</code></pre>
+
+<p>Comprobar también <code>/comprobar-entorno.php</code> y <code>/migrar.php</code>. Si alguna devuelve contenido, la raíz de documentos está mal apuntada: corregir con el anexo 2 antes de dar por terminado el trabajo.</p>
+
+<h3>5.4 · El bloqueo de aforo funciona <span style="font-weight:400;color:var(--text-soft)">(opcional, recomendada)</span></h3>
+
+<p>Demuestra sobre este servidor concreto que el mecanismo que evita la sobreventa se comporta como debe. Hacen falta dos sesiones de base de datos abiertas a la vez.</p>
+
+<p>Preparar un pase de prueba:</p>
+
+<pre><code>INSERT INTO dias (tipo_id, fecha) VALUES (1, '2099-01-01');
+INSERT INTO pases (dia_id, hora_inicio, aforo)
+  VALUES (LAST_INSERT_ID(), '11:00:00', 25);
+SELECT id FROM pases WHERE hora_inicio = '11:00:00';   -- anotar el id</code></pre>
+
+<p>En la sesión A, dejar la transacción abierta sin confirmar:</p>
+
+<pre><code>START TRANSACTION;
+SELECT * FROM pases WHERE id = ID_ANOTADO FOR UPDATE;</code></pre>
+
+<p>En la sesión B, lanzar exactamente lo mismo. <strong>Debe quedarse esperando</strong>, sin devolver nada. Entonces, en la sesión A:</p>
+
+<pre><code>COMMIT;</code></pre>
+
+<p>La sesión B se desbloquea al instante y devuelve la fila. Ese comportamiento es el que impide que dos reservas simultáneas cuenten mal las plazas. Si la sesión B responde de inmediato sin esperar, el bloqueo no está funcionando: <strong>hay que decirlo</strong>, es un problema serio.</p>
+
+<p>Limpiar al terminar:</p>
+
+<pre><code>DELETE FROM dias WHERE fecha = '2099-01-01';   -- se lleva el pase por cascada</code></pre>
+
+<h2 id="informe">6. Parte D · Qué hay que devolver</h2>
+
+<p>Con esta información se decide lo que se construye encima. Vale un correo; no hace falta formato.</p>
+
+<h4>Del entorno</h4>
+<ul>
+  <li>Salida completa de <code>php comprobar-entorno.php</code>, tal cual.</li>
+  <li>Versión exacta de PHP y de MySQL o MariaDB.</li>
+  <li>Ruta absoluta del binario de PHP para el cron, y frecuencia mínima que permite el hosting.</li>
+  <li>Si hay o no acceso SSH.</li>
+</ul>
+
+<h4>De la instalación</h4>
+<ul>
+  <li>Ruta absoluta donde ha quedado la aplicación y a dónde apunta la raíz del subdominio.</li>
+  <li>Resultado de las verificaciones 5.1, 5.2 y 5.3, y de la 5.4 si se ha hecho.</li>
+  <li>Cualquier aviso del diagnóstico que no se haya podido resolver.</li>
+</ul>
+
+<h4>Del correo</h4>
+<ul>
+  <li>Host, puerto y método de cifrado del SMTP.</li>
+  <li>Si existe el buzón <code>web@loscorralesderota.com</code>.</li>
+  <li>Si el dominio tiene SPF y DKIM, y el límite de envíos por hora.</li>
+</ul>
+
+<h4>De las credenciales</h4>
+<p>Las contraseñas de base de datos y de correo <strong>no se envían por correo ni por chat</strong>. Quedan escritas únicamente en <code>config.php</code> en el servidor, o se transmiten por un gestor de contraseñas compartido. En el informe basta con decir que están puestas.</p>
+
+<h2 id="problemas">7. Anexo 1 · Problemas frecuentes</h2>
+
+<table>
+  <tr><th>Síntoma</th><th>Causa habitual</th><th>Qué hacer</th></tr>
+  <tr>
+    <td><code>could not find driver</code></td>
+    <td>Falta <code>pdo_mysql</code>, o la versión de PHP de la línea de comandos no es la misma que la de la web.</td>
+    <td>Comprobar con <code>php -m</code>. Muchos hostings tienen varios binarios: <code>php81</code>, <code>php82</code>…</td>
+  </tr>
+  <tr>
+    <td><code>Access denied for user</code></td>
+    <td>Credenciales mal, o el usuario no tiene permiso desde ese host.</td>
+    <td>Revisar <code>config.php</code>. En algunos paneles el host no es <code>localhost</code> sino un servidor propio.</td>
+  </tr>
+  <tr>
+    <td><code>errno: 150</code> al migrar</td>
+    <td>Clave foránea rechazada: tipos que no coinciden o motor que no es InnoDB.</td>
+    <td>Comprobar que InnoDB es el motor por defecto. Comunicar el error completo.</td>
+  </tr>
+  <tr>
+    <td>Las tablas se crean pero sin claves foráneas</td>
+    <td>Falta el permiso <code>REFERENCES</code>, o el servidor las descarta en silencio.</td>
+    <td>Verificación 5.2. Ampliar permisos y volver a crear el esquema sobre base vacía.</td>
+  </tr>
+  <tr>
+    <td>Acentos convertidos en signos raros</td>
+    <td>La base no es <code>utf8mb4</code>.</td>
+    <td>Recrear la base con el cotejamiento correcto y volver a migrar. Es más rápido que convertirla.</td>
+  </tr>
+  <tr>
+    <td><code>config.php</code> se descarga al visitarlo</td>
+    <td>La raíz apunta a <code>reservas/</code> en vez de a <code>reservas/public/</code>.</td>
+    <td><strong>Urgente.</strong> Corregir la raíz o aplicar el anexo 2, y cambiar después las contraseñas expuestas.</td>
+  </tr>
+  <tr>
+    <td>El SMTP no conecta</td>
+    <td>Salida bloqueada por el hosting.</td>
+    <td>Pedir al proveedor que abra el 587 o el 465. Es habitual y suelen hacerlo.</td>
+  </tr>
+</table>
+
+<h2 id="htaccess">8. Anexo 2 · Protección por .htaccess</h2>
+
+<p>Solo si el hosting <strong>no permite</strong> apuntar la raíz del subdominio a <code>public/</code>. Es la solución peor: protege por configuración de Apache en lugar de por estructura de carpetas, y basta con que alguien toque esa configuración para dejarlo todo al aire. Úsese como último recurso.</p>
+
+<p>En la raíz de la aplicación, junto a <code>config.php</code>:</p>
+
+<pre><code># reservas/.htaccess — solo si la raíz no puede apuntar a public/
+
+# 1. Nada de listados de directorio
+Options -Indexes
+
+# 2. Bloquear los ficheros sensibles de la raíz
+&lt;FilesMatch "^(config\.php|config\.example\.php|migrar\.php|comprobar-entorno\.php|README\.md|\.gitignore)$"&gt;
+  Require all denied
+&lt;/FilesMatch&gt;
+
+# 3. Bloquear las carpetas que no son públicas
+RewriteEngine On
+RewriteRule ^(src|migraciones|cron|vistas|idiomas|tests)/ - [F,L]
+
+# 4. Todo lo demás, a public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]</code></pre>
+
+<p>Tras aplicarlo, repetir la verificación 5.3 entera. Si alguna dirección sigue devolviendo contenido, no se da por bueno.</p>
+
+<div class="pie">
+  <p><strong>Los Corrales de Rota</strong> · Motor de reservas · Requisitos del servidor e instrucciones de despliegue · Versión 1.0 · 23 de julio de 2026</p>
+  <p>Documentos relacionados en el repositorio: <code>docs/reservas-arquitectura.md</code> (arquitectura), <code>docs/02-DECISIONES.md</code> (decisiones cerradas), <code>docs/handover-issues.md</code> (lotes de trabajo), <code>reservas/README.md</code> (resumen de instalación).</p>
+</div>
+
+</div>
+</body>
+</html>
