@@ -183,3 +183,26 @@ Ahora:
 
 Resultado medido: separaciones de 110–155 px; solo quedan 200 px entre dos bloques de color
 distinto, donde cada uno respira el suyo.
+
+## Contraste de botones (2026-07-23)
+
+Detectado revisando una captura: el botón **«Cómo visitar» de la barra de navegación** era
+casi ilegible, **1,71 de contraste** (el mínimo AA es 4,5). Causa: `.navbar .links a` fijaba
+`color:var(--roca)` y, por especificidad, pisaba el `color:var(--sal)` de `.btn-primary`.
+El mismo botón fuera de la barra daba 8,40, lo que confirmaba el diagnóstico.
+
+- `base.css`: los enlaces de la barra pasan a `.navbar .links a:not(.btn)`, en escritorio y
+  en móvil. Los botones conservan su propio color. **1,71 → 8,40.**
+- `.btn-accent` daba 4,46, justo por debajo del mínimo: su texto pasa de `--sal` a blanco
+  puro. **4,46 → 5,03.** No se toca `--oxido`, solo el color de texto del componente.
+
+Verificado en escritorio y en móvil con el menú abierto: todos los botones ≥ 4,5.
+
+### Abierto — los kickers no llegan al mínimo
+Los kickers usan `--oxido` sobre fondos claros y se quedan cortos para texto pequeño:
+surface 4,82 (pasa), **sal 4,46**, **sand 4,06**. El del hero va sobre el velo oscuro de la
+foto y cumple de sobra (8,49).
+
+No se cambia por decisión propia porque es color de marca. Si se quiere cumplir AA en los
+tres fondos, el mínimo es **#9E5330** (5,39 / 4,98 / 4,54); **#98502E** deja más margen.
+Afecta solo al color de texto del kicker, no al token `--oxido` ni a los botones.

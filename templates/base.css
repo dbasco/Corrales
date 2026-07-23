@@ -80,7 +80,7 @@ section{padding:var(--sp) 0;border-top:1px solid var(--line)}
 .btn-primary:hover{background:var(--roca)}
 .btn-secondary{background:transparent;color:var(--roca);border-color:var(--line-strong)}
 .btn-secondary:hover{border-color:var(--roca)}
-.btn-accent{background:var(--oxido);color:var(--sal)}
+.btn-accent{background:var(--oxido);color:#fff}
 .btn-accent:hover{filter:brightness(1.06)}
 .btn-ghost{background:transparent;color:var(--pizarra);padding-left:6px;padding-right:6px}
 .on-dark .btn-secondary{color:var(--sal);border-color:rgba(244,241,233,.4)}
@@ -91,8 +91,8 @@ section{padding:var(--sp) 0;border-top:1px solid var(--line)}
 .navbar .brand{display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-size:1rem;letter-spacing:.02em;color:var(--roca)}
 .navbar .brand:hover{text-decoration:none}
 .navbar .links{display:flex;gap:24px;align-items:center}
-.navbar .links a{color:var(--roca);font-weight:500;font-size:.92rem}
-.navbar .links a:hover{color:var(--pizarra)}
+.navbar .links a:not(.btn){color:var(--roca);font-weight:500;font-size:.92rem}
+.navbar .links a:not(.btn):hover{color:var(--pizarra)}
 
 /* Hero full-bleed sobre foto */
 .hero{position:relative;min-height:clamp(420px,72vh,640px);display:flex;align-items:flex-end;overflow:hidden}
@@ -159,7 +159,7 @@ footer b{color:var(--sal)}
     background:var(--surface);padding:80px 24px 24px;transform:translateX(100%);box-shadow:var(--shadow);
     visibility:hidden;transition:transform .25s,visibility 0s .25s}
   .navbar .links.open{transform:translateX(0);visibility:visible;transition:transform .25s,visibility 0s}
-  .navbar .links a{font-size:1.05rem;padding:8px 0}
+  .navbar .links a:not(.btn){font-size:1.05rem;padding:8px 0}
 }
 
 /* Migas de pan */
