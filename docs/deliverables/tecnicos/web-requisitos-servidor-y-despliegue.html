@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web pública · Requisitos del servidor e instrucciones de publicación</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+/* ============================================================
+   Sistema de marca Monumento — bloque :root VERBATIM.
+   Fuente de verdad: templates/base.css · No se tocan los tokens.
+   ============================================================ */
+:root{
+  /* Paleta Monumento */
+  --sal:#F4F1E9;      /* fondo, sal / encalado */
+  --roca:#23201C;     /* texto y trazo, roca mojada */
+  --pizarra:#35494E;  /* color de marca, pizarra-mar */
+  --piedra:#9A8F7C;   /* piedra seca, neutro medio */
+  --oxido:#A85A32;    /* acento único, hierro/óxido */
+
+  /* Semánticos */
+  --bg:var(--sal);
+  --surface:#FCFAF4;
+  --text:var(--roca);
+  --text-soft:#6a6357;
+  --line:rgba(35,32,28,.12);
+  --line-strong:rgba(35,32,28,.26);
+  --brand:var(--pizarra);
+  --accent:var(--oxido);
+
+  /* Radios */
+  --r-sm:6px; --r-md:12px; --r-lg:18px; --r-pill:999px;
+  --shadow:0 1px 2px rgba(35,32,28,.05), 0 12px 30px -20px rgba(35,32,28,.4);
+
+  /* Tipografía */
+  --f-display:'Cinzel', Georgia, serif; /* capitales romanas: marca y titulares fuertes */
+  --f-body:'Spectral', Georgia, serif;  /* titulares de sección y texto */
+
+  --sp:clamp(56px,9vw,100px);
+}
+
+/* Componentes de este documento (heredan los tokens, no los modifican) */
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--f-body); font-size:17px; line-height:1.65;
+}
+.wrap{max-width:860px; margin:0 auto; padding:0 24px 96px}
+
+.kicker{
+  font-family:var(--f-body); font-size:.72rem; letter-spacing:.22em;
+  text-transform:uppercase; color:#98502E; margin:0 0 10px;
+}
+h1{
+  font-family:var(--f-display); font-weight:600; letter-spacing:.02em;
+  font-size:clamp(1.9rem,4.4vw,2.7rem); line-height:1.15; margin:0 0 12px;
+}
+h2{
+  font-family:var(--f-display); font-weight:600; letter-spacing:.02em;
+  font-size:1.45rem; line-height:1.2; margin:56px 0 6px;
+  padding-top:22px; border-top:1px solid var(--line-strong);
+}
+h3{font-family:var(--f-body); font-weight:600; font-size:1.12rem; margin:34px 0 6px}
+h4{font-family:var(--f-body); font-weight:600; font-size:1rem; margin:24px 0 4px; color:var(--brand)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px; padding-left:22px}
+li{margin:0 0 7px}
+a{color:var(--brand)}
+strong{font-weight:600}
+code,kbd{
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  font-size:.86em; background:rgba(53,73,78,.09); padding:1px 5px;
+  border-radius:var(--r-sm); word-break:break-word;
+}
+pre{
+  font-family:ui-monospace,'SFMono-Regular',Menlo,Consolas,monospace;
+  font-size:.82rem; line-height:1.55; background:var(--surface);
+  border:1px solid var(--line); border-left:3px solid var(--brand);
+  border-radius:0; padding:14px 16px; overflow-x:auto; margin:0 0 18px;
+}
+pre code{background:none; padding:0; font-size:1em}
+
+header.doc{
+  background:var(--pizarra); color:var(--sal);
+  margin-bottom:44px; padding:52px 0 40px;
+}
+header.doc .wrap{padding-bottom:0}
+header.doc h1{color:var(--sal)}
+header.doc .kicker{color:#e0ad88}
+header.doc .lead{font-size:1.06rem; color:rgba(244,241,233,.86); margin:0; max-width:62ch}
+.meta{
+  display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:26px;
+  padding-top:18px; border-top:1px solid rgba(244,241,233,.22);
+  font-size:.82rem; letter-spacing:.04em; color:rgba(244,241,233,.75);
+}
+
+.lead-doc{font-size:1.06rem; color:var(--text-soft); max-width:64ch}
+
+nav.indice{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:22px 26px; margin:0 0 20px;
+}
+nav.indice p{font-family:var(--f-display); letter-spacing:.02em; margin:0 0 10px; font-weight:600}
+nav.indice ol{margin:0; padding-left:20px; font-size:.94rem}
+nav.indice li{margin:0 0 4px}
+
+table{
+  width:100%; border-collapse:collapse; margin:0 0 22px;
+  font-size:.92rem; background:var(--surface);
+}
+th,td{border:1px solid var(--line); padding:9px 12px; text-align:left; vertical-align:top}
+th{
+  background:rgba(53,73,78,.07); font-family:var(--f-body);
+  font-weight:600; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
+}
+td code{font-size:.8rem}
+
+.nota, .alerta, .clave{
+  border-radius:var(--r-md); padding:16px 20px; margin:0 0 20px; font-size:.95rem;
+}
+.nota{background:var(--surface); border:1px solid var(--line); border-left:3px solid var(--piedra)}
+.alerta{background:rgba(168,90,50,.07); border:1px solid rgba(168,90,50,.28); border-left:3px solid var(--accent)}
+.clave{background:rgba(53,73,78,.07); border:1px solid rgba(53,73,78,.24); border-left:3px solid var(--brand)}
+.nota p:last-child, .alerta p:last-child, .clave p:last-child, .nota ul:last-child, .alerta ul:last-child{margin-bottom:0}
+.et{
+  display:inline-block; font-family:var(--f-body); font-size:.7rem;
+  letter-spacing:.16em; text-transform:uppercase; font-weight:600;
+  margin:0 0 8px; color:var(--accent);
+}
+.alerta .et{color:var(--accent)}
+.clave .et{color:var(--brand)}
+
+ul.check{list-style:none; padding-left:0}
+ul.check li{
+  position:relative; padding-left:34px; margin-bottom:10px;
+}
+ul.check li::before{
+  content:''; position:absolute; left:0; top:4px;
+  width:17px; height:17px; border:1.5px solid var(--line-strong);
+  border-radius:3px; background:var(--surface);
+}
+.paso{
+  counter-increment:paso; position:relative; padding-left:46px; margin:0 0 30px;
+}
+.paso::before{
+  content:counter(paso); position:absolute; left:0; top:-2px;
+  width:31px; height:31px; border-radius:50%;
+  background:var(--pizarra); color:var(--sal);
+  font-family:var(--f-display); font-size:.92rem; font-weight:600;
+  display:flex; align-items:center; justify-content:center;
+}
+.pasos{counter-reset:paso}
+.paso h3{margin-top:0}
+
+.pie{
+  margin-top:64px; padding-top:20px; border-top:1px solid var(--line-strong);
+  font-size:.82rem; color:var(--text-soft);
+}
+
+@media print{
+  body{background:#fff; font-size:11.5pt}
+  header.doc{background:#fff; color:var(--text); border-bottom:2px solid var(--pizarra); padding:0 0 18px}
+  header.doc h1, header.doc .lead{color:var(--text)}
+  header.doc .kicker{color:#98502E}
+  .meta{color:var(--text-soft); border-color:var(--line)}
+  .wrap{max-width:none; padding:0}
+  h2{page-break-after:avoid} pre,table,.nota,.alerta,.clave{page-break-inside:avoid}
+  a{color:var(--text); text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="doc">
+  <div class="wrap">
+    <p class="kicker">Los Corrales de Rota · Web pública</p>
+    <h1>Requisitos del servidor<br>e instrucciones de publicación</h1>
+    <p class="lead">Qué tiene que ofrecer el alojamiento para servir la web de la asociación, y qué pasos hay que dar para publicarla en <code style="background:rgba(244,241,233,.14);color:inherit">loscorralesderota.com</code> sin perder el posicionamiento actual. Pensado para entregarse tal cual a quien administre el servidor.</p>
+    <div class="meta">
+      <span>Versión 1.0</span>
+      <span>23 de julio de 2026</span>
+      <span>Documento interno</span>
+      <span>Repositorio: dbasco/Corrales</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<p class="lead-doc">La web es HTML estático: 26 páginas ya generadas, sin base de datos y sin proceso de compilación en el servidor. Publicarla es copiar una carpeta. Lo que requiere cuidado no es subirla, sino el cambio de alojamiento: hoy el dominio apunta a Google Sites y hay que mover el DNS sin que caiga el sitio ni se pierdan las direcciones que Google ya tiene indexadas.</p>
+
+<nav class="indice">
+  <p>Contenido</p>
+  <ol>
+    <li><a href="#contexto">Contexto: qué es esto y qué no</a></li>
+    <li><a href="#requisitos">Parte A · Requisitos del entorno</a></li>
+    <li><a href="#preguntas">Parte A bis · Qué preguntar al proveedor de hosting</a></li>
+    <li><a href="#publicacion">Parte B · Instrucciones de publicación</a></li>
+    <li><a href="#verificacion">Parte C · Verificación</a></li>
+    <li><a href="#informe">Parte D · Qué hay que devolver</a></li>
+    <li><a href="#problemas">Anexo 1 · Problemas frecuentes</a></li>
+    <li><a href="#config">Anexo 2 · Configuración del servidor</a></li>
+    <li><a href="#redirecciones">Anexo 3 · Salir de Google Sites sin perder tráfico</a></li>
+  </ol>
+</nav>
+
+<h2 id="contexto">1. Contexto: qué es esto y qué no</h2>
+
+<p>La web se genera desde el repositorio con un script en Python y produce una carpeta <code>dist/</code> con HTML plano. Cada página lleva su CSS incrustado y no depende de ningún servicio externo para pintarse: las fuentes se sirven desde el propio dominio y no hay peticiones a Google Fonts ni a CDN alguno.</p>
+
+<table>
+  <tr><th>Concepto</th><th>Valor</th></tr>
+  <tr><td>Dominio</td><td><code>loscorralesderota.com</code> (hoy en Google Sites; se traslada)</td></tr>
+  <tr><td>Qué se publica</td><td>El contenido de <code>dist/</code>, en la <strong>raíz</strong> del dominio</td></tr>
+  <tr><td>Páginas</td><td>26 URLs: 13 en español (en la raíz) y 13 en inglés (bajo <code>/en/</code>)</td></tr>
+  <tr><td>Tamaño</td><td>67 ficheros, 8,6 MB en total. Las fotos son 7,5 MB de ese total</td></tr>
+  <tr><td>Base de datos</td><td>Ninguna</td></tr>
+  <tr><td>Parte dinámica</td><td>Un único fichero: <code>contacto.php</code>, el receptor del formulario</td></tr>
+  <tr><td>Documento de arquitectura</td><td><code>docs/web-arquitectura-corrales.md</code></td></tr>
+</table>
+
+<div class="alerta">
+  <span class="et">Límites del encargo</span>
+  <ul>
+    <li><strong>No hay que programar nada.</strong> El sitio está construido; el trabajo es de sistemas: alojamiento, DNS, certificado, cabeceras y correo.</li>
+    <li><strong>No se edita el HTML publicado.</strong> Cualquier corrección de contenido se hace en el repositorio y se vuelve a generar; un cambio a mano en el servidor se pierde en la siguiente publicación.</li>
+    <li><strong>No se instala ningún gestor de contenidos.</strong> Nada de WordPress ni paneles de edición: es un sitio estático a propósito, por velocidad y por posicionamiento.</li>
+    <li>El alemán y el francés todavía no existen. Se publicarán como <code>/de/</code> y <code>/fr/</code> más adelante, sin cambiar nada de lo que se monte ahora.</li>
+  </ul>
+</div>
+
+<h2 id="requisitos">2. Parte A · Requisitos del entorno</h2>
+
+<h3>2.1 · Alojamiento</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Mínimo</th><th>Si no se cumple</th></tr>
+  <tr><td>Servir ficheros estáticos</td><td>Apache, Nginx o LiteSpeed</td><td>Cualquier hosting compartido sirve.</td></tr>
+  <tr><td>El sitio en la <strong>raíz</strong> del dominio</td><td>Obligatorio</td><td><strong>Bloqueante.</strong> Todas las rutas internas son absolutas (<code>/visita/</code>, <code>/assets/…</code>). En una subcarpeta se rompen todos los enlaces, imágenes y estilos.</td></tr>
+  <tr><td>Espacio en disco</td><td>50 MB</td><td>Hoy ocupa 8,6 MB. El margen es para fotos nuevas y para los idiomas pendientes.</td></tr>
+  <tr><td>PHP</td><td>7.4 o superior</td><td>Solo lo usa el formulario de contacto. Sin PHP, el sitio funciona pero el formulario no.</td></tr>
+  <tr><td>Base de datos</td><td>No hace falta</td><td>—</td></tr>
+  <tr><td>Índice de directorio</td><td><code>index.html</code></td><td>Las páginas son <code>carpeta/index.html</code>; el servidor debe servirlas al pedir la carpeta.</td></tr>
+</table>
+
+<h3>2.2 · Servidor web: lo que hay que dejar bien configurado</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th><th>Por qué importa</th></tr>
+  <tr>
+    <td><strong>Compresión</strong> gzip o brotli en HTML, CSS, JS, SVG y XML</td>
+    <td>Activa</td>
+    <td>Cada página lleva su CSS incrustado y pesa unos 40 KB. Comprimida baja a la cuarta parte. Es la mejora de velocidad más barata que hay.</td>
+  </tr>
+  <tr>
+    <td><strong>Tipo MIME de <code>.woff2</code></strong></td>
+    <td><code>font/woff2</code></td>
+    <td>Si el servidor no lo reconoce, el navegador descarta las fuentes y el sitio se ve con la tipografía del sistema. Pasa con configuraciones antiguas.</td>
+  </tr>
+  <tr>
+    <td><strong>Caducidad de caché</strong></td>
+    <td>Fuentes: un año. Imágenes: un mes. HTML: sin caché o unos minutos.</td>
+    <td>Las fotos no llevan huella en el nombre: con un año de caché, quien ya haya visitado el sitio seguiría viendo la foto antigua tras sustituirla.</td>
+  </tr>
+  <tr>
+    <td><strong>HTTPS</strong></td>
+    <td>Certificado válido y renovación automática</td>
+    <td>Con <code>www</code> y sin <code>www</code>, ambos cubiertos.</td>
+  </tr>
+  <tr>
+    <td><strong>Redirecciones canónicas</strong></td>
+    <td>HTTP a HTTPS, y una sola forma del dominio (301)</td>
+    <td>Decidir si el sitio vive con <code>www</code> o sin él y redirigir la otra. Si responden las dos, Google ve contenido duplicado.</td>
+  </tr>
+  <tr>
+    <td><strong>Página 404</strong></td>
+    <td>A configurar</td>
+    <td>El generador no produce una: hay que declarar la del hosting o crear una a mano.</td>
+  </tr>
+</table>
+
+<h3>2.3 · Correo del formulario</h3>
+
+<p>El formulario de contacto envía a <code>info@loscorralesderota.com</code> desde <code>web@loscorralesderota.com</code>. El remitente tiene que ser una dirección del propio dominio: con el correo del visitante como remitente, el mensaje acaba en spam. La dirección del visitante viaja en <code>Reply-To</code>, así que responder funciona igual.</p>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>Buzón <code>info@loscorralesderota.com</code></td><td>Existente. Es el destino de los mensajes.</td></tr>
+  <tr><td>Dirección <code>web@loscorralesderota.com</code></td><td>Existente, aunque sea solo de envío.</td></tr>
+  <tr><td>Función <code>mail()</code> de PHP</td><td><strong>Por confirmar.</strong> Es lo que usa hoy <code>contacto.php</code>.</td></tr>
+  <tr><td>Alternativa si <code>mail()</code> está desactivada</td><td>SMTP autenticado. Se sustituye una línea del fichero por PHPMailer; el resto no cambia. Hacen falta host, puerto y credenciales.</td></tr>
+  <tr><td>SPF y DKIM</td><td>Configurados para el dominio, o los mensajes se marcarán como sospechosos.</td></tr>
+</table>
+
+<h3>2.4 · Dominio y DNS</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>Control del DNS</td><td>Acceso al panel donde están hoy los registros del dominio.</td></tr>
+  <tr><td>TTL bajo antes del cambio</td><td>Bajarlo a 300 segundos al menos 24 horas antes del traslado, para poder revertir rápido.</td></tr>
+  <tr><td>Registros de correo</td><td><strong>No tocar</strong> los MX ni los TXT de SPF/DKIM al cambiar el alojamiento web, o se cae el correo de la asociación.</td></tr>
+  <tr><td>Subdominio de pruebas</td><td>Uno cualquiera, por ejemplo <code>pruebas.loscorralesderota.com</code>, para revisar antes de publicar.</td></tr>
+</table>
+
+<h3>2.5 · Acceso</h3>
+
+<table>
+  <tr><th>Requisito</th><th>Detalle</th></tr>
+  <tr><td>SFTP o SSH</td><td>Para subir la carpeta. SSH permite además usar <code>rsync</code>, que es lo cómodo para actualizaciones.</td></tr>
+  <tr><td>Acceso al panel</td><td>Para certificados, buzones, redirecciones y página de error.</td></tr>
+  <tr><td>Copias de seguridad</td><td>Saber si el hosting las hace, cada cuánto y cuánto las guarda.</td></tr>
+</table>
+
+<h2 id="preguntas">3. Parte A bis · Qué preguntar al proveedor de hosting</h2>
+
+<ul class="check">
+  <li>¿Puedo alojar un sitio estático en la raíz del dominio y subir por SFTP o SSH?</li>
+  <li>¿Está activa la compresión gzip o brotli, y puedo configurarla yo?</li>
+  <li>¿El servidor sirve <code>.woff2</code> con el tipo <code>font/woff2</code>?</li>
+  <li>¿Puedo controlar las cabeceras de caché, por ejemplo con <code>.htaccess</code>?</li>
+  <li>¿Incluye certificado TLS con renovación automática para el dominio con y sin <code>www</code>?</li>
+  <li>¿Qué versión de PHP hay y está activa la función <code>mail()</code>?</li>
+  <li>Si <code>mail()</code> no está activa, ¿cuáles son los datos de SMTP autenticado?</li>
+  <li>¿Puedo crear los buzones <code>info@</code> y <code>web@</code> del dominio?</li>
+  <li>¿Puedo crear un subdominio de pruebas?</li>
+  <li>¿Hacen copias de seguridad y cómo se restauran?</li>
+</ul>
+
+<h2 id="publicacion">4. Parte B · Instrucciones de publicación</h2>
+
+<div class="alerta">
+  <span class="et">Antes de nada · acceso al repositorio</span>
+  <p>El repositorio <code>dbasco/Corrales</code> es privado. <strong>No uses ni pidas el token de acceso personal del responsable del proyecto:</strong> un token con permiso de escritura da control total sobre todo el repositorio y no debe circular por correo ni por chat.</p>
+  <p>Pide en su lugar una invitación como colaborador, usando tu propia cuenta de GitHub, o un token de alcance limitado (<em>fine-grained</em>) de solo lectura y restringido a este repositorio. Si un token aparece en un fichero, en un mensaje o en el historial de comandos, hay que revocarlo y generar otro.</p>
+</div>
+
+<div class="pasos">
+
+<div class="paso">
+<h3>Conseguir la carpeta publicable</h3>
+<p>Hay dos formas. La segunda no requiere instalar nada.</p>
+
+<h4>Opción A · Generarla</h4>
+<pre><code>git clone https://github.com/dbasco/Corrales.git
+cd Corrales
+pip install pillow          # solo para calcular el tamaño de las imágenes
+python3 build.py            # escribe dist/</code></pre>
+<p>Necesita Python 3.11 o superior. Debe terminar diciendo <code>OK: 26 páginas generadas</code>.</p>
+
+<h4>Opción B · Descargarla ya construida</h4>
+<p>Cada cambio en el repositorio lanza una compilación automática que deja la carpeta lista. En GitHub, pestaña <em>Actions</em>, última ejecución de <code>build</code> sobre <code>main</code>, y descargar el artefacto <strong><code>corrales-web-dist</code></strong>. Es un ZIP con el contenido de <code>dist/</code>.</p>
+
+<div class="nota">
+  <p><code>dist/</code> no está en el repositorio y no debe estarlo: es salida generada. Si alguien la sube, se desincroniza del contenido.</p>
+</div>
+</div>
+
+<div class="paso">
+<h3>Publicar primero en pruebas</h3>
+<p>Antes de tocar el dominio real, dejar una copia en el subdominio de pruebas. Para eso <strong>hay que construir en modo pruebas</strong>, que marca todas las páginas como no indexables y bloquea el <code>robots.txt</code>:</p>
+<pre><code>python3 build.py --preview https://pruebas.loscorralesderota.com</code></pre>
+<p>Sin ese modo, Google puede indexar la copia y tomarla por contenido duplicado del sitio real.</p>
+<div class="alerta">
+  <p>La copia de pruebas tiene que ir en la <strong>raíz de un subdominio</strong>, nunca en una subcarpeta del dominio principal. Las rutas internas son absolutas: en <code>dominio.com/pruebas/</code> se rompe todo.</p>
+</div>
+<p>Si se usa el artefacto descargado en lugar de generar, ese artefacto es de producción y <strong>no vale para pruebas</strong>: lleva las direcciones reales y no lleva el bloqueo de indexación.</p>
+</div>
+
+<div class="paso">
+<h3>Subir a producción</h3>
+<p>El contenido de <code>dist/</code> va en la raíz del dominio. El contenido, no la carpeta: <code>index.html</code> debe quedar en la raíz, no en <code>/dist/</code>.</p>
+<pre><code>rsync -av --delete dist/ usuario@servidor:/ruta/al/docroot/</code></pre>
+<p>Con SFTP, subir todo el contenido y borrar del servidor lo que sobre de la web anterior.</p>
+<p><code>contacto.php</code> viene dentro de <code>dist/</code> y va también a la raíz, junto a <code>index.html</code>.</p>
+<div class="nota">
+  <p><code>--delete</code> borra en el servidor lo que ya no existe en origen. Ojo si en esa misma carpeta hay algo que no forma parte de la web.</p>
+</div>
+</div>
+
+<div class="paso">
+<h3>Configurar el servidor</h3>
+<p>Compresión, tipos MIME, caducidad de caché, HTTPS forzado y página de error. En Apache se resuelve con el <code>.htaccess</code> del anexo 2. En Nginx o en un panel, la configuración equivalente.</p>
+</div>
+
+<div class="paso">
+<h3>Correo del formulario</h3>
+<p>Crear los buzones <code>info@</code> y <code>web@</code> del dominio y comprobar que <code>mail()</code> está activa:</p>
+<pre><code>php -r 'var_dump(function_exists("mail"));'</code></pre>
+<p>Si no lo está, o si el envío no llega, hay que decirlo: se cambia el fichero para enviar por SMTP autenticado y hacen falta host, puerto y credenciales.</p>
+</div>
+
+<div class="paso">
+<h3>Cambiar el DNS</h3>
+<p>Con el sitio ya subido y comprobado en pruebas, mover el dominio al servidor nuevo. Ver el anexo 3, que explica el orden y lo que no hay que tocar.</p>
+</div>
+
+<div class="paso">
+<h3>Poner las redirecciones de las direcciones antiguas</h3>
+<p>Las páginas de Google Sites que estén indexadas deben redirigir con un 301 a su equivalente nueva. Anexo 3.</p>
+</div>
+
+<div class="paso">
+<h3>Dar de alta el sitio en Search Console</h3>
+<p>Verificar la propiedad del dominio y enviar <code>https://loscorralesderota.com/sitemap.xml</code>. Sin esto no hay forma de ver si la migración ha ido bien ni de detectar páginas caídas.</p>
+</div>
+
+</div>
+
+<h2 id="verificacion">5. Parte C · Verificación</h2>
+
+<h3>5.1 · No se ha publicado el sitio de pruebas por error</h3>
+
+<p>Esta va primero porque es el fallo más caro y el más fácil de cometer: si en producción acaba un build hecho en modo pruebas, todas las páginas piden a Google que no las indexe y el sitio desaparece de las búsquedas.</p>
+
+<pre><code>curl -s https://loscorralesderota.com/ | grep -c noindex
+# Esperado: 0
+
+curl -s https://loscorralesderota.com/robots.txt
+# Esperado: "Allow: /" y la línea del sitemap.
+# Si dice "Disallow: /", es el build de pruebas: rehacer y volver a subir.
+
+curl -s https://loscorralesderota.com/ | grep -o '&lt;link rel="canonical"[^&gt;]*&gt;'
+# Esperado: apunta a loscorralesderota.com, no al subdominio de pruebas</code></pre>
+
+<h3>5.2 · Las 26 páginas responden</h3>
+
+<pre><code>curl -s https://loscorralesderota.com/sitemap.xml \
+  | grep -o '&lt;loc&gt;[^&lt;]*' | sed 's/&lt;loc&gt;//' \
+  | while read u; do
+      printf '%s  %s\n' "$(curl -s -o /dev/null -w '%{http_code}' "$u")" "$u"
+    done</code></pre>
+
+<p>Esperado: 26 líneas, todas con 200. Cualquier 404 o 301 en esta lista es un error de subida.</p>
+
+<h3>5.3 · Las fuentes y la compresión</h3>
+
+<pre><code>curl -sI https://loscorralesderota.com/assets/fonts/cinzel-var.woff2 | grep -i content-type
+# Esperado: font/woff2
+
+curl -sI -H 'Accept-Encoding: gzip' https://loscorralesderota.com/ | grep -i content-encoding
+# Esperado: gzip (o br)</code></pre>
+
+<p>Y a ojo: abrir la web y comprobar que los titulares salen en capitales romanas (Cinzel) y el texto en Spectral. Si se ven con la tipografía por defecto del sistema, el tipo MIME está mal.</p>
+
+<h3>5.4 · El sitio no llama a terceros que no toquen</h3>
+
+<p>Con las herramientas de desarrollo del navegador, pestaña de red, recargando la portada. Las únicas peticiones externas admisibles son a <code>googletagmanager.com</code> y, en las páginas con vídeo, la miniatura de <code>i.ytimg.com</code>. El reproductor de YouTube solo debe cargarse al pulsar el vídeo, nunca antes.</p>
+
+<p>Si aparece <code>fonts.googleapis.com</code> o <code>fonts.gstatic.com</code>, se ha subido una versión antigua: las fuentes se sirven desde el propio dominio a propósito.</p>
+
+<h3>5.5 · El formulario de contacto</h3>
+
+<p>Enviar un mensaje real desde <code>/contacto/</code> y comprobar que llega a <code>info@loscorralesderota.com</code>, que no cae en spam, y que al responder el destinatario es la dirección de quien escribió.</p>
+
+<p>Probar también que sin marcar la casilla de consentimiento el envío se rechaza.</p>
+
+<h3>5.6 · HTTPS y forma única del dominio</h3>
+
+<pre><code>curl -sI http://loscorralesderota.com/      | head -1   # 301 a https
+curl -sI https://www.loscorralesderota.com/ | head -1   # 301 a la forma elegida
+curl -sI https://loscorralesderota.com/pagina-que-no-existe | head -1   # 404, no 200</code></pre>
+
+<h2 id="informe">6. Parte D · Qué hay que devolver</h2>
+
+<h4>Del entorno</h4>
+<ul>
+  <li>Proveedor y plan de alojamiento, y ruta absoluta de la raíz del dominio.</li>
+  <li>Versión de PHP y si <code>mail()</code> está activa.</li>
+  <li>Si el hosting hace copias de seguridad, con qué frecuencia y cómo se restauran.</li>
+</ul>
+
+<h4>De la publicación</h4>
+<ul>
+  <li>Resultado de las seis verificaciones de la parte C, con la salida de los comandos.</li>
+  <li>Qué forma del dominio se ha elegido como canónica, con <code>www</code> o sin él.</li>
+  <li>Lista de redirecciones puestas desde las direcciones antiguas de Google Sites.</li>
+  <li>Fecha y hora del cambio de DNS.</li>
+</ul>
+
+<h4>Del correo</h4>
+<ul>
+  <li>Si los buzones existen y si el mensaje de prueba llegó a la bandeja de entrada o a spam.</li>
+  <li>Si el dominio tiene SPF y DKIM.</li>
+  <li>Si hubo que pasar a SMTP: host, puerto y método (las credenciales no van por correo).</li>
+</ul>
+
+<h4>Pendientes conocidos, para que no sorprendan</h4>
+<ul>
+  <li>El identificador de Google Tag Manager que lleva el sitio es de ejemplo (<code>GTM-XXXXXXX</code>). Con él, la petición a Google falla y <strong>la web no escribe ninguna cookie</strong>, así que es publicable tal cual. En cuanto se ponga el identificador real hará falta el aviso de cookies, que todavía no está hecho.</li>
+  <li>Solo hay español e inglés. Es correcto: el sitio solo anuncia los idiomas que existen.</li>
+</ul>
+
+<h2 id="problemas">7. Anexo 1 · Problemas frecuentes</h2>
+
+<table>
+  <tr><th>Síntoma</th><th>Causa habitual</th><th>Qué hacer</th></tr>
+  <tr>
+    <td>El sitio se ve sin estilos ni imágenes</td>
+    <td>Se ha subido a una subcarpeta en vez de a la raíz.</td>
+    <td>Las rutas son absolutas. Mover el contenido a la raíz; no hay forma de arreglarlo desde el servidor.</td>
+  </tr>
+  <tr>
+    <td>Se ve, pero con la tipografía del sistema</td>
+    <td>El servidor no sirve <code>.woff2</code> con el tipo correcto.</td>
+    <td>Añadir el tipo MIME (anexo 2) y recargar sin caché.</td>
+  </tr>
+  <tr>
+    <td>Las páginas dan 404 salvo la portada</td>
+    <td>El servidor no sirve <code>index.html</code> al pedir una carpeta.</td>
+    <td>Activar el índice de directorio con <code>index.html</code>.</td>
+  </tr>
+  <tr>
+    <td>La web desaparece de Google a los pocos días</td>
+    <td>Se publicó el build de pruebas, con <code>noindex</code> y <code>robots.txt</code> bloqueado.</td>
+    <td>Verificación 5.1. Rehacer sin <code>--preview</code>, subir y pedir reindexación en Search Console.</td>
+  </tr>
+  <tr>
+    <td>El formulario no envía nada</td>
+    <td><code>mail()</code> desactivada, o el remitente no es del dominio.</td>
+    <td>Comprobar el remitente y pasar a SMTP si hace falta.</td>
+  </tr>
+  <tr>
+    <td>Los mensajes del formulario caen en spam</td>
+    <td>Falta SPF o DKIM en el dominio.</td>
+    <td>Configurarlos en el DNS.</td>
+  </tr>
+  <tr>
+    <td>Tras sustituir una foto se sigue viendo la antigua</td>
+    <td>Caché demasiado larga para las imágenes.</td>
+    <td>Bajar la caducidad de <code>/assets/img/</code> a un mes.</td>
+  </tr>
+  <tr>
+    <td>Responden a la vez la versión con <code>www</code> y sin <code>www</code></td>
+    <td>Falta la redirección canónica.</td>
+    <td>Elegir una y redirigir la otra con 301.</td>
+  </tr>
+</table>
+
+<h2 id="config">8. Anexo 2 · Configuración del servidor</h2>
+
+<p>Ejemplo para Apache, en la raíz del dominio. En Nginx o en un panel, el equivalente. Revisar la primera regla antes de aplicarla: hay que decidir si el sitio vive con <code>www</code> o sin él.</p>
+
+<pre><code># .htaccess — Los Corrales de Rota
+
+# 1. HTTPS obligatorio y una sola forma del dominio (aquí, sin www)
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://loscorralesderota.com/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://loscorralesderota.com/$1 [R=301,L]
+
+# 2. Índice de directorio y sin listados
+DirectoryIndex index.html index.php
+Options -Indexes
+
+# 3. Página de error
+ErrorDocument 404 /404.html
+
+# 4. Tipos MIME que algunos servidores no traen
+AddType font/woff2 .woff2
+AddType image/svg+xml .svg
+AddType application/manifest+json .webmanifest
+
+# 5. Compresión
+&lt;IfModule mod_deflate.c&gt;
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/json
+&lt;/IfModule&gt;
+
+# 6. Caché: las fuentes no cambian nunca; las fotos sí pueden sustituirse
+&lt;IfModule mod_expires.c&gt;
+  ExpiresActive On
+  ExpiresByType font/woff2   "access plus 1 year"
+  ExpiresByType image/jpeg   "access plus 1 month"
+  ExpiresByType image/png    "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html    "access plus 0 seconds"
+&lt;/IfModule&gt;
+
+# 7. Cabeceras de seguridad
+&lt;IfModule mod_headers.c&gt;
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Activar HSTS solo cuando HTTPS lleve semanas funcionando sin incidencias
+  # Header always set Strict-Transport-Security "max-age=31536000"
+&lt;/IfModule&gt;</code></pre>
+
+<div class="nota">
+  <p>La cabecera HSTS va comentada a propósito. Obliga al navegador a usar HTTPS durante un año y no se puede revertir de un día para otro: si el certificado falla, el sitio queda inaccesible para quien ya lo hubiera visitado. Activarla cuando el HTTPS lleve tiempo estable.</p>
+</div>
+
+<p>Falta crear el fichero <code>404.html</code> que declara la regla 3, o cambiarla por la página de error del hosting.</p>
+
+<h2 id="redirecciones">9. Anexo 3 · Salir de Google Sites sin perder tráfico</h2>
+
+<p>El dominio apunta hoy a Google Sites. El objetivo del traslado es que ni los visitantes ni Google noten un corte, y que las direcciones antiguas que estén indexadas lleven a su equivalente nueva.</p>
+
+<h3>9.1 · Orden del cambio</h3>
+
+<ol>
+  <li><strong>Días antes:</strong> anotar las direcciones actuales que Google tiene indexadas. Basta buscar <code>site:loscorralesderota.com</code> y copiar la lista, o exportarla de Search Console si ya está dado de alta.</li>
+  <li><strong>24 horas antes:</strong> bajar el TTL de los registros del dominio a 300 segundos. Así, si hay que revertir, la vuelta atrás tarda minutos y no un día.</li>
+  <li><strong>El día del cambio:</strong> con el sitio nuevo ya subido, verificado en el subdominio de pruebas y con el certificado emitido, cambiar los registros del dominio al servidor nuevo.</li>
+  <li><strong>Inmediatamente después:</strong> pasar la verificación 5.2 entera. Mientras el DNS se propaga, unos verán el sitio viejo y otros el nuevo: es normal durante unas horas.</li>
+  <li><strong>Después:</strong> subir el TTL a su valor habitual y dar de alta el sitio en Search Console con el sitemap.</li>
+</ol>
+
+<div class="alerta">
+  <span class="et">Lo que no se toca</span>
+  <p>Al cambiar el alojamiento web se modifican los registros que apuntan la web. <strong>Los registros MX y los TXT de SPF y DKIM se quedan como están.</strong> Tocarlos deja sin correo a la asociación, y es un fallo que tarda en detectarse porque el correo no deja de funcionar de golpe.</p>
+</div>
+
+<h3>9.2 · Redirecciones</h3>
+
+<p>Para cada dirección antigua indexada, un 301 a la página nueva que trate el mismo tema. Un 301 traslada el posicionamiento; un 404 lo tira.</p>
+
+<pre><code># Ejemplo — sustituir por las rutas reales de la web antigua
+Redirect 301 /ruta-antigua-de-la-visita   /visita/
+Redirect 301 /ruta-antigua-del-monumento  /monumento-natural/</code></pre>
+
+<p>Regla de decisión: si hay una página nueva sobre lo mismo, redirigir a ella. Si no la hay, redirigir a la portada antes que dejar un 404. Lo que no se debe hacer es mandarlo todo a la portada por comodidad: Google trata esas redirecciones masivas como si fueran errores.</p>
+
+<p>La lista concreta de direcciones antiguas hay que sacarla del sitio actual antes de apagarlo. Conviene hacerlo con calma: una vez cambiado el DNS, ya no se puede consultar.</p>
+
+<div class="pie">
+  <p><strong>Los Corrales de Rota</strong> · Web pública · Requisitos del servidor e instrucciones de publicación · Versión 1.0 · 23 de julio de 2026</p>
+  <p>Documentos relacionados en el repositorio: <code>docs/web-arquitectura-corrales.md</code> (arquitectura), <code>CLAUDE.md</code> (reglas de construcción), <code>docs/02-DECISIONES.md</code> (decisiones cerradas), <code>docs/handover-issues.md</code> (trabajo pendiente). Para la aplicación de reservas, que es otro despliegue distinto, ver <code>reservas-requisitos-servidor-y-despliegue.html</code>.</p>
+</div>
+
+</div>
+</body>
+</html>
