@@ -86,3 +86,8 @@ main > section.tone-sand{padding-top:var(--sp);margin-top:0}
 .svg-figure .kicker{display:block;margin-bottom:14px}
 .svg-holder svg{width:100%;height:auto;max-width:780px;display:block;margin:0 auto}
 .svg-figure figcaption{margin:14px auto 0;font-size:.86rem;color:var(--text-soft);max-width:660px}
+
+/* figure: foto suelta acotada, para que un cuadrado no ocupe la pantalla entera
+   ni se amplíe por encima de su resolución nativa */
+.figure img{max-width:820px;margin-left:auto;margin-right:auto}
+.figure figcaption{max-width:820px;margin-left:auto;margin-right:auto}

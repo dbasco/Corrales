@@ -119,3 +119,19 @@ Regla: ante cualquier discrepancia de datos, la web oficial es la autoridad (por
 - Sistema de marca reutilizado verbatim (mismos bloques `<style>`), solo cambia el copy entre idiomas.
 - QA visual página a página tras generar (sirviendo `dist/` o el PDF).
 - El proyecto vive en el repo `dbasco/Corrales`; el estado de los activos se lleva en `01-ACTIVOS.md`. El Drive solo aporta fotos.
+
+## Imágenes: `height:auto` en la regla base (2026-07-22)
+
+Los atributos `width`/`height` que `build.py` inyecta en cada `<img>` (anti-CLS) fijaban
+también la **altura usada**, porque la regla base era `img{max-width:100%;display:block}`
+sin `height:auto`. Consecuencia: `aspect-ratio` no surtía efecto y las fotos de los bloques
+`split` salían verticales (484×1012 en vez de 484×363), dejando la columna de texto con
+~620 px de hueco. Detectado revisando en local.
+
+- `templates/base.css`: `img{max-width:100%;height:auto;display:block}`. `.hero .bg`,
+  `.band .bg` y `.video img` fijan su propia altura, así que no les afecta.
+- `templates/site.css`: `.figure img` acotada a 820 px de ancho, para que una foto cuadrada
+  no ocupe la pantalla entera ni se amplíe por encima de su resolución nativa.
+
+Regla general: ninguna imagen debe mostrarse más ancha que su resolución nativa.
+Única excepción viva: `joya-pinar.jpg` (761 px) en el hero de la joya del pinar.

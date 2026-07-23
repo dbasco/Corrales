@@ -94,3 +94,8 @@ equivalentes sin él.
 Sin foto todavía: **dunas** (la única joya que sigue con degradado). `corrales_21` muestra
 duna y pinar en la misma toma, pero el pinar domina y se ha asignado ahí; hace falta una
 foto propia del sistema dunar (pasarelas).
+
+**Aviso de resolución:** `joya-pinar.jpg` (de `corrales_21.jpg`) mide 761×761, la más
+pequeña del lote. En la tarjeta del inicio se ve bien, pero en el hero a pantalla completa
+se amplía un ~68 % y pierde nitidez. Conviene sustituirla por una toma del pinar de al
+menos 1600 px cuando haya. El resto de fotos se muestran a su tamaño nativo o por debajo.
