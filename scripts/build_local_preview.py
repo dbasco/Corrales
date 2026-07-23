@@ -9,7 +9,7 @@ Uso:  python3 scripts/build_local_preview.py [dist] [dist-local]
 Solo para revisión en local. Lo que se sube al servidor es dist/ tal cual: en
 producción las rutas absolutas son las correctas.
 """
-import re, shutil, sys
+import base64, re, shutil, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,6 +50,23 @@ def rewrite(html: str, depth: int) -> str:
     return html
 
 
+def inline_fonts(html: str) -> str:
+    """Con file:// el navegador bloquea la descarga de fuentes (origen opaco), así que
+    la copia local se vería con Georgia en vez de Cinzel/Spectral. Las incrustamos en
+    base64 SOLO aquí: es una copia de revisión que no se sube a ningún sitio. En
+    producción van como ficheros, que es lo correcto para el LCP."""
+    cache = {}
+    def sub(m):
+        nombre = m.group(1)
+        if nombre not in cache:
+            f = SRC / "assets" / "fonts" / nombre
+            if not f.exists():
+                return m.group(0)
+            cache[nombre] = base64.b64encode(f.read_bytes()).decode("ascii")
+        return f"url(data:font/woff2;base64,{cache[nombre]})"
+    return re.sub(r"url\(['\"]?[^)'\"]*?/?([\w.-]+\.woff2)['\"]?\)", sub, html)
+
+
 def main():
     if not SRC.exists():
         sys.exit(f"No existe {SRC}. Ejecuta antes: python3 build.py")
@@ -69,6 +86,9 @@ def main():
             return k
         tmp = re.sub(r'<link[^>]*rel="(?:canonical|alternate)"[^>]*>|<meta[^>]*property="og:url"[^>]*>', stash, original)
         tmp = rewrite(tmp, depth)
+        tmp = inline_fonts(tmp)
+        # el preload deja de tener sentido con la fuente incrustada
+        tmp = re.sub(r'<link rel="preload"[^>]*\.woff2"[^>]*>', '', tmp)
         for k, v in keep.items():
             tmp = tmp.replace(k, v)
         f.write_text(tmp, encoding="utf-8")
