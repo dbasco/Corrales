@@ -279,6 +279,26 @@ con el velo reforzado sube a 5,33.
 Decide la asociación entre (a) kicker del hero en `--sal` + velo reforzado, que cumple AA y
 oscurece algo las fotos, o (b) mantener el cálido asumiendo que ese rótulo no cumple.
 
+## Selector de idioma compacto en la barra (2026-07-23)
+
+Al entrar el inglés, la barra pasó a seis elementos y quedó densa. Medido a 1280 px (el
+contenedor son 1080): ocupaba 633 px de 806 disponibles — **no se desbordaba**, pero
+simulando las etiquetas en alemán la holgura bajaba a 74 px.
+
+Se descartó quitar «Contacto» del menú: con 173 px libres sería resolver un problema que
+todavía no existe. Queda como opción para cuando entre el alemán.
+
+- En la barra, el selector muestra **solo el código** (`ES` / `EN` / `DE` / `FR`) con la flecha;
+  el desplegable conserva los nombres completos. `aria-label` («Idioma: Español») da el
+  contexto que el código por sí solo no da.
+- El código va en versalitas espaciadas, como los kickers: se lee como dato, no como un
+  quinto enlace compitiendo con los otros cuatro.
+- **Ganancia real: el selector pasa de 59 a 32 px**; la barra, de 633 a 604. Holgura 173 → 201 px
+  en español y 74 → 102 px en alemán. Menos de lo estimado antes de medirlo (había calculado
+  unos 15 px para el selector, sin contar la flecha ni el hueco interno).
+- La ventaja que se mantiene: **no crece con el idioma**. «Deutsch» y «Français» ocuparían lo
+  mismo que «Español», y el código no.
+
 ## «100 % de lo recaudado»: acotar el origen (2026-07-23)
 
 El pie decía «El 100 % de lo recaudado va a la conservación del monumento», sin decir *de

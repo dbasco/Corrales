@@ -221,8 +221,15 @@ def render_nav(page, lang_code, ui):
             u = page_url(page, l["code"])
             cur = ' aria-current="true"' if l["code"] == lang_code else ''
             opts.append(f'<a href="{esc(u)}" hreflang="{l["hreflang"]}"{cur}>{esc(l["label"])}</a>')
-        lang_menu = ('<details class="lang" id="lang"><summary>' + esc(LANG_BY_CODE[lang_code]["label"]) +
-                     ' ▾</summary><div class="lang-menu">' + "".join(opts) + '</div></details>')
+        # En la barra se muestra solo el código (ES/EN/DE/FR): ocupa ~15px en vez de ~59
+        # y no crece con idiomas de etiqueta larga. El desplegable sigue con el nombre
+        # completo, y aria-label da el contexto que el código por sí solo no da.
+        actual = LANG_BY_CODE[lang_code]
+        etiqueta = ui.get("lang_label", "Idioma")
+        lang_menu = (f'<details class="lang" id="lang">'
+                     f'<summary aria-label="{esc(etiqueta)}: {esc(actual["label"])}">'
+                     f'<span class="lang-code">{esc(lang_code.upper())}</span> ▾</summary>'
+                     f'<div class="lang-menu">' + "".join(opts) + '</div></details>')
     reserve = ui.get("reserve_cta", "Cómo visitar")
     return (f'<nav class="navbar" aria-label="Principal">'
             f'<a class="brand" href="{esc(home)}">{LOGO_LIGHT.format(w=30,h=30)}<span>Los Corrales de Rota</span></a>'

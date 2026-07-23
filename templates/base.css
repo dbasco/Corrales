@@ -162,6 +162,9 @@ footer b{color:var(--sal)}
 .lang{position:relative}
 .lang summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-size:.86rem;color:var(--roca);font-weight:600}
 .lang summary::-webkit-details-marker{display:none}
+/* El código de idioma en versalitas espaciadas, como los kickers: se lee como
+   dato, no como enlace, y no compite con los cuatro enlaces del menú. */
+.lang .lang-code{letter-spacing:.08em}
 .lang[open] .lang-menu{display:block}
 .lang-menu{display:none;position:absolute;right:0;top:130%;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);padding:6px;min-width:150px;z-index:60}
 .lang-menu a{display:block;padding:8px 12px;border-radius:var(--r-sm);color:var(--roca);font-size:.9rem}
