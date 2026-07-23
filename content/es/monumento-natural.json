@@ -23,20 +23,52 @@
       ]
     },
     {
-      "type": "svgfile",
+      "type": "diagram",
       "tone": "surface",
-      "src": "corral-corte.svg",
-      "kicker": "En bajamar",
-      "caption": "Sección de un corral con la marea baja: el mar abierto se retira, el muro retiene el agua y el pescado queda dentro, sobre la arena y la pradera marina, donde se recoge a pie."
+      "kicker": "Cómo funciona",
+      "h2": "Un muro de piedra que pesca con la marea",
+      "intro": "El corral es un muro bajo de piedra seca, curvado sobre la playa. No tiene motores ni redes: trabaja solo con el agua que sube y baja, dos veces al día.",
+      "steps": [
+        {
+          "kicker": "Sube la marea",
+          "text": "El agua cubre el muro y los peces entran con ella, por encima de la piedra, hacia la orilla.",
+          "img": "/assets/img/corral-fase-1-pleamar.jpg",
+          "alt": "Con la marea alta el agua cubre el muro de piedra del corral y los peces entran por encima"
+        },
+        {
+          "kicker": "Baja la marea",
+          "text": "El mar se retira, pero el muro retiene el agua. Los peces quedan atrapados dentro del corral.",
+          "img": "/assets/img/corral-fase-2-bajando.jpg",
+          "alt": "Al bajar la marea el mar queda más bajo y el muro retiene el agua con los peces dentro"
+        },
+        {
+          "kicker": "Se pesca a pie",
+          "text": "Con la bajamar se camina por dentro del corral y se recoge el pescado a mano, sobre la arena y la pradera marina.",
+          "img": "/assets/img/corral-fase-3-bajamar.jpg",
+          "alt": "Con la marea baja los corraleros recogen el pescado a pie dentro del corral"
+        }
+      ]
     },
     {
       "type": "keys",
       "kicker": "Biodiversidad",
       "h2": "Un vivero entre las piedras",
       "items": [
-        { "k": "Guardería del mar", "t": "Cría protegida", "d": "Las pozas y recovecos guardan a alevines de peces, crustáceos y moluscos —chocos, pulpos, cangrejos, camarones— antes de salir a mar abierto." },
-        { "k": "Pradera marina", "t": "Fanerógamas", "d": "Bajo el agua crece una pradera de plantas marinas que da alimento y refugio. El límite del monumento la protege junto a los muros." },
-        { "k": "Escondite vivo", "t": "Aves del litoral", "d": "Con la bajamar el corral queda al descubierto y funciona como comedero y escondite natural para limícolas y aves marinas." }
+        {
+          "k": "Guardería del mar",
+          "t": "Cría protegida",
+          "d": "Las pozas y recovecos guardan a alevines de peces, crustáceos y moluscos —chocos, pulpos, cangrejos, camarones— antes de salir a mar abierto."
+        },
+        {
+          "k": "Pradera marina",
+          "t": "Fanerógamas",
+          "d": "Bajo el agua crece una pradera de plantas marinas que da alimento y refugio. El límite del monumento la protege junto a los muros."
+        },
+        {
+          "k": "Escondite vivo",
+          "t": "Aves del litoral",
+          "d": "Con la bajamar el corral queda al descubierto y funciona como comedero y escondite natural para limícolas y aves marinas."
+        }
       ]
     },
     {

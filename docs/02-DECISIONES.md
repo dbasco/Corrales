@@ -157,3 +157,29 @@ Las tres escenas del bloque `diagram` del inicio pasan de SVG esquemático a **i
 2. **Declarar o no que la ilustración es generada con IA.** Recomendación: hacerlo en el pie
    o en créditos. Es una web patrimonial y la transparencia protege la credibilidad; además
    las imágenes llevan la marca invisible SynthID de Google, detectable por terceros.
+
+## Reparto inicio / monumento y ritmo vertical (2026-07-23)
+
+- **El «cómo funciona» se va a `/monumento-natural/`.** Las tres escenas ilustradas pasan
+  del inicio a la página del monumento, que es donde toca explicar. Allí **sustituyen al
+  corte SVG** (`templates/corral-corte.svg`), que contaba lo mismo: se retira de la web y
+  se conserva en `templates/` para la guía en PDF.
+- **El inicio gana un mosaico de seis fotos** (bloque `gallery`, «Piedra, agua y oficio») en
+  el lugar que ocupaba el diagrama. El inicio vende, el monumento explica.
+
+### Ritmo vertical entre secciones
+Detectado a partir de una revisión en local: el aire superior e inferior de las secciones no
+era coherente. La regla `main > section + section{padding-top:0}` anulaba el techo de toda
+sección que siguiera a otra, y solo lo recuperaban las que llevan tono; el resultado era que
+«Piedra, marea y trabajo a pie» y «Escríbenos» quedaban pegadas al bloque anterior, mientras
+otras tenían 100 px. Además, entre dos secciones el aire se suma, así que donde no se
+colapsaba salían 200 px, el doble del ritmo.
+
+Ahora:
+- Secciones **sin** tono: medio aire (`--sp * .55`). Dos seguidas dan ~110 px, el ritmo completo.
+- Secciones **con** tono: aire entero; ahí es margen interior del bloque de color.
+- Dos bloques del **mismo** fondo seguidos: se colapsa el techo del segundo (sin cambio de
+  color, 200 px se leen como un hueco).
+
+Resultado medido: separaciones de 110–155 px; solo quedan 200 px entre dos bloques de color
+distinto, donde cada uno respira el suyo.

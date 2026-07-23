@@ -119,3 +119,9 @@ Retoques aplicados al recortar los tres paneles de la lámina original:
 
 **Pendiente de decidir (ver `docs/02-DECISIONES.md`):** el muro sigue representado más alto
 de lo que es en realidad, y las imágenes conservan la marca invisible SynthID de Google.
+
+## Mosaico del inicio — 2026-07-23
+`corrales-muro-mar.jpg` (de corrales_11), `corrales-atarraya.jpg` (corrales_20) y
+`corrales-corralero-marea.jpg` (corrales_09), más `corrales-muros-bajamar`,
+`corrales-corraleros` y `corrales-atardecer-rojo`, ya optimizadas. Sin usar quedan
+corrales_07 y corrales_08 (aéreas con marca de agua de la asociación).

@@ -9,7 +9,16 @@
 /* Ritmo de secciones: fuera la línea divisoria universal.
    El ritmo lo dan el aire, los tonos alternos y las bandas de foto. */
 main > section{border-top:0}
-main > section + section{padding-top:0}
+/* Ritmo vertical. Entre dos secciones el aire se SUMA (fondo de una + techo de la
+   siguiente), así que las secciones sin tono llevan medio aire: dos seguidas dan
+   el ritmo completo (~110px) en vez del doble (200px). Las secciones con fondo de
+   color conservan el aire entero, que ahí es margen interior del bloque. */
+main > section:not([class*="tone-"]){padding-top:calc(var(--sp)*.55);padding-bottom:calc(var(--sp)*.55)}
+/* Dos bloques del MISMO fondo seguidos: se colapsa el aire superior del segundo,
+   porque sin cambio de color los 2x--sp se leen como un hueco dentro del bloque. */
+main > section.tone-surface + section.tone-surface,
+main > section.tone-sand + section.tone-sand,
+main > section.tone-pizarra + section.tone-pizarra{padding-top:0}
 main > section.tone-surface,
 main > section.tone-pizarra,
 main > section.tone-sand{padding-top:var(--sp);margin-top:0}
