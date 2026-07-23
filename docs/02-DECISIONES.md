@@ -47,19 +47,46 @@ Regla: ante cualquier discrepancia de datos, la web oficial es la autoridad (por
 - **Las joyas NO llevan botón de reserva** (no se reservan): su CTA es "La visita a los corrales" y lleva a `/visita/`. Lo único reservable es la visita a los corrales.
 - **"Aves" no ocupa sitio en el menú principal**: es una joya más; se llega por "Joyas de Rota". El menú queda: La visita · Joyas de Rota · Contacto.
 
-## App de reservas (aplazada)
+## App de reservas
 
 > Definición de alto nivel cerrada el 2026-07-22. La reserva es el nodo al que devuelven todas las joyas. Encaje en la web en `web-arquitectura-corrales.md`.
+> **Se retoma el 2026-07-23** (deja de estar aplazada). El **cómo** se implementa está en
+> `reservas-arquitectura.md`; abajo, la revisión que cambia el modelo de disponibilidad.
 
 - **A medida, hecha con IA — no SaaS.** Ningún SaaS gestiona bien la disponibilidad por marea. Contrapartida asumida: es la única pieza con backend propio (servidor + BD); el resto del sitio sigue estático.
 - **Subdominio propio:** `reservas.loscorralesderota.com`, aislada del sitio estático para no tocar su rendimiento. Interfaz y correos en ES/EN/DE/FR; hereda el idioma con el que llega el visitante.
 - **Gratis, sin cobro.** La app NO lleva pasarela. Los ingresos son siempre por donativo, por su vía aparte (Bizum/tarjeta), nunca acoplados al flujo de reserva.
-- **Catálogo de tipos de visita.** La "visita a los corrales" es el primer tipo de un catálogo. Cada tipo: nombre, descripción, características (duración, qué incluye, guía, idioma), aforo por defecto y si **depende de marea**. Más adelante se dan de alta otras joyas sin tocar código.
-- **Disponibilidad manual con asistente de mareas.** Modelo: tipo de visita → día → pase (con aforo). El admin abre los días; para los tipos "depende de marea" (corrales) el asistente propone las ventanas de bajamar visitables a partir de la tabla de mareas de Rota, y el admin las acepta o ajusta. Nada se publica solo. Los tipos que no dependen de marea se abren con horario normal.
+- **Catálogo de tipos de visita.** La "visita a los corrales" es el primer tipo de un catálogo. Cada tipo: nombre, descripción, características (duración, qué incluye, guía, idioma) y aforo por defecto. Más adelante se dan de alta otras joyas sin tocar código.
+- ~~**Disponibilidad manual con asistente de mareas.** Modelo: tipo de visita → día → pase (con aforo). El admin abre los días; para los tipos "depende de marea" (corrales) el asistente propone las ventanas de bajamar visitables a partir de la tabla de mareas de Rota, y el admin las acepta o ajusta. Nada se publica solo. Los tipos que no dependen de marea se abren con horario normal.~~ **Superado el 2026-07-23** — ver la revisión al final de esta sección. Se mantiene el modelo tipo de visita → día → pase (con aforo); cae el asistente.
 - **Aforo por personas**, configurable por pase; cada reserva descuenta su nº de personas.
 - **Confirmación por código.** Flujo: tipo → día → pase → nombre + email + nº personas → recibe un **código por email** → lo introduce → reserva confirmada + email con los datos y enlace de cancelación. Sin confirmar, la reserva queda pendiente y caduca.
 - **Cancelación:** (a) el admin anula un pase o un día entero (marea, tiempo) → todas las reservas de ese pase pasan a canceladas y se avisa por email a cada afectado; (b) el visitante cancela su reserva desde el enlace del email y libera sus plazas.
-- **Único pendiente técnico:** servicio de **email transaccional** (código, confirmación y avisos de cancelación).
+- **Email transaccional** (código, confirmación y avisos): resuelto en `reservas-arquitectura.md` — cola en BD + cron, SMTP autenticado del propio dominio con PHPMailer, con Brevo/Mailjet como alternativa si falla la entregabilidad. Queda confirmar el buzón remitente y sus credenciales en el hosting.
+
+### Revisión 2026-07-23 — la disponibilidad la decide el equipo; la marea es informativa
+
+**Si hay visita, qué día y a qué hora lo decide el equipo.** No hay cálculo de mareas que abra,
+cierre ni valide nada. La información de marea es orientativa y no afecta a las reservas.
+
+- **Cae el asistente de mareas** como motor de disponibilidad, y con él el umbral de altura, los
+  márgenes de seguridad, el cálculo de la curva y la calibración con los corraleros. Era la pieza
+  más cara e incierta del desarrollo.
+- **Lo sustituye la creación en lote de pases** en el panel (rango de fechas + días de la semana +
+  horas, duplicar una semana en la siguiente, editar o anular cualquier pase suelto después).
+  Bastante más barato de construir.
+- **La marea queda como columna informativa** en el calendario del panel — la hora de la bajamar
+  prevista, a la vista de quien decide. No valida ni propone. Va al final del desarrollo y, si
+  estorba o la fuente de datos no acompaña, se cae sin consecuencias.
+- El motivo original de «a medida y no SaaS» era que ningún SaaS gestiona bien la disponibilidad
+  por marea. Ese motivo decae, pero la decisión **se mantiene** por los otros: gratis sin pasarela,
+  catálogo propio de tipos de visita, cuatro idiomas y coste cero de licencias. No se reabre.
+- **Reserva a nombre de un tercero** desde el panel, para quien llama por teléfono o se presenta:
+  descuenta plazas igual que una reserva web, así el aforo publicado nunca miente. Pantalla
+  genérica, sirva quien sirva ese canal. Cómo se reparte el canal con la Oficina de Turismo es
+  asunto de la asociación y no condiciona el desarrollo.
+
+Confirmado además que el hosting incluye **MySQL, cron y SMTP autenticado**, que es lo que
+sostiene la elección de plataforma (PHP 8 + MySQL en el hosting actual) en `reservas-arquitectura.md`.
 
 ## Donaciones y pagos
 

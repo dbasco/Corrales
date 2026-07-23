@@ -130,5 +130,5 @@ Materia prima en `_fuentes/` (notas, borradores, volcados sin clasificar). No so
 - Re-piel de los deliverables existentes (web, guías, impresos, planes) al sistema de marca Monumento.
 - Edición alemana de la guía de aves (PDF).
 - Versiones multiidioma (ES/EN/DE/FR) de hub y landings para servidor.
-- **App de reservas** (`reservas.loscorralesderota.com`): a medida, subdominio propio, backend + BD. Catálogo de tipos de visita, disponibilidad manual con asistente de mareas, confirmación por email, cancelación con aviso, gratis (sin pasarela). Definición en `02-DECISIONES.md`; pendiente el servicio de email transaccional.
+- **App de reservas** (`reservas.loscorralesderota.com`): a medida, subdominio propio, backend + BD. **Retomada el 2026-07-23** (ya no está aplazada). PHP 8 + MySQL en el hosting actual, sin framework. Catálogo de tipos de visita, **disponibilidad decidida por el equipo** (creación de pases en lote; sin asistente de mareas: la marea es informativa), aforo con bloqueo transaccional, confirmación por código, cancelación con aviso, reserva a nombre de terceros desde el panel, gratis (sin pasarela). Funcional en `02-DECISIONES.md`; **implementación en `reservas-arquitectura.md`**. Sin código escrito todavía.
 - Word del plan, CSV de Google Ads, dashboard KPI, one-pager.

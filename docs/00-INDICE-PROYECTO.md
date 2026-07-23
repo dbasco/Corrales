@@ -61,7 +61,8 @@ Corrales/
 │                            build_local_preview.py → copia con rutas relativas)
 ├── docs/
 │   ├── 00-INDICE-PROYECTO.md · 01-ACTIVOS.md · 02-DECISIONES.md
-│   ├── web-arquitectura-corrales.md · handover-issues.md · GITHUB-Y-DRIVE.md
+│   ├── web-arquitectura-corrales.md · reservas-arquitectura.md
+│   ├── handover-issues.md · GITHUB-Y-DRIVE.md
 │   ├── deliverables/        Marca, web, guías, impresos, planes
 │   └── _fuentes/            Insumos sin clasificar (inventario de YouTube)
 └── dist/                    Salida de build.py (gitignored)
