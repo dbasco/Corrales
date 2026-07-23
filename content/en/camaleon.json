@@ -1,0 +1,39 @@
+{
+  "title": "The common chameleon of Rota · one of its last strongholds in Cádiz",
+  "meta_description": "Rota is one of the few places on the Cádiz coast where the common chameleon survives, protected by a municipal by-law. It can be watched in the pine wood, without touching. A treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Chameleon",
+    "h1": "The common chameleon",
+    "sub": "Rota is one of the few places on the Cádiz coast where this reptile is still holding on, and where it is looked after.",
+    "img": "/assets/img/joya-camaleon.jpg",
+    "img_alt": "A common chameleon among the leaves in the pine wood of Rota"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "A treasure that's hard to spot",
+      "lead": "Few animals capture the richness and the fragility of Rota's surroundings as well as the chameleon.",
+      "paras": [
+        "It lives in the pine wood and in scrubland; it moves slowly and shifts colour to camouflage itself and regulate its temperature, so it is often right beside us without being seen. Rota protects its habitat and, since 2017, has had a municipal by-law safeguarding it — one of very few of its kind in Spain.",
+        "It can be watched from the pine wood boardwalks all year round, though it is easiest to see from July to September. The rule is simple: look and photograph from a distance, never touch or disturb it, so that whoever comes next can enjoy it too."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "pz3lKhIWYZs",
+      "title": "The chameleon of Rota: the most surprising species in Cádiz",
+      "desc": "Andrés Barba and Juan José Gómez, of Ecologistas en Acción La Plazoleta, show how the common chameleon of Rota lives and how to protect it. In Spanish.",
+      "date": "2025-04-01",
+      "alt": "A common chameleon on a branch in the pine wood of Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "title": "Visiting the corrales of Rota · on foot, at low tide",
+  "meta_description": "The guided visit to the tidal fish traps of Rota: walk inside the stone wall at low tide with the fishermen who maintain it. Booking is handled by the Rota Tourist Office.",
+  "hero": {
+    "kicker": "Visiting",
+    "h1": "Visiting the corrales",
+    "sub": "An hour inside the Natural Monument, on foot, whenever the tide allows. The corraleros guide it; the Rota Tourist Office handles the booking.",
+    "img": "/assets/img/visita-hero.jpg",
+    "img_alt": "The corrales of Rota at sunset with the tide out",
+    "cta1": "How to book",
+    "cta1_href": "#reservar"
+  },
+  "sections": [
+    {
+      "type": "split",
+      "img": "/assets/img/visita-gente.jpg",
+      "alt": "A visitor standing on the wall of a corral in Rota at sunset",
+      "kicker": "What it is",
+      "h2": "Step inside the wall and watch it fish",
+      "lead": "The best way to understand a corral is to walk through one at low tide.",
+      "paras": [
+        "With a corralero alongside you, you follow the stone wall from the inside, see the water the tide leaves behind, and watch how the catch is taken by hand. Along the way you'll hear about the craft, its history, and the life that thrives in the shelter of the stone.",
+        "It is an unhurried outdoor activity, set to the rhythm of the sea. The timetable isn't forced: the tide decides."
+      ]
+    },
+    {
+      "type": "keys",
+      "tone": "surface",
+      "kicker": "In short",
+      "h2": "Before you come",
+      "items": [
+        {
+          "k": "When",
+          "t": "It depends on the tide",
+          "d": "The visit is only possible at low water — two windows a day, and they shift daily. Bad weather can also call it off."
+        },
+        {
+          "k": "What it's like",
+          "t": "On foot, in a group",
+          "d": "You walk across the intertidal shore, over sand and wet stone. Guided by the association's corraleros."
+        },
+        {
+          "k": "Footwear",
+          "t": "Something that can get wet",
+          "d": "Closed shoes that cope with water and sand work best. Bring a hat, water and sun protection in the warmer months."
+        }
+      ]
+    },
+    {
+      "type": "turismo",
+      "anchor": "reservar",
+      "head_kicker": "How to visit",
+      "h2": "Book your visit",
+      "intro": "For now the visit is booked exclusively through the Rota Tourist Office. The association guides the visit; the Tourist Office handles the booking. There is no online booking.",
+      "kicker": "Booking",
+      "title": "Bookings are handled by the Rota Tourist Office",
+      "phone": "+34 956 846345",
+      "email": "turismorota@gmail.com",
+      "note": "Write or call to confirm the day and time according to the tide. Everything raised on the visits goes entirely to conserving the monument.",
+      "r_kicker": "Before you go",
+      "r_title": "Worth knowing",
+      "tips": [
+        "The time depends on the tide: confirm it when you book.",
+        "Be punctual — the low-tide window is short.",
+        "Check the forecast; bad weather can cancel the visit.",
+        "Footwear that can get wet, and comfortable clothes."
+      ]
+    },
+    {
+      "type": "faq",
+      "kicker": "Common questions",
+      "h2": "Frequently asked questions",
+      "items": [
+        {
+          "q": "How do I book the visit?",
+          "a": "Through the Rota Tourist Office, by phone (+34 956 846345) or email (turismorota@gmail.com). There is no online booking: the association guides the visit and the Tourist Office handles the reservation."
+        },
+        {
+          "q": "Why does the time change every day?",
+          "a": "Because the visit can only take place at low tide, and low water comes earlier or later each day. That's why the day and time are confirmed when you book."
+        },
+        {
+          "q": "What happens if the weather is bad?",
+          "a": "The visit takes place outdoors on the intertidal shore, so rough weather or a heavy sea can force it to be cancelled or moved to another day. You'll be told when you book."
+        },
+        {
+          "q": "Where does the money go?",
+          "a": "Every euro raised through visits and activities goes to conserving, rebuilding and maintaining the monument: the stone walls and the association's work."
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "6d7-eABEOuc",
+      "title": "A guided visit to the Corrales de Rota",
+      "desc": "A walk through a guided visit to the corrales of Rota, from Andrés Barba's channel. In Spanish.",
+      "date": "2025-01-01",
+      "alt": "Corraleros walking through a corral at low tide during a guided visit"
+    },
+    {
+      "type": "cta",
+      "kicker": "Keep exploring",
+      "h2": "Make a day of it in Rota",
+      "text": "Birds, pine wood, dunes, chameleons, the greenway — all of it a short walk from the corrales.",
+      "cta": "See Rota's treasures",
+      "href": "/en/#joyas"
+    }
+  ]
+}

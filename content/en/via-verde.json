@@ -1,0 +1,39 @@
+{
+  "title": "The Rota Greenway · a former railway, now a walking and cycling route",
+  "meta_description": "The Rota Greenway: about 7.5 km along the old railway line that linked Rota with El Puerto de Santa María, now an accessible, family-friendly blue trail. A treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Greenway",
+    "h1": "The Rota Greenway",
+    "sub": "Old railway tracks turned into a route for walking, running or cycling. Easy, flat and very family-friendly.",
+    "img": "/assets/img/joya-via-verde.jpg",
+    "img_alt": "A cyclist riding the Rota Greenway between trees"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "A route for everyone",
+      "lead": "The Greenway reclaims the old railway line that once linked Rota with El Puerto de Santa María.",
+      "paras": [
+        "It runs for about 7.5 kilometres and is recognised as a «blue trail». It crosses farmland, small stands of trees, streams and native vegetation, with rest areas along the way.",
+        "Families love it for its accessibility: a minimal gradient and a wide surface make it comfortable on foot, by bike or in a group. In the episode of «Más allá del mar», Andrés Barba rides it with Carolina Bonhomo, of the Environment Department at Rota Town Council."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "57PUuDOdjKY",
+      "title": "The Rota Greenway: an essential route in Cádiz",
+      "desc": "Andrés Barba and Carolina Bonhomo travel the Rota Greenway and tell its history and its value. In Spanish.",
+      "date": "2025-06-01",
+      "alt": "The Rota Greenway path running through vegetation"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

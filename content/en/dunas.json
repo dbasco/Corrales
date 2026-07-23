@@ -1,0 +1,38 @@
+{
+  "title": "The dunes of Rota · the ecosystem that shields the Cádiz coast",
+  "meta_description": "The dunes of Rota are far more than sand: a fragile ecosystem that holds the sand in place and protects the Cádiz coastline. A natural treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Dunes",
+    "h1": "Living dunes",
+    "sub": "The dune ridge and its plants hold the sand against the sea. One of the most important and most fragile ecosystems in Rota.",
+    "grad": "grad-stone"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "Far more than sand",
+      "lead": "Dunes are the coast's first natural defence.",
+      "paras": [
+        "Dune vegetation binds the sand, slows the wind and protects everything further inland. It is a delicate system: walking on it outside the marked paths does real damage, so it is crossed carefully and by the paths provided.",
+        "In the episode of «Más allá del mar» devoted to the dunes, Andrés Barba walks them with Carolina Bonhomo, of the Environment Department at Rota Town Council, to explain how they work and why they are worth conserving."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "RBl4xLDHSAs",
+      "title": "The dunes of Rota: the ecosystem that protects the coast",
+      "desc": "Andrés Barba and Carolina Bonhomo explain the dune system of Rota and its role in protecting the coastline. In Spanish.",
+      "date": "2025-04-01",
+      "alt": "Vegetated dune system on the coast of Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

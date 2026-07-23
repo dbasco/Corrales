@@ -1,0 +1,113 @@
+{
+  "title": "The Natural Monument of the corrales of Rota · what it is and what it protects",
+  "meta_description": "The Natural Monument of the corrales of Rota: what the designation means, why it is ecocultural, and what it protects. The first in Andalusia (2001) — nature and human work at once, kept by hand.",
+  "hero": {
+    "kicker": "Rota · Cádiz · Natural Monument",
+    "h1": "The Natural Monument of the corrales",
+    "sub": "What this designation is, what it protects, and why it is unusual: a place that is nature and human work at the same time, and stays alive because it is tended by hand.",
+    "img": "/assets/img/corrales-panoramica.jpg",
+    "img_alt": "Panoramic aerial view of the corrales of Rota at low tide, with the pine wood and the town behind",
+    "cta1": "How to visit the corrales",
+    "cta1_href": "/en/visit/"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "anchor": "what-it-is",
+      "kicker": "The designation",
+      "h2": "A monument that is still alive",
+      "lead": "A Natural Monument is the category Andalusia uses to protect places of exceptional natural value. It is a legal class of protected area, not an honorary title.",
+      "paras": [
+        "The corrales of Rota were declared a Natural Monument on 23 October 2001, the first in Andalusia, and with an unusual twist: they are protected as nature and as human heritage at the same time. It is a monument of ecocultural character.",
+        "This is not a reserve where human hands are the problem. It is the opposite: a work of stone more than a thousand years old, going back to Roman times, which exists only because it is tended by hand, tide after tide. The boundary of the monument takes in the intertidal shore, the walls, and the seagrass meadow that grows in their shelter."
+      ]
+    },
+    {
+      "type": "diagram",
+      "tone": "surface",
+      "kicker": "How it works",
+      "h2": "A stone wall that fishes with the tide",
+      "intro": "A corral is a low dry-stone wall, curved across the beach. It has no engines and no nets: it works on nothing but the water rising and falling, twice a day.",
+      "steps": [
+        {
+          "kicker": "The tide comes in",
+          "text": "Water covers the wall and fish ride in over the stone, towards the shore.",
+          "img": "/assets/img/corral-fase-1-pleamar.jpg",
+          "alt": "At high tide the water covers the stone wall of the corral and fish swim in over the top"
+        },
+        {
+          "kicker": "The tide goes out",
+          "text": "The sea pulls back, but the wall holds the water in. The fish are left inside the corral.",
+          "img": "/assets/img/corral-fase-2-bajando.jpg",
+          "alt": "As the tide falls the sea drops away and the wall retains the water with the fish inside"
+        },
+        {
+          "kicker": "Fishing on foot",
+          "text": "At low water you walk inside the corral and gather the catch by hand, over the sand and the seagrass meadow.",
+          "img": "/assets/img/corral-fase-3-bajamar.jpg",
+          "alt": "At low tide the corraleros gather the catch on foot inside the corral"
+        }
+      ]
+    },
+    {
+      "type": "keys",
+      "kicker": "Biodiversity",
+      "h2": "A nursery among the stones",
+      "items": [
+        {
+          "k": "Nursery of the sea",
+          "t": "Sheltered young",
+          "d": "The pools and crevices hold juvenile fish, crustaceans and molluscs — cuttlefish, octopus, crabs, shrimp — before they head out to open water."
+        },
+        {
+          "k": "Seagrass meadow",
+          "t": "Marine plants",
+          "d": "Under the water grows a meadow of marine plants that provides food and shelter. The monument's boundary protects it along with the walls."
+        },
+        {
+          "k": "A living hide",
+          "t": "Coastal birds",
+          "d": "At low tide the corral is left exposed and works as a feeding ground and natural hide for waders and seabirds."
+        }
+      ]
+    },
+    {
+      "type": "figure",
+      "tone": "sand",
+      "img": "/assets/img/corrales-pez-guitarra.jpg",
+      "alt": "A guitarfish on the shallow bed inside a corral in Rota",
+      "caption": "A guitarfish inside a corral. Protecting threatened species and the young fish left behind at low tide is one of the association's aims."
+    },
+    {
+      "type": "band",
+      "img": "/assets/img/corrales-aereo.jpg",
+      "alt": "Aerial view of the corrales of Rota curving across the intertidal shore",
+      "kicker": "Landscape",
+      "caption": "The pattern of the walls only appears at low tide: a landscape that changes every six hours."
+    },
+    {
+      "type": "split",
+      "tone": "sand",
+      "reverse": true,
+      "img": "/assets/img/corrales-muro.jpg",
+      "alt": "Dry-stone wall of a corral, maintained by hand",
+      "kicker": "Conservation",
+      "h2": "No hands, no monument",
+      "lead": "Unlike most protected areas, this one needs constant maintenance.",
+      "paras": [
+        "The sea knocks the stones down and the corraleros put them back by hand, without mortar, clear the weed and keep watch over the site. It is the only way a monument of stone stays standing and in use.",
+        "That is why every euro raised on the guided visits goes back into conserving, rebuilding and maintaining the monument."
+      ],
+      "cta": "How to visit the corrales",
+      "cta_href": "/en/visit/"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "The best way to understand the monument is to walk into it",
+      "text": "You walk inside the wall at low tide, guided by the corraleros. Booking is handled by the Rota Tourist Office.",
+      "cta": "How to visit the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

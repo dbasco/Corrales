@@ -12,8 +12,17 @@ Lotes de trabajo listos para abrir como issues de GitHub y ejecutar con Claude C
 
 ---
 
-## #1 · Traducir la web a EN (English)
-**Contexto:** el sitio está completo en ES (`content/es/*.json`, `content/ui.es.json`). Falta EN.
+## #1 · Traducir la web a EN (English) — **HECHO (2026-07-23)**
+**Hecho:** `content/en/*.json` (13 páginas) + `content/ui.en.json`. 26 URLs generadas.
+Verificado: cero enlaces internos rotos, un solo `h1` por página, `title` y `meta_description`
+únicos en las 26, `hreflang` es/en/x-default coherente. **Pendiente: revisión visual de las
+páginas EN** (la QA de esta sesión fue estructural).
+
+**Nota para #2 (DE) y #3 (FR):** la traducción es **todo o nada**. Con solo la home traducida,
+el inicio EN enlazaba a 12 páginas inexistentes: la rejilla de joyas y el menú apuntan a todas
+las páginas del idioma, existan o no. No dejar un idioma a medias en `main`.
+
+**Contexto original:** el sitio está completo en ES (`content/es/*.json`, `content/ui.es.json`).
 **Tarea:** crear `content/en/<page_id>.json` para las 12 páginas y `content/ui.en.json`, con el
 mismo esquema que ES (traducir valores, no claves).
 **Requisitos:**

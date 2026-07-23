@@ -1,0 +1,39 @@
+{
+  "title": "The pine wood of Rota · the coastal forest few visitors find",
+  "meta_description": "The pine wood of Rota: a stone pine forest between the town and the beach, with surprising wildlife. A natural treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Pine wood",
+    "h1": "The coastal pine wood",
+    "sub": "A stone pine forest between the town and the beach. One of Rota's great natural assets, and one of the least known.",
+    "img": "/assets/img/joya-pinar.jpg",
+    "img_alt": "Aerial view of the stone pine wood of Rota above the dune ridge and the beach"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "Shade, air and wildlife",
+      "lead": "Beyond its beaches, Rota holds a coastal Mediterranean forest with a life of its own.",
+      "paras": [
+        "The pine wood shelters plants and animals, and it is a good place to walk in the shade and get close to nature without leaving the town. Among its boardwalks lives the common chameleon, another of Rota's treasures.",
+        "In the episode of «Más allá del mar» devoted to the pine wood, Andrés Barba walks it with Carolina Bonhomo, head of the Environment Department at Rota Town Council, who explains why it matters ecologically."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "VkwiD6qVXnQ",
+      "title": "The pine woods of Rota: the forest few tourists know",
+      "desc": "Andrés Barba walks the coastal pine wood of Rota with Carolina Bonhomo and shows its wildlife. In Spanish.",
+      "date": "2025-04-01",
+      "alt": "Stone pine wood in Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

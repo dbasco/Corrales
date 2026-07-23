@@ -1,0 +1,34 @@
+{
+  "title": "Legal notice · Los Corrales de Rota",
+  "meta_description": "Legal notice of the Association of Corraleros and Shore Fishermen «Los Corrales de Rota».",
+  "hero": {
+    "kicker": "Legal information",
+    "h1": "Legal notice",
+    "sub": "Ownership and terms of use of this website.",
+    "grad": "grad-pizarra"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Legal information",
+      "h2": "Identification details",
+      "lead": "Details of the association that owns this website.",
+      "paras": [
+        "Owner: Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota».",
+        "Address: Rota (Cádiz), Spain.",
+        "Tax ID (CIF): G72275449. Registered in the Andalusian Register of Associations under number 11-1-11400 (Section 1).",
+        "Contact email: info@loscorralesderota.com.",
+        "Website: loscorralesderota.com."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "Terms of use",
+      "paras": [
+        "Accessing and using this website implies acceptance of the terms published at any given time. The content is informative and may be updated or changed without notice.",
+        "Texts, images and videos are the property of their respective authors and are used with their permission. They may not be reproduced without consent.",
+        "This English text is provided for information only; the Spanish version is the legally binding one. Both are a provisional draft and do not constitute the final legal notice."
+      ]
+    }
+  ]
+}

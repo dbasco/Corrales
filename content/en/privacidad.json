@@ -1,0 +1,31 @@
+{
+  "title": "Privacy policy · Los Corrales de Rota",
+  "meta_description": "Privacy policy of the Association of Corraleros and Shore Fishermen «Los Corrales de Rota».",
+  "hero": {
+    "kicker": "Legal information",
+    "h1": "Privacy policy",
+    "sub": "How personal data is handled on this website.",
+    "grad": "grad-pizarra"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "Legal information",
+      "h2": "Data controller",
+      "lead": "Details of the controller responsible for data on this website.",
+      "paras": [
+        "Controller: Asociación de Corraleros y Pescadores a Pie «Los Corrales de Rota». Tax ID (CIF): G72275449.",
+        "Contact: info@loscorralesderota.com."
+      ]
+    },
+    {
+      "type": "prose",
+      "h2": "What data is collected",
+      "paras": [
+        "The contact form collects the details you provide (name, email and message) for the sole purpose of replying to your enquiry. Submissions are processed on the loscorralesderota.com server itself and the message reaches the association's mailbox; the data is not passed to third parties except where legally required, and is kept only as long as needed to deal with the enquiry.",
+        "Google Tag Manager is installed on this site. While it is not activated with a real identifier, no tag is loaded and no cookie is set. If measurement is switched on in future, a cookie notice with consent management will be added first.",
+        "You may exercise your rights of access, rectification and erasure by writing to info@loscorralesderota.com. This English text is provided for information only; the Spanish version is the legally binding one. Both are a provisional draft."
+      ]
+    }
+  ]
+}

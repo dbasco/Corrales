@@ -1,0 +1,16 @@
+{
+  "nav": {
+    "home": "Home",
+    "monumento": "The monument",
+    "visita": "Visiting",
+    "joyas": "Rota's treasures",
+    "contacto": "Contact"
+  },
+  "reserve_cta": "How to visit",
+  "skip": "Skip to content",
+  "footer": {
+    "pledge": "Every euro raised through visits and activities goes to conserving, rebuilding and maintaining the monument.",
+    "legal": "Legal notice",
+    "privacy": "Privacy"
+  }
+}

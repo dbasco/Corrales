@@ -1,0 +1,193 @@
+{
+  "title": "Los Corrales de Rota · Ancient tidal fish traps you can walk into",
+  "meta_description": "The corrales of Rota are stone tidal fish traps over a thousand years old, and the first Natural Monument declared in Andalusia. Walk inside them at low tide, guided by the fishermen who still maintain them.",
+  "hero": {
+    "kicker": "Rota · Cádiz · Natural Monument",
+    "h1": "Walk inside a stone fish trap when the tide goes out",
+    "sub": "A stone wall that fishes with the tide, kept by hand for generations. The first Natural Monument in Andalusia — and you can walk into it.",
+    "img": "/assets/img/corrales-hero.jpg",
+    "img_alt": "Aerial view of the tidal fish traps of Rota at low tide, at sunset",
+    "cta1": "How to visit the corrales",
+    "cta1_href": "/en/visit/",
+    "cta2": "Rota's treasures",
+    "cta2_href": "#joyas"
+  },
+  "sections": [
+    {
+      "type": "stats",
+      "items": [
+        { "n": "8", "l": "Working traps" },
+        { "n": "2001", "l": "Natural Monument" },
+        { "n": "1000+", "l": "Years of history" },
+        { "n": "100%", "l": "To conservation" }
+      ]
+    },
+    {
+      "type": "gallery",
+      "tone": "surface",
+      "cols": 3,
+      "kicker": "The monument in pictures",
+      "h2": "Stone, water and craft",
+      "intro": "A corral changes every six hours: the same wall is beach, lagoon and fishing ground within a single day.",
+      "items": [
+        {
+          "img": "/assets/img/corrales-muro-mar.jpg",
+          "alt": "Stone wall of a corral running out into the sea, turquoise water on both sides",
+          "caption": "The wall, seen from inside the trap."
+        },
+        {
+          "img": "/assets/img/corrales-muros-bajamar.jpg",
+          "alt": "Walls of the corrales and clear tidal pools at low water",
+          "caption": "At low tide the corral becomes a shallow lagoon."
+        },
+        {
+          "img": "/assets/img/corrales-atarraya.jpg",
+          "alt": "Fisherman casting a round net inside the corral at sunset",
+          "caption": "The cast net, one of the tools used on foot."
+        },
+        {
+          "img": "/assets/img/corrales-corraleros.jpg",
+          "alt": "Two corraleros silhouetted on the wall at sunset, carrying buckets",
+          "caption": "The work happens when the tide allows, not when it suits."
+        },
+        {
+          "img": "/assets/img/corrales-corralero-marea.jpg",
+          "alt": "A corralero wading across the water inside the trap at sunset",
+          "caption": "Inside the wall you walk on sand and seagrass meadow."
+        },
+        {
+          "img": "/assets/img/corrales-atardecer-rojo.jpg",
+          "alt": "The corrales at sunset, red sky reflected in the water",
+          "caption": "Low tide doesn't always fall in daylight."
+        }
+      ]
+    },
+    {
+      "type": "prose",
+      "tone": "sand",
+      "anchor": "natural-monument",
+      "kicker": "Natural Monument",
+      "h2": "What does Natural Monument actually mean?",
+      "lead": "It is the category Andalusia uses to protect places of exceptional natural value. The corrales were the first in Andalusia to receive it, in 2001 — and they are unusual, because they are protected as nature and as human heritage at the same time.",
+      "paras": [
+        "They are not a ruin and not an ornament: they are an ecocultural monument, a work of stone that survives because it is still tended by hand. [What the Natural Monument is, and what it protects →](/en/natural-monument/)"
+      ]
+    },
+    {
+      "type": "split",
+      "reverse": true,
+      "img": "/assets/img/corrales-muro.jpg",
+      "alt": "Dry-stone wall of a corral holding back water as the tide falls",
+      "kicker": "What they are",
+      "h2": "Stone, tide and work done on foot",
+      "lead": "Eight working corrales remain in Rota, cared for by the Association of Corraleros and Shore Fishermen.",
+      "paras": [
+        "This way of fishing goes back more than a thousand years, to Roman times, and it has barely changed: no engines, no trawl nets — just the wall, the tide and a pair of hands. The corraleros maintain it stone by stone, because the sea undoes whatever is left untended.",
+        "In 2001 the corrales of Rota were declared a Natural Monument, the first in Andalusia. They are not a ruin: they are a living cultural landscape, in use and under repair, with a richness of wildlife that grows in the shelter of the stone."
+      ]
+    },
+    {
+      "type": "band",
+      "img": "/assets/img/corrales-aereo.jpg",
+      "alt": "Aerial view of the corrales of Rota curving across the intertidal shore",
+      "kicker": "Natural Monument",
+      "caption": "Eight stone traps across the intertidal shore, maintained by hand."
+    },
+    {
+      "type": "split",
+      "img": "/assets/img/visita-gente.jpg",
+      "alt": "A visitor walking along the wall of a corral in Rota at sunset",
+      "kicker": "Visiting",
+      "h2": "You visit on foot, at low tide",
+      "lead": "The best way to understand a corral is to walk into one.",
+      "paras": [
+        "The corraleros run guided visits whenever the tide allows. You walk inside the wall, see how the water is held back and how the catch is taken, and hear the craft explained by the people who keep it going.",
+        "Booking is handled by the Rota Tourist Office. Everything raised goes straight back into conserving the monument."
+      ],
+      "cta": "How to visit the corrales",
+      "cta_href": "/en/visit/"
+    },
+    {
+      "type": "jewels",
+      "tone": "surface",
+      "kicker": "Around the corrales",
+      "h2": "Rota's treasures",
+      "intro": "The corrales are the centre of it, but they are not alone. Around them lie marshes, pine woods, dunes, chameleons and old tracks. Each one draws a different visitor, and every one of them leads back to a walk inside the corrales.",
+      "cards": {
+        "aves": {
+          "tag": "Birds",
+          "title": "Birds of the marshes",
+          "desc": "Flamingos, spoonbills, waders and raptors, minutes from the town.",
+          "img": "/assets/img/joya-aves.jpg"
+        },
+        "pinar": {
+          "tag": "Pine wood",
+          "title": "Coastal pine wood",
+          "desc": "The pine forest few visitors ever find.",
+          "img": "/assets/img/joya-pinar.jpg"
+        },
+        "dunas": {
+          "tag": "Dunes",
+          "title": "Living dunes",
+          "desc": "The ridge of sand that shields the coast.",
+          "grad": "grad-stone"
+        },
+        "camaleon": {
+          "tag": "Chameleon",
+          "title": "The common chameleon",
+          "desc": "One of its last strongholds on the Cádiz coast.",
+          "img": "/assets/img/joya-camaleon.jpg"
+        },
+        "via-verde": {
+          "tag": "Greenway",
+          "title": "The Rota Greenway",
+          "desc": "An old railway line, now a walking and cycling route.",
+          "img": "/assets/img/joya-via-verde.jpg"
+        },
+        "pozos-del-galgo": {
+          "tag": "Pozos del Galgo",
+          "title": "Los Pozos del Galgo",
+          "desc": "A little-known corner of Rota.",
+          "img": "/assets/img/joya-pozos-del-galgo.jpg"
+        },
+        "jardin-botanico": {
+          "tag": "Botanical garden",
+          "title": "Celestino Mutis Botanical Garden",
+          "desc": "Plants from half the world, and good for all ages.",
+          "img": "/assets/img/joya-jardin-botanico.jpg"
+        },
+        "playas": {
+          "tag": "Beaches",
+          "title": "The beaches of Rota",
+          "desc": "Sand, pine wood, and the corrales surfacing at low tide.",
+          "img": "/assets/img/playa-hero.jpg"
+        }
+      }
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "NCznzktnjcU",
+      "title": "Los Corrales de Rota: how they work and why they matter",
+      "desc": "Andrés Barba explains what the corrales of Rota are, how they fish with the tide, and why they count as living heritage. In Spanish.",
+      "date": "2025-06-01",
+      "alt": "The corrales of Rota seen at low tide"
+    },
+    {
+      "type": "contact",
+      "kicker": "Contact",
+      "h2": "Get in touch",
+      "intro": "For press, partnerships or questions about the corrales and the association. To book a visit, contact the Rota Tourist Office: +34 956 846345 · turismorota@gmail.com.",
+      "place_label": "Where we are",
+      "f_name": "Name",
+      "f_email": "Email",
+      "f_msg": "Message",
+      "f_send": "Send",
+      "form_note": "We only use these details to reply to you. We don't pass them on to anyone.",
+      "f_consent": "I have read and accept the",
+      "f_privacy": "privacy policy",
+      "f_ok": "Message sent. Thank you — we'll reply as soon as we can.",
+      "f_err": "The message couldn't be sent. Please write to us directly at "
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Los Pozos del Galgo · a little-known corner of Rota",
+  "meta_description": "Los Pozos del Galgo is one of the least-visited places in Rota: a corner with history and environmental value that shows Rota is far more than sun and sand. A treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Pozos del Galgo",
+    "h1": "Los Pozos del Galgo",
+    "sub": "One of the least-known corners of Rota, with history, environmental value and natural heritage still to discover.",
+    "img": "/assets/img/joya-pozos-del-galgo.jpg",
+    "img_alt": "A wooden boardwalk among the trees in the Pozos del Galgo area"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "A corner still to discover",
+      "lead": "Rota holds surprising places well away from the seafront.",
+      "paras": [
+        "Los Pozos del Galgo is one of those quiet spots: a corner that shows the town is far more than sun and sand, with an environmental and heritage interest of its own.",
+        "In the episode of «Más allá del mar» devoted to this place, Andrés Barba explores it with Andrés Aguilera, an officer in the Environment Department at Rota Town Council, who tells its history and explains its natural value."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "4pMHdLAMiWg",
+      "title": "Los Pozos del Galgo: Rota's secret corner",
+      "desc": "Andrés Barba and Andrés Aguilera explore Los Pozos del Galgo, one of the least-known places in Rota. In Spanish.",
+      "date": "2025-03-01",
+      "alt": "The natural landscape of Los Pozos del Galgo in Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

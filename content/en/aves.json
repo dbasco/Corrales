@@ -1,0 +1,63 @@
+{
+  "title": "Birdwatching in Rota · marshes, tidal traps and coast",
+  "meta_description": "Rota is an outstanding spot for birdwatching: flamingos, spoonbills, waders and raptors between the marshes and the tidal fish traps. A short walk from the corrales themselves.",
+  "hero": {
+    "kicker": "Rota's treasures · Birds",
+    "h1": "Birds between the corrales and the marshes",
+    "sub": "Flamingos, spoonbills, waders and raptors minutes from the town. A quiet place to watch birds through much of the year.",
+    "img": "/assets/img/joya-aves-hero.jpg",
+    "img_alt": "A black-winged stilt reflected in the water of the Rota marshes"
+  },
+  "sections": [
+    {
+      "type": "split",
+      "img": "/assets/img/joya-aves.jpg",
+      "alt": "A Eurasian spoonbill feeding in the marshes of Rota",
+      "kicker": "Why here",
+      "h2": "An unusually rich spot",
+      "lead": "Between the tidal traps, the marshes and the pine wood, Rota packs very different habitats into very little ground.",
+      "paras": [
+        "That variety draws a lot of birds and makes them easy to watch without travelling far. Birds are also a good measure of the health of the ecosystem: where the marsh is alive, the birds follow.",
+        "The photographer Antonio Gallardo, author of the book «Fauna del Pinar de Rota», and the biologist Adrián Ruiz work with the association to identify species and to teach people to watch calmly and without disturbance."
+      ]
+    },
+    {
+      "type": "gallery",
+      "tone": "surface",
+      "kicker": "What you'll see",
+      "h2": "Some of its birds",
+      "cols": 3,
+      "items": [
+        { "img": "/assets/img/ave-flamenco.jpg", "alt": "Greater flamingo in the marshes of Rota", "caption": "Greater flamingo" },
+        { "img": "/assets/img/ave-garza.jpg", "alt": "A heron on the Rota shoreline", "caption": "Herons and waders" },
+        { "img": "/assets/img/ave-cernicalo.jpg", "alt": "A kestrel, one of the raptors of the Rota coast", "caption": "Raptors such as the kestrel" }
+      ]
+    },
+    {
+      "type": "prose",
+      "kicker": "When and how",
+      "h2": "Watching without disturbing",
+      "paras": [
+        "The Rota coast is a passage and wintering area: much of the birding interest falls outside the summer, when waders and migrants arrive. The corrales themselves work as a living natural hide, a place to see birds at close range.",
+        "Watching is done calmly and at a distance, without chasing or disturbing the birds. Binoculars, patience and quiet are all it takes."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "wUsrpnkLRCA",
+      "title": "Birds of the Corrales de Rota: a living guide with Adrián",
+      "desc": "A tour of the birds of the corrales of Rota with biologist Adrián: waders, migration and coastal highlights. In Spanish.",
+      "date": "2025-05-01",
+      "alt": "Wading birds on the shore of the corrales of Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Watch the birds from inside the corral",
+      "text": "The guided visit takes you out onto the intertidal shore, the best place to see birds at close range.",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

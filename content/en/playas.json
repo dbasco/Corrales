@@ -1,0 +1,31 @@
+{
+  "title": "The beaches of Rota · sand, pine wood and the corrales at low tide",
+  "meta_description": "The beaches of Rota bring together open sand, coastal pine wood and the tidal fish traps that surface at low water. The starting point for the rest of Rota's treasures and for the visit to the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Beaches",
+    "h1": "The beaches of Rota",
+    "sub": "Open sand, pine wood close behind, and the stone traps surfacing as the tide falls.",
+    "img": "/assets/img/playa-hero.jpg",
+    "img_alt": "A beach in Rota with the corrales showing at low tide"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "Beach, pine wood and corrales together",
+      "lead": "In Rota the beach doesn't stand alone: the pine wood is behind it and the corrales lie out on the sand.",
+      "paras": [
+        "It is the natural starting point for the rest of Rota's treasures: from the shore you can reach the pine wood, the dunes and the Greenway, and as the tide falls the stone walls of the corrales appear.",
+        "That same low tide that uncovers the beach is what lets you walk into the corrales. The best way to understand it is to go inside on a guided visit."
+      ]
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "When the tide drops, step into a corral",
+      "text": "The walls you can see surfacing on the sand can be walked from the inside at low tide.",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}

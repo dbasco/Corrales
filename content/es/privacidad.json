@@ -22,8 +22,8 @@
       "type": "prose",
       "h2": "Qué datos se recogen",
       "paras": [
-        "El formulario de contacto, cuando esté operativo, recogerá los datos que facilites (nombre, correo y mensaje) con la única finalidad de responder a tu consulta. No se cederán a terceros salvo obligación legal.",
-        "Este sitio utiliza Google Tag Manager para medir el uso de la web. Antes de la publicación se añadirá un aviso de cookies con gestión del consentimiento.",
+        "El formulario de contacto recoge los datos que facilites (nombre, correo y mensaje) con la única finalidad de responder a tu consulta. El envío se procesa en el propio servidor de loscorralesderota.com y el mensaje llega al buzón de la asociación; los datos no se ceden a terceros salvo obligación legal, y se conservan solo el tiempo necesario para atender la consulta.",
+        "Este sitio tiene instalado Google Tag Manager. Mientras no se active con un identificador real no se carga ninguna etiqueta ni se instala ninguna cookie. Si en el futuro se activa la medición, se añadirá antes un aviso de cookies con gestión del consentimiento.",
         "Podrás ejercer tus derechos de acceso, rectificación y supresión escribiendo a info@loscorralesderota.com. Este texto es un borrador provisional."
       ]
     }

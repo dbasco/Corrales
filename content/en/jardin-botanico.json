@@ -1,0 +1,39 @@
+{
+  "title": "Celestino Mutis Botanical Garden, Rota · plants from half the world",
+  "meta_description": "The Celestino Mutis Botanical Garden in Rota brings together plant species from different parts of the world. A quiet green space, good for all ages. A treasure a short walk from the corrales.",
+  "hero": {
+    "kicker": "Rota's treasures · Botanical garden",
+    "h1": "Celestino Mutis Botanical Garden",
+    "sub": "One of the least-known green spaces in Rota, with plants from different parts of the world. A calm outing for all ages.",
+    "img": "/assets/img/joya-jardin-botanico.jpg",
+    "img_alt": "Bust of José Celestino Mutis among the planting in the botanical garden of Rota"
+  },
+  "sections": [
+    {
+      "type": "prose",
+      "kicker": "What it is",
+      "h2": "A journey through plants",
+      "lead": "The Celestino Mutis Botanical Garden gathers species from half the world in the middle of Rota.",
+      "paras": [
+        "It is a good place to walk slowly, learn how to look at plants and understand the part they play in everyday life. A green, quiet space, suitable for the whole family.",
+        "In the episode of «Más allá del mar» devoted to the garden, Andrés Barba visits it with Andrés Aguilera, an officer in the Environment Department at Rota Town Council, who shows some of its most unusual species."
+      ]
+    },
+    {
+      "type": "video",
+      "tone": "surface",
+      "yt": "p56PJ94PCsI",
+      "title": "The Botanical Garden of Rota: a journey through plants from around the world",
+      "desc": "Andrés Barba and Andrés Aguilera walk the Celestino Mutis Botanical Garden in Rota. In Spanish.",
+      "date": "2025-03-01",
+      "alt": "Planting in the Celestino Mutis Botanical Garden of Rota"
+    },
+    {
+      "type": "cta",
+      "kicker": "The plan",
+      "h2": "Pair it with a visit to the corrales",
+      "cta": "Visiting the corrales",
+      "href": "/en/visit/"
+    }
+  ]
+}
