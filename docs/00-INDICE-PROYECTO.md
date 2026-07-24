@@ -64,7 +64,8 @@ Corrales/
 │   ├── web-arquitectura-corrales.md · reservas-arquitectura.md
 │   ├── handover-issues.md · GITHUB-Y-DRIVE.md
 │   ├── deliverables/        Marca, web, guías, impresos, planes
-│   └── _fuentes/            Insumos sin clasificar (inventario de YouTube)
+│   └── _fuentes/            Insumos sin clasificar (volcado de la web oficial,
+│                             inventario de YouTube)
 └── dist/                    Salida de build.py (gitignored)
 ```
 

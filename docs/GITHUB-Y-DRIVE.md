@@ -43,7 +43,8 @@ Corrales/
 │   │   ├── guias/   (guía de aves PDF, subtítulos)
 │   │   ├── impresos/(cartel Bizum, tríptico)
 │   │   └── planes/  (plan maestro, ejecutivo, comunicación, campaña)
-│   └── _fuentes/               Insumos sin clasificar (inventario del canal de YouTube)
+│   └── _fuentes/               Insumos sin clasificar (volcado de la web oficial,
+│                                inventario del canal de YouTube)
 └── dist/                    Salida generada por build.py (gitignored; NO se versiona)
 ```
 
