@@ -109,6 +109,46 @@ GTM_BODY = """<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=__GTM_ID__" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->"""
 
+# gtag.js directo (sin contenedor GTM). __PRIMARY__ es el ID que carga la librería;
+# __CONFIGS__ son las líneas gtag('config', …) de todos los IDs activos (Ads y/o GA4).
+GTAG_HEAD = """<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=__PRIMARY__"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+__CONFIGS__
+</script>
+<!-- End Google tag -->"""
+
+
+def _live(key):
+    """Devuelve el ID si está puesto de verdad; '' si es placeholder o falta."""
+    v = (TRACK.get(key) or "").strip()
+    return "" if (not v or "XXXX" in v.upper()) else v
+
+
+def tracking_head():
+    provider = (TRACK.get("provider") or "").lower()
+    if provider == "gtm":
+        gid = _live("gtm_id")
+        return GTM_HEAD.replace("__GTM_ID__", gid) if gid else ""
+    if provider == "gtag":
+        ids = [i for i in (_live("google_ads_id"), _live("ga4_id")) if i]
+        if not ids:
+            return ""
+        configs = "\n".join(f"  gtag('config', '{i}');" for i in ids)
+        return GTAG_HEAD.replace("__PRIMARY__", ids[0]).replace("__CONFIGS__", configs)
+    return ""
+
+
+def tracking_body():
+    # Solo GTM necesita el <noscript> tras <body>; gtag.js no.
+    if (TRACK.get("provider") or "").lower() != "gtm":
+        return ""
+    gid = _live("gtm_id")
+    return GTM_BODY.replace("__GTM_ID__", gid) if gid else ""
+
 LANG_REDIRECT = """<script>
 (function(){try{
   if(location.pathname!=='/' && location.pathname!=='/index.html') return;
@@ -540,7 +580,7 @@ def render_head(page, c, lang_code):
     alts = "".join(f'\n<link rel="alternate" hreflang="{hl}" href="{esc(u)}">' for hl, u in alternates(page))
     og_img = c.get("hero", {}).get("img") or "/assets/img/og-default.jpg"
     if og_img.startswith("/"): og_img = ORIGIN + og_img
-    gtm = GTM_HEAD.replace("__GTM_ID__", TRACK["gtm_id"])
+    gtm = tracking_head()
     noindex = '\n<meta name="robots" content="noindex,nofollow">' if PREVIEW else ''
     graphs = collect_jsonld(page, c, lang_code, load_ui(lang_code))
     ld = "".join(f'\n<script type="application/ld+json">{json.dumps(g,ensure_ascii=False)}</script>' for g in graphs)
@@ -583,7 +623,7 @@ def render_page(page, lang_code):
     if not c:
         return None
     head = render_head(page, c, lang_code)
-    body_gtm = GTM_BODY.replace("__GTM_ID__", TRACK["gtm_id"])
+    body_gtm = tracking_body()
     nav = render_nav(page, lang_code, ui)
     hero = render_hero(page, c, lang_code, ui)
     def wrap(b):

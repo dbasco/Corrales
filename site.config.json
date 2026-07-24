@@ -19,11 +19,11 @@
     "note": "endpoint vacío ('') => no se pinta formulario, solo el email como enlace. 'from' debe ser una dirección del propio dominio o el correo cae en spam."
   },
   "tracking": {
-    "provider": "gtm",
+    "provider": "gtag",
     "gtm_id": "GTM-XXXXXXX",
     "ga4_id": "G-XXXXXXXXXX",
-    "google_ads_id": "AW-XXXXXXXXXX",
-    "note": "GTM es el contenedor principal: mete GA4 y Google Ads dentro de GTM sin tocar el HTML. Los IDs GA4/Ads quedan como referencia por si se prefiere gtag.js directo."
+    "google_ads_id": "AW-17862259314",
+    "note": "provider 'gtag' = gtag.js directo en el <head> (sin contenedor GTM); inyecta un gtag('config', ...) por cada ID real (Ads primero, luego GA4). provider 'gtm' = contenedor GTM (script en <head> + noscript tras <body>). Los IDs con XXXX se ignoran: no se inyecta nada. Etiqueta de Google Ads AW-17862259314 facilitada por el ingeniero de la cuenta (2026-07-24)."
   },
   "languages": [
     { "code": "es", "hreflang": "es", "path_prefix": "", "label": "Español", "dir": "ltr", "x_default": true },

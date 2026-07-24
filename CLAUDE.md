@@ -76,13 +76,16 @@ por página · breadcrumb visible · imágenes con dimensiones y `loading`/`fetc
 
 ### Analítica / Google (lo que pidió el cliente)
 
-Google Tag Manager en todas las páginas (`<script>` en `<head>` + `<noscript>` tras `<body>`).
-El contenedor es el único punto de entrada: desde GTM se añaden **GA4** y **Google Ads**
-(conversiones/remarketing) sin tocar el HTML.
+**gtag.js directo con la etiqueta de Google Ads `AW-17862259314`** (facilitada por el ingeniero
+de la cuenta, 2026-07-24). No hay contenedor GTM.
 
-- Pon el ID real en `site.config.json` → `tracking.gtm_id` (`GTM-XXXXXXX`) y regenera.
-- `ga4_id` y `google_ads_id` quedan de referencia por si se prefiere `gtag.js` directo.
-- Antes de publicar: **aviso de cookies + consentimiento** (Consent Mode v2) — pendiente, ver issues.
+- Lo manda `site.config.json` → `tracking.provider`: `"gtag"` inyecta el bloque gtag.js en el
+  `<head>` (un `gtag('config', …)` por cada ID real: Ads primero, GA4 después si se rellena
+  `ga4_id`); `"gtm"` vuelve al contenedor (`<script>` en `<head>` + `<noscript>` tras `<body>`).
+- Los IDs con `XXXX` se ignoran: si un ID es placeholder, no se inyecta nada.
+- Una sola etiqueta por página. No añadas otra a mano en el contenido.
+- Antes de publicar: **aviso de cookies + consentimiento** (Consent Mode v2) — pendiente y ahora
+  **bloqueante**, porque la etiqueta es real y escribe cookies. Ver issues.
 
 ## Trabajo pendiente (orden sugerido) — ver `docs/handover-issues.md`
 

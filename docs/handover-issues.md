@@ -3,10 +3,10 @@
 Lotes de trabajo listos para abrir como issues de GitHub y ejecutar con Claude Code
 (p. ej. mencionando a `@claude` en cada issue). Cada uno es autocontenido.
 
-> **Estado 2026-07-23 (segunda pasada).** **#6 HECHO** (fuentes propias) y **#8 HECHO**
-> (`contacto.php`). Quedan **#7** (banner de cookies) y la parte de GTM de **#9** — y ambos
-> dejan de ser bloqueantes si se publica sin activar la analítica: con el ID de GTM de ejemplo
-> la web no escribe ninguna cookie.
+> **Estado 2026-07-24.** **#6 HECHO** (fuentes propias), **#8 HECHO** (`contacto.php`) y
+> **#9 HECHO** (etiqueta de Google Ads `AW-17862259314` vía gtag.js, ver `02-DECISIONES.md`).
+> Queda **#7** (banner de cookies), que ahora **sí es bloqueante**: con la etiqueta real
+> cargando, la web escribe cookies de Google desde la primera visita.
 > El grueso de trabajo restante son los idiomas (#1 EN, #2 DE, #3 FR): hoy solo existe `content/es`,
 > y la campaña de birding apunta a Reino Unido y Alemania.
 
@@ -59,10 +59,10 @@ Regenerar y comprobar que `sitemap.xml`/`hreflang` siguen coherentes.
 ## #6 · Self-hostear las fuentes (Cinzel, Spectral) — **HECHO (2026-07-23)**
 ~~Descargar los `.woff2`…~~ Hecho: `assets/fonts/` (108 KB, subset latin), `@font-face` en
 `base.css`, preload en `build.py`, enlaces a Google retirados. Verificado en Chromium: cero
-peticiones a terceros salvo GTM.
+peticiones a terceros salvo la etiqueta de Google.
 
-## #7 · Cookies + consentimiento (Consent Mode v2)
-Añadir banner de consentimiento y Google Consent Mode v2 antes de activar GTM/GA4/Ads en producción.
+## #7 · Cookies + consentimiento (Consent Mode v2) — **BLOQUEANTE desde 2026-07-24**
+Añadir banner de consentimiento y Google Consent Mode v2. La etiqueta de Ads ya está activa en el HTML, así que esto es requisito para publicar.
 Página `/cookies/` (nueva plantilla `legal`). Coordinar con `privacidad`.
 
 ## #8 · Conectar el formulario de contacto — **HECHO (2026-07-23)**
@@ -71,8 +71,10 @@ Página `/cookies/` (nueva plantilla `legal`). Coordinar con `privacidad`.
 **Queda por confirmar con el hosting:** que `mail()` esté activa y que exista
 `web@loscorralesderota.com` como remitente.
 
-## #9 · Poner IDs reales de Google y datos legales — **PARCIAL (2026-07-23)**
-- `site.config.json` → `tracking.gtm_id` sigue en `GTM-XXXXXXX`. **PENDIENTE.**
+## #9 · Poner IDs reales de Google y datos legales — **HECHO (2026-07-24)**
+- ~~`tracking.gtm_id` sigue en `GTM-XXXXXXX`~~ → **HECHO**: no hay contenedor GTM. La cuenta
+  entrega la etiqueta de Ads `AW-17862259314` (gtag.js); `tracking.provider` pasa a `"gtag"` y
+  el bloque se inyecta en las 26 páginas. GA4 pendiente de que exista propiedad (`ga4_id`).
 - ~~Rellenar CIF, nº de registro y domicilio~~ → **HECHO**: CIF G72275449 y registro
   11-1-11400 (Sección 1ª) en `aviso-legal` y `privacidad`. Ya no queda ningún `[pendiente]`.
 

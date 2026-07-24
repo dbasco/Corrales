@@ -339,3 +339,23 @@ conservación, **reconstrucción y mantenimiento** del Monumento Natural» (nota
 Aplicado: pie (`content/ui.es.json`) y las dos menciones de `visita.json` pasan a nombrar el
 origen y los tres destinos. Home y monumento ya lo decían en contexto de visita guiada.
 Acotar no debilita el mensaje: una nota de transparencia es más creíble cuanto más precisa.
+
+## Etiqueta de Google: gtag.js de Google Ads, no contenedor GTM (2026-07-24)
+
+El ingeniero de la cuenta entrega la etiqueta de Google de la cuenta de Ads —
+**`AW-17862259314`**, snippet `gtag.js`— en vez de un contenedor GTM. Se aplica tal cual:
+es lo que hay y lo que la cuenta necesita para medir conversiones y remarketing.
+
+- `site.config.json` → `tracking.provider` pasa a **`"gtag"`** y `google_ads_id` a
+  `AW-17862259314`. `gtm_id` se queda con el placeholder: el provider decide qué se inyecta,
+  así que volver a GTM es cambiar una palabra si algún día llega el contenedor.
+- `build.py` inyecta el bloque en el `<head>` de las 26 páginas, **una sola vez por página**,
+  después de los `preload` de fuentes (async, no bloquea la primera pintura) y antes del CSS
+  inline. Con `provider: "gtag"` no se pinta el `<noscript>` de GTM: gtag.js no lo usa.
+- Los IDs con `XXXX` se ignoran: si un ID es placeholder no se inyecta nada. Evita repetir el
+  caso anterior de estar sirviendo un `GTM-XXXXXXX` que fallaba contra Google en cada visita.
+- Si más adelante se añade GA4, basta poner su `G-…` en `ga4_id`: el generador emite un
+  `gtag('config', …)` por cada ID real, con Ads primero.
+- **Consecuencia:** la etiqueta ahora es real y **escribe cookies de Google**. El banner de
+  consentimiento (issue #7, Consent Mode v2) pasa de "opcional si no se activa la analítica" a
+  **bloqueante para publicar** con la etiqueta cargando.
