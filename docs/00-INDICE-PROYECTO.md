@@ -11,7 +11,7 @@ Estrategia digital, de marketing y de captación de fondos para la **Asociación
 
 La asociación es custodia de los corrales de Rota — arte de pesca tradicional sobre la franja intermareal, **primer Monumento Natural de Andalucía** (declarado 2001). Organización sin ánimo de lucro; el 100 % de la recaudación va a conservación del monumento.
 
-- ~400 socios · fundada en 2014 · 8 corrales activos
+- ~400 socios · fundada en 2014 · 5 corrales activos
 - Menú de la web: **El monumento · La visita · Joyas de Rota · Contacto**
 - Web pública: loscorralesderota.com
 - Contacto: info@loscorralesderota.com

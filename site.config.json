@@ -10,7 +10,7 @@
     "founded_year": 2014,
     "monument_year": 2001,
     "socios": 400,
-    "corrales_activos": 8
+    "corrales_activos": 5
   },
   "forms": {
     "endpoint": "/contacto.php",

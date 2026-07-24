@@ -16,7 +16,7 @@
     {
       "type": "stats",
       "items": [
-        { "n": "8", "l": "Working traps" },
+        { "n": "5", "l": "Working traps" },
         { "n": "2001", "l": "Natural Monument" },
         { "n": "1000+", "l": "Years of history" },
         { "n": "100%", "l": "To conservation" }
@@ -80,7 +80,7 @@
       "alt": "Dry-stone wall of a corral holding back water as the tide falls",
       "kicker": "What they are",
       "h2": "Stone, tide and work done on foot",
-      "lead": "Eight working corrales remain in Rota, cared for by the Association of Corraleros and Shore Fishermen.",
+      "lead": "Five working corrales remain in Rota, cared for by the Association of Corraleros and Shore Fishermen.",
       "paras": [
         "This way of fishing goes back more than a thousand years, to Roman times, and it has barely changed: no engines, no trawl nets — just the wall, the tide and a pair of hands. The corraleros maintain it stone by stone, because the sea undoes whatever is left untended.",
         "In 2001 the corrales of Rota were declared a Natural Monument, the first in Andalusia. They are not a ruin: they are a living cultural landscape, in use and under repair, with a richness of wildlife that grows in the shelter of the stone."
@@ -91,7 +91,7 @@
       "img": "/assets/img/corrales-aereo.jpg",
       "alt": "Aerial view of the corrales of Rota curving across the intertidal shore",
       "kicker": "Natural Monument",
-      "caption": "Eight stone traps across the intertidal shore, maintained by hand."
+      "caption": "Five stone traps across the intertidal shore, maintained by hand."
     },
     {
       "type": "split",

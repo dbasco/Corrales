@@ -37,7 +37,7 @@ Regla: ante cualquier discrepancia de datos, la web oficial es la autoridad (por
 - **Fecha:** **23 de octubre de 2001** (la da la página del monumento de la web oficial). Se usa en la página del monumento. Supersede la fecha del Decreto 226/2001 «de 2 de octubre» que citaba la auditoría; si alguna vez hace falta la referencia legal, es el Decreto 226/2001 (BOJA 135, 22/11/2001).
 - **Origen:** **época romana** (la web oficial lo afirma en home y en «descubre»). Aplicado en home y en la página del monumento. (Deja sin efecto mi cautela anterior de no fijar el origen.)
 - **«El primero de Andalucía»:** se mantiene (la web oficial lo afirma).
-- **Corrales activos:** se mantiene **8** (config `corrales_activos: 8`). La web oficial no da número de activos, así que no contradice; la fuente autoritativa es la propia asociación.
+- **Corrales activos:** ~~se mantiene **8**~~ → **corregido a 5 el 2026-07-24** por la asociación (config `corrales_activos: 5`). La web oficial no da número de activos; la fuente autoritativa es la propia asociación. Aplicado en `site.config.json`, la banda de cifras y los dos textos de la home (ES y EN).
 
 ## Reservas de visitas — estado actual (2026-07-22)
 
